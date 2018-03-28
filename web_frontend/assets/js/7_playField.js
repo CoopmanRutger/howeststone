@@ -43,14 +43,6 @@ function init() {
 
 function fetchCards() {
     console.log('fetchCards');
-    // playfield attackcards
-    let cardId;
-    let cardAttack;
-    let cardHealth;
-    let name;
-    let img;
-
-    // console.log("fetching cards");
 
     let url = "https://omgvamp-hearthstone-v1.p.mashape.com/cards?attack=6";
 
@@ -237,7 +229,7 @@ function cardsInHandOpponent(array) {
     let spaceBetweenCards = 20;
     for (let i = 0; i < array.length; i++) {
         let element = document.createElement("div");
-        element.style.backgroundImage = "url('image/redcard.png')";
+        element.style.backgroundImage = "url('images/redCard.png')";
         element.style.left = (i * spaceBetweenCards + startposition) + 'px';
         document.querySelector(".cardsInHandOpponent").appendChild(element)
     }
@@ -245,7 +237,7 @@ function cardsInHandOpponent(array) {
 
 function heroOpponent(heroWeapon, weaponAttack, weaponTurns, hero, amountShield = 0, lifePoints) {
     if (amountShield > 0) {
-        let shield = "<img src='image/shield.png' alt='shield' width='35'/>";
+        let shield = "<img src='images/shield.png' alt='shield' width='35'/>";
         document.querySelector(".heroShieldOpponent").innerHTML = shield;
 
         document.querySelector(".heroShieldNumberOpponent").innerHTML = amountShield;
@@ -254,7 +246,7 @@ function heroOpponent(heroWeapon, weaponAttack, weaponTurns, hero, amountShield 
         if (hero !== "mage" && hero !== "priest") {
             // console.log('hero is not mage or priest');
 
-            let weapon = "<img src='image/hero_" + hero + "_weaponOn.png' alt='hero " + hero + "_weapon' width='125'/>'";
+            let weapon = "<img src='images/hero_" + hero + "_weaponOn.png' alt='hero " + hero + "_weapon' width='125'/>'";
             document.querySelector(".heroWeaponOpponent").innerHTML = weapon;
             document.querySelector(".heroWeaponAttackOpponent").innerHTML = weaponAttack;
             document.querySelector(".heroWeaponTurnsOpponent").innerHTML = weaponTurns;
@@ -266,8 +258,8 @@ function heroOpponent(heroWeapon, weaponAttack, weaponTurns, hero, amountShield 
         document.querySelector(".heroWeaponTurnsOpponent").innerHTML = '';
     }
 
-    let heroPic = "<img src='image/hero_" + hero + ".png' alt='hero" + hero + "' width='175'/>'";
-    let power = "<img src='image/hero_" + hero + "_power.png' alt='hero " + hero + "' width='125'/>'";
+    let heroPic = "<img src='images/hero_" + hero + ".png' alt='hero" + hero + "' width='175'/>'";
+    let power = "<img src='images/hero_" + hero + "_power.png' alt='hero " + hero + "' width='125'/>'";
     document.querySelector(".heroPictureOpponent").innerHTML = heroPic;
     document.querySelector(".heroPowerOpponent").innerHTML = power;
 
@@ -276,7 +268,7 @@ function heroOpponent(heroWeapon, weaponAttack, weaponTurns, hero, amountShield 
 
 function hero(heroWeapon, weaponAttack, weaponTurns, hero, amountShield = 0, lifePoints) {
     if (amountShield > 0) {
-        let shield = "<img src='image/shield.png' alt='shield' width='35'/>";
+        let shield = "<img src='images/shield.png' alt='shield' width='35'/>";
         document.querySelector(".heroShield").innerHTML = shield;
 
         document.querySelector(".heroShieldNumber").innerHTML = amountShield;
@@ -285,7 +277,7 @@ function hero(heroWeapon, weaponAttack, weaponTurns, hero, amountShield = 0, lif
         if (hero !== "mage" && hero !== "priest") {
             // console.log('opponent is not mage or priest');
 
-            let weapon = "<img src='image/hero_" + hero + "_weaponOn.png' alt='hero " + hero + "_weapon' width='125'/>'";//heroWeapon;
+            let weapon = "<img src='images/hero_" + hero + "_weaponOn.png' alt='hero " + hero + "_weapon' width='125'/>'";//heroWeapon;
             document.querySelector(".heroWeapon").innerHTML = weapon;
             document.querySelector(".heroWeaponAttack").innerHTML = weaponAttack;
             document.querySelector(".heroWeaponTurns").innerHTML = weaponTurns;
@@ -297,8 +289,8 @@ function hero(heroWeapon, weaponAttack, weaponTurns, hero, amountShield = 0, lif
         document.querySelector(".heroWeaponTurns").innerHTML = '';
     }
 
-    let heroPic = "<img src='image/hero_" + hero + ".png' alt='hero" + hero + "' width='175'/>'";
-    let power = "<img src='image/hero_" + hero + "_power.png' alt='hero " + hero + "' width='125'/>'";
+    let heroPic = "<img src='images/hero_" + hero + ".png' alt='hero" + hero + "' width='175'/>'";
+    let power = "<img src='images/hero_" + hero + "_power.png' alt='hero " + hero + "' width='125'/>'";
     document.querySelector(".heroPicture").innerHTML = heroPic;
     document.querySelector(".heroPower").innerHTML = power;
 
@@ -334,7 +326,7 @@ function manaCrystal(amountCharge, amountLimits) {
 function endTurn(boolean) {
     let res = '';
     if (boolean) {
-        res = '<img src="image/end-turn.png" alt="endTurn" width="130"/>';
+        res = '<img src="images/end-turn.png" alt="endTurn" width="130"/>';
         document.querySelector(".endTurn").innerHTML = res;
     }
 }
@@ -342,12 +334,12 @@ function endTurn(boolean) {
 function manaCrystalSymbols(amountCharge, amountUncharge) {
     let res = '';
     for (let i = 0; i < amountCharge; i++) {
-        res += '<img src="image/manaCharged.png" alt="manaCharged" width="27"/>';
+        res += '<img src="images/manaCharged.png" alt="manaCharged" width="27"/>';
     }
     // console.log(amountUncharge);
     for (let j = 0; j < amountUncharge; j++) {
 
-        res += '<img src="image/manaUncharged.png" alt="manaUncharged" width="27"/>';
+        res += '<img src="images/manaUncharged.png" alt="manaUncharged" width="27"/>';
     }
 
     document.querySelector(".manaCrystalSymbol").innerHTML = res;

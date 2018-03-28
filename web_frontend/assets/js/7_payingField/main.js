@@ -5,21 +5,24 @@ document.addEventListener("DOMContentLoaded", init);
 function init(){
   // TODO: functis samen smijten
     endTurn(true);
-    manaCystalOpponent(manaChargeOpponent, manaLimitOpponent);
-    manaCrystal(manaCharge, manaLimit);
-    heroOpponent(heroWeaponOpponent, weaponAttackOpponent, weaponTurnsOpponent, heroNameOpponent, amountShieldOpponent, lifepointsOpponent);
-    hero(heroWeapon, weaponAttack, weaponTurns, heroName, amountShield, lifepoints);
+
+    manaCrystal(player);
+    manaCrystal(opponent);
+
+    hero(player);
+    hero(opponent);
+
     cardsInHandOpponent(arrayCardsInHandOpponent);
+
     fetchCards();
   // fetchPromise komt uit 4_fetchCardsFunctions
   fetchPromise.then(function () {
-
-    //m
-  }
-
+    // TODO: injectCards
+  });
   // makeMovable shit
   document.addEventListener('mousemove', cardMousemove);
   document.addEventListener("mouseup", mouseup);
+
 }
 
 function cardController(X, Y, original) {

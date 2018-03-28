@@ -2,10 +2,10 @@
 
 // opponent
 let opponent = {
-  "type" : "opponent"
+  "type" : "opponent",
   "heroName" : 'priest',
   "heroWeapon" : true,
-  "weaponAttack" : ,
+  "weaponAttack" : 8,
   "weaponTurns" : 8,
   "amountShield" : 10,
   "lifepoints" : 30,
@@ -17,7 +17,7 @@ let opponent = {
 
 // player
 let player = {
-  "type" : "player"
+  "type" : "player",
   "heroName" : 'rogue',
   "heroWeapon" : true,
   "weaponAttack" : 10,
@@ -28,4 +28,4 @@ let player = {
   "manaLimit" : 8,
   "arrayCardsInHand" : [],
   "arrayCardsOnField" : []
-}
+};

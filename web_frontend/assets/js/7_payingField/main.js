@@ -23,8 +23,8 @@ function init(){
 
 function cardController(X, Y, original) {
   if (Y < 800) {
-      // TODO: LOUIS hand.appendChild(original)
+    document.querySelector(".cardsInHand").appendChild(original);
   } else {
-    let out = document.querySelector(".cardsOnField");
+    document.querySelector(".cardsOnField").appendChild(original);
   }
 }

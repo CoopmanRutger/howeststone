@@ -8,8 +8,8 @@ let weaponAttackOpponent = 6;
 let weaponTurnsOpponent = 8;
 let amountShieldOpponent = 10;
 let lifepointsOpponent = 30;
-let manaChargeOpponent = 1; //max 10
-let manaLimitOpponent = 4; //max 10
+let manaChargeOpponent = 11; //max 10
+let manaLimitOpponent = 14; //max 10
 
 let arrayCardsInHandOpponent = [1, 2, 3, 4];
 let arrayCardsOnFieldOpponent = [];
@@ -39,6 +39,7 @@ function init() {
     hero(heroWeapon, weaponAttack, weaponTurns, heroName, amountShield, lifepoints);
     cardsInHandOpponent(arrayCardsInHandOpponent);
     fetchCards();
+    console.log(document.querySelector("body").style.width);
 }
 
 function fetchCards() {

@@ -12,10 +12,9 @@ function injectCards(arrayOfCards) {
 
 function showCardField(card) {
     //main card
-
     let startposition = 420;
     let spaceBetweenCards = 20;
-    let element = document.createElement("div");
+    let element = document.createElement("div");ù
     let meta = document.createElement('p');
 
     meta.style.display = "none";
@@ -30,23 +29,47 @@ function showCardField(card) {
 
 
     // name tag
-    element = document.createElement("div");
-    element.className = "cardName";
-    let lol = document.createElement("h2");
+    name = document.createElement("div");
+
+    name.className = "cardName";
+    let title = document.createElement("h2");
     lol.appendChild(document.createTextNode(card.name));
-    element.appendChild(lol);
-    document.querySelector(".cardsInHand").lastChild.appendChild(element);
+    name.appendChild(title);
+
+    element.appendChild(name);
 
     // attack tag
-    element = document.createElement("div");
-    element.className = "cardAttack";
-    element.appendChild(document.createTextNode(card.attack));
-    document.querySelector(".cardsInHand").lastChild.appendChild(element);
+    attack = document.createElement("div");
+
+    attack.className = "cardAttack";
+    attack.appendChild(document.createTextNode(card.attack));
+
+    element.appendChild(attack);
 
     // health tag
-    element = document.createElement("div");
-    element.className = "cardHealth";
-    element.appendChild(document.createTextNode(card.health));
-    document.querySelector(".cardsInHand").lastChild.appendChild(element);
+    health = document.createElement("div");
+
+    health.className = "cardHealth";
+    health.appendChild(document.createTextNode(card.health));
+
+    element.appendChild(health);
 }
-// TODO: making af showCardHand function LOUIS
+
+function showCardHand(card) {
+    let startposition = 420;
+    let spaceBetweenCards = 20;
+
+    let element = document.createElement('article');
+    let meta = document.createElement('p');
+
+    meta.style.display = "none";
+    meta.appendChild(document.createTextNode(card.cardId));
+    element.appendChild(meta);
+
+    element.className = "card";
+    element.style.backgroundImage = "url('" + card.img + "')";
+    element.style.top = 20 + "px";
+    element.style.left = (card.i * spaceBetweenCards + startposition) + 'px';
+
+    document.querySelector(".cardsInHand").appendChild(element);
+}

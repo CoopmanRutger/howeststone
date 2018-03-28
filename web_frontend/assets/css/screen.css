@@ -7,23 +7,25 @@ header h1 {
     font-size: 4rem;
     padding-top: 30px;
     padding-bottom: 30px;
+    font-style: oblique;
     /*font-family: "Bookman Old Style"; */
 }
 
-body {
+body > div {
     height: 768px;
     width: 1024px;
+    /*background-color: red;*/
 }
 
 .return:hover {
-    border: 5px;
+    border: 2px;
     border-style: solid;
     border-color: chartreuse;
 }
 
 .return {
     color: crimson;
-    background-color: blue;
+
 }
 
 /* CSS for 0_welcomeScreen */
@@ -35,7 +37,7 @@ body {
     width: auto;
     height: auto;
     flex-wrap: nowrap;
-    color: blue;
+    /*color: blue;*/
     margin-left: auto;
     margin-right: auto;
     justify-content: center;
@@ -49,9 +51,17 @@ body {
 .deckBuild {
     /*display: flex;*/
     flex-direction: column;
-    background-color: green;
+    /*background-color: green;*/
     width: 400px;
     height: 600px;
+    background-image: url('../media/anvilFinal.png');
+    background-repeat: no-repeat;
+    background-size: 80% 50%;
+    background-position: 50% 60%;
+    /*border-image: url("../media/borderPossiblitiesAreEndless.jpg") 20 20 20 20 repeat;*/
+    /*border-width: 20px 20px 20px 20px;*/
+
+
 }
 
 .Play {
@@ -77,12 +87,16 @@ body {
 }
 #twoChoosingTheHero article {
     flex-direction: column;
-    width: 500px;
+    width: 510px;
     height: 650px;
     background-image: url('../media/kaderUpgradeChooseYrHero.png');
-    background-size: 500px;
+    background-size: 460px;
     background-repeat: no-repeat;
-    /*background-color: rebeccapurple;*/
+    background-color: rebeccapurple;
+}
+
+#twoChoosingTheHero article div h2 {
+    font-size: 1.2rem;
 }
 
 /* eerste kader */
@@ -92,9 +106,10 @@ body {
 }
 
 #twoChoosingTheHero article:first-child div {
+    position: relative;
     background-image: url('../media/JainaChooseYrHero.jpg');
     background-repeat: no-repeat;
-    background-size: 275px;
+    background-size: 220px;
     background-position: 110px 30px;
     /*background-color: red;*/
     height: 550px;
@@ -108,12 +123,16 @@ body {
 
 #twoChoosingTheHero article:nth-child(2) div {
     background-image: url('../media/AnduinChooseYrHero.jpg');
+    /*border: 5px #1afff7;*/
     background-repeat: no-repeat;
-    background-size: 275px;
-    background-position: 110px 30px;
+    background-size: 210px;
+    background-position: 120px 30px;
+    -moz-box-shadow: 5px 5px lightskyblue;
     /*background-color: blue;*/
-
 }
+
+
+
 
 #twoChoosingTheHero article div h2 {
     /*size: 1rem;*/
@@ -125,7 +144,7 @@ body {
     padding-left: 70px;
     padding-right: 70px;
     margin-top: 350px;
-
+    font-size: 0.8rem;
 
 }
 
@@ -294,7 +313,7 @@ body {
 
 .field {
     background-repeat: no-repeat;
-    background-image: url("../../image/FieldBackground4.jpg");
+    background-image: url("../../images/FieldBackground4.jpg");
     background-size: 100% 100%;
     width: 100%;
     height: 100%;

@@ -6,7 +6,12 @@
     <meta name="author" content="Bert Vervust">
     <link rel="stylesheet" type="text/css" href="assets/css/reset.css">
     <link rel="stylesheet" type="text/css" href="assets/css/screen.css">
-
+<style>
+    #suckIt {
+        border-image: url("assets/media/borderPossiblitiesAreEndless.jpg") 20 20 20 20 repeat;
+        border-width: 20px 20px 20px 20px;
+    }
+</style>
 </head>
 <body>
 <header>
@@ -15,17 +20,22 @@
 <main id="oneDeckBuild">
     <article class="deckBuild">
         <!-- image pertaining to deckbuild-->
-        <button id="deckBuildButton" type="button">Deck Builder</button>
+        <button onclick="window.location.href='8_deckbuildLevelOne.html'" id="deckBuildButton" type="button">Deck Builder</button>
 
     </article>
     <article class="Play">
-        <!-- image pertaining to deckbuild-->
-        <button id="playButton" type="button">Play The Game, Fool!</button>
+        <!-- image pertaining to play-->
+        <button onclick="window.location.href='2_chooseYourHero.html'" id="playButton" type="button">Play The Game, Fool!</button>
     </article>
 </main>
 <div>
     <!--<button class="return" type="button">Back</button>-->
-    <button onclick="window.location.href='-1_LoginStart.html'" class="return" type="button">Login as a different user</button>
+    <button onclick="window.location.href='-1_LoginStart.html'" class="return" type="button">Login as a different user
+    </button>
 </div>
+
+<p id="suckIt">lorem ipsum dolor sit amet. lorem ipsum dolor sit amet.lorem ipsum dolor sit amet.lorem ipsum dolor sit amet.lorem
+    ipsum dolor sit amet.lorem ipsum dolor sit amet.lorem ipsum dolor sit amet.</p>
+
 </body>
 </html>

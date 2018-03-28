@@ -11,92 +11,92 @@ function cardsInHandOpponent(array) {
     }
 }
 
-function heroOpponent(heroWeapon, weaponAttack, weaponTurns, hero, amountShield = 0, lifePoints) {
-    if (amountShield > 0) {
-        let shield = "<img src='images/shield.png' alt='shield' width='35'/>";
-        document.querySelector(".heroShieldOpponent").innerHTML = shield;
+function hero(player) {
 
-        document.querySelector(".heroShieldNumberOpponent").innerHTML = amountShield;
-    }
-    if (heroWeapon) {
-        if (hero !== "mage" && hero !== "priest") {
-            // console.log('hero is not mage or priest');
-
-            let weapon = "<img src='images/hero_" + hero + "_weaponOn.png' alt='hero " + hero + "_weapon' width='125'/>'";
-            document.querySelector(".heroWeaponOpponent").innerHTML = weapon;
-            document.querySelector(".heroWeaponAttackOpponent").innerHTML = weaponAttack;
-            document.querySelector(".heroWeaponTurnsOpponent").innerHTML = weaponTurns;
+        if (player.amountShield > 0) {
+            let shield = "<img src='images/shield.png' alt='shield' width='35'/>";
+            if (player.type = "opponent") {
+            document.querySelector(".heroShieldOpponent").innerHTML = player.shield;
+            document.querySelector(".heroShieldNumberOpponent").innerHTML = player.amountShield;
+            }
+            else {
+                document.querySelector(".heroShield").innerHTML = player.shield;
+                document.querySelector(".heroShieldNumber").innerHTML = player.amountShield;
+            }
         }
+        if (player.heroWeapon) {
+            if (player.heroName !== "mage" && hero !== "priest") {
+                let weapon = "<img src='images/hero_" + player.heroName + "_weaponOn.png' alt='hero " + hero + "_weapon' width='125'/>'";
 
-    } else {
-        document.querySelector(".heroWeaponOpponent").innerHTML = '';
-        document.querySelector(".heroWeaponAttackOpponent").innerHTML = '';
-        document.querySelector(".heroWeaponTurnsOpponent").innerHTML = '';
-    }
-
-    let heroPic = "<img src='images/hero_" + hero + ".png' alt='hero" + hero + "' width='175'/>'";
-    let power = "<img src='images/hero_" + hero + "_power.png' alt='hero " + hero + "' width='125'/>'";
-    document.querySelector(".heroPictureOpponent").innerHTML = heroPic;
-    document.querySelector(".heroPowerOpponent").innerHTML = power;
-
-    document.querySelector(".heroLifePointsOpponent").innerHTML = lifePoints;
-}
-
-function hero(heroWeapon, weaponAttack, weaponTurns, hero, amountShield = 0, lifePoints) {
-    if (amountShield > 0) {
-        let shield = "<img src='images/shield.png' alt='shield' width='35'/>";
-        document.querySelector(".heroShield").innerHTML = shield;
-
-        document.querySelector(".heroShieldNumber").innerHTML = amountShield;
-    }
-    if (heroWeapon) {
-        if (hero !== "mage" && hero !== "priest") {
-            // console.log('opponent is not mage or priest');
-
-            let weapon = "<img src='images/hero_" + hero + "_weaponOn.png' alt='hero " + hero + "_weapon' width='125'/>'";//heroWeapon;
-            document.querySelector(".heroWeapon").innerHTML = weapon;
-            document.querySelector(".heroWeaponAttack").innerHTML = weaponAttack;
-            document.querySelector(".heroWeaponTurns").innerHTML = weaponTurns;
+                if (player.type = "opponent") {
+                    document.querySelector(".heroWeaponOpponent").innerHTML = player.weapon;
+                    document.querySelector(".heroWeaponAttackOpponent").innerHTML = player.weaponAttack;
+                    document.querySelector(".heroWeaponTurnsOpponent").innerHTML = player.weaponTurns;
+                }
+                else {
+                    document.querySelector(".heroWeapon").innerHTML = player.weapon;
+                    document.querySelector(".heroWeaponAttack").innerHTML = player.weaponAttack;
+                    document.querySelector(".heroWeaponTurns").innerHTML = player.weaponTurns;
+                }
+            }
+        } else {
+            if (player.type = "opponent") {
+                document.querySelector(".heroWeaponOpponent").innerHTML = '';
+                document.querySelector(".heroWeaponAttackOpponent").innerHTML = '';
+                document.querySelector(".heroWeaponTurnsOpponent").innerHTML = '';
+            }
+            else {
+                document.querySelector(".heroWeapon").innerHTML = '';
+                document.querySelector(".heroWeaponAttack").innerHTML = '';
+                document.querySelector(".heroWeaponTurns").innerHTML = '';
+            }
         }
+        let heroPic = "<img src='images/hero_" + player.heroName + ".png' alt='hero" + player.heroName + "' width='175'/>'";
+        let power = "<img src='images/hero_" + player.heroName + "_power.png' alt='hero " + player.heroName + "' width='125'/>'";
+
+    if (player.type = "opponent") {
+        document.querySelector(".heroPictureOpponent").innerHTML = heroPic;
+        document.querySelector(".heroPowerOpponent").innerHTML = power;
+        document.querySelector(".heroLifePointsOpponent").innerHTML = player.lifepoints;
     }
     else {
-        document.querySelector(".heroWeapon").innerHTML = '';
-        document.querySelector(".heroWeaponAttack").innerHTML = '';
-        document.querySelector(".heroWeaponTurns").innerHTML = '';
+        document.querySelector(".heroPicture").innerHTML = heroPic;
+        document.querySelector(".heroPower").innerHTML = power;
+        document.querySelector(".heroLifePoints").innerHTML = player.lifepoints;
     }
-
-    let heroPic = "<img src='images/hero_" + hero + ".png' alt='hero" + hero + "' width='175'/>'";
-    let power = "<img src='images/hero_" + hero + "_power.png' alt='hero " + hero + "' width='125'/>'";
-    document.querySelector(".heroPicture").innerHTML = heroPic;
-    document.querySelector(".heroPower").innerHTML = power;
-
-    document.querySelector(".heroLifePoints").innerHTML = lifePoints;
-
 }
 
-function manaCystalOpponent(amountCharge, amountLimits) {
-    //limit max 10 TODO
-    document.querySelector(".manaCrystalsNumberOpponent").innerHTML = amountCharge;
-    document.querySelector(".manaCrystalsLimitsOpponent").innerHTML = amountLimits;
-}
 
-function manaCrystal(amountCharge, amountLimits) {
+function manaCystal(player) {
     if (amountCharge <= 10 && amountLimits <= 10) {
-        let unchargeMana = amountLimits - amountCharge;
-        document.querySelector(".manaCrystalsNumber").innerHTML = amountCharge;
-        document.querySelector(".manaCrystalsLimits").innerHTML = amountLimits;
-        manaCrystalSymbols(amountCharge, unchargeMana);
+        if (player.type = "opponent") {
+            document.querySelector(".manaCrystalsNumberOpponent").innerHTML = player.manaCharge;
+            document.querySelector(".manaCrystalsLimitsOpponent").innerHTML = player.manaLimit;
+        }
+        else {
+            let unchargeMana = amountLimits - amountCharge;
+            document.querySelector(".manaCrystalsNumber").innerHTML = player.manaCharge;
+            document.querySelector(".manaCrystalsLimits").innerHTML = player.manaLimit;
+            manaCrystalSymbols(amountCharge, unchargeMana);
+        }
     }
     else {
-        let variable = 5; // TODO: tussen 0 en 10 + negatief
-        let amountLimits = 10;
-        let unchargeMana = amountLimits - variable;
-        document.querySelector(".manaCrystalsNumber").innerHTML = variable;
-        document.querySelector(".manaCrystalsLimits").innerHTML = amountLimits;
+        if (player.type = "opponent") {
+            let variable = 10; // TODO: tussen 0 en 10 + negatief
+            let amountLimits = 10;
+            document.querySelector(".manaCrystalsNumber").innerHTML = variable;
+            document.querySelector(".manaCrystalsLimits").innerHTML = amountLimits;
+        }
+        else {
+            let variable = 10; // TODO: tussen 0 en 10 + negatief
+            let amountLimits = 10;
+            let unchargeMana = amountLimits - variable;
+            document.querySelector(".manaCrystalsNumber").innerHTML = variable;
+            document.querySelector(".manaCrystalsLimits").innerHTML = amountLimits;
 
-        manaCrystalSymbols(variable, unchargeMana);
+            manaCrystalSymbols(variable, unchargeMana);
+        }
     }
-
 }
 
 function endTurn(boolean) {
@@ -112,11 +112,8 @@ function manaCrystalSymbols(amountCharge, amountUncharge) {
     for (let i = 0; i < amountCharge; i++) {
         res += '<img src="images/manaCharged.png" alt="manaCharged" width="27"/>';
     }
-    // console.log(amountUncharge);
     for (let j = 0; j < amountUncharge; j++) {
-
         res += '<img src="images/manaUncharged.png" alt="manaUncharged" width="27"/>';
     }
-
     document.querySelector(".manaCrystalSymbol").innerHTML = res;
 }

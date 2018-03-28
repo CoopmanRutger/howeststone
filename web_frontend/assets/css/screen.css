@@ -1,0 +1,659 @@
+/* cross page css */
+
+header h1 {
+    text-align: center;
+    margin-right: auto;
+    margin-left: auto;
+    font-size: 4rem;
+    padding-top: 30px;
+    padding-bottom: 30px;
+    /*font-family: "Bookman Old Style"; */
+}
+
+.return:hover {
+    border: 5px;
+    border-style: solid;
+    border-color: chartreuse;
+}
+
+.return {
+    color: crimson;
+    background-color: blue;
+}
+
+/* CSS for 0_welcomeScreen */
+
+/* CSS for 1_deckbuildOrPlay */
+
+#oneDeckBuild {
+    display: flex;
+    width: auto;
+    height: auto;
+    flex-wrap: nowrap;
+    color: blue;
+    margin-left: auto;
+    margin-right: auto;
+}
+.deckBuild {
+    /*display: flex;*/
+    flex-direction: column;
+    background-color: green;
+    width: 400px;
+    height: 600px;
+}
+
+.Play {
+    /*display: flex;*/
+    flex-direction: column;
+    background-color: orange;
+    width: 400px;
+    height: 600px;
+}
+
+
+/* CSS for 2_chooseYourHero */
+
+#twoChoosingTheHero {
+    display: flex;
+    justify-content: center;
+}
+#twoChoosingTheHero article {
+    flex-direction: column;
+    width: 500px;
+    height: 650px;
+    background-image: url('../media/kaderUpgradeChooseYrHero.png');
+    background-size: 500px;
+    background-repeat: no-repeat;
+    /*background-color: rebeccapurple;*/
+}
+
+/* eerste kader */
+
+#twoChoosingTheHero article:first-child {
+    margin-right: 100px;
+}
+
+#twoChoosingTheHero article:first-child div {
+    background-image: url('../media/JainaChooseYrHero.jpg');
+    background-repeat: no-repeat;
+    background-size: 275px;
+    background-position: 110px 30px;
+    /*background-color: red;*/
+    height: 550px;
+
+
+}
+
+
+
+/* tweede kader */
+
+#twoChoosingTheHero article:nth-child(2) div {
+    background-image: url('../media/AnduinChooseYrHero.jpg');
+    background-repeat: no-repeat;
+    background-size: 275px;
+    background-position: 110px 30px;
+    /*background-color: blue;*/
+
+}
+
+#twoChoosingTheHero article div h2 {
+    /*size: 1rem;*/
+    text-align: center;
+    margin-top: 60px;
+}
+
+#twoChoosingTheHero article p {
+    padding-left: 70px;
+    padding-right: 70px;
+    margin-top: 350px;
+
+
+}
+
+
+
+/* CSS for 3_chooseDeckForHero */
+
+#threeChooseYourHero {
+    display: flex;
+}
+
+#threeChooseYourHero article:first-child {
+    flex-direction: column;
+    width: 350px;
+    height: 550px;
+    background-color: yellow;
+}
+
+#threeChooseYourHero article:nth-child(2) {
+    background-color: yellow;
+}
+
+#threeMakeItYourself {
+    flex-direction: column;
+    width: 500px;
+    height: 500px;
+    background-color: red;
+}
+
+/* CSS for 4_defaultPickYourOpponent */
+
+#fourDefaultPickOpponent {
+    display: flex;
+    justify-content: center;
+}
+
+#fourDefaultPickOpponent {
+
+}
+
+#fourDefaultPickOpponent div {
+    flex-direction: column;
+    width: 400px;
+    height: 400px;
+    background-color: yellow;
+}
+
+/* CSS for 5_makeANewDeck=9deckBuildLevel2 */
+
+
+/* CSS for 6_gameStartingHand */
+
+
+#sixMakeANewDeck {
+    display: flex;
+    justify-content: center;
+    flex-wrap: nowrap;
+    margin-left: auto;
+    margin-right: auto;
+
+
+}
+
+#sixStartingHand {
+    background-image: url('../../images/FieldBackground4.jpg');
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    height: 100vh;
+    width: 100vw;
+}
+
+#sixMakeANewDeck div {
+    flex-direction: row;
+    width: 150px;
+    height: 300px;
+    margin: 30px;
+    background-color: yellow;
+}
+
+#sixMakeANewDeck aside {
+    flex-direction: column;
+    width: 50px;
+    height: 200px;
+    background-color: red;
+}
+
+#confirm {
+    float: right;
+    margin-right: 200px;
+}
+
+/* CSS for 7_Field */
+
+.card {
+    background-position: -40px -26px;
+    background-repeat: no-repeat;
+    background-size: 180%;
+    height: 150px;
+    width: 100px;
+    border-radius: 50%;
+    margin-right: 20px;
+    margin-bottom: 50px;
+}
+
+.card .cardName {
+    position: relative;
+    background-color: black;
+    top: 112px;
+    height: 28px;
+    border-radius: 0.5rem;
+    padding-top: 9px;
+    color: white;
+
+}
+
+.card .cardName h2 {
+    line-height: 11px;
+    font-size: 0.8rem;
+    text-align: center;
+
+}
+
+.card .cardAttack  {
+    position: relative;
+    background-color: green;
+    top: 58px;
+    border-radius: 50%;
+    width: 25px;
+    line-height: 25px;
+    text-align: center;
+    color: white;
+    font-weight: bold;
+    font-size: 1.5rem;
+}
+
+.card .cardHealth {
+    position: relative;
+    background-color: red;
+    left: 75px;
+    top: 33px;
+    width: 25px;
+    line-height: 25px;
+    border-radius: 50%;
+    text-align: center;
+    color: white;
+    font-weight: bold;
+    font-size: 1.5rem;
+
+
+
+
+
+}
+
+
+
+/*-------------------------------------------------------------------------------------------------------------*/
+
+
+
+
+.bodyfield {
+    height: 100vh;
+    width: 100vw;
+}
+
+.field {
+    background-repeat: no-repeat;
+    background-image: url("../../images/FieldBackground4.jpg");
+    background-size: 100% 100%;
+    width: 100%;
+    height: 100%;
+    display: flex;
+}
+
+/*-----------------LEFTSIDE------------------------*/
+
+.field .leftSide {
+    /*background-color: hotpink;*/
+    width: 255px;
+
+}
+
+.field .leftSide .logbook {
+    position: absolute;
+    left: 173px;
+    top:250px;
+    background-color: black;
+    width: 50px;
+    height: 330px;
+    transform: rotate(1deg);
+
+}
+
+.field .logbook h1 {
+    color: red;
+    text-align: center;
+}
+
+
+
+/*-----------------MID------------------------------*/
+
+.field .mid {
+    /*background-color: blue;*/
+    width: 1000px;
+    display: flex;
+    flex-direction: column;
+
+}
+
+.field .mid .cardsInHandOpponent {
+    position: absolute;
+    /*background-color: red;*/
+    left: 580px;
+    width: 370px;
+    height: 70px;
+    background-repeat: no-repeat;
+    display: flex;
+    flex-direction: row;
+}
+
+.field .mid .cardsInHandOpponent div{
+    width: 80px;
+    background-repeat: no-repeat;
+    background-size: 70px;
+    background-position: 0 -40px;
+}
+
+.field .mid .manaCrystalsOpponent{
+    position: absolute;
+    left: 966px;
+    top: 41px;
+    background-color: darkblue;
+    width: 69px;
+    height: 25px;
+    border-radius: 1rem;
+
+}
+
+.field .mid .manaCrystalsOpponent .manaCrystalsNumberOpponent {
+    position: absolute;
+    left: 10px;
+    top: 3px;
+    color: white;
+    font-size: larger;
+    font-weight: bold;
+}
+
+.field .mid .manaCrystalsOpponent .manaCrystalSliceOpponent {
+    position: absolute;
+    left: 31px;
+    top: 3px;
+    color: white;
+    font-size: larger;
+    font-weight: bold;
+}
+
+.field .mid .manaCrystalsLimitsOpponent {
+    position: absolute;
+    left: 40px;
+    top: 3px;
+    color: white;
+    font-size: larger;
+    font-weight: bold;
+}
+
+
+
+
+.field .mid .heroOpponent {
+    display: flex;
+    flex-direction: row;
+}
+
+
+.field .mid .heroOpponent .heroWeaponOpponent {
+    position: absolute;
+    left: 560px;
+    top: 130px;
+}
+
+
+.field .mid .heroOpponent .heroWeaponAttackOpponent {
+    position: absolute;
+    left: 578px;
+    top: 208px;
+    color: white;
+    font-size: larger;
+    font-weight: bold;
+}
+
+.field .mid .heroOpponent .heroWeaponTurnsOpponent {
+    position: absolute;
+    left: 658px;
+    top: 208px;
+    color: white;
+    font-size: larger;
+    font-weight: bold;
+}
+
+.field .mid .heroOpponent .heroPictureOpponent {
+    position: absolute;
+    left: 685px;
+    top: 65px;
+
+}
+
+.field .mid .heroOpponent  .heroShieldOpponent {
+    position: absolute;
+    left: 820px;
+    top: 150px;
+}
+
+.field .mid .heroOpponent .heroShieldNumberOpponent {
+    position: absolute;
+    left: 829px;
+    top: 161px;
+    color: white;
+    font-size: larger;
+    font-weight: bold;
+}
+
+
+.field .mid .heroOpponent .heroLifePointsOpponent {
+    position: absolute;
+    left: 826px;
+    top: 212px;
+    color: white;
+    font-size: larger;
+    font-weight: bold;
+}
+
+.field .mid .heroOpponent .heroPowerOpponent {
+    position: absolute;
+    left: 858px;
+    top: 113px;
+}
+
+
+
+.field .mid .cardsOnFieldOpponent {
+    position: absolute;
+    left: 280px;
+    top: 250px;
+    /*background-color: black;*/
+    width: 930px;
+    height: 150px;
+}
+
+/*--------------------MIDDENLIJN------------------------*/
+
+
+
+.field .mid .cardsOnField {
+    position: absolute;
+    left: 280px;
+    top: 410px;
+    /*background-color: red;*/
+    width: 930px;
+    height: 150px;
+    display: flex;
+    flex-wrap: nowrap;
+    flex-direction: row;
+}
+
+.field .mid .hero {
+    display: flex;
+    flex-direction: row;
+
+}
+
+.field .mid .hero .heroWeapon {
+    position: absolute;
+    left: 560px;
+    top: 590px;
+}
+
+.field .mid .hero .heroWeaponAttack {
+    position: absolute;
+    left: 578px;
+    top: 667px;
+    color: white;
+    font-size: larger;
+    font-weight: bold;
+}
+
+.field .mid .hero .heroWeaponTurns {
+    position: absolute;
+    left: 658px;
+    top: 667px;
+    color: white;
+    font-size: larger;
+    font-weight: bold;
+}
+
+
+.field .mid .hero .heroPicture {
+    position: absolute;
+    left: 686px;
+    top: 565px;
+    width: 140px;
+    height: 145px;
+
+}
+
+
+.field .mid .hero .heroShield {
+    position: absolute;
+    left: 820px;
+    top: 650px;
+}
+
+.field .mid .hero .heroShieldNumber {
+    position: absolute;
+    left: 828px;
+    top: 660px;
+    color: white;
+    font-size: larger;
+    font-weight: bold;
+}
+
+
+.field .mid .hero .heroLifePoints {
+    position: absolute;
+    left: 824px;
+    top: 713px;
+    color: white;
+    font-size: larger;
+    font-weight: bold;
+}
+
+.field .mid .hero .heroPower {
+    position: absolute;
+    left: 863px;
+    top: 582px;
+}
+
+
+
+
+.field .mid .manaCrystals{
+    position: absolute;
+    left: 1005px;
+    top: 785px;
+    background-color: darkblue;
+    width: 69px;
+    height: 25px;
+    border-radius: 1rem;
+}
+
+.field .mid .manaCrystals .manaCrystalsNumber {
+    position: absolute;
+    left: 10px;
+    top: 3px;
+    color: white;
+    font-size: larger;
+    font-weight: bold;
+}
+
+.field .mid .manaCrystals .manaCrystalSlice {
+    position: absolute;
+    left: 31px;
+    top: 3Px;
+    color: white;
+    font-size: larger;
+    font-weight: bold;
+}
+
+.field .mid .manaCrystalsLimits {
+    position: absolute;
+    left: 40px;
+    top: 3px;
+    color: white;
+    font-size: larger;
+    font-weight: bold;
+}
+
+.field .mid .manaCrystalSymbol {
+    position: absolute;
+    left: 1095px;
+    top: 785px;
+}
+
+.field .mid .cardsInHand {
+    position: absolute;
+    left: 550px;
+    top: 740px;
+    /*background-color: red;*/
+    width: 435px;
+    height: 124px;
+    display: flex;
+    flex-direction: row;
+
+}
+
+
+/*-----------------RIGHTSIDE------------------------*/
+
+.field .rightSide {
+    /*background-color: red;*/
+    width: 25%;
+}
+
+
+.field .endTurn {
+    position: absolute;
+    left: 1229px;
+    top: 362px;
+}
+
+.field .concede {
+    position: absolute;
+    left: 1400px;
+    top: 740px;
+    width: 80px;
+    height: 30px;
+    background-color: blue;
+}
+
+.field .settings {
+    position: absolute;
+    left: 1400px;
+    top: 780px;
+    width: 80px;
+    height: 30px;
+    background-color: red;
+}
+
+
+/* CSS for 8_deckbuildLevelOne */
+
+#eightDeckBuildLevelOne {
+    display: flex;
+}
+
+.inhand {
+    overflow: auto;
+    flex-direction: row;
+}
+
+.choices {
+    overflow: auto;
+    flex-direction: row;
+}
+
+/* CSS for 9_deckbuildLevelTwo */
+
+

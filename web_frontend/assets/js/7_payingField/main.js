@@ -13,7 +13,8 @@ function init(){
     fetchCards();
   // fetchPromise komt uit 4_fetchCardsFunctions
   fetchPromise.then(function () {
-    // TODO: injectCards
+
+    //m
   }
 
   // makeMovable shit

@@ -5,9 +5,6 @@ function injectCards(arrayOfCards) {
         console.log(arrayOfCards[i]);
         showCardField(arrayOfCards[i])
     }
-
-    let elements = document.querySelectorAll('.card');
-    makeMovable(elements, cardController)
 }
 
 function showCardField(card) {

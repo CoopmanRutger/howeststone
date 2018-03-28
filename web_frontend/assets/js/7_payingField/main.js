@@ -15,6 +15,10 @@ function init(){
   fetchPromise.then(function () {
     // TODO: injectCards
   }
+
+  // makeMovable shit
+  document.addEventListener('mousemove', cardMousemove);
+  document.addEventListener("mouseup", mouseup);
 }
 
 function cardController(X, Y, original) {

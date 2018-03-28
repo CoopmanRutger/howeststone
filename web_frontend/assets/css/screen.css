@@ -201,7 +201,7 @@ header h1 {
 
 /* CSS for 7_Field */
 
-.card {
+/* .card {
     background-position: -40px -26px;
     background-repeat: no-repeat;
     background-size: 180%;
@@ -255,19 +255,9 @@ header h1 {
     color: white;
     font-weight: bold;
     font-size: 1.5rem;
-
-
-
-
-
-}
-
-
+} */
 
 /*-------------------------------------------------------------------------------------------------------------*/
-
-
-
 
 .bodyfield {
     height: 100vh;
@@ -655,5 +645,3 @@ header h1 {
 }
 
 /* CSS for 9_deckbuildLevelTwo */
-
-

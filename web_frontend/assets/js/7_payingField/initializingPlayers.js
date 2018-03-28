@@ -13,7 +13,7 @@ let opponent = {
   "manaLimit" : 11,
   "arrayCardsInHand" : [1, 2, 3, 4],
   "arrayCardsOnField" : []
-}
+};
 
 // player
 let player = {

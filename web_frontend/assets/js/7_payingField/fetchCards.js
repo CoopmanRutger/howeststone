@@ -17,31 +17,25 @@ function fetchCards() {
             return resp.json();
         }
     }).then(function (text) {
-            // console.log(text);
-            // TODO: make functions vo deze shit
 
-            for (let i = 0; i < text.Basic.length; i++) {
-                let card = {
-                    "cardId": text.Basic[i].cardId,
-                    "attack": text.Basic[i].attack,
-                    "health": text.Basic[i].health,
-                    "name": text.Basic[i].name,
-                    "img": text.Basic[i].img,
-                    "i": i
-                };
-                arrayCardsInHand.push(card);
-            }
-            for (let i = 0; i < text.Classic.length; i++) {
-                let card = {
-                    "cardId": text.Classic[i].cardId,
-                    "attack": text.Classic[i].attack,
-                    "health": text.Classic[i].health,
-                    "name": text.Classic[i].name,
-                    "img": text.Classic[i].img,
-                    "i": i + text.Basic.length
-                };
-                arrayCardsInHand.push(card);
-            }
-        }
-    );
+        console.log(text.Basic);
+
+        typesCards(text.Classic);
+        typesCards(text.Basic);
+    });
+}
+
+function typesCards( typeCard) {
+    for (let i = 0; i < typeCard.length; i++) {
+        let card = {
+            "cardId": typeCard[i].cardId,
+            "attack": typeCard[i].attack,
+            "health": typeCard[i].health,
+            "name": typeCard[i].name,
+            "img": typeCard[i].img,
+            "i": i + typeCard.length // TODO  "i": i 1ste keer
+        };
+        if (player.type = "opponent") {
+        opponent.arrayCardsInHand.push(card);
+    }
 }

@@ -66,9 +66,8 @@ function hero(player) {
     }
 }
 
-
-function manaCystal(player) {
-    if (amountCharge <= 10 && amountLimits <= 10) {
+function manaCrystal(player) {
+    if (player.manaCharge <= 10 && player.manaLimit <= 10) {
         if (player.type = "opponent") {
             document.querySelector(".manaCrystalsNumberOpponent").innerHTML = player.manaCharge;
             document.querySelector(".manaCrystalsLimitsOpponent").innerHTML = player.manaLimit;

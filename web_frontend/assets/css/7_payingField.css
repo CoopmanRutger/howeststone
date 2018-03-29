@@ -6,6 +6,17 @@
   background-size: 100% 100%;
 }
 
+#cardPreview .cardHand{
+    width: 200px;
+    height: 300px;
+}
+
+#cardPreview {
+    position: absolute;
+    top: 400px;
+    left: 110px;
+}
+
 .card {
     background-position: -25px -22px;
     background-repeat: no-repeat;

@@ -39,7 +39,7 @@ function cardMouseup(e) {
 
     original.remove();
 
-    document.removeEventListener('mouseup', mouseup)
+    document.removeEventListener('mouseup', cardMouseup)
   } catch (e) {}
 }
 

@@ -3,29 +3,29 @@
 // opponent
 let opponent = {
   "type" : "opponent",
-  "heroName" : 'priest',
+  "heroName" : 'mage',
   "heroWeapon" : true,
   "weaponAttack" : 8,
   "weaponTurns" : 8,
-  "amountShield" : 10,
+  "amountShield" : 0,
   "lifepoints" : 30,
-  "manaCharge" : 1,
-  "manaLimit" : 11,
-  "arrayCardsInHand" : [1, 2, 3, 4],
+  "manaCharge" : 10,
+  "manaLimit" : 10,
+  "arrayCardsInHand" : [1, 2, 3, 4, 5],
   "arrayCardsOnField" : []
 };
 
 // player
 let player = {
   "type" : "player",
-  "heroName" : 'rogue',
+  "heroName" : 'priest',
   "heroWeapon" : true,
-  "weaponAttack" : 10,
+  "weaponAttack" : 8,
   "weaponTurns" : 3,
   "amountShield" : 0,
   "lifepoints" : 30,
-  "manaCharge" : 8,
-  "manaLimit" : 8,
+  "manaCharge" : 10,
+  "manaLimit" : 10,
   "arrayCardsInHand" : [],
   "arrayCardsOnField" : []
 };

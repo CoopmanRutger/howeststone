@@ -9,9 +9,9 @@ function init(){
     manaCrystal(player);
     manaCrystal(opponent);
 
-    hero(player);
     hero(opponent);
-
+    hero(player);
+    console.log(hero(player));
     cardsInHandOpponent(opponent.arrayCardsInHand);
 
     fetchCards();
@@ -27,8 +27,8 @@ function init(){
 
 function cardController(X, Y, original) {
     if (Y < 800) {
-        document.querySelector(".cardsInHand").appendChild(original);
+        document.querySelector("#cardsInHand").appendChild(original);
     } else {
-        document.querySelector(".cardsOnField").appendChild(original);
+        document.querySelector("#cardsOnField").appendChild(original);
     }
 }

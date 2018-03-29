@@ -1,121 +1,14 @@
-/* Order Of Functions
-
-Document gets loaded
-cards get fetched
-we go in to the init
-
-*/
-
 "use strict";
 
-document.addEventListener("DOMContentLoaded", fetchCards);
-
-// initializing card arrays
-
-
-
-// After fetch we go to the init
+document.addEventListener("DOMContentLoaded", init);
 
 function init(){
   console.log("page loaded, arrived in ftie init");
-  injectCards();
-}
-
-// In the init we caal "injectCards"
-// injectCards inject cards from our arrays in to the proper html elements
-// We use "showCardsHand" to get the cards in to out html
-
-function injectCards() {
-  function showCardsHand(array, query) {
-    for (let i = 0; i < array.length; i++) {
-      let card = document.createElement('article');
-
-      card.className = "card";
-      card.style.backgroundImage = "url('" + array[i].img + "')";
-
-      let meta = document.createElement('p');
-
-      meta.style.display = "none";
-      meta.appendChild(document.createTextNode(array[i].cardId));
-
-      card.appendChild(meta)
-
-      document.querySelector(query).appendChild(card);
-    }
-  }
-
-  showCardsHand(cards.Basic, "#generalCards .cards");
-  showCardsHand(cards.Specific, "#specificCards .cards");
-
-  let elements = document.querySelectorAll('.card');
-  makeMovable(elements,cardController);
-}
-
-// in "injectCards" we call the function "makeMovable" wich alows cards to be moved
-
-function makeMovable(elements,controller) {
-
-  /* HOW IT WORKS
-  Eerst wordt het originele element op onzichtbaar gezet.
-  Dan wordt een kopie gemaakt die geplakt wordt aan het einde van het document.
-  Die copy volgt (met absolute positioning) je muis.
-  als die copy loslaat wordt die verwijderd
-  daarna zorgt de controller-functie dat het originele element op de juiste plaats wordt toegevoegd.
-  als laatste actie wordt de staat gereset (style enzo)
-  */
-
-  let original;
-  let moving;
-
-  let diffX;
-  let diffY;
-
-  function mouseup(e) {
-    e.preventDefault();
-    let card = moving.cloneNode(true);
-
-    card.style.position = "";
-
-    controller(e.clientX, e.clientY, card);
-
-    moving.remove();
-
-    document.removeEventListener('mouseup', mouseup)
-  }
-
-  document.addEventListener('mousemove', function (e) {
-    e.preventDefault();
-    try {
-      moving.style.left = (e.clientX-diffX) + "px";
-      moving.style.top = (e.clientY-diffY) + "px";
-    } catch (e) {}
+  fetchCards();
+  fetchPromise.then(function () {
+      injectCards(cards.Basic, "#generalCards");
+      injectCards(cards.Specific, "#specificCards");
   });
-
-  function mousedown(e) {
-    e.preventDefault();
-
-    console.log(this.parentElement.scrollTop );
-
-    diffX = e.clientX-this.offsetLeft + this.parentElement.scrollLeft;
-    diffY = e.clientY-this.offsetTop + this.parentElement.scrollTop;
-
-    moving = this.cloneNode(true);
-
-    moving.style.position = "absolute";
-    moving.style.left = (e.clientX-diffX) + "px";
-    moving.style.top = (e.clientY-diffY) + "px";
-
-    original = this;
-
-    document.querySelector("body").appendChild(moving);
-
-    document.addEventListener("mouseup", mouseup);
-
-  }
-
-  for (let i = 0; i < elements.length; i++) {
-    elements[i].addEventListener('mousedown', mousedown);
-  }
 }
 
 // in de makeMovable we give an "controller" function, this determens what happens whith the card when we relaese it

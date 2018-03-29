@@ -1,12 +1,12 @@
 "use strict";
 
-function injectCards(arrayOfCards) {
+function injectCards(arrayOfCards, query) {
     for (let i = 0; i < arrayOfCards.length; i++) {
-        showCardHand(arrayOfCards[i])
+        showCardHand(arrayOfCards[i], query)
     }
 }
 
-function showCardHand(card) {
+function showCardHand(card, query) {
     let element = document.createElement('article');
     let meta = document.createElement('p');
 
@@ -18,5 +18,5 @@ function showCardHand(card) {
     element.style.backgroundImage = "url('" + card.img + "')";
     element.style.top = 20 + "px";
 
-    document.querySelector(".cardsInHand").appendChild(element);
+    document.querySelector(query).appendChild(element);
 }

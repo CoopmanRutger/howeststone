@@ -1,6 +1,8 @@
 "use strict";
 
-let card;
+let cards = {"Basic":[],"Specific":[]};
+let cardsInhand = [];
+
 let fetchPromise;
 
 function fetchCards() {
@@ -21,24 +23,27 @@ function fetchCards() {
 
         console.log(text.Basic);
 
-        typesCards(text.Classic);
-        typesCards(text.Basic);
+        typesCards(text.Basic, "Basic");
+        typesCards(text.Classic, "Specific");
     });
 }
 
-function typesCards(typeCard) {
-    for (let i = 0; i < typeCard.length; i++) {
-        card = {
-            "cardId": typeCard[i].cardId,
-            "attack": typeCard[i].attack,
-            "health": typeCard[i].health,
-            "name": typeCard[i].name,
-            "img": typeCard[i].img,
-            "i": i + typeCard.length // TODO  "i": i 1ste keer
+function typesCards(card, type) {
+    let cardJson;
+    for (let i = 0; i < card.length; i++) {
+        cardJson = {
+            "cardId": card[i].cardId,
+            "attack": card[i].attack,
+            "health": card[i].health,
+            "name": card[i].name,
+            "img": card[i].img,
+            "i": i // + typeCard.length // TODO  "i": i 1ste keer
         };
 
-        if (player.type = "opponent") {
-            opponent.arrayCardsInHand.push(card);
+        if (type === "Basic"){
+            cards.Basic.push(cardJson)
+        } else if (type === "Specific") {
+            cards.Specific.push(cardJson)
         }
     }
 }

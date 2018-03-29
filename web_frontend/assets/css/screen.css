@@ -14,7 +14,7 @@ header h1 {
 body > div {
     height: 768px;
     width: 1024px;
-    /*background-color: red;*/
+    background-image: url('../media/crossPageBackgroundFinal.png');
 }
 
 .return:hover {
@@ -25,7 +25,6 @@ body > div {
 
 .return {
     color: crimson;
-
 }
 
 /* CSS for 0_welcomeScreen */
@@ -43,9 +42,25 @@ body > div {
     justify-content: center;
 }
 
-#oneDeckBuild button {
-    margin-top: 50px;
-    margin-left: 30px;
+#oneDeckBuild div {
+    background-image: url('../media/kaderUpgradeChooseYrHero.png');
+    background-repeat: no-repeat;
+    background-size: 400px;
+}
+
+#oneDeckBuild div:first-child {
+    margin-right: 100px;
+}
+
+.Play button {
+    position: relative;
+    margin-left: 44%;
+    margin-top: 50%
+}
+.deckBuild button {
+    position: relative;
+    margin-top: 50%;
+    margin-left: 37%;
 }
 
 .deckBuild {
@@ -56,26 +71,26 @@ body > div {
     height: 600px;
     background-image: url('../media/anvilFinal.png');
     background-repeat: no-repeat;
-    background-size: 80% 50%;
+    background-size: 80% 40%;
     background-position: 50% 60%;
     /*border-image: url("../media/borderPossiblitiesAreEndless.jpg") 20 20 20 20 repeat;*/
     /*border-width: 20px 20px 20px 20px;*/
 
+/*  */
 
 }
 
 .Play {
     /*display: flex;*/
     flex-direction: column;
-    background-color: orange;
+    /*background-color: orange;*/
     width: 400px;
     height: 600px;
     background-image: url('../media/zwaard2final.png'), url('../media/zwaard1final.png');
-    background-size: 70% 70%;
+    background-size: 60% 60%;
     background-repeat: no-repeat;
-    background-position: 50% 70%;
+    background-position: 50% 40%;
 }
-
 
 
 
@@ -154,25 +169,38 @@ body > div {
 
 #threeChooseYourHero {
     display: flex;
+    justify-content: center;
+    position: relative;
+    top: 5%;
+    height: 60%;
 }
 
-#threeChooseYourHero article:first-child {
+#threeChooseYourHero .Decks{
     flex-direction: column;
+    justify-content: center;
     width: 350px;
-    height: 550px;
-    background-color: yellow;
+    height: 350px;
+    /*background-color: yellow;*/
+    background-image: url('../media/kaderUpgradeChooseYrHero.png');
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
 }
+#threeChooseYourHero .Decks p {
 
+}
 #threeChooseYourHero article:nth-child(2) {
-    background-color: yellow;
+    margin-left: 50px;
 }
 
-#threeMakeItYourself {
-    flex-direction: column;
-    width: 500px;
-    height: 500px;
-    background-color: red;
+#threeChooseYourHero #threeMakeItYourself {
+    flex-wrap: wrap;
+    background-color: rebeccapurple;
+    width: 200px;
+    height: 200px;
 }
+
+
+
 
 /* CSS for 4_defaultPickYourOpponent */
 
@@ -181,16 +209,41 @@ body > div {
     justify-content: center;
 }
 
-#fourDefaultPickOpponent {
-
+#fourDefaultPickOpponent div .opponentChoice1  {
+    position: relative;
+    background-image: url('../media/JainaChooseYrHero.jpg');
+    background-repeat: no-repeat;
+    background-size: 220px;
+    background-position: 40% 35%;
+    /*background-color: red;*/
+    height: 550px;
+}
+#fourDefaultPickOpponent div .opponentChoice2 {
+    background-image: url('../media/AnduinChooseYrHero.jpg');
+    background-repeat: no-repeat;
+    background-size: 210px;
+    background-position: 40% 20%;
+    -moz-box-shadow: 5px 5px lightskyblue;
+    /*background-color: blue;*/
 }
 
 #fourDefaultPickOpponent div {
-    flex-direction: column;
-    width: 400px;
-    height: 400px;
-    background-color: yellow;
+    width: 510px;
+    height: 650px;
+    background-image: url('../media/kaderChooseYrOpponent.png');
+    background-size: 460px;
+    background-repeat: no-repeat;
 }
+#fourDefaultPickOpponent h2 {
+    position: relative;
+    text-align: center;
+    margin-top: 20%;
+    margin-right: 10%;
+    font-size: 1.2rem;
+    /*background-color: chartreuse;*/
+}
+
+
 
 /* CSS for 5_makeANewDeck=9deckBuildLevel2 */
 

@@ -52,8 +52,6 @@ function showCardField(card) {
 }
 
 function showCardHand(card) {
-    console.log(card);
-
     let startposition = 420;
     let spaceBetweenCards = 20;
 

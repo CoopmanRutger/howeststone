@@ -9,12 +9,14 @@ let diffY;
 function cardMousedown(e) {
     e.preventDefault();
 
+    console.log("clicked");
+
     original = this; // this is de trigger van het event, in dti geval de kaart
 
     // e.clientX of Y is het coödrinaat van de plaats waar het event plaats nam
     // original.ofset is de afstand van het geklikte element tot de rand ( boven en links)
-    diffX = e.clientX - original.offsetLeft - original.parentElement.offsetLeft;
-    diffY = e.clientY - original.offsetTop - original.parentElement.offsetTop;
+    diffX = e.clientX - original.offsetLeft;
+    diffY = e.clientY - original.offsetTop;
 
     moving = original.cloneNode(true); // de methode element.cloneNode() returned een copy van je element
 

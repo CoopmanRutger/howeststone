@@ -62,7 +62,7 @@ function showCardHand(card) {
     meta.appendChild(document.createTextNode(card.cardId));
     element.appendChild(meta);
 
-    element.className = "card";
+    element.className = "cardHand";
     element.style.backgroundImage = "url('" + card.img + "')";
     element.style.top = 20 + "px";
     element.style.left = (card.i * spaceBetweenCards + startposition) + 'px';

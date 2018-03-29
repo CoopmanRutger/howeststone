@@ -33,7 +33,6 @@ function typesCards( typeCard) {
             "img": typeCard[i].img,
             "i": i + typeCard.length // TODO  "i": i 1ste keer
         };
-        if (player.type === "opponent") {
-        opponent.arrayCardsInHand.push(card);
+        player.arrayCardsInHand.push(card);
     }
-}}
+}

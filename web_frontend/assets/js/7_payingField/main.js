@@ -3,7 +3,6 @@
 document.addEventListener("DOMContentLoaded", init);
 
 function init(){
-    // TODO: functis samen smijten
     endTurn(true);
 
     manaCrystal(player);
@@ -17,7 +16,7 @@ function init(){
     fetchCards();
     // fetchPromise komt uit 4_fetchCardsFunctions
     fetchPromise.then(function () {
-        injectCards(opponent.arrayCardsInHand);
+        injectCards(player.arrayCardsInHand);
     });
     // makeMovable shit
     document.addEventListener('mousemove', cardMousemove);

@@ -11,12 +11,15 @@ let diffY;
 function cardMousedown(e) {
     e.preventDefault();
 
-    original = this; // this is de trigger van het event, in dti geval de kaart
+    original = this; // this is de trigger van het event, in dit geval de kaart
 
     // e.clientX of Y is het coödrinaat van de plaats waar het event plaats nam
     // original.ofset is de afstand van het geklikte element tot de rand ( boven en links)
-    diffX = e.clientX - original.offsetLeft - original.parentElement.offsetLeft;
-    diffY = e.clientY - original.offsetTop - original.parentElement.offsetTop;
+    diffX = e.clientX - original.offsetLeft;
+    diffY = e.clientY - original.offsetTop;
+
+    // console.log("diffX", diffX, "diffY", diffY);
+    // console.log("diffX", diffX, "diffY", diffY);
 
     moving = original.cloneNode(true); // de methode element.cloneNode() returned een copy van je element
 
@@ -26,34 +29,34 @@ function cardMousedown(e) {
     moving.style.left = (e.clientX - diffX) + "px";
     moving.style.top = (e.clientY - diffY) + "px";
 
-    original.style.visibility = "hidden"; // optioneel, als je dit wil kan je de originele kaart verbergen tijdens het slepen, dan lijkt het alsof je hem mee pakt
+    // original.style.visibility = "hidden"; // optioneel, als je dit wil kan je de originele kaart verbergen tijdens het slepen, dan lijkt het alsof je hem mee pakt
 
     document.querySelector("body").appendChild(moving);
 }
 
-function cardMouseup(e) {
-  e.preventDefault();
-  try {
-    // let card = moving.cloneNode(true);
-    moving.style.position = "";
-
-    controller(e.clientX, e.clientY, moving);
-
-    original.remove();
-
-    document.removeEventListener('mouseup', cardMouseup)
-  } catch (e) {}
-}
-
 function cardMousemove(e) {
-  e.preventDefault();
-  try {
-      moving.style.left = (e.clientX - diffX) + "px";
-      moving.style.top = (e.clientY - diffY) + "px";
-  } catch (e) {}
+    e.preventDefault();
+    try {
+        moving.style.left = (e.clientX - diffX) + "px";
+        moving.style.top = (e.clientY - diffY) + "px";
+    } catch (e) {}
 }
 
-function makeMovable(elements, controller) {
+function cardMouseup(e) {
+    e.preventDefault();
+    try {
+        // let card = moving.cloneNode(true);
+        moving.style.position = "";
+
+        cardController(e.clientX, e.clientY, moving);
+
+        // original.remove();
+    } catch (e) {}
+}
+
+function makeMovable(elements) {
+
+    console.log("makeMovable function");
 
     /* HOW IT WORKS
     Eerst wordt het originele elements op onzichtbaar gezet.

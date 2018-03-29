@@ -38,4 +38,4 @@ function typesCards( typeCard) {
         if (player.type = "opponent") {
         opponent.arrayCardsInHand.push(card);
     }
-}
+}}

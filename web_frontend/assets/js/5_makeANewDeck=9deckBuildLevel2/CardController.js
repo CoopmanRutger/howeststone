@@ -6,14 +6,14 @@ function cardController(X,Y, element, original, origin) {
     let cardJson;
     let isInHand = false;
 
-    let indexBasic = getIndex(element, "#specificCards .cards");
+    let indexBasic = getIndex(element, "#generalCards .cards");
     let fullBasic = haveDouble(cards.Basic[indexBasic]);
 
-    let indexSpecific = getIndex(element, "#generalCards .cards");
+    let indexSpecific = getIndex(element, "#specificCards .cards");
     let fullSpecific = haveDouble(cards.Specific[indexSpecific]);
 
-    // console.log("indexBasic", indexBasic);
-    // console.log("indexSpecific", indexSpecific);
+    console.log("indexBasic", indexBasic, "indexSpecific", indexSpecific);
+    console.log("fullBasic", fullBasic, "fullSpecific", fullSpecific, "both", fullBasic||fullSpecific);
 
     if (indexBasic !== -1){
         cardJson = cards.Basic[indexBasic]
@@ -24,17 +24,18 @@ function cardController(X,Y, element, original, origin) {
     if (origin==="#cardsForDeck .cards") {
         console.log("element came from hand");
         original.remove();
+        element.remove();
         cardsInhand.splice(cardsInhand.indexOf(cardJson), 1);
     } else {
         console.log("element came from choices");
         switch (getPlace(X,Y)) {
             case "#cardsForDeck .cards":
-                if (!fullBasic||fullSpecific) {
+                if (fullBasic||fullSpecific) {
+                    element.remove();
+                } else {
                     element.addEventListener('mousedown', cardMousedown);
                     document.querySelector("#cardsForDeck .cards").appendChild(element);
                     cardsInhand.push(cardJson);
-                } else {
-                    element.remove();
                 }
                 break;
             case "#specificCards .cards":

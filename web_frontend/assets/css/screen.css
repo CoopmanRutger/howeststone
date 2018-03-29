@@ -61,9 +61,11 @@
 .bodyfield {
     height: 100vh;
     width: 100vw;
+    background-color: black;
 }
 
 #field {
+    position: relative;
     background-repeat: no-repeat;
     background-image: url("../../images/fieldBackground.png");
     background-size: 100% 100%;
@@ -83,7 +85,7 @@
 
 #logbook {
     position: absolute ;
-    left: 372px;
+    left: 116px;
     top:250px;
     /*background-color: black;*/
     width: 33px;
@@ -103,7 +105,7 @@
 #mid {
     position: absolute;
     /*background-color: green;*/
-    left:419px;  /*165*/
+    left:165px;  /*165*/
     height: 768px;
     width: 650px;
     display: flex;
@@ -403,8 +405,8 @@
 
 #rightSide {
     position: absolute;
-    /*background-color: red;*/
-    left: 1065px;
+    /*background-color: yellow;*/
+    left: 815px;
     height: 768px;
     width: 215px;
 }
@@ -412,7 +414,7 @@
 
 #endTurn {
     position: absolute;
-    left: 8px;
+    left: 3px;
     top: 333px;
 }
 

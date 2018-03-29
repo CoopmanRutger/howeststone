@@ -1,8 +1,6 @@
 "use strict";
 
-let cards = {"Basic":[],"Specific":[]};
-let cardsInhand = [];
-
+let card;
 let fetchPromise;
 
 function fetchCards() {
@@ -23,8 +21,8 @@ function fetchCards() {
 
         console.log(text.Basic);
 
-        typesCards(text.Basic, "Basic");
-        typesCards(text.Classic, "Specific");
+        typesCards(text.Classic);
+        typesCards(text.Basic);
     });
 }
 
@@ -39,10 +37,8 @@ function typesCards(typeCard) {
             "i": i + typeCard.length // TODO  "i": i 1ste keer
         };
 
-        if (type === "Basic"){
-            cards.Basic.push(card)
-        } else (type === "Specific"){
-            cards.Specific.push(card)
+        if (player.type = "opponent") {
+            opponent.arrayCardsInHand.push(card);
         }
     }
 }

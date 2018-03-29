@@ -1,5 +1,7 @@
 "use strict";
 
+console.log("We arived in the makeCardsMovable file!");
+
 let original;
 let moving;
 

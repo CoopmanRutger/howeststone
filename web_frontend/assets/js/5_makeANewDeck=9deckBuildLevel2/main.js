@@ -12,35 +12,7 @@ document.addEventListener("DOMContentLoaded", fetchCards);
 
 // initializing card arrays
 
-let cards = {"Basic":[],"Specific":[]};
-let cardsInhand = [];
 
-// We'll fetch some cards
-
-function fetchCards() {
-  console.log("fetching cards");
-
-  let url = "https://omgvamp-hearthstone-v1.p.mashape.com/cards?attack=6";
-
-  fetch(url,{
-    headers: new Headers({
-      "Accept": "application/json",
-      "X-Mashape-Key": "y7rGFym8csmshrenbJFLUR5cVMslp1azdfKjsnPEQhhTb9Awvo"
-    })
-  }).then(function (resp) {
-    if (resp.ok) {
-      return resp.json();
-    }
-  }).then(function (text) {
-    for (let i = 0; i < text.Basic.length; i++) {
-      cards.Basic.push(text.Basic[i]);
-    }
-    for (let i = 0; i < text.Classic.length; i++) {
-      cards.Specific.push(text.Classic[i]);
-    }
-    console.log(cards);
-  }).then(init);
-}
 
 // After fetch we go to the init
 

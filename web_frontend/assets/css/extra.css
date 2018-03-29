@@ -1,0 +1,200 @@
+/* cross page css */
+
+header h1 {
+    text-align: center;
+    margin-right: auto;
+    margin-left: auto;
+    font-size: 4rem;
+    padding-top: 30px;
+    padding-bottom: 30px;
+    /*font-family: "Bookman Old Style"; */
+}
+
+.return:hover {
+    border: 5px;
+    border-style: solid;
+    border-color: chartreuse;
+}
+
+.return {
+    color: crimson;
+    background-color: blue;
+}
+
+/* CSS for 0_welcomeScreen */
+
+/* CSS for 1_deckbuildOrPlay */
+
+#oneDeckBuild {
+    display: flex;
+    width: auto;
+    height: auto;
+    flex-wrap: nowrap;
+    color: blue;
+    margin-left: auto;
+    margin-right: auto;
+}
+.deckBuild {
+    /*display: flex;*/
+    flex-direction: column;
+    background-color: green;
+    width: 400px;
+    height: 600px;
+}
+
+.Play {
+    /*display: flex;*/
+    flex-direction: column;
+    background-color: orange;
+    width: 400px;
+    height: 600px;
+}
+
+
+/* CSS for 2_chooseYourHero */
+
+#twoChoosingTheHero {
+    display: flex;
+    justify-content: center;
+}
+#twoChoosingTheHero article {
+    flex-direction: column;
+    width: 500px;
+    height: 650px;
+    background-image: url('../media/kaderUpgradeChooseYrHero.png');
+    background-size: 500px;
+    background-repeat: no-repeat;
+    /*background-color: rebeccapurple;*/
+}
+
+/* eerste kader */
+
+#twoChoosingTheHero article:first-child {
+    margin-right: 100px;
+}
+
+#twoChoosingTheHero article:first-child div {
+    background-image: url('../media/JainaChooseYrHero.jpg');
+    background-repeat: no-repeat;
+    background-size: 275px;
+    background-position: 110px 30px;
+    /*background-color: red;*/
+    height: 550px;
+
+
+}
+
+
+
+/* tweede kader */
+
+#twoChoosingTheHero article:nth-child(2) div {
+    background-image: url('../media/AnduinChooseYrHero.jpg');
+    background-repeat: no-repeat;
+    background-size: 275px;
+    background-position: 110px 30px;
+    /*background-color: blue;*/
+
+}
+
+#twoChoosingTheHero article div h2 {
+    /*size: 1rem;*/
+    text-align: center;
+    margin-top: 60px;
+}
+
+#twoChoosingTheHero article p {
+    padding-left: 70px;
+    padding-right: 70px;
+    margin-top: 350px;
+
+
+}
+
+
+
+/* CSS for 3_chooseDeckForHero */
+
+#threeChooseYourHero {
+    display: flex;
+}
+
+#threeChooseYourHero article:first-child {
+    flex-direction: column;
+    width: 350px;
+    height: 550px;
+    background-color: yellow;
+}
+
+#threeChooseYourHero article:nth-child(2) {
+    background-color: yellow;
+}
+
+#threeMakeItYourself {
+    flex-direction: column;
+    width: 500px;
+    height: 500px;
+    background-color: red;
+}
+
+/* CSS for 4_defaultPickYourOpponent */
+
+#fourDefaultPickOpponent {
+    display: flex;
+    justify-content: center;
+}
+
+#fourDefaultPickOpponent {
+
+}
+
+#fourDefaultPickOpponent div {
+    flex-direction: column;
+    width: 400px;
+    height: 400px;
+    background-color: yellow;
+}
+
+/* CSS for 5_makeANewDeck=9deckBuildLevel2 */
+
+
+/* CSS for 6_gameStartingHand */
+
+
+#sixMakeANewDeck {
+    display: flex;
+    justify-content: center;
+    flex-wrap: nowrap;
+    margin-left: auto;
+    margin-right: auto;
+
+
+}
+
+#sixStartingHand {
+    background-image: url('../../images/fieldBackground4.jpg');
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    height: 100vh;
+    width: 100vw;
+}
+
+#sixMakeANewDeck div {
+    flex-direction: row;
+    width: 150px;
+    height: 300px;
+    margin: 30px;
+    background-color: yellow;
+}
+
+#sixMakeANewDeck aside {
+    flex-direction: column;
+    width: 50px;
+    height: 200px;
+    background-color: red;
+}
+
+#confirm {
+    float: right;
+    margin-right: 200px;
+}

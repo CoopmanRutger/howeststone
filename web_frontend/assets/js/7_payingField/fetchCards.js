@@ -5,7 +5,7 @@ let fetchPromise;
 function fetchCards() {
 
 
-    let url = "https://omgvamp-hearthstone-v1.p.mashape.com/cards?attack=6";
+    let url = "https://omgvamp-hearthstone-v1.p.mashape.com/cards?attack=5";
 
     fetchPromise = fetch(url, {
         headers: new Headers({

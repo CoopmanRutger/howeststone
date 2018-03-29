@@ -11,7 +11,7 @@ let opponent = {
   "lifepoints" : 30,
   "manaCharge" : 10,
   "manaLimit" : 10,
-  "arrayCardsInHand" : [1, 2, 3, 4, 5],
+  "arrayCardsInHand" : [],
   "arrayCardsOnField" : []
 };
 

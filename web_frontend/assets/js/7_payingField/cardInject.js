@@ -1,8 +1,10 @@
 "use strict";
 
 function injectCards(arrayOfCards) {
+    console.log(arrayOfCards);
     for (let i = 0; i < 3; i++) { //arrayOfCards.length
         showCardHand(arrayOfCards[i])
+        console.log(arrayOfCards[i]);
     }
 }
 
@@ -21,7 +23,7 @@ function showCardField(card) {
     element.style.backgroundImage = "url('" + card.img + "')";
     element.style.top = 20 + "px";
     element.style.left = (card.i * spaceBetweenCards + startposition) + 'px';
-    document.querySelector("#cardsInHandPlayer").appendChild(element);
+    document.querySelector("#cardsOnFieldPlayer").appendChild(element);
 
 
     // name tag

@@ -14,9 +14,11 @@ function showCardHand(card, query) {
     meta.appendChild(document.createTextNode(card.cardId));
     element.appendChild(meta);
 
-    element.className = "card";
+    element.className = "cardHand";
     element.style.backgroundImage = "url('" + card.img + "')";
     element.style.top = 20 + "px";
+
+
 
     document.querySelector(query).appendChild(element);
 }

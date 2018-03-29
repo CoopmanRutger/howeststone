@@ -167,7 +167,9 @@ body > div {
     height: 60%;
 
 }
-
+main div:nth-child(2) {
+    background-color: red;
+}
 #threeChooseYourHero div {
     display: flex;
     justify-content: center;
@@ -210,23 +212,23 @@ body > div {
     background-image: url('../media/chooseYrDeckSymbol.png');
     background-repeat: no-repeat;
     background-size: 100% 100%;
-
 }
 
-#threeMakeItYourself span {
+#threeMakeItYourself p {
     position: relative;
     left: 125px;
     top: 50px;
     visibility: hidden;
     border-radius: 10px;
     padding: 5px 5px 5px 5px;
+    line-height: 20px;
     background-color: sandybrown;
     color: white;
     /*width: ;*/
     text-align: center;
     /*Q wrm border radius niet goed werkt + wrm tekst onder elkaar staat*/
 }
-#threeMakeItYourself:hover span {
+#threeMakeItYourself:hover p {
     visibility: visible;
 }
 

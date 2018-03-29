@@ -57,6 +57,7 @@ body > div {
     margin-left: 44%;
     margin-top: 50%
 }
+
 .deckBuild button {
     position: relative;
     margin-top: 50%;
@@ -76,7 +77,7 @@ body > div {
     /*border-image: url("../media/borderPossiblitiesAreEndless.jpg") 20 20 20 20 repeat;*/
     /*border-width: 20px 20px 20px 20px;*/
 
-/*  */
+    /*  */
 
 }
 
@@ -92,14 +93,13 @@ body > div {
     background-position: 50% 40%;
 }
 
-
-
 /* CSS for 2_chooseYourHero */
 
 #twoChoosingTheHero {
     display: flex;
     justify-content: center;
 }
+
 #twoChoosingTheHero article {
     flex-direction: column;
     width: 510px;
@@ -129,10 +129,7 @@ body > div {
     /*background-color: red;*/
     height: 550px;
 
-
 }
-
-
 
 /* tweede kader */
 
@@ -145,9 +142,6 @@ body > div {
     -moz-box-shadow: 5px 5px lightskyblue;
     /*background-color: blue;*/
 }
-
-
-
 
 #twoChoosingTheHero article div h2 {
     /*size: 1rem;*/
@@ -163,21 +157,23 @@ body > div {
 
 }
 
-
-
 /* CSS for 3_chooseDeckForHero */
 
 #threeChooseYourHero {
     display: flex;
-    justify-content: center;
+    flex-direction: column;
     position: relative;
     top: 5%;
     height: 60%;
+
 }
 
-#threeChooseYourHero .Decks{
-    flex-direction: column;
+#threeChooseYourHero div {
+    display: flex;
     justify-content: center;
+}
+
+#threeChooseYourHero .Decks {
     width: 350px;
     height: 350px;
     /*background-color: yellow;*/
@@ -185,22 +181,32 @@ body > div {
     background-size: 100% 100%;
     background-repeat: no-repeat;
 }
-#threeChooseYourHero .Decks p {
 
+#threeChooseYourHero .Decks p {
+    font-size: 1.2rem;
 }
-#threeChooseYourHero article:nth-child(2) {
-    margin-left: 50px;
+
+#threeChooseYourHero h2 {
+    font-size: 2rem;
 }
+
+/*#threeChooseYourHero article:nth-child(2) {*/
+/*margin-left: 50px;*/
+/*}*/
 
 #threeChooseYourHero #threeMakeItYourself {
-    flex-wrap: wrap;
-    background-color: rebeccapurple;
-    width: 200px;
-    height: 200px;
+    /*background-color: rebeccapurple;*/
+    width: 150px;
+    height: 150px;
+    background-image: url('../media/chooseYrDeckSymbol.png');
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
 }
 
+#threeMakeItYourself:hover {
+    /* TO DO // when hovering on the bckgrnd-image make a text bubble appear explaining what it does */
 
-
+}
 
 /* CSS for 4_defaultPickYourOpponent */
 
@@ -209,7 +215,7 @@ body > div {
     justify-content: center;
 }
 
-#fourDefaultPickOpponent div .opponentChoice1  {
+#fourDefaultPickOpponent div .opponentChoice1 {
     position: relative;
     background-image: url('../media/JainaChooseYrHero.jpg');
     background-repeat: no-repeat;
@@ -218,6 +224,7 @@ body > div {
     /*background-color: red;*/
     height: 550px;
 }
+
 #fourDefaultPickOpponent div .opponentChoice2 {
     background-image: url('../media/AnduinChooseYrHero.jpg');
     background-repeat: no-repeat;
@@ -234,6 +241,7 @@ body > div {
     background-size: 460px;
     background-repeat: no-repeat;
 }
+
 #fourDefaultPickOpponent h2 {
     position: relative;
     text-align: center;
@@ -243,13 +251,9 @@ body > div {
     /*background-color: chartreuse;*/
 }
 
-
-
 /* CSS for 5_makeANewDeck=9deckBuildLevel2 */
 
-
 /* CSS for 6_gameStartingHand */
-
 
 #sixMakeANewDeck {
     display: flex;
@@ -257,7 +261,6 @@ body > div {
     flex-wrap: nowrap;
     margin-left: auto;
     margin-right: auto;
-
 
 }
 
@@ -320,7 +323,7 @@ body > div {
 
 }
 
-.card .cardAttack  {
+.card .cardAttack {
     position: relative;
     background-color: green;
     top: 58px;
@@ -346,18 +349,9 @@ body > div {
     font-weight: bold;
     font-size: 1.5rem;
 
-
-
-
-
 }
 
-
-
 /*-------------------------------------------------------------------------------------------------------------*/
-
-
-
 
 .bodyfield {
     height: 100vh;
@@ -384,7 +378,7 @@ body > div {
 .field .leftSide .logbook {
     position: absolute;
     left: 173px;
-    top:250px;
+    top: 250px;
     background-color: black;
     width: 50px;
     height: 330px;
@@ -396,8 +390,6 @@ body > div {
     color: red;
     text-align: center;
 }
-
-
 
 /*-----------------MID------------------------------*/
 
@@ -420,14 +412,14 @@ body > div {
     flex-direction: row;
 }
 
-.field .mid .cardsInHandOpponent div{
+.field .mid .cardsInHandOpponent div {
     width: 80px;
     background-repeat: no-repeat;
     background-size: 70px;
     background-position: 0 -40px;
 }
 
-.field .mid .manaCrystalsOpponent{
+.field .mid .manaCrystalsOpponent {
     position: absolute;
     left: 966px;
     top: 41px;
@@ -465,21 +457,16 @@ body > div {
     font-weight: bold;
 }
 
-
-
-
 .field .mid .heroOpponent {
     display: flex;
     flex-direction: row;
 }
-
 
 .field .mid .heroOpponent .heroWeaponOpponent {
     position: absolute;
     left: 560px;
     top: 130px;
 }
-
 
 .field .mid .heroOpponent .heroWeaponAttackOpponent {
     position: absolute;
@@ -506,7 +493,7 @@ body > div {
 
 }
 
-.field .mid .heroOpponent  .heroShieldOpponent {
+.field .mid .heroOpponent .heroShieldOpponent {
     position: absolute;
     left: 820px;
     top: 150px;
@@ -520,7 +507,6 @@ body > div {
     font-size: larger;
     font-weight: bold;
 }
-
 
 .field .mid .heroOpponent .heroLifePointsOpponent {
     position: absolute;
@@ -537,8 +523,6 @@ body > div {
     top: 113px;
 }
 
-
-
 .field .mid .cardsOnFieldOpponent {
     position: absolute;
     left: 280px;
@@ -549,8 +533,6 @@ body > div {
 }
 
 /*--------------------MIDDENLIJN------------------------*/
-
-
 
 .field .mid .cardsOnField {
     position: absolute;
@@ -594,7 +576,6 @@ body > div {
     font-weight: bold;
 }
 
-
 .field .mid .hero .heroPicture {
     position: absolute;
     left: 686px;
@@ -603,7 +584,6 @@ body > div {
     height: 145px;
 
 }
-
 
 .field .mid .hero .heroShield {
     position: absolute;
@@ -620,7 +600,6 @@ body > div {
     font-weight: bold;
 }
 
-
 .field .mid .hero .heroLifePoints {
     position: absolute;
     left: 824px;
@@ -636,10 +615,7 @@ body > div {
     top: 582px;
 }
 
-
-
-
-.field .mid .manaCrystals{
+.field .mid .manaCrystals {
     position: absolute;
     left: 1005px;
     top: 785px;
@@ -694,14 +670,12 @@ body > div {
 
 }
 
-
 /*-----------------RIGHTSIDE------------------------*/
 
 .field .rightSide {
     /*background-color: red;*/
     width: 25%;
 }
-
 
 .field .endTurn {
     position: absolute;
@@ -726,7 +700,6 @@ body > div {
     height: 30px;
     background-color: red;
 }
-
 
 /* CSS for 8_deckbuildLevelOne */
 

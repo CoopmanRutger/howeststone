@@ -180,14 +180,23 @@ body > div {
     background-image: url('../media/kaderUpgradeChooseYrHero.png');
     background-size: 100% 100%;
     background-repeat: no-repeat;
+    margin-right: 1%;
+}
+#threeChooseYourHero .Decks:first-child {
+    margin-right: 2%;
 }
 
 #threeChooseYourHero .Decks p {
-    font-size: 1.2rem;
+    font-size: 0.9rem;
+    position: relative;
+    margin-left: 15%;
+    margin-top: 60%;
 }
 
 #threeChooseYourHero h2 {
     font-size: 2rem;
+    margin-left: 35%;
+    margin-top: 10%;
 }
 
 /*#threeChooseYourHero article:nth-child(2) {*/
@@ -201,11 +210,24 @@ body > div {
     background-image: url('../media/chooseYrDeckSymbol.png');
     background-repeat: no-repeat;
     background-size: 100% 100%;
+
 }
 
-#threeMakeItYourself:hover {
-    /* TO DO // when hovering on the bckgrnd-image make a text bubble appear explaining what it does */
-
+#threeMakeItYourself span {
+    position: relative;
+    left: 125px;
+    top: 50px;
+    visibility: hidden;
+    border-radius: 10px;
+    padding: 5px 5px 5px 5px;
+    background-color: sandybrown;
+    color: white;
+    /*width: ;*/
+    text-align: center;
+    /*Q wrm border radius niet goed werkt + wrm tekst onder elkaar staat*/
+}
+#threeMakeItYourself:hover span {
+    visibility: visible;
 }
 
 /* CSS for 4_defaultPickYourOpponent */
@@ -252,6 +274,9 @@ body > div {
 }
 
 /* CSS for 5_makeANewDeck=9deckBuildLevel2 */
+
+
+
 
 /* CSS for 6_gameStartingHand */
 

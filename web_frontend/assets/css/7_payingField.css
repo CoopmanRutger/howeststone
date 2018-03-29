@@ -1,21 +1,17 @@
 /* CSS for 7_Field */
 
-/* LOUIS SCHIT */
-
 .cardHand {
   width: 100px;
   height: 150px;
   background-size: 100% 100%;
 }
 
-/* RUTGERS SHIT */
-
 .card {
-    background-position: -40px -26px;
+    background-position: -25px -22px;
     background-repeat: no-repeat;
-    background-size: 180%;
-    height: 150px;
-    width: 100px;
+    background-size: 177%;
+    height: 89px;
+    width: 66px;
     border-radius: 50%;
     margin-right: 20px;
     margin-bottom: 50px;
@@ -24,8 +20,9 @@
 .card .cardName {
     position: absolute;
     background-color: black;
-    top: 112px;
+    width: 70px;
     height: 28px;
+    top: 68px;
     border-radius: 0.5rem;
     padding-top: 9px;
     color: white;
@@ -35,7 +32,6 @@
     line-height: 11px;
     font-size: 0.8rem;
     text-align: center;
-
 }
 
 .card .cardAttack  {
@@ -43,21 +39,21 @@
     background-color: green;
     top: 58px;
     border-radius: 50%;
-    width: 25px;
-    line-height: 25px;
+    width: 20px;
+    line-height: 20px;
     text-align: center;
     color: white;
     font-weight: bold;
-    font-size: 1.5rem;
+    font-size: 1rem;
 }
 
 .card .cardHealth {
     position: absolute;
     background-color: red;
-    left: 75px;
-    top: 33px;
-    width: 25px;
-    line-height: 25px;
+    left: 48px;
+    top: 53px;
+    width: 20px;
+    line-height: 20px;
     border-radius: 50%;
     text-align: center;
     color: white;
@@ -181,9 +177,6 @@
     font-weight: bold;
 }
 
-
-
-
 #heroOpponent {
     background-color: green;
     position: absolute;
@@ -236,7 +229,6 @@
     font-weight: bold;
 }
 
-
 #heroLifePointsOpponent {
     position: absolute;
     left: 390px;
@@ -251,8 +243,6 @@
     top: 150px;
 }
 
-
-
 #cardsOnFieldOpponent {
     /*background-color: blue;*/
     position: absolute;
@@ -266,7 +256,6 @@
 
 /*--------------------MIDDENLIJN------------------------*/
 
-
 #player {
     position: absolute;
     /*background-color: red;*/
@@ -274,7 +263,6 @@
     width: 650px;
     height: 413px;
 }
-
 
 #cardsOnFieldPlayer {
     /*background-color: red;*/
@@ -291,7 +279,6 @@
     position: absolute;
     display: flex;
     flex-direction: row;
-
 }
 
 #heroWeaponPlayer {
@@ -316,7 +303,6 @@
     font-weight: bold;
 }
 
-
 #heroPicturePlayer {
     position: absolute;
     left: 290px;
@@ -324,7 +310,6 @@
     width: 140px;
     height: 145px;
 }
-
 
 #heroShieldPlayer {
     position: absolute;
@@ -340,7 +325,6 @@
     font-weight: bold;
 }
 
-
 #heroLifePointsPlayer {
     position: absolute;
     left: 386px;
@@ -354,8 +338,6 @@
     left: 410px;
     top: 130px;
 }
-
-
 
 #manaCrystalsPlayer{
     position: absolute;
@@ -406,9 +388,7 @@
     height: 124px;
     display: flex;
     flex-direction: row;
-
 }
-
 
 /*-----------------RIGHTSIDE------------------------*/
 
@@ -419,7 +399,6 @@
     height: 768px;
     width: 215px;
 }
-
 
 #endTurn {
     position: absolute;

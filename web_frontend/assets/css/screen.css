@@ -262,7 +262,7 @@ body > div {
 }
 
 #sixStartingHand {
-    background-image: url('../../images/FieldBackground4.jpg');
+    background-image: url('../../images/fieldBackground4.jpg');
     background-repeat: no-repeat;
     background-size: 100% 100%;
     height: 100vh;
@@ -366,7 +366,7 @@ body > div {
 
 .field {
     background-repeat: no-repeat;
-    background-image: url("../../images/FieldBackground4.jpg");
+    background-image: url("../../images/fieldBackground4.jpg");
     background-size: 100% 100%;
     width: 100%;
     height: 100%;

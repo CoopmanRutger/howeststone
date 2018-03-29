@@ -1,0 +1,23 @@
+main {
+  display: flex;
+}
+
+.addScrollbarHere {
+  flex: 1;
+  overflow: auto; /*dit werkt pas met een vastgezette hoogte*/
+  height: 800px;
+}
+
+
+.cards{
+  display: flex;
+  flex-wrap: wrap;
+  align-content: flex-start;
+  background-color: #ff0000;
+}
+
+.card {
+  width: 140px;
+  height: 205px;
+  background-size: 100% 100%;
+}

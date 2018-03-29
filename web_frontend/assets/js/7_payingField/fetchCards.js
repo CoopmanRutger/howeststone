@@ -23,7 +23,7 @@ function fetchCards() {
     });
 }
 
-function typesCards( typeCard) {
+function typesCards(typeCard) {
     for (let i = 0; i < typeCard.length; i++) {
         let card = {
             "cardId": typeCard[i].cardId,

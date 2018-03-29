@@ -52,6 +52,8 @@ function showCardField(card) {
 }
 
 function showCardHand(card) {
+    console.log(card);
+
     let startposition = 420;
     let spaceBetweenCards = 20;
 
@@ -64,8 +66,7 @@ function showCardHand(card) {
 
     element.className = "cardHand";
     element.style.backgroundImage = "url('" + card.img + "')";
-    element.style.top = 20 + "px";
-    element.style.left = (card.i * spaceBetweenCards + startposition) + 'px';
-    console.log(card);
+    // element.style.top = 20 + "px";
+    // element.style.left = (card.i * spaceBetweenCards + startposition) + 'px';
     document.querySelector("#cardsInHandPlayer").appendChild(element);
 }

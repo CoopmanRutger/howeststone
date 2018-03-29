@@ -10,18 +10,18 @@ function init(){
 
     hero(opponent);
     hero(player);
-    console.log(hero(player));
     cardsInHandOpponent(opponent.arrayCardsInHand);
 
     fetchCards();
     // fetchPromise komt uit 4_fetchCardsFunctions
     fetchPromise.then(function () {
+        console.log(player);
         injectCards(player.arrayCardsInHand);
     });
     // makeMovable shit
     document.addEventListener('mousemove', cardMousemove);
     document.addEventListener("mouseup", cardMouseup);
-
+    
 }
 
 function cardController(X, Y, original) {

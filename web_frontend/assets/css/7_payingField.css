@@ -1,5 +1,15 @@
 /* CSS for 7_Field */
 
+/* LOUIS SCHIT */
+
+.cardHand {
+  width: 100px;
+  height: 150px;
+  background-size: 100% 100%;
+}
+
+/* RUTGERS SHIT */
+
 .card {
     background-position: -40px -26px;
     background-repeat: no-repeat;
@@ -19,7 +29,6 @@
     border-radius: 0.5rem;
     padding-top: 9px;
     color: white;
-
 }
 
 .card .cardName h2 {
@@ -390,7 +399,7 @@
 
 #cardsInHandPlayer {
     position: absolute;
-    left: 350px;
+    left: 150px;
     top: 200px;
     /*background-color: red;*/
     width: 435px;

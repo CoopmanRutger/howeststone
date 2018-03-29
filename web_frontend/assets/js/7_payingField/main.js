@@ -12,12 +12,12 @@ function init(){
     hero(player);
     hero(opponent);
 
-    cardsInHandOpponent(arrayCardsInHandOpponent);
+    cardsInHandOpponent(opponent.arrayCardsInHand);
 
     fetchCards();
   // fetchPromise komt uit 4_fetchCardsFunctions
   fetchPromise.then(function () {
-    // TODO: injectCards
+      injectCards(opponent.arrayCardsInHand);
   });
   // makeMovable shit
   document.addEventListener('mousemove', cardMousemove);

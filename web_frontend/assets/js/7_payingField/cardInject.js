@@ -1,7 +1,7 @@
 "use strict";
 
 function injectCards(arrayOfCards) {
-    for (let i = 0; i < 3; i++) {
+    for (let i = 0; i < arrayOfCards.length; i++) {
         console.log(arrayOfCards[i]);
         showCardField(arrayOfCards[i])
     }
@@ -11,7 +11,7 @@ function showCardField(card) {
     //main card
     let startposition = 420;
     let spaceBetweenCards = 20;
-    let element = document.createElement("div");ù
+    let element = document.createElement("div");
     let meta = document.createElement('p');
 
     meta.style.display = "none";
@@ -26,7 +26,7 @@ function showCardField(card) {
 
 
     // name tag
-    name = document.createElement("div");
+    let name = document.createElement("div");
 
     name.className = "cardName";
     let title = document.createElement("h2");
@@ -36,7 +36,7 @@ function showCardField(card) {
     element.appendChild(name);
 
     // attack tag
-    attack = document.createElement("div");
+     let attack = document.createElement("div");
 
     attack.className = "cardAttack";
     attack.appendChild(document.createTextNode(card.attack));
@@ -44,7 +44,7 @@ function showCardField(card) {
     element.appendChild(attack);
 
     // health tag
-    health = document.createElement("div");
+     let health = document.createElement("div");
 
     health.className = "cardHealth";
     health.appendChild(document.createTextNode(card.health));

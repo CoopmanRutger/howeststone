@@ -1,5 +1,11 @@
 "use strict";
 
+let original;
+let moving;
+
+let diffX;
+let diffY;
+
 function cardMousedown(e) {
   e.preventDefault();
 
@@ -55,12 +61,6 @@ function makeMovable(elements, controller) {
     daarna zorgt de controller-functie dat het originele element op de juiste plaats wordt toegevoegd.
     als laatste actie wordt de state gereset (style enzo)
     */
-
-    let original;
-    let moving;
-
-    let diffX;
-    let diffY;
 
     for (let i = 0; i < elements.length; i++) {
         elements[i].addEventListener('mousedown', cardMousedown);

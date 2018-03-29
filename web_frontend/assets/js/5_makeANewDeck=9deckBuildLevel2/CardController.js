@@ -1,48 +1,57 @@
 "use strict";
 
-function cardController(X,Y, element) {
+function cardController(X,Y, element, original, origin) {
     console.log("controller");
 
-    let index;
     let cardJson;
+    let isInHand = false;
 
-    index = getIndex(element, "#specificCards .cards");
-    console.log("index is =",index);
-    let fullBasic = haveDouble(cards.Basic[index]);
-    // console.log("controller index1",index);
-    // console.log("controller haveDouble",fullBasic);
+    let indexBasic = getIndex(element, "#specificCards .cards");
+    let fullBasic = haveDouble(cards.Basic[indexBasic]);
 
-    if (index !== -1){
-        cardJson = cards.Basic[index]
+    let indexSpecific = getIndex(element, "#generalCards .cards");
+    let fullSpecific = haveDouble(cards.Specific[indexSpecific]);
+
+    // console.log("indexBasic", indexBasic);
+    // console.log("indexSpecific", indexSpecific);
+
+    if (indexBasic !== -1){
+        cardJson = cards.Basic[indexBasic]
+    } else if (fullSpecific !== -1){
+        cardJson = cards.Specific[indexSpecific]
     }
 
-    index = getIndex(element, "#generalCards .cards");
-    console.log("index is =",index);
-    let fullSpecific = haveDouble(cards.Basic[index]);
-    // console.log("controller index1",index);
-    // console.log("controller haveDouble",fullSpecific);
-
-    if (index !== -1){
-        cardJson = cards.Specific[index]
-    }
-
-    // console.log(cardJson);
-
-    if (!fullBasic||fullSpecific) {
-      if (X < document.querySelector("#generalCards").offsetLeft) {
-            document.querySelector("#cardsForDeck .cards").appendChild(element);
-            cardsInhand.push(cardJson);
-        } else if (Y < document.querySelector("#generalCards").offsetTop){
-            document.querySelector("#specificCards .cards").appendChild(element);
-        } else {
-            document.querySelector("#generalCards .cards").appendChild(element);
+    if (origin==="#cardsForDeck .cards") {
+        console.log("element came from hand");
+        original.remove();
+        cardsInhand.splice(cardsInhand.indexOf(cardJson), 1);
+    } else {
+        console.log("element came from choices");
+        switch (getPlace(X,Y)) {
+            case "#cardsForDeck .cards":
+                if (!fullBasic||fullSpecific) {
+                    element.addEventListener('mousedown', cardMousedown);
+                    document.querySelector("#cardsForDeck .cards").appendChild(element);
+                    cardsInhand.push(cardJson);
+                } else {
+                    element.remove();
+                }
+                break;
+            case "#specificCards .cards":
+                document.querySelector("#specificCards .cards").appendChild(element);
+                break;
+            case "#generalCards .cards":
+                document.querySelector("#specificCards .cards").appendChild(element);
+                break;
+            default:
+                console.log("weird case");
         }
     }
+    console.log(cardsInhand);
 }
 
 function getIndex(element, query) {
     console.log("getting index");
-    console.log();
     let array = document.querySelector(query).children;
     for (let i = 0; i < array.length; i++) {
         if (array[i].firstChild.innerHTML===element.firstChild.innerHTML) {
@@ -58,4 +67,14 @@ function haveDouble(card) {
   } else {
     return true;
   }
+}
+
+function getPlace(X, Y) {
+    if (X < document.querySelector("#generalCards").offsetLeft) {
+        return "#cardsForDeck .cards";
+    }else if (Y < document.querySelector("#generalCards").offsetTop) {
+        return "#specificCards .cards";
+    } else {
+        return "#generalCards .cards";
+    }
 }

@@ -4,12 +4,15 @@ console.log("We arived in the makeCardsMovable file!");
 
 let original;
 let moving;
+let origin;
 
 let diffX;
 let diffY;
 
 function cardMousedown(e) {
     e.preventDefault();
+
+    origin = getPlace(e.clientX, e.clientY);
 
     original = this; // this is de trigger van het event, in dit geval de kaart
 
@@ -29,7 +32,9 @@ function cardMousedown(e) {
     moving.style.left = (e.clientX - diffX) + "px";
     moving.style.top = (e.clientY - diffY) + "px";
 
-    // original.style.visibility = "hidden"; // optioneel, als je dit wil kan je de originele kaart verbergen tijdens het slepen, dan lijkt het alsof je hem mee pakt
+    if (origin === "#cardsForDeck .cards") {
+        original.style.visibility = "hidden"; // optioneel, als je dit wil kan je de originele kaart verbergen tijdens het slepen, dan lijkt het alsof je hem mee pakt
+    }
 
     document.querySelector("body").appendChild(moving);
 }
@@ -48,7 +53,7 @@ function cardMouseup(e) {
         // let card = moving.cloneNode(true);
         moving.style.position = "";
 
-        cardController(e.clientX, e.clientY, moving);
+        cardController(e.clientX, e.clientY, moving, original, origin);
 
         // original.remove();
     } catch (e) {}

@@ -20,9 +20,6 @@ function fetchCards() {
             return resp.json();
         }
     }).then(function (text) {
-
-        console.log(text.Basic);
-
         typesCards(text.Basic, "Basic");
         typesCards(text.Classic, "Specific");
     });

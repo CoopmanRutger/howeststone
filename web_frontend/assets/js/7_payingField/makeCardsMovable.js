@@ -14,7 +14,7 @@ function cardMousedown(e) {
 
     let rect = original.getBoundingClientRect();
 
-    diffX = e.clientX - rect.left;
+    diffX = e.clientX - rect.left - 40;
     diffY = e.clientY - rect.top;
 
     moving = original.cloneNode(true);

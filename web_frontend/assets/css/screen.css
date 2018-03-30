@@ -167,9 +167,6 @@ body > div {
     height: 60%;
 
 }
-main div:nth-child(2) {
-    background-color: red;
-}
 #threeChooseYourHero div {
     display: flex;
     justify-content: center;

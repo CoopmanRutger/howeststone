@@ -5,7 +5,7 @@ let fetchPromise;
 function fetchCards() {
 
 
-    let url = "https://omgvamp-hearthstone-v1.p.mashape.com/cards?attack=6";
+    let url = "https://omgvamp-hearthstone-v1.p.mashape.com/cards?attack=5";
 
     fetchPromise = fetch(url, {
         headers: new Headers({
@@ -23,7 +23,7 @@ function fetchCards() {
     });
 }
 
-function typesCards( typeCard) {
+function typesCards(typeCard) {
     for (let i = 0; i < typeCard.length; i++) {
         let card = {
             "cardId": typeCard[i].cardId,
@@ -33,7 +33,6 @@ function typesCards( typeCard) {
             "img": typeCard[i].img,
             "i": i + typeCard.length // TODO  "i": i 1ste keer
         };
-        if (player.type === "opponent") {
-        opponent.arrayCardsInHand.push(card);
+        player.arrayCardsInHand.push(card);
     }
-}}
+}

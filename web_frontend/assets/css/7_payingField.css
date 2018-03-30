@@ -1,0 +1,437 @@
+/* CSS for 7_Field */
+
+.cardHand {
+  width: 100px;
+  height: 150px;
+  background-size: 100% 100%;
+  position: relative;
+  /* left: -50px; */
+}
+
+#cardPreview .cardHand{
+    width: 200px;
+    height: 300px;
+}
+
+#cardPreview {
+    position: absolute;
+    top: 400px;
+    left: 110px;
+}
+
+.card {
+    background-position: -25px -22px;
+    background-repeat: no-repeat;
+    background-size: 177%;
+    height: 89px;
+    width: 66px;
+    border-radius: 50%;
+    margin-right: 20px;
+    margin-bottom: 50px;
+}
+
+.card .cardName {
+    position: absolute;
+    background-color: black;
+    width: 70px;
+    height: 28px;
+    top: 68px;
+    border-radius: 0.5rem;
+    padding-top: 9px;
+    color: white;
+}
+
+.card .cardName h2 {
+    line-height: 11px;
+    font-size: 0.8rem;
+    text-align: center;
+}
+
+.card .cardAttack  {
+    position: absolute;
+    background-color: green;
+    top: 58px;
+    border-radius: 50%;
+    width: 20px;
+    line-height: 20px;
+    text-align: center;
+    color: white;
+    font-weight: bold;
+    font-size: 1rem;
+}
+
+.card .cardHealth {
+    position: absolute;
+    background-color: red;
+    left: 48px;
+    top: 53px;
+    width: 20px;
+    line-height: 20px;
+    border-radius: 50%;
+    text-align: center;
+    color: white;
+    font-weight: bold;
+    font-size: 1.5rem;
+}
+
+/*-------------------------------------------------------------------------------------------------------------*/
+
+.bodyfield {
+    height: 100vh;
+    width: 100vw;
+    background-color: black;
+}
+
+#field {
+    position: relative;
+    background-repeat: no-repeat;
+    background-image: url("../../images/fieldBackground.png");
+    background-size: 100% 100%;
+    width: 1024px;
+    height: 768px;
+    display: flex;
+    margin: auto;
+}
+
+/*-----------------LEFTSIDE------------------------*/
+
+#leftSide {
+    /*background-color: hotpink;*/
+    width: 160px;
+
+}
+
+#logbook {
+    position: absolute ;
+    left: 116px;
+    top:250px;
+    /*background-color: black;*/
+    width: 33px;
+    height: 240px;
+    transform: rotate(1deg);
+
+}
+
+#logbook h1 {
+    color: red;
+    font-size: 0.9rem;
+    text-align: center;
+}
+
+/*-----------------MID------------------------------*/
+
+#mid {
+    position: absolute;
+    /*background-color: green;*/
+    left:165px;  /*165*/
+    height: 768px;
+    width: 650px;
+    display: flex;
+    flex-direction: column;
+
+}
+
+#opponent{
+    /*background-color: blue;*/
+    width: 650px;
+    height: 355px;
+}
+
+#cardsInHandOpponent {
+    position: absolute;
+    /*background-color: red;*/
+    left: 220px;
+    width: 260px;
+    height: 95px;
+    background-repeat: no-repeat;
+    display: flex;
+    flex-direction: row;
+    /* overflow: hidden; */
+}
+
+#cardsInHandOpponent div{
+    width: 80px;
+    background-repeat: no-repeat;
+    background-size: 90px;
+    background-position: 0 -40px;
+}
+
+#manaCrystalsOpponent{
+    position: absolute;
+    top: 95px;
+    left: 481px;
+    background-color: darkblue;
+    width: 45px;
+    height: 16px;
+    border-radius: 1rem;
+
+}
+
+#manaCrystalsNumberOpponent {
+    position: absolute;
+    left: 4px;
+    width: 10px;
+    color: white;
+    font-weight: bold;
+}
+
+#manaCrystalSliceOpponent {
+    position: absolute;
+    left: 22px;
+    width: 10px;
+    color: white;
+    font-size: larger;
+    font-weight: bold;
+}
+
+#manaCrystalsLimitsOpponent {
+    position: absolute;
+    left: 29px;
+    color: white;
+    font-weight: bold;
+}
+
+#heroOpponent {
+    background-color: green;
+    position: absolute;
+    display: flex;
+    flex-direction: row;
+}
+
+
+#heroWeaponOpponent {
+    position: absolute;
+    left: 205px;
+    top: 160px;
+}
+
+
+#heroWeaponAttackOpponent {
+    position: absolute;
+    left: 218px;
+    top: 214px;
+    color: white;
+    font-weight: bold;
+}
+
+#heroWeaponTurnsOpponent {
+    position: absolute;
+    left: 275px;
+    top: 214px;
+    color: white;
+    font-weight: bold;
+}
+
+#heroPictureOpponent {
+    position: absolute;
+    left: 293px;
+    top: 120px;
+    margin-bottom: 15px;
+}
+
+#heroShieldOpponent {
+    position: absolute;
+    left: 385px;
+    top: 175px;
+}
+
+#heroShieldNumberOpponent {
+    position: absolute;
+    left: 392px;
+    top: 182px;
+    color: white;
+    font-weight: bold;
+}
+
+#heroLifePointsOpponent {
+    position: absolute;
+    left: 390px;
+    top: 218px;
+    color: white;
+    font-weight: bold;
+}
+
+#heroPowerOpponent {
+    position: absolute;
+    left: 409px;
+    top: 150px;
+}
+
+#cardsOnFieldOpponent {
+    /*background-color: blue;*/
+    position: absolute;
+    height: 105px;
+    width: 650px;
+    top: 250px;
+    display: flex;
+    flex-wrap: nowrap;
+    flex-direction: row;
+}
+
+/*--------------------MIDDENLIJN------------------------*/
+
+#player {
+    position: absolute;
+    /*background-color: red;*/
+    top: 370px;
+    width: 650px;
+    height: 413px;
+}
+
+#cardsOnFieldPlayer {
+    /*background-color: red;*/
+    position: absolute;
+    height: 105px;
+    width: 650px;
+    display: flex;
+    flex-wrap: nowrap;
+    flex-direction: row;
+}
+
+#heroPlayer {
+    /*background-color: blue;*/
+    position: absolute;
+    display: flex;
+    flex-direction: row;
+}
+
+#heroWeaponPlayer {
+    position: absolute;
+    left: 205px;
+    top: 145px;
+}
+
+#heroWeaponAttackPlayer {
+    position: absolute;
+    left: 217px;
+    top: 200px;
+    color: white;
+    font-weight: bold;
+}
+
+#heroWeaponTurnsPlayer {
+    position: absolute;
+    left: 275px;
+    top: 200px;
+    color: white;
+    font-weight: bold;
+}
+
+#heroPicturePlayer {
+    position: absolute;
+    left: 290px;
+    top: 122px;
+    width: 140px;
+    height: 145px;
+}
+
+#heroShieldPlayer {
+    position: absolute;
+    left: 382px;
+    top: 175px;
+}
+
+#heroShieldNumberPlayer {
+    position: absolute;
+    left: 388px;
+    top: 182px;
+    color: white;
+    font-weight: bold;
+}
+
+#heroLifePointsPlayer {
+    position: absolute;
+    left: 386px;
+    top: 219px;
+    color: white;
+    font-weight: bold;
+}
+
+#heroPowerPlayer {
+    position: absolute;
+    left: 410px;
+    top: 130px;
+}
+
+#manaCrystalsPlayer{
+    position: absolute;
+    left: 506px;
+    top: 276px;
+    background-color: darkblue;
+    width: 45px;
+    height: 16px;
+    border-radius: 1rem;
+}
+
+#manaCrystalsNumberPlayer {
+    position: absolute;
+    left: 4px;
+    color: white;
+    font-weight: bold;
+}
+
+#manaCrystalSlicePlayer {
+    position: absolute;
+    left: 22px;
+    color: white;
+    font-size: larger;
+    font-weight: bold;
+}
+
+#manaCrystalsLimitsPlayer {
+    position: absolute;
+    left: 29px;
+    color: white;
+    font-weight: bold;
+}
+
+#manaCrystalSymbolPlayer {
+    /*background-color: green;*/
+    position: absolute;
+    width: 250px;
+    left: 568px;
+    top: 277px;
+}
+
+#cardsInHandPlayer {
+    position: absolute;
+    left: 150px;
+    top: 200px;
+    /*background-color: red;*/
+    width: 435px;
+    height: 124px;
+    display: flex;
+    flex-direction: row;
+}
+
+/*-----------------RIGHTSIDE------------------------*/
+
+#rightSide {
+    position: absolute;
+    /*background-color: yellow;*/
+    left: 815px;
+    height: 768px;
+    width: 215px;
+}
+
+#endTurn {
+    position: absolute;
+    left: 3px;
+    top: 333px;
+}
+
+.concede {
+    position: absolute;
+    left: 130px;
+    top: 680px;
+    width: 70px;
+    height: 25px;
+}
+
+.settings {
+    position: absolute;
+    left: 130px;
+    top: 710px;
+    width: 70px;
+    height: 25px;
+}

@@ -1,13 +1,16 @@
 "use strict";
 
 function injectCards(arrayOfCards) {
-    for (let i = 0; i < arrayOfCards.length; i++) {
-        console.log(arrayOfCards[i]);
-        showCardField(arrayOfCards[i])
+    for (let i = 0; i < 3; i++) {
+        showCardHand(arrayOfCards[i])
     }
 }
 
-function showCardField(card) {
+function showCardField(card, side) {
+
+    if (side = "#cardsOnFieldPlayer") {
+        
+    }
     //main card
     let startposition = 420;
     let spaceBetweenCards = 20;
@@ -22,7 +25,7 @@ function showCardField(card) {
     element.style.backgroundImage = "url('" + card.img + "')";
     element.style.top = 20 + "px";
     element.style.left = (card.i * spaceBetweenCards + startposition) + 'px';
-    document.querySelector(".cardsInHand").appendChild(element);
+    document.querySelector(side).appendChild(element);
 
 
     // name tag
@@ -30,7 +33,7 @@ function showCardField(card) {
 
     name.className = "cardName";
     let title = document.createElement("h2");
-    lol.appendChild(document.createTextNode(card.name));
+    title.appendChild(document.createTextNode(card.name));
     name.appendChild(title);
 
     element.appendChild(name);
@@ -63,10 +66,9 @@ function showCardHand(card) {
     meta.appendChild(document.createTextNode(card.cardId));
     element.appendChild(meta);
 
-    element.className = "card";
+    element.className = "cardHand";
     element.style.backgroundImage = "url('" + card.img + "')";
-    element.style.top = 20 + "px";
-    element.style.left = (card.i * spaceBetweenCards + startposition) + 'px';
-
-    document.querySelector(".cardsInHand").appendChild(element);
+    // element.style.top = 20 + "px";
+    // element.style.left = (card.i * spaceBetweenCards + startposition) + 'px';
+    document.querySelector("#cardsInHandPlayer").appendChild(element);
 }

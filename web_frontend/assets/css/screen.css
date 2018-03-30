@@ -22,19 +22,6 @@ body > div {
     background-image: url('../media/crossPageBackgroundFinal.png');
 }
 
-.return:hover {
-    border: 2px;
-    border-style: solid;
-    border-color: chartreuse;
-}
-
-.return {
-    color: crimson;
-}
-
-
-
-
 /* CSS for 1_deckbuildOrPlay */
 
 #oneDeckBuild {
@@ -99,69 +86,6 @@ body > div {
     background-position: 50% 40%;
 }
 
-/* CSS for 2_chooseYourHero */
-
-#twoChoosingTheHero {
-    display: flex;
-    justify-content: center;
-}
-
-#twoChoosingTheHero article {
-    flex-direction: column;
-    width: 510px;
-    height: 650px;
-    background-image: url('../media/kaderUpgradeChooseYrHero.png');
-    background-size: 460px;
-    background-repeat: no-repeat;
-    background-color: rebeccapurple;
-}
-
-#twoChoosingTheHero article div h2 {
-    font-size: 1.2rem;
-}
-
-/* eerste kader */
-
-#twoChoosingTheHero article:first-child {
-    margin-right: 100px;
-}
-
-#twoChoosingTheHero article:first-child div {
-    position: relative;
-    background-image: url('../media/JainaChooseYrHero.jpg');
-    background-repeat: no-repeat;
-    background-size: 220px;
-    background-position: 110px 30px;
-    /*background-color: red;*/
-    height: 550px;
-
-}
-
-/* tweede kader */
-
-#twoChoosingTheHero article:nth-child(2) div {
-    background-image: url('../media/AnduinChooseYrHero.jpg');
-    /*border: 5px #1afff7;*/
-    background-repeat: no-repeat;
-    background-size: 210px;
-    background-position: 120px 30px;
-    -moz-box-shadow: 5px 5px lightskyblue;
-    /*background-color: blue;*/
-}
-
-#twoChoosingTheHero article div h2 {
-    /*size: 1rem;*/
-    text-align: center;
-    margin-top: 60px;
-}
-
-#twoChoosingTheHero article p {
-    padding-left: 70px;
-    padding-right: 70px;
-    margin-top: 350px;
-    font-size: 0.8rem;
-
-}
 
 
 
@@ -728,5 +652,3 @@ body > div {
 }
 
 /* CSS for 9_deckbuildLevelTwo */
-
-

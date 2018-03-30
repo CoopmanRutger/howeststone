@@ -8,8 +8,10 @@ function init(){
   fetchPromise.then(function () {
       injectCards(cards.Basic, "#generalCards .cards");
       injectCards(cards.Specific, "#specificCards .cards");
-      makeMovable(document.querySelectorAll(".card"));
+      makeMovable(document.querySelectorAll(".cardHand"));
       document.addEventListener('mousemove', cardMousemove);
       document.addEventListener("mouseup", cardMouseup);
   });
 }
+
+

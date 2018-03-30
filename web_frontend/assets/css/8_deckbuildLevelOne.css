@@ -12,15 +12,22 @@ body{
     margin: 0 auto 0 auto;
 }
 header{
-    left: 10px;
+   padding-top: 50px;
+    size: auto;
+}
+.heroes{
+    height: 200px;
+    width: auto;
 }
 .hero{
-    margin: auto 0 auto 0;
     background-color: brown;
 }
 main section ul li {
     display: flex;
     flex-direction: column;
+}
+main section ul{
+    flex-direction: row;
 }
 .deckbuilderLvl1{
     background-color: blue;

@@ -156,29 +156,6 @@ header h1 {
 
 /* CSS for 5_makeANewDeck=9deckBuildLevel2 */
 
-/* CSS for 5.1_versusScreen */
-#vsBackground{
-    background-image: url("../../images/loginScreen_HDResolution.png");
-    display: flex;
-    background-repeat: no-repeat;
-    background-size: 1024px 768px;
-    background-position: center;
-    height: 768px;
-    width: 1024px;
-}
-    .player{
-    height: 33%;
-    width: 1024px;
-    position: relative;
-    }
-#versus{
-    /*content: url("../../images/vs.png");*/
-    background-image: url("../../images/vs.png");
-    background-repeat: no-repeat;
-    background-position: center;
-    height: 33%;
-    width: 1024px;
-}
 /* CSS for 6_gameStartingHand */
 
 /* CSS for 7_Field */

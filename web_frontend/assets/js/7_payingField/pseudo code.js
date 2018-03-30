@@ -31,5 +31,12 @@
 //
 // if player turn starts manacharge = manalimit
 //
-//
-//
+//if player has 10 cards in hand, player he cant any more cards
+
+//if player turns begin he get a card from his deck, if the deck  has > 0 cards
+
+//the 3 card that the player get a starting hand, he gets in his hand
+
+//if player has the first move, he gets a 4th card from hes deck
+
+//if player is second has get a 0 mana card for one extra mana and a 4th card from hes deck

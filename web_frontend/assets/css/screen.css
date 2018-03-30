@@ -1,5 +1,8 @@
 /* cross page css */
-
+body{
+    height: 100vh;
+    width: 100vw;
+}
 header h1 {
     text-align: center;
     margin-right: auto;
@@ -29,7 +32,8 @@ body > div {
     color: crimson;
 }
 
-/* CSS for 0_welcomeScreen */
+
+
 
 /* CSS for 1_deckbuildOrPlay */
 
@@ -159,6 +163,8 @@ body > div {
 
 }
 
+
+
 /* CSS for 3_chooseDeckForHero */
 
 #threeChooseYourHero {
@@ -277,8 +283,6 @@ body > div {
 /* CSS for 5_makeANewDeck=9deckBuildLevel2 */
 
 
-
-
 /* CSS for 6_gameStartingHand */
 
 #sixMakeANewDeck {
@@ -319,7 +323,6 @@ body > div {
 }
 
 /* CSS for 7_Field */
-
 .card {
     background-position: -40px -26px;
     background-repeat: no-repeat;
@@ -330,7 +333,6 @@ body > div {
     margin-right: 20px;
     margin-bottom: 50px;
 }
-
 .card .cardName {
     position: relative;
     background-color: black;
@@ -339,14 +341,11 @@ body > div {
     border-radius: 0.5rem;
     padding-top: 9px;
     color: white;
-
 }
-
 .card .cardName h2 {
     line-height: 11px;
     font-size: 0.8rem;
     text-align: center;
-
 }
 
 .card .cardAttack {
@@ -361,7 +360,6 @@ body > div {
     font-weight: bold;
     font-size: 1.5rem;
 }
-
 .card .cardHealth {
     position: relative;
     background-color: red;
@@ -375,6 +373,10 @@ body > div {
     font-weight: bold;
     font-size: 1.5rem;
 
+
+
+
+
 }
 
 /*-------------------------------------------------------------------------------------------------------------*/
@@ -383,7 +385,6 @@ body > div {
     height: 100vh;
     width: 100vw;
 }
-
 .field {
     background-repeat: no-repeat;
     background-image: url("../../images/fieldBackground4.jpg");
@@ -392,15 +393,10 @@ body > div {
     height: 100%;
     display: flex;
 }
-
 /*-----------------LEFTSIDE------------------------*/
-
 .field .leftSide {
-    /*background-color: hotpink;*/
     width: 255px;
-
 }
-
 .field .leftSide .logbook {
     position: absolute;
     left: 173px;
@@ -409,27 +405,20 @@ body > div {
     width: 50px;
     height: 330px;
     transform: rotate(1deg);
-
 }
-
 .field .logbook h1 {
     color: red;
     text-align: center;
 }
 
 /*-----------------MID------------------------------*/
-
 .field .mid {
-    /*background-color: blue;*/
     width: 1000px;
     display: flex;
     flex-direction: column;
-
 }
-
 .field .mid .cardsInHandOpponent {
     position: absolute;
-    /*background-color: red;*/
     left: 580px;
     width: 370px;
     height: 70px;
@@ -453,9 +442,7 @@ body > div {
     width: 69px;
     height: 25px;
     border-radius: 1rem;
-
 }
-
 .field .mid .manaCrystalsOpponent .manaCrystalsNumberOpponent {
     position: absolute;
     left: 10px;
@@ -464,7 +451,6 @@ body > div {
     font-size: larger;
     font-weight: bold;
 }
-
 .field .mid .manaCrystalsOpponent .manaCrystalSliceOpponent {
     position: absolute;
     left: 31px;
@@ -473,7 +459,6 @@ body > div {
     font-size: larger;
     font-weight: bold;
 }
-
 .field .mid .manaCrystalsLimitsOpponent {
     position: absolute;
     left: 40px;
@@ -482,7 +467,6 @@ body > div {
     font-size: larger;
     font-weight: bold;
 }
-
 .field .mid .heroOpponent {
     display: flex;
     flex-direction: row;

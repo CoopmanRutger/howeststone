@@ -1,0 +1,40 @@
+/* CSS for 6_gameStartingHand */
+.bodyfield{
+    padding-top: 1px;
+    background-repeat: no-repeat;
+    background-image: url("../../images/FieldBackground4.jpg");
+    background-size: 1024px 768px;
+    width: 1024px;
+    height: 768px;
+    background-position: center;
+    justify-content: center;
+    margin: 0 auto 0 auto;
+}
+img{
+    margin: 30px auto 0 auto;
+}
+body > div{
+    display: flex;
+    flex-direction: column;
+}
+.bodyfield > div {
+    display: flex;
+    flex-direction: row;
+    margin: auto;
+}
+.yourStartingHand{
+
+    margin: 30px;
+    background-image: url("../../images/blueCard.png");
+    background-repeat: no-repeat;
+    width: 200px;
+    height: 300px;
+}
+p{
+    visibility: hidden;
+}
+button {
+    width: 150px;
+    margin: 0 auto 200px auto;
+
+}

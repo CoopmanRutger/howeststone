@@ -4,11 +4,17 @@
   width: 100px;
   height: 150px;
   background-size: 100% 100%;
-  position: relative;
+  margin-left: -50px;
   /* left: -50px; */
 }
 
-#cardPreview .cardHand{
+.cardPreview {
+  width: 100px;
+  height: 150px;
+  background-size: 100% 100%;
+}
+
+#cardPreview .cardPreview{
     width: 200px;
     height: 300px;
 }
@@ -285,7 +291,7 @@
     width: 650px;
     display: flex;
     flex-wrap: nowrap;
-    flex-direction: row;
+    justify-content: center;
 }
 
 #heroPlayer {
@@ -401,7 +407,7 @@
     width: 435px;
     height: 124px;
     display: flex;
-    flex-direction: row;
+    justify-content: center;
 }
 
 /*-----------------RIGHTSIDE------------------------*/

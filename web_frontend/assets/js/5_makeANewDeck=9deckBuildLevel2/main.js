@@ -13,5 +13,5 @@ function init(){
       document.addEventListener("mouseup", cardMouseup);
   });
 }
-
+/*fixme: click on scrollbar, card dissapears */
 

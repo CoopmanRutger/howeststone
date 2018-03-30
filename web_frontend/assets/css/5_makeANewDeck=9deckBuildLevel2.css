@@ -44,7 +44,6 @@ h2 {
     color: rebeccapurple;
     border-radius: 10px;
     border: 2px solid black;
-    background-color: red;
 }
 .inputDescription {
     color: black;
@@ -72,17 +71,27 @@ main {
     flex-direction: row;
 }
 
-main article:first-child {
-    background-image: url('../media/kaderUpgradeChooseYrHero.png');
+main > article:first-child {
+    /*background-image: url('../media/papyrusForDeckbuilder.png');*/
+    border-radius: 5px 5px 5px 5px;
     background-repeat: no-repeat;
-    background-size: 90% 120%;
+    background-size: 92% 120%;
+    background-color: sandybrown;
 
 }
 
 
-main article:nth-child(2) {
+main > article:nth-child(2) {
     display: flex;
     flex-direction: column;
+    background-color: red;
+}
+
+#specificCards {
+    background-color: green;
+}
+#generalCards {
+    background-color: rebeccapurple;
 }
 
 footer {

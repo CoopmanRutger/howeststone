@@ -1,0 +1,38 @@
+/* CSS for 8_deckbuildLevelOne */
+
+body{
+    padding-top: 1px;
+    background-repeat: no-repeat;
+    background-image: url("../../images/crossPageBackground.png");
+    background-size: 1024px 768px;
+    width: 1024px;
+    height: 768px;
+    background-position: center;
+    justify-content: center;
+    margin: 0 auto 0 auto;
+}
+header{
+    left: 10px;
+}
+.hero{
+    margin: auto 0 auto 0;
+    background-color: brown;
+}
+main section ul li {
+    display: flex;
+    flex-direction: column;
+}
+.deckbuilderLvl1{
+    background-color: blue;
+}
+.inhand {
+    overflow: auto;
+    flex-direction: row;
+    background-color: yellow;
+}
+
+.choices {
+    overflow: auto;
+    flex-direction: row;
+    background-color: chartreuse;
+}

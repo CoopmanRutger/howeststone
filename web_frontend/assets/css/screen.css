@@ -551,22 +551,4 @@ header h1 {
 }
 
 
-/* CSS for 8_deckbuildLevelOne */
-
-#eightDeckBuildLevelOne {
-    display: flex;
-}
-
-.inhand {
-    overflow: auto;
-    flex-direction: row;
-}
-
-.choices {
-    overflow: auto;
-    flex-direction: row;
-}
-
-/* CSS for 9_deckbuildLevelTwo */
-
 

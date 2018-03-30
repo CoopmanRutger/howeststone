@@ -1,5 +1,5 @@
 /* CSS for 6_gameStartingHand */
-.bodyfield{
+main{
     padding-top: 1px;
     background-repeat: no-repeat;
     background-image: url("../../images/FieldBackground4.jpg");
@@ -13,11 +13,11 @@
 img{
     margin: 30px auto 0 auto;
 }
-body > div{
+body > main{
     display: flex;
     flex-direction: column;
 }
-.bodyfield > div {
+main > div {
     display: flex;
     flex-direction: row;
     margin: auto;

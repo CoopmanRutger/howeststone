@@ -1,0 +1,120 @@
+/* PLAYER */
+
+#player {
+    position: absolute;
+    top: 370px;
+    width: 650px;
+    height: 413px;
+}
+
+#cardsOnFieldPlayer {
+}
+
+#heroPlayer {
+}
+
+#heroWeaponPlayer {
+    position: absolute;
+    left: 205px;
+    top: 145px;
+}
+
+#heroWeaponAttackPlayer {
+    position: absolute;
+    left: 217px;
+    top: 200px;
+    color: white;
+    font-weight: bold;
+}
+
+#heroWeaponTurnsPlayer {
+    position: absolute;
+    left: 275px;
+    top: 200px;
+    color: white;
+    font-weight: bold;
+}
+
+#heroPicturePlayer {
+    position: absolute;
+    left: 290px;
+    top: 122px;
+    width: 140px;
+    height: 145px;
+}
+
+#heroShieldOpponent {
+}
+
+#heroShieldNumberPlayer {
+    position: absolute;
+    left: 388px;
+    top: 182px;
+    color: white;
+    font-weight: bold;
+}
+
+#heroLifePointsPlayer {
+    position: absolute;
+    left: 386px;
+    top: 219px;
+    color: white;
+    font-weight: bold;
+}
+
+#heroPowerPlayer {
+    position: absolute;
+    left: 410px;
+    top: 130px;
+}
+
+#manaCrystalsPlayer{
+    position: absolute;
+    left: 506px;
+    top: 276px;
+    background-color: darkblue;
+    width: 45px;
+    height: 16px;
+    border-radius: 1rem;
+}
+
+#manaCrystalsNumberPlayer {
+    position: absolute;
+    left: 4px;
+    color: white;
+    font-weight: bold;
+}
+
+#manaCrystalSlicePlayer {
+    position: absolute;
+    left: 22px;
+    color: white;
+    font-size: larger;
+    font-weight: bold;
+}
+
+#manaCrystalsLimitsPlayer {
+    position: absolute;
+    left: 29px;
+    color: white;
+    font-weight: bold;
+}
+
+#manaCrystalSymbolPlayer {
+    /*background-color: green;*/
+    position: absolute;
+    width: 250px;
+    left: 568px;
+    top: 277px;
+}
+
+#cardsInHandPlayer {
+    position: absolute;
+    left: 60px;
+    top: 240px;
+    /*background-color: red;*/
+    width: 435px;
+    height: 124px;
+    display: flex;
+    justify-content: center;
+}

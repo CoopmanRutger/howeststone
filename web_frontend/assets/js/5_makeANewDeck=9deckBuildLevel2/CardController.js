@@ -30,7 +30,7 @@ function cardController(X,Y, element, original, origin) {
         console.log("element came from choices");
         switch (getPlace(X,Y)) {
             case "#cardsForDeck .cards":
-                if (fullBasic||fullSpecific) {
+                if (fullBasic||fullSpecific||cardsInhand.length>=30) {
                     element.remove();
                 } else {
                     element.addEventListener('mousedown', cardMousedown);

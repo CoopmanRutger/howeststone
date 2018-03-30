@@ -16,10 +16,10 @@ function cardMousedown(e) {
 
     original = this; // this is de trigger van het event, in dit geval de kaart
 
-    // e.clientX of Y is het coödrinaat van de plaats waar het event plaats nam
-    // original.ofset is de afstand van het geklikte element tot de rand ( boven en links)
-    diffX = e.clientX - original.offsetLeft;
-    diffY = e.clientY - original.offsetTop;
+    let rect = original.getBoundingClientRect();
+
+    diffX = e.clientX - rect.left;
+    diffY = e.clientY - rect.top;
 
     // console.log("diffX", diffX, "diffY", diffY);
     // console.log("diffX", diffX, "diffY", diffY);

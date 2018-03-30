@@ -39,10 +39,8 @@ function cardController(X,Y, element, original, origin) {
                 }
                 break;
             case "#specificCards .cards":
-                document.querySelector("#specificCards .cards").appendChild(element);
-                break;
             case "#generalCards .cards":
-                document.querySelector("#specificCards .cards").appendChild(element);
+                element.remove();
                 break;
             default:
                 console.log("weird case");

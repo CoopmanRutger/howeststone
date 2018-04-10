@@ -9,7 +9,7 @@ function injectCards(arrayOfCards) {
 function showCardField(card, side) {
 
     if (side = "#cardsOnFieldPlayer") {
-        
+
     }
     //main card
     let startposition = 420;
@@ -56,6 +56,7 @@ function showCardField(card, side) {
 }
 
 function showCardHand(card) {
+	console.log(card);
     let startposition = 420;
     let spaceBetweenCards = 20;
 

@@ -6,8 +6,6 @@ let cardsInhand = [];
 let fetchPromise;
 
 function fetchCards() {
-
-
     let url = "https://omgvamp-hearthstone-v1.p.mashape.com/cards?attack=5";
 
     fetchPromise = fetch(url, {
@@ -28,7 +26,8 @@ function fetchCards() {
     });
 }
 
-function typesCards(typeCard) {
+function typesCards(typeCard, type) {
+	let card;
     for (let i = 0; i < typeCard.length; i++) {
         card = {
             "cardId": typeCard[i].cardId,
@@ -41,7 +40,7 @@ function typesCards(typeCard) {
 
         if (type === "Basic"){
             cards.Basic.push(card)
-        } else (type === "Specific"){
+        } else if (type === "Specific"){
             cards.Specific.push(card)
         }
     }

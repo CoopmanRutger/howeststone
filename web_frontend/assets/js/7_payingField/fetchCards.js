@@ -18,9 +18,6 @@ function fetchCards() {
             return resp.json();
         }
     }).then(function (text) {
-
-        console.log(text.Basic);
-
         typesCards(text.Basic, "Basic");
         typesCards(text.Classic, "Specific");
     });
@@ -35,7 +32,7 @@ function typesCards(typeCard, type) {
             "health": typeCard[i].health,
             "name": typeCard[i].name,
             "img": typeCard[i].img,
-            "i": i + typeCard.length // TODO  "i": i 1ste keer
+            "i": i + typeCard.length
         };
 
         if (type === "Basic"){

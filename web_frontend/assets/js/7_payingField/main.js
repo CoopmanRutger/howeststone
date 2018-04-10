@@ -15,7 +15,7 @@ function init(){
     fetchCards();
     // fetchPromise komt uit 4_fetchCardsFunctions
     fetchPromise.then(function () {
-			console.log(player);
+			console.log(player.arrayCardsInHand);
         injectCards(player.arrayCardsInHand);
 
         let elements = document.querySelectorAll(".cardHand")

@@ -24,7 +24,7 @@ function fetchCards() {
 }
 
 function typesCards(typeCard, type) {
-	let card;
+		let card;
     for (let i = 0; i < typeCard.length; i++) {
         card = {
             "cardId": typeCard[i].cardId,
@@ -34,6 +34,8 @@ function typesCards(typeCard, type) {
             "img": typeCard[i].img,
             "i": i + typeCard.length
         };
+
+				player.arrayCardsInHand.push(card)
 
         if (type === "Basic"){
             cards.Basic.push(card)

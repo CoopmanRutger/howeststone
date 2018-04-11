@@ -1,7 +1,7 @@
 "use strict";
 
 function injectCards(arrayOfCards) {
-    for (let i = 0; i < 10; i++) {
+    for (let i = 0; i < 3; i++) {
         showCardHand(arrayOfCards[i])
     }
 }
@@ -56,6 +56,7 @@ function showCardField(card, side) {
 }
 
 function showCardHand(card) {
+	console.log(card);
     let startposition = 420;
     let spaceBetweenCards = 20;
 

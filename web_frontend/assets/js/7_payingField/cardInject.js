@@ -1,12 +1,16 @@
 "use strict";
 
 function injectCards(arrayOfCards) {
-    for (let i = 0; i < 3; i++) { //arrayOfCards.length
+    for (let i = 0; i < 10; i++) {
         showCardHand(arrayOfCards[i])
     }
 }
 
-function showCardField(card) {
+function showCardField(card, side) {
+
+    if (side = "#cardsOnFieldPlayer") {
+
+    }
     //main card
     let startposition = 420;
     let spaceBetweenCards = 20;
@@ -21,7 +25,7 @@ function showCardField(card) {
     element.style.backgroundImage = "url('" + card.img + "')";
     element.style.top = 20 + "px";
     element.style.left = (card.i * spaceBetweenCards + startposition) + 'px';
-    document.querySelector("#cardsInHandPlayer").appendChild(element);
+    document.querySelector(side).appendChild(element);
 
 
     // name tag
@@ -62,10 +66,9 @@ function showCardHand(card) {
     meta.appendChild(document.createTextNode(card.cardId));
     element.appendChild(meta);
 
-    element.className = "card";
+    element.className = "cardHand";
     element.style.backgroundImage = "url('" + card.img + "')";
-    element.style.top = 20 + "px";
-    element.style.left = (card.i * spaceBetweenCards + startposition) + 'px';
-    console.log(card);
+    // element.style.top = 20 + "px";
+    // element.style.left = (card.i * spaceBetweenCards + startposition) + 'px';
     document.querySelector("#cardsInHandPlayer").appendChild(element);
 }

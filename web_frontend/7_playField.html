@@ -3,9 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <link rel="stylesheet" href="assets/css/reset.css">
-    <link rel="stylesheet" href="assets/css/screen.css">
+    <link rel="stylesheet" href="assets/css/7_payingField/cards.css">
+    <link rel="stylesheet" href="assets/css/7_payingField/FieldLeftRightMid.css">
+    <link rel="stylesheet" href="assets/css/7_payingField/shared.css">
+    <link rel="stylesheet" href="assets/css/7_payingField/opponent.css">
+    <link rel="stylesheet" href="assets/css/7_payingField/player.css">
     <title>testen</title>
-
 </head>
 <body class="bodyfield">
 <main id="field">
@@ -62,28 +65,31 @@
         </div>
 
     </div>
-        <div id="rightSide">
-            <div id="manaCrystalOpponent"></div>
+    <div id="rightSide">
+        <div id="manaCrystalOpponent"></div>
 
-            <div id="decks">
-                <div id="deckOpponent"></div>
-                <div id="endTurn"></div>
-                <div id="deck"></div>
-            </div>
-            <button class="concede">concede</button>
-            <button class="settings">settings</button>
-
+        <div id="decks">
+            <div id="deckOpponent"></div>
+            <div id="endTurn"></div>
+            <div id="deck"></div>
         </div>
+        <button class="concede">concede</button>
+        <button class="settings">settings</button>
 
+    </div>
+
+    <div id="cardPreview">
+    </div>
 
 
 </main>
-<script src="assets/js/7_payingField/main.js"></script>
 <script src="assets/js/7_payingField/initializingPlayers.js"></script>
 <script src="assets/js/7_payingField/initializingPlayingfield.js"></script>
 <script src="assets/js/7_payingField/fetchCards.js"></script>
 <script src="assets/js/7_payingField/cardInject.js"></script>
+<script src="assets/js/7_payingField/onHover.js"></script>
+<script src="assets/js/7_payingField/cardController.js"></script>
 <script src="assets/js/7_payingField/makeCardsMovable.js"></script>
-
+<script src="assets/js/7_payingField/main.js"></script>
 </body>
 </html>

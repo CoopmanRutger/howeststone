@@ -1,0 +1,56 @@
+/* CSS for 2_chooseYourHero */
+
+#twoChoosingTheHero {
+    display: flex;
+    justify-content: space-around;
+}
+
+#twoChoosingTheHero article {
+    /* flex-direction: column; */
+    width: 300px;
+    height: 420px;
+    padding: 80px;
+    background-image: url('../media/kaderUpgradeChooseYrHero.png');
+    background-size: 100%;
+    background-repeat: no-repeat;
+}
+
+#twoChoosingTheHero article div h2 {
+    font-size: 1.2rem;
+}
+
+/* eerste kader */
+
+#twoChoosingTheHero .picture {
+    position: absolute;
+    background-image: url('../media/JainaChooseYrHero.jpg');
+    background-repeat: no-repeat;
+    width: 200px;
+    height: 200px;
+    background-size: 100%;
+    background-position: -30px 30px;
+}
+
+/* tweede kader */
+
+/* #twoChoosingTheHero article:nth-child(2) div {
+    background-image: url('../media/AnduinChooseYrHero.jpg');
+    background-repeat: no-repeat;
+    background-size: 210px;
+    background-position: 120px 30px;
+    -moz-box-shadow: 5px 5px lightskyblue;
+} */
+
+/* #twoChoosingTheHero article div h2 {
+    size: 1rem;
+    text-align: center;
+    margin-top: 60px;
+} */
+
+/* #twoChoosingTheHero article p {
+    padding-left: 70px;
+    padding-right: 70px;
+    margin-top: 350px;
+    font-size: 0.8rem;
+
+} */

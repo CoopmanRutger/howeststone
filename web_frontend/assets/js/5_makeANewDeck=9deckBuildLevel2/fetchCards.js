@@ -6,9 +6,9 @@ let cardsInhand = [];
 let fetchPromise;
 
 function fetchCards() {
+    console.log('fetchCards');
 
-
-    let url = "https://omgvamp-hearthstone-v1.p.mashape.com/cards?attack=5";
+    let url = "https://omgvamp-hearthstone-v1.p.mashape.com/cards?attack=6";
 
     fetchPromise = fetch(url, {
         headers: new Headers({
@@ -20,29 +20,27 @@ function fetchCards() {
             return resp.json();
         }
     }).then(function (text) {
-
-        console.log(text.Basic);
-
         typesCards(text.Basic, "Basic");
         typesCards(text.Classic, "Specific");
     });
 }
 
-function typesCards(typeCard) {
-    for (let i = 0; i < typeCard.length; i++) {
-        card = {
-            "cardId": typeCard[i].cardId,
-            "attack": typeCard[i].attack,
-            "health": typeCard[i].health,
-            "name": typeCard[i].name,
-            "img": typeCard[i].img,
-            "i": i + typeCard.length // TODO  "i": i 1ste keer
+function typesCards(card, type) {
+    let cardJson;
+    for (let i = 0; i < card.length; i++) {
+        cardJson = {
+            "cardId": card[i].cardId,
+            "attack": card[i].attack,
+            "health": card[i].health,
+            "name": card[i].name,
+            "img": card[i].img,
+            "i": i // + typeCard.length // TODO  "i": i 1ste keer
         };
 
         if (type === "Basic"){
-            cards.Basic.push(card)
-        } else (type === "Specific"){
-            cards.Specific.push(card)
+            cards.Basic.push(cardJson)
+        } else if (type === "Specific") {
+            cards.Specific.push(cardJson)
         }
     }
 }

@@ -14,16 +14,17 @@ main > div > section {
     flex-direction: column;
     width: 400px;
     height: 500px;
-    background-image: url('../media/kaderUpgradeChooseYrHero.png');
+    background-image: url('../media/kaderChooseYrOpponent.png');
     background-size: 400px;
     background-repeat: no-repeat;
 }
 
 
 main > div  section h2 {
+    color: white;
     position: absolute;
-    top: 230px;
-    margin-left: 150px;
+    top: 220px;
+    margin-left: 160px;
     font-size: 1.5rem;
     text-align: center;
 }
@@ -40,6 +41,7 @@ main > div div  {
     background-position: 0px;
     height: 250px;
     width: 250px;
+    border-radius: 5px;
 }
 
 main > div section:first-child div {
@@ -52,7 +54,10 @@ main > div section:nth-child(2) div {
 
 
 main > div section p {
-    /* background-color: red; */
+    padding: 7px;
+    color: black ;
+    background-color: rgba(255, 255, 255, 0.59);
+    border-radius: 5px;
     margin: 5px 80px 0 70px;
 }
 

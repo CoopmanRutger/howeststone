@@ -1,89 +1,64 @@
-/* CSS for 1_deckbuildOrPlay */
-#oneDeckBuild {
+
+main {
+    background-image: url("../../images/crossPageBackground.png");
+    background-repeat: no-repeat;
+    width: 1024px;
+    height: 768px;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    margin: auto;
+}
+
+main > div {
+    display: flex;
+    flex-direction: row;
+}
+
+#deckBuild, #Play{
     display: flex;
     width: auto;
     height: auto;
     flex-wrap: nowrap;
-    color: blue;
     margin-left: auto;
     margin-right: auto;
-}
-
-.deckBuild {
-    /*display: flex;*/
-    flex-direction: column;
-    background-color: green;
-    width: 400px;
-    height: 600px;
-}
-
-.Play {
-    /*display: flex;*/
-    flex-direction: column;
-    background-color: orange;
-    width: 400px;
-    height: 600px;
-}
-
-
-#oneDeckBuild {
-    display: flex;
-    width: auto;
-    height: auto;
-    flex-wrap: nowrap;
-    /*color: blue;*/
-    margin-left: auto;
-    margin-right: auto;
+    background-image: url('../media/kaderUpgradeChooseYrHero.png');
     justify-content: center;
 }
 
-#oneDeckBuild div {
-    background-image: url('../media/kaderUpgradeChooseYrHero.png');
+article {
+    flex-direction: column;
+    height: 600px;
+    width: 400px;
+    background-repeat: no-repeat;
+}
+
+#deckBuild article {
+    background-image: url('../media/anvilFinal.png');
+    background-size: 80% 40%;
+    background-position: 50% 60%;
+}
+
+#Play article {
+    background-image: url('../media/zwaard2final.png'), url('../media/zwaard1final.png');
+    background-size: 60% 60%;
+    background-position: 50% 40%;
+}
+
+main div {
     background-repeat: no-repeat;
     background-size: 400px;
 }
 
-#oneDeckBuild div:first-child {
-    margin-right: 100px;
-}
-
-.Play button {
+/* /* TODO: bertj javascript */ */
+#Play button {
     position: relative;
     margin-left: 44%;
     margin-top: 50%
 }
 
-.deckBuild button {
+#deckBuild button {
     position: relative;
     margin-top: 50%;
     margin-left: 37%;
-}
-
-.deckBuild {
-    /*display: flex;*/
-    flex-direction: column;
-    /*background-color: green;*/
-    width: 400px;
-    height: 600px;
-    background-image: url('../media/anvilFinal.png');
-    background-repeat: no-repeat;
-    background-size: 80% 40%;
-    background-position: 50% 60%;
-    /*border-image: url("../media/borderPossiblitiesAreEndless.jpg") 20 20 20 20 repeat;*/
-    /*border-width: 20px 20px 20px 20px;*/
-
-    /*  */
-
-}
-
-.Play {
-    /*display: flex;*/
-    flex-direction: column;
-    /*background-color: orange;*/
-    width: 400px;
-    height: 600px;
-    background-image: url('../media/zwaard2final.png'), url('../media/zwaard1final.png');
-    background-size: 60% 60%;
-    background-repeat: no-repeat;
-    background-position: 50% 40%;
 }

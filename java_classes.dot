@@ -1,0 +1,7 @@
+digraph {
+	node[shape=record]
+	card[label = "{
+		card |
+		fields |
+		methods }"];
+}

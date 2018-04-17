@@ -7,8 +7,8 @@ function init() {
     console.log("page loaded, arrived in ftie init");
     fetchCards();
     updateImage("zwaard1final.png");
-    document.getElementById('theDickPick').addEventListener('click', changeDickPics);
-    console.log(document.getElementById('theDickPick'));
+    document.getElementById('deckPic').addEventListener('click', changeDickPics);
+    console.log(document.getElementById('deckPic'));
     fetchPromise.then(function () {
         injectCards(cards.Basic, "#generalCards .cards");
         injectCards(cards.Specific, "#specificCards .cards");
@@ -33,5 +33,5 @@ function changeDickPics(e) {
 function updateImage(src) {
     let final = "assets/media/";
     final += src;
-    document.getElementById('theDickPick').innerHTML = "<img src='"+final+"'/>";
+    document.getElementById('deckPic').innerHTML = "<img src='"+final+"'/>";
 }

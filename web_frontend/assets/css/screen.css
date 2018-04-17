@@ -21,17 +21,9 @@ header h1 {
     margin-left: auto;
     font-size: 4rem;
     padding-top: 80px;
-    padding-bottom: 30px;
+    padding-bottom: 20px;
     font-style: oblique;
-
 }
-
-/*
-body > div {
-    height: 768px;
-    width: 1024px;
-    background-image: url('../media/crossPageBackgroundFinal.png');
-} */
 
 .return:hover {
     border: 2px;

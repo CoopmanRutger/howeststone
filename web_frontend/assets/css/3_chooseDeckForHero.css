@@ -7,30 +7,33 @@ main {
 
 main > div {
     display: flex;
-    justify-content: center;
+    margin: auto;
 }
 
 main > div:nth-child(2) > section {
     flex-direction: column;
-    width: 400px;
-    height: 450px;
+    width: 330px;
+    height: 420px;
     background-image: url('../media/kaderUpgradeChooseYrHero.png');
-    background-size: 350px;
-    background-repeat: no-repeat;
-}
+    background-size: 330px;
+    background-repeat: no-repeat
 
+}
+main > div:nth-child(2) > section:first-child {
+    margin-right: 50px;
+}
 
 main > div  section h2 {
     position: absolute;
-    top: 230px;
-    margin-left: 140px;
+    top: 210px;
+    margin-left: 130px;
     font-size: 1.5rem;
     text-align: center;
 }
 
 main > div section div  {
-    margin-left: 75px;
-    margin-top: 90px;
+    margin-left: 65px;
+    margin-top: 80px;
     background-repeat: no-repeat;
     background-size: 275px;
     background-position: 0px;
@@ -49,7 +52,7 @@ main > div section:nth-child(2) div {
 }
 
 main > div section p {
-    margin: 5px 100px 0 60px;
+    margin: 5px 60px 0 60px;
 }
 
 main > div:nth-child(3) >section  {
@@ -66,7 +69,7 @@ main > div:nth-child(3) section {
    background-size: 100% 100%;
 }
 
-main > div:nth-child(3) section h1 {
+main > div:nth-child(3) section h3 {
    position: relative;
    left: 125px;
    top: 50px;
@@ -76,10 +79,9 @@ main > div:nth-child(3) section h1 {
    line-height: 20px;
    background-color: sandybrown;
    color: white;
-   /*width: ;*/
    text-align: center;
    /*Q wrm border radius niet goed werkt + wrm tekst onder elkaar staat*/
 }
-main > div:nth-child(3) section:hover h1 {
+main > div:nth-child(3) section:hover h3 {
    visibility: visible;
 }

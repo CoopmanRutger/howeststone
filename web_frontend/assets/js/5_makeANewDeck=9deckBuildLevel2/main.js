@@ -20,7 +20,7 @@ function init() {
 
 /*fixme: click on scrollbar, card dissapears */
 
-let imageSelectingShit = ['anvilFinal.png', 'chooseYrDeckSymbol.png', 'JainaChooseYrHero.jpg', 'papyrusForDeckbuilder.png', 'kaderChooseYrHero.png'];
+let imageSelectingShit = ['AggroDeckStock.jpg', 'MagicDeckStock.png', 'RangeDeckStock.jpg'];
 // let imageSelectingShit = ['anvilFinal.png', 'zwaard1final.png', 'anvilFinal.png', 'anvilFinal.png', 'anvilFinal.png', 'anvilFinal.png'];
 
 function changeDickPics(e) {

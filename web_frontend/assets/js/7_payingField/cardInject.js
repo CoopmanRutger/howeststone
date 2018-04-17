@@ -1,7 +1,7 @@
 "use strict";
 
 function injectCards(arrayOfCards) {
-    for (let i = 0; i < 3; i++) {
+    for (let i = 0; i < 10; i++) {
         showCardHand(arrayOfCards[i])
     }
 }
@@ -9,7 +9,7 @@ function injectCards(arrayOfCards) {
 function showCardField(card, side) {
 
     if (side = "#cardsOnFieldPlayer") {
-        
+
     }
     //main card
     let startposition = 420;

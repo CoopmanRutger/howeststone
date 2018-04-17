@@ -1,0 +1,16 @@
+/* SHARED BETWEEN PLAYER AND OPPONENT */
+#cardsOnFieldPlayer, #cardsInHandOpponent {
+    position: absolute;
+    left: 30px;
+    height: 105px;
+    width: 650px;
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: center;
+}
+
+#heroShieldOpponent, #heroShieldOpponent {
+    position: absolute;
+    left: 382px;
+    top: 175px;
+}

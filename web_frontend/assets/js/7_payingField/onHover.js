@@ -2,7 +2,9 @@
 
 function cardOnmouseEnter (e) {
     e.preventDefault();
-    document.querySelector("#cardPreview").appendChild(this.cloneNode());
+    let preview = this.cloneNode();
+    preview.className = "cardPreview";
+    document.querySelector("#cardPreview").appendChild(preview);
 }
 
 function cardOnmouseLeave (e) {

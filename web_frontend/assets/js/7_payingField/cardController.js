@@ -6,27 +6,27 @@ function cardController(X,Y, element, original, origin) {
 
     index = getIndex(original,"#cardsInHandPlayer");
     cardJson = player.arrayCardsInHand[index];
-    switch (getPlace(X,Y)) {
-        case "#cardsInHandPlayer":
-            console.log("cardsInHandPlayer");
 
-            original.style.position = "";
-            original.style.visibility = "visible";
+    let place = getPlace(X,Y);
 
-            element.remove();
-            break;
-        case "#cardsOnFieldPlayer":
-            console.log("cardsOnFieldPlayer");
-            element.remove();
-            original.remove();
+    console.log(place);
 
-            player.arrayCardsOnField.push(cardJson);
-            player.arrayCardsInHand.splice(player.arrayCardsInHand.indexOf(cardJson), 1);
+    if (place==="#cardsOnFieldPlayer"&&player.arrayCardsOnField.length<7) {
+        console.log("cardsOnFieldPlayer");
+        element.remove();
+        original.remove();
 
-            showCardField(cardJson,"#cardsOnFieldPlayer");
-            break;
-        default:
-            console.log("weird case");
+        player.arrayCardsOnField.push(cardJson);
+        player.arrayCardsInHand.splice(player.arrayCardsInHand.indexOf(cardJson), 1);
+
+        showCardField(cardJson,"#cardsOnFieldPlayer");
+    } else {
+        console.log("cardsInHandPlayer");
+
+        original.style.position = "";
+        original.style.visibility = "visible";
+
+        element.remove();
     }
 }
 

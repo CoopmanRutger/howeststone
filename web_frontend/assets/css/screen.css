@@ -4,6 +4,14 @@ body {
     width: 100vw;
     background-color: black
 }
+main {
+    background-image: url("../../images/crossPageBackground.png");
+    background-repeat: no-repeat;
+    width: 1024px;
+    height: 768px;
+    margin: auto;
+}
+
 
 header h1 {
     color: #ffb600;
@@ -15,7 +23,7 @@ header h1 {
     padding-top: 80px;
     padding-bottom: 30px;
     font-style: oblique;
-    /*font-family: "Bookman Old Style"; */
+
 }
 
 /*

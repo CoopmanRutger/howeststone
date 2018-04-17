@@ -1,56 +1,63 @@
 /* CSS for 2_chooseYourHero */
 
-#twoChoosingTheHero {
+main {
     display: flex;
-    justify-content: space-around;
+    flex-direction: column;
+    position: relative;
 }
 
-#twoChoosingTheHero article {
-    /* flex-direction: column; */
-    width: 300px;
-    height: 420px;
-    padding: 80px;
+main > div {
+    display: flex;
+    justify-content: center;
+}
+
+main > div > section {
+    flex-direction: column;
+    width: 400px;
+    height: 500px;
     background-image: url('../media/kaderUpgradeChooseYrHero.png');
-    background-size: 100%;
+    background-size: 400px;
     background-repeat: no-repeat;
 }
 
-#twoChoosingTheHero article div h2 {
-    font-size: 1.2rem;
-}
 
-/* eerste kader */
-
-#twoChoosingTheHero .picture {
+main > div  section h2 {
     position: absolute;
-    background-image: url('../media/JainaChooseYrHero.jpg');
-    background-repeat: no-repeat;
-    width: 200px;
-    height: 200px;
-    background-size: 100%;
-    background-position: -30px 30px;
+    top: 230px;
+    margin-left: 150px;
+    font-size: 1.5rem;
+    text-align: center;
 }
 
-/* tweede kader */
+main > div section:first-child {
+    margin-right: 100px;
+}
 
-/* #twoChoosingTheHero article:nth-child(2) div {
-    background-image: url('../media/AnduinChooseYrHero.jpg');
+main > div div  {
+    margin-left: 70px;
+    margin-top: 90px;
     background-repeat: no-repeat;
-    background-size: 210px;
-    background-position: 120px 30px;
-    -moz-box-shadow: 5px 5px lightskyblue;
-} */
+    background-size: 275px;
+    background-position: 0px;
+    height: 250px;
+    width: 250px;
+}
 
-/* #twoChoosingTheHero article div h2 {
-    size: 1rem;
-    text-align: center;
-    margin-top: 60px;
-} */
+main > div section:first-child div {
+    background-image: url('../media/JainaChooseYrHero.jpg');
+}
 
-/* #twoChoosingTheHero article p {
-    padding-left: 70px;
-    padding-right: 70px;
-    margin-top: 350px;
-    font-size: 0.8rem;
+main > div section:nth-child(2) div {
+    background-image: url('../media/AnduinChooseYrHero.jpg');
+}
 
-} */
+
+main > div section p {
+    /* background-color: red; */
+    margin: 5px 80px 0 70px;
+}
+
+
+.button {
+
+}

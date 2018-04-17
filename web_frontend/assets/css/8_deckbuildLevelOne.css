@@ -1,0 +1,39 @@
+/* CSS for 8_deckbuildLevelOne */
+
+main{
+	background-image: url("../../images/crossPageBackground.png");
+	background-size: 1024px 768px;
+}
+
+.heroes {
+	background-color: rgba(190, 168, 126, 0.52);
+	overflow: auto;
+	margin-left: auto;
+	margin-right: auto;
+	padding: 50px;
+	width: 860px;
+	height: 450px;
+}
+
+.hero{
+	display: flex;
+	margin: auto;
+	width: 860px;
+}
+
+.heroPreview, .deck {
+	background-image: url("../../images/crossPageBackground.png");
+	margin: 20px;
+	height: 200px;
+	width: 150px;
+}
+
+.decks {
+	display: flex;
+	overflow: auto;
+	width: 700px;
+}
+
+.deck {
+	height: 200px;
+}

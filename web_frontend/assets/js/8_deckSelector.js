@@ -40,7 +40,7 @@ function injectHeroDecks() {
         hero.appendChild(showHero(heroesAndDecks[i].name, heroesAndDecks[i].img));
         hero.appendChild(decks);
 
-        document.querySelector(".heroes").appendChild(hero)
+        document.querySelector(".heroes").appendChild(hero);
     }
 }
 
@@ -68,7 +68,7 @@ function showDeck(name, img) {
     element.appendChild(title);
 
     let text = document.createTextNode(name);
-    title.appendChild(text)
+    title.appendChild(text);
 
     let heroImg = document.createElement("div");
     heroImg.style.backgroundImage = "url('" + img + "')";

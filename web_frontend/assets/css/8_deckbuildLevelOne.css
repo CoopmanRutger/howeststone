@@ -1,6 +1,6 @@
 /* CSS for 8_deckbuildLevelOne */
 
-body{
+body {
     padding-top: 1px;
     background-repeat: no-repeat;
     background-image: url("../../images/crossPageBackground.png");
@@ -11,12 +11,14 @@ body{
     justify-content: center;
     margin: 0 auto 0 auto;
 }
-header{
-   padding-top: 50px;
+
+header {
+    padding-top: 50px;
     padding-bottom: 50px;
     size: auto;
 }
-.heroes{
+
+.heroes {
     height: 200px;
     width: auto;
     display: flex;
@@ -24,21 +26,21 @@ header{
     flex-direction: row;
     margin: auto 50px;
     overflow: auto;
-
-
 }
 
 .decks {
     display: flex;
 }
 
-.hero{
+.hero {
     background-color: brown;
 
 }
-section ul:first-child{
+
+section ul:first-child {
     background-color: red;
 }
+
 .choices {
 
 }

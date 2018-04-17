@@ -6,8 +6,12 @@ function init(){
     console.log("im in init");
     loadButtons();
     document.getElementById('deckbuildOrPlayButton').addEventListener('click', nextScreen4);
-    console.log(document.querySelector('h2').value);
-    document.querySelectorAll('h2').addEventListener('click', pickAHero);
+    // console.log(document.querySelector('h2').value);
+    // document.querySelectorAll('h2').addEventListener('click', pickAHero);
+    let h2Heroes = document.querySelectorAll('h2'); // creert lijst met 2 h2's, dan for drmee gebruiken
+    for (let i = 0; i < h2Heroes.length; i++) {
+        h2Heroes[i].addEventListener('click', pickAHero);
+    }
 }
 
 function nextScreen4(e){
@@ -21,11 +25,7 @@ function loadButtons(){
 
 function pickAHero(e) {
     e.preventDefault();
-    console.log("im in pickAHero");
-    console.log(document.querySelector('h2').value);
-    // let firstHero = document.querySelector('main article:first-child div h2').value;
-    // let secondHero = document.querySelector('main article:last-child div h2').value;
-    let allHero = document.querySelectorAll('h2').value;
-    for (let i; i < allHero.length )
+    console.log("im in pick a hero");
+    window.location.href = "3_chooseDeckForHero.html";
 }
 

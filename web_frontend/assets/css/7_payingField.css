@@ -76,19 +76,19 @@
 
 /*-------------------------------------------------------------------------------------------------------------*/
 
-.bodyfield {
+/* .bodyfield {
     height: 100vh;
     width: 100vw;
     background-color: black;
-}
+} */
 
 #field {
-    position: relative;
-    background-repeat: no-repeat;
     background-image: url("../../images/fieldBackground.png");
+    background-repeat: no-repeat;
     background-size: 100% 100%;
     width: 1024px;
     height: 768px;
+    position: relative;
     display: flex;
     margin: auto;
 }

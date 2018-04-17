@@ -1,35 +1,33 @@
 /* CSS for 0_welcomeScreen */
-.bodyfield {
-    padding-top: 1px;
-    background-repeat: no-repeat;
+main {
     background-image: url("../../images/crossPageBackground.png");
-    background-size: 1024px 768px;
+    background-repeat: no-repeat;
     width: 1024px;
     height: 768px;
-    background-position: center;
-    justify-content: center;
-    margin: 0 auto 0 auto;
-
+    position: relative;
+    margin: auto;
 }
-#gemButton {
+main a {
     background-image: url("../../images/continue.png");
     background-size: 100%;
-    margin: 300px auto 0 auto;
-    display: block;
+    position: absolute;
+    left: 405px;
+    top: 300px;
+    display: inline-block;
     width: 200px;
     height: 200px;
 }
-.bodyfield div {
-    margin: 100px auto 0 auto;
-    padding: 20px 30px;
-    background-size: 390px;
-    background-position: center;
-    background-repeat: no-repeat;
+main section {
     background-image: url("../../images/transbox.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 350px;
+    padding: 20px 40px;
+    position: absolute;
+    left: 350px;
+    top: 650px;
 }
-div p {
-    position: center;
+main section h1 {
     font-size: 20px;
     font-weight: bold;
-    text-align: center;
 }

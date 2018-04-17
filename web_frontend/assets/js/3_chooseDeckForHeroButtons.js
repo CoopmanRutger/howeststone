@@ -7,7 +7,7 @@ function init() {
     loadButtons();
     document.getElementById('chooseYourHero').addEventListener('click', nextScreen5);
     document.getElementById('threeMakeItYourself').addEventListener('click', toDeckBuilderLevel2);
-    let twoDecks = document.getElementsByClassName('Decks');
+    let twoDecks = document.querySelectorAll('.deck');
     for(let i = 0; i < twoDecks.length; i++) {
         twoDecks[i].addEventListener('click', toPickYrOpponent);
     }

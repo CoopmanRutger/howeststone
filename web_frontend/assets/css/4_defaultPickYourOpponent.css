@@ -5,12 +5,12 @@ main {
     position: relative;
 }
 
-main > div {
+main > div:nth-child(2) {
     display: flex;
     justify-content: center;
 }
 
-main > div > section {
+main > div > div {
     flex-direction: column;
     width: 400px;
     height: 500px;
@@ -20,20 +20,24 @@ main > div > section {
 }
 
 
-main > div  section h2 {
-    color: white;
+main > div  div button {
+    background-color: rgba(255, 255, 255, 0.59);
     position: absolute;
-    top: 220px;
+    top: 200px;
     margin-left: 160px;
     font-size: 1.5rem;
     text-align: center;
 }
 
-main > div section:first-child {
+main > div  div button:hover {
+    background-color: rgba(255, 255, 255, 0.79);
+}
+
+main > div > div:first-child {
     margin-right: 100px;
 }
 
-main > div div  {
+main > div > div > div {
     margin-left: 70px;
     margin-top: 90px;
     background-repeat: no-repeat;
@@ -44,16 +48,16 @@ main > div div  {
     border-radius: 5px;
 }
 
-main > div section:first-child div {
+main > div div:first-child div {
     background-image: url('../media/JainaChooseYrHero.jpg');
 }
 
-main > div section:nth-child(2) div {
+main > div div:nth-child(2) div {
     background-image: url('../media/AnduinChooseYrHero.jpg');
 }
 
 
-main > div section p {
+main > div div p {
     padding: 7px;
     color: black ;
     background-color: rgba(255, 255, 255, 0.59);

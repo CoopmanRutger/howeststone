@@ -10,7 +10,7 @@ main > div {
     flex-direction: row;
 }
 
-#deckBuild, #Play{
+#deckBuild, #play{
     display: flex;
     width: auto;
     height: auto;
@@ -34,7 +34,7 @@ article {
     background-position: 50% 60%;
 }
 
-#Play article {
+#play article {
     background-image: url('../media/zwaard2final.png'), url('../media/zwaard1final.png');
     background-size: 60% 60%;
     background-position: 50% 40%;
@@ -45,8 +45,8 @@ main div {
     background-size: 400px;
 }
 
-/* /* TODO: bertj javascript */ */
-#Play button {
+    /* TODO: bertj javascript */
+#play button {
     position: relative;
     margin-left: 44%;
     margin-top: 50%

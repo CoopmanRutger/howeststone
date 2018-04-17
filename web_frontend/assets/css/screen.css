@@ -32,13 +32,6 @@ button {
 	margin: 10px;
 }
 
-.return:hover {
-    border: 2px;
-    border-style: solid;
-    border-color: chartreuse;
-
-}
-
-.return {
-    color: crimson;
+button:hover {
+    box-shadow:0 0 50px white;
 }

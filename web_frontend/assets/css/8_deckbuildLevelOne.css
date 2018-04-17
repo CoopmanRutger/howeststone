@@ -1,5 +1,6 @@
 /* CSS for 8_deckbuildLevelOne */
-body {
+
+main{
     padding-top: 1px;
     background-repeat: no-repeat;
     background-image: url("../../images/crossPageBackground.png");
@@ -8,38 +9,38 @@ body {
     height: 768px;
     background-position: center;
     justify-content: center;
-    margin: 0 auto 0 auto;
+    
 }
 
 header {
-    padding-top: 50px;
-    padding-bottom: 50px;
-    size: auto;
+	/* margin-top: 80px; */
 }
 
 .heroes {
-    height: 200px;
-    width: auto;
-    display: flex;
-    background-color: chartreuse;
-    flex-direction: row;
-    margin: auto 50px;
-    overflow: auto;
+	overflow: auto;
+	height: 800px;
+}
+
+.hero{
+	display: flex;
+	background-color: #545454;
+	margin: auto;
+	width: 900px;
+}
+
+.heroPreview, .deck {
+	/* background-color: #00ff47; */
+	margin: 20px;
+	height: 200px;
+	width: 150px;
 }
 
 .decks {
-    display: flex;
+	display: flex;
+	overflow: auto;
 }
 
-.hero {
-    background-color: brown;
-
-}
-
-section ul:first-child {
-    background-color: red;
-}
-
-.choices {
-
+.deck {
+	/* background-color: #1c00ff; */
+	height: 200px;
 }

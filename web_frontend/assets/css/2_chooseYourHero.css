@@ -1,3 +1,4 @@
+/* CSS for 2_chooseYourHero */
 #twoChoosingTheHero {
     display: flex;
     justify-content: center;
@@ -5,16 +6,12 @@
 
 #twoChoosingTheHero article {
     flex-direction: column;
-    width: 510px;
+    width: 500px;
     height: 650px;
     background-image: url('../media/kaderUpgradeChooseYrHero.png');
-    background-size: 460px;
+    background-size: 500px;
     background-repeat: no-repeat;
-    background-color: rebeccapurple;
-}
-
-#twoChoosingTheHero article div h2 {
-    font-size: 1.2rem;
+    /*background-color: rebeccapurple;*/
 }
 
 /* eerste kader */
@@ -24,10 +21,9 @@
 }
 
 #twoChoosingTheHero article:first-child div {
-    position: relative;
     background-image: url('../media/JainaChooseYrHero.jpg');
     background-repeat: no-repeat;
-    background-size: 220px;
+    background-size: 275px;
     background-position: 110px 30px;
     /*background-color: red;*/
     height: 550px;
@@ -38,12 +34,11 @@
 
 #twoChoosingTheHero article:nth-child(2) div {
     background-image: url('../media/AnduinChooseYrHero.jpg');
-    /*border: 5px #1afff7;*/
     background-repeat: no-repeat;
-    background-size: 210px;
-    background-position: 120px 30px;
-    -moz-box-shadow: 5px 5px lightskyblue;
+    background-size: 275px;
+    background-position: 110px 30px;
     /*background-color: blue;*/
+
 }
 
 #twoChoosingTheHero article div h2 {
@@ -56,6 +51,4 @@
     padding-left: 70px;
     padding-right: 70px;
     margin-top: 350px;
-    font-size: 0.8rem;
-
 }

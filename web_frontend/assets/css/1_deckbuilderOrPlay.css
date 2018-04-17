@@ -1,3 +1,30 @@
+/* CSS for 1_deckbuildOrPlay */
+#oneDeckBuild {
+    display: flex;
+    width: auto;
+    height: auto;
+    flex-wrap: nowrap;
+    color: blue;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.deckBuild {
+    /*display: flex;*/
+    flex-direction: column;
+    background-color: green;
+    width: 400px;
+    height: 600px;
+}
+
+.Play {
+    /*display: flex;*/
+    flex-direction: column;
+    background-color: orange;
+    width: 400px;
+    height: 600px;
+}
+
 
 #oneDeckBuild {
     display: flex;

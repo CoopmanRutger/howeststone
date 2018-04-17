@@ -1,0 +1,12 @@
+/* CSS for 4_defaultPickYourOpponent */
+#fourDefaultPickOpponent {
+    display: flex;
+    justify-content: center;
+}
+
+#fourDefaultPickOpponent div {
+    flex-direction: column;
+    width: 400px;
+    height: 400px;
+    background-color: yellow;
+}

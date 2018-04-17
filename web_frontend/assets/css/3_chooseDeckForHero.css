@@ -1,0 +1,22 @@
+/* CSS for 3_chooseDeckForHero */
+#threeChooseYourHero {
+    display: flex;
+}
+
+#threeChooseYourHero article:first-child {
+    flex-direction: column;
+    width: 350px;
+    height: 550px;
+    background-color: yellow;
+}
+
+#threeChooseYourHero article:nth-child(2) {
+    background-color: yellow;
+}
+
+#threeMakeItYourself {
+    flex-direction: column;
+    width: 500px;
+    height: 500px;
+    background-color: red;
+}

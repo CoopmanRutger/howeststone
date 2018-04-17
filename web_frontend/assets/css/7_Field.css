@@ -1,36 +1,173 @@
-/* cross page css */
-body {
+/* CSS for 7_Field */
+.card {
+    background-position: -40px -26px;
+    background-repeat: no-repeat;
+    background-size: 180%;
+    height: 150px;
+    width: 100px;
+    border-radius: 50%;
+    margin-right: 20px;
+    margin-bottom: 50px;
+}
+
+.card .cardName {
+    position: relative;
+    background-color: black;
+    top: 112px;
+    height: 28px;
+    border-radius: 0.5rem;
+    padding-top: 9px;
+    color: white;
+}
+
+.card .cardName h2 {
+    line-height: 11px;
+    font-size: 0.8rem;
+    text-align: center;
+}
+
+.card .cardAttack {
+    position: relative;
+    background-color: green;
+    top: 58px;
+    border-radius: 50%;
+    width: 25px;
+    line-height: 25px;
+    text-align: center;
+    color: white;
+    font-weight: bold;
+    font-size: 1.5rem;
+}
+
+.card .cardHealth {
+    position: relative;
+    background-color: red;
+    left: 75px;
+    top: 33px;
+    width: 25px;
+    line-height: 25px;
+    border-radius: 50%;
+    text-align: center;
+    color: white;
+    font-weight: bold;
+    font-size: 1.5rem;
+}
+
+/*-------------------------------------------------------------------------------------------------------------*/
+.bodyfield {
     height: 100vh;
     width: 100vw;
 }
 
-header h1 {
+.field {
+    background-repeat: no-repeat;
+    background-image: url("../../images/fieldBackground4.jpg");
+    background-size: 100% 100%;
+    width: 100%;
+    height: 100%;
+    display: flex;
+}
+
+/*-----------------LEFTSIDE------------------------*/
+.field .leftSide {
+    width: 255px;
+}
+
+.field .leftSide .logbook {
+    position: absolute;
+    left: 173px;
+    top: 250px;
+    background-color: black;
+    width: 50px;
+    height: 330px;
+    transform: rotate(1deg);
+}
+
+.field .logbook h1 {
+    color: red;
     text-align: center;
-    margin-right: auto;
-    margin-left: auto;
-    font-size: 4rem;
-    padding-top: 30px;
-    padding-bottom: 30px;
-    /*font-family: "Bookman Old Style"; */
 }
 
-.return:hover {
-    border: 5px;
-    border-style: solid;
-    border-color: chartreuse;
+/*-----------------MID------------------------------*/
+.field .mid {
+    width: 1000px;
+    display: flex;
+    flex-direction: column;
 }
 
-.return {
-    color: crimson;
-    background-color: blue;
+.field .mid .cardsInHandOpponent {
+    position: absolute;
+    left: 580px;
+    width: 370px;
+    height: 70px;
+    background-repeat: no-repeat;
+    display: flex;
+    flex-direction: row;
 }
 
-/* CSS for 5_makeANewDeck=9deckBuildLevel2 */
+.field .mid .cardsInHandOpponent div {
+    width: 80px;
+    background-repeat: no-repeat;
+    background-size: 70px;
+    background-position: 0 -40px;
+}
 
+.field .mid .manaCrystalsOpponent {
+    position: absolute;
+    left: 966px;
+    top: 41px;
+    background-color: darkblue;
+    width: 69px;
+    height: 25px;
+    border-radius: 1rem;
+}
 
+.field .mid .manaCrystalsOpponent .manaCrystalsNumberOpponent {
+    position: absolute;
+    left: 10px;
+    top: 3px;
+    color: white;
+    font-size: larger;
+    font-weight: bold;
+}
 
+.field .mid .manaCrystalsOpponent .manaCrystalSliceOpponent {
+    position: absolute;
+    left: 31px;
+    top: 3px;
+    color: white;
+    font-size: larger;
+    font-weight: bold;
+}
 
+.field .mid .manaCrystalsLimitsOpponent {
+    position: absolute;
+    left: 40px;
+    top: 3px;
+    color: white;
+    font-size: larger;
+    font-weight: bold;
+}
 
+.field .mid .heroOpponent {
+    display: flex;
+    flex-direction: row;
+}
+
+.field .mid .heroOpponent .heroWeaponOpponent {
+    position: absolute;
+    left: 560px;
+    top: 130px;
+}
+
+.field .mid .heroOpponent .heroWeaponAttackOpponent {
+    position: absolute;
+    left: 578px;
+    top: 208px;
+    color: white;
+    font-size: larger;
+    font-weight: bold;
+}
 
 .field .mid .heroOpponent .heroWeaponTurnsOpponent {
     position: absolute;
@@ -48,7 +185,7 @@ header h1 {
 
 }
 
-.field .mid .heroOpponent  .heroShieldOpponent {
+.field .mid .heroOpponent .heroShieldOpponent {
     position: absolute;
     left: 820px;
     top: 150px;
@@ -62,7 +199,6 @@ header h1 {
     font-size: larger;
     font-weight: bold;
 }
-
 
 .field .mid .heroOpponent .heroLifePointsOpponent {
     position: absolute;
@@ -79,8 +215,6 @@ header h1 {
     top: 113px;
 }
 
-
-
 .field .mid .cardsOnFieldOpponent {
     position: absolute;
     left: 280px;
@@ -91,8 +225,6 @@ header h1 {
 }
 
 /*--------------------MIDDENLIJN------------------------*/
-
-
 
 .field .mid .cardsOnField {
     position: absolute;
@@ -136,7 +268,6 @@ header h1 {
     font-weight: bold;
 }
 
-
 .field .mid .hero .heroPicture {
     position: absolute;
     left: 686px;
@@ -145,7 +276,6 @@ header h1 {
     height: 145px;
 
 }
-
 
 .field .mid .hero .heroShield {
     position: absolute;
@@ -162,7 +292,6 @@ header h1 {
     font-weight: bold;
 }
 
-
 .field .mid .hero .heroLifePoints {
     position: absolute;
     left: 824px;
@@ -178,10 +307,7 @@ header h1 {
     top: 582px;
 }
 
-
-
-
-.field .mid .manaCrystals{
+.field .mid .manaCrystals {
     position: absolute;
     left: 1005px;
     top: 785px;
@@ -236,14 +362,12 @@ header h1 {
 
 }
 
-
 /*-----------------RIGHTSIDE------------------------*/
 
 .field .rightSide {
     /*background-color: red;*/
     width: 25%;
 }
-
 
 .field .endTurn {
     position: absolute;

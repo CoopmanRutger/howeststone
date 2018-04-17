@@ -1,54 +1,67 @@
-/* CSS for 2_chooseYourHero */
-#twoChoosingTheHero {
+
+main {
+    background-image: url("../../images/crossPageBackground.png");
+    background-repeat: no-repeat;
+    width: 1024px;
+    height: 768px;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    margin: auto;
+}
+
+main > div {
     display: flex;
     justify-content: center;
 }
 
-#twoChoosingTheHero article {
+main > div > section {
     flex-direction: column;
-    width: 500px;
-    height: 650px;
+    width: 400px;
+    height: 500px;
     background-image: url('../media/kaderUpgradeChooseYrHero.png');
-    background-size: 500px;
+    background-size: 400px;
     background-repeat: no-repeat;
-    /*background-color: rebeccapurple;*/
 }
 
-/* eerste kader */
 
-#twoChoosingTheHero article:first-child {
+main > div  section h2 {
+    position: absolute;
+    top: 230px;
+    margin-left: 150px;
+    font-size: 1.5rem;
+    text-align: center;
+}
+
+main > div section:first-child {
     margin-right: 100px;
 }
 
-#twoChoosingTheHero article:first-child div {
+main > div div  {
+    margin-left: 70px;
+    margin-top: 90px;
+    background-repeat: no-repeat;
+    background-size: 275px;
+    background-position: 0px;
+    height: 250px;
+    width: 250px;
+}
+
+main > div section:first-child div {
     background-image: url('../media/JainaChooseYrHero.jpg');
-    background-repeat: no-repeat;
-    background-size: 275px;
-    background-position: 110px 30px;
-    /*background-color: red;*/
-    height: 550px;
-
 }
 
-/* tweede kader */
-
-#twoChoosingTheHero article:nth-child(2) div {
+main > div section:nth-child(2) div {
     background-image: url('../media/AnduinChooseYrHero.jpg');
-    background-repeat: no-repeat;
-    background-size: 275px;
-    background-position: 110px 30px;
-    /*background-color: blue;*/
-
 }
 
-#twoChoosingTheHero article div h2 {
-    /*size: 1rem;*/
-    text-align: center;
-    margin-top: 60px;
+
+main > div section p {
+    /* background-color: red; */
+    margin: 5px 80px 0 70px;
 }
 
-#twoChoosingTheHero article p {
-    padding-left: 70px;
-    padding-right: 70px;
-    margin-top: 350px;
+
+.button {
+
 }

@@ -6,6 +6,8 @@ body {
 }
 
 header h1 {
+    color: #ffb600;
+    text-shadow: 2px 2px 5px #ffb600;
     text-align: center;
     margin-right: auto;
     margin-left: auto;

@@ -26,6 +26,7 @@ body > div {
     border: 2px;
     border-style: solid;
     border-color: chartreuse;
+
 }
 
 .return {
@@ -58,7 +59,7 @@ body > div {
     margin-right: 100px;
 }
 
-.Play button {
+.play button {
     position: relative;
     margin-left: 44%;
     margin-top: 50%
@@ -87,7 +88,7 @@ body > div {
 
 }
 
-.Play {
+.play {
     /*display: flex;*/
     flex-direction: column;
     /*background-color: orange;*/
@@ -114,6 +115,12 @@ body > div {
     background-size: 460px;
     background-repeat: no-repeat;
     background-color: rebeccapurple;
+}
+
+#twoChoosingTheHero article div h2:hover {
+    border: solid 5px black;
+    color: yellow;
+    font-size: 1.5rem;
 }
 
 #twoChoosingTheHero article div h2 {
@@ -170,8 +177,6 @@ body > div {
 #threeChooseYourHero {
     display: flex;
     flex-direction: column;
-    position: relative;
-    top: 5%;
     height: 60%;
 
 }
@@ -211,7 +216,7 @@ body > div {
 /*}*/
 
 #threeChooseYourHero #threeMakeItYourself {
-    /*background-color: rebeccapurple;*/
+    background-color: rebeccapurple;
     width: 150px;
     height: 150px;
     background-image: url('../media/chooseYrDeckSymbol.png');

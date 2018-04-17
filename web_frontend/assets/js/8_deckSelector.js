@@ -46,7 +46,7 @@ function injectHeroDecks() {
 
 function showHero(name, img) {
     let hero = document.createElement("article");
-    hero.className = "heroPreview"
+    hero.className = "heroPreview";
     let heroName = document.createElement("h2");
 
     let text = document.createTextNode(name);

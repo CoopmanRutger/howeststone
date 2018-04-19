@@ -1,0 +1,87 @@
+/* cards in hand */
+
+.cardHand {
+  width: 100px;
+  height: 150px;
+  background-size: 100% 100%;
+  margin-left: -50px;
+  /* left: -50px; */
+}
+
+/* card in preview wich is shown on hoover */
+
+.cardPreview {
+}
+
+#cardPreview .cardPreview{
+    width: 100px;
+    height: 150px;
+    background-size: 105% 105%;
+    width: 200px;
+    height: 300px;
+}
+
+#cardPreview {
+    position: absolute;
+    top: 300px;
+    left: 90px;
+}
+
+/* cards on the playing field */
+
+/* TODO: betere class name fixen */
+
+.card {
+    background-position: -25px -22px;
+    background-repeat: no-repeat;
+    background-size: 177%;
+    height: 89px;
+    width: 66px;
+    border-radius: 50%;
+    margin-right: 20px;
+    margin-bottom: 50px;
+}
+
+.card .cardName {
+    position: absolute;
+    background-color: black;
+    width: 70px;
+    height: 28px;
+    top: 68px;
+    border-radius: 0.5rem;
+    padding-top: 9px;
+    color: white;
+}
+
+.card .cardName h2 {
+    line-height: 11px;
+    font-size: 0.8rem;
+    text-align: center;
+}
+
+.card .cardAttack  {
+    position: absolute;
+    background-color: green;
+    top: 58px;
+    border-radius: 50%;
+    width: 20px;
+    line-height: 20px;
+    text-align: center;
+    color: white;
+    font-weight: bold;
+    font-size: 1rem;
+}
+
+.card .cardHealth {
+    position: relative;
+    background-color: red;
+    left: 48px;
+    top: 53px;
+    width: 20px;
+    line-height: 20px;
+    border-radius: 50%;
+    text-align: center;
+    color: white;
+    font-weight: bold;
+    font-size: 1rem;
+}

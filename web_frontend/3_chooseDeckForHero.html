@@ -6,28 +6,35 @@
     <meta name="author" content="Bert Vervust">
     <link rel="stylesheet" href="assets/css/reset.css">
     <link rel="stylesheet" href="assets/css/screen.css">
-
+    <link rel="stylesheet" href="assets/css/3_chooseDeckForHero.css">
 </head>
 <body>
-<header>
-    <h1>Choose your preferred deck for</h1>
-</header>
-<main id="threeChooseYourHero">
-    <article><h2>Deck 1</h2>
-        <p>Lorem ipsum dolor sit amet Lorem ipsum dolor sit ametLorem ipsum dolor sit ametLorem ipsum dolor sit amet</p>
-    </article>
-    <article><h2>Deck 1</h2>
-        <p>Lorem ipsum dolor sit amet Lorem ipsum dolor sit ametLorem ipsum dolor sit ametLorem ipsum dolor sit amet</p>
-    </article>
-    <article id="threeMakeItYourself">
-        <h2>Make a new one</h2>
-        <button id="toMakeANewDeck" type="button">
-            <!-- https://stackoverflow.com/questions/2738920/how-to-add-background-image-for-input-type-button --> This
-            will direct the user to the deckbuilder
-        </button>
-    </article>
+<main>
+    <header>
+        <h1>Choose your preferred deck for</h1>
+    </header>
+    <div>
+        <div>
+            <button class="deck">Deck 1</button>
+            <div></div>
+            <p>Lorem ipsum dolor sit amet Lorem ipsum dolor sit ametLorem ipsum dolor sit ametLorem ipsum dolor sit
+                    amet</p>
+        </div>
+        <div>
+            <button class="deck">Deck 2</button>
+            <div></div>
+            <p>Lorem ipsum dolor sit amet Lorem ipsum dolor sit ametLorem ipsum dolor sit ametLorem ipsum dolor sit
+                    amet</p>
+        </div>
+    </div>
+    <div>
+        <div id="threeMakeItYourself">
+            <p>Click me to create your own deck</p>
+        </div>
+    </div>
+    <div id="returnButton">
+    </div>
 </main>
-<button onclick="window.location.href='2_chooseYourHero.html'" class="return" type="button">Back</button>
+<script src="assets/js/3_chooseDeckForHeroButtons.js"></script>
 </body>
 </html>
-

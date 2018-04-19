@@ -3,77 +3,93 @@
 <head>
     <meta charset="UTF-8">
     <link rel="stylesheet" href="assets/css/reset.css">
-    <link rel="stylesheet" href="assets/css/screen.css">
+    <link rel="stylesheet" href="assets/css/7_payingField/cards.css">
+    <link rel="stylesheet" href="assets/css/7_payingField/FieldLeftRightMid.css">
+    <link rel="stylesheet" href="assets/css/7_payingField/shared.css">
+    <link rel="stylesheet" href="assets/css/7_payingField/opponent.css">
+    <link rel="stylesheet" href="assets/css/7_payingField/player.css">
     <title>testen</title>
-
 </head>
 <body class="bodyfield">
-<main class="field">
-    <div class="leftSide">
-    <section class="logbook">
-        <h1>LOG</h1>
-    </section>
+<main id="field">
+    <div id="leftSide">
+        <section id="logbook">
+            <h1>LOG</h1>
+        </section>
     </div>
-    <div class="mid">
-        <div class="cardsInHandOpponent"></div>
-        <div class="manaCrystalsOpponent">
-            <div class="manaCrystalsNumberOpponent"></div>
-            <div class="manaCrystalSliceOpponent">/</div>
-            <div class="manaCrystalsLimitsOpponent"></div>
-        </div>
-        <div class="heroOpponent">
-            <div class="heroWeaponOpponent"></div>
-            <p class="heroWeaponAttackOpponent"></p>
-            <p class="heroWeaponTurnsOpponent"></p>
 
-            <div class="heroPictureOpponent"></div>
-            <div class="heroShieldOpponent"></div>
-            <p class="heroShieldNumberOpponent"></p>
-            <p class="heroLifePointsOpponent"></p>
-            <div class="heroPowerOpponent"></div>
+    <div id="mid">
+        <div id="opponent">
+            <div id="cardsInHandOpponent"></div>
+            <div id="manaCrystalsOpponent">
+                <div id="manaCrystalsNumberOpponent"></div>
+                <div id="manaCrystalSliceOpponent">/</div>
+                <div id="manaCrystalsLimitsOpponent"></div>
+            </div>
+            <div id="heroOpponent">
+                <div id="heroWeaponOpponent"></div>
+                <p id="heroWeaponAttackOpponent"></p>
+                <p id="heroWeaponTurnsOpponent"></p>
+
+                <div id="heroPictureOpponent"></div>
+                <div id="heroShieldOpponent"></div>
+                <p id="heroShieldNumberOpponent"></p>
+                <p id="heroLifePointsOpponent"></p>
+                <div id="heroPowerOpponent"></div>
+            </div>
+            <div id="cardsOnFieldOpponent"></div>
         </div>
-        <div class="cardsOnFieldOpponent"></div>
 
 
         <!--middenlijn-->
+        <div id="player">
+            <div id="cardsOnFieldPlayer"></div>
+            <div id="heroPlayer">
+                <div id="heroWeaponPlayer"></div>
+                <p id="heroWeaponAttackPlayer"></p>
+                <p id="heroWeaponTurnsPlayer"></p>
 
-        <div class="cardsOnField"></div>
-        <div class="hero">
-            <div class="heroWeapon"></div>
-            <p class="heroWeaponAttack"></p>
-            <p class="heroWeaponTurns"></p>
+                <div id="heroPicturePlayer"></div>
+                <div id="heroShieldPlayer"></div>
+                <p id="heroShieldNumberPlayer"></p>
+                <p id="heroLifePointsPlayer"></p>
+                <div id="heroPowerPlayer"></div>
+            </div>
+            <div id="manaCrystalsPlayer">
+                <div id="manaCrystalsNumberPlayer"></div>
+                <div id="manaCrystalSlicePlayer">/</div>
+                <div id="manaCrystalsLimitsPlayer"></div>
+            </div>
+            <div id="manaCrystalSymbolPlayer"></div>
+            <div id="cardsInHandPlayer"></div>
+        </div>
 
-            <div class="heroPicture"></div>
-            <div class="heroShield"></div>
-            <p class="heroShieldNumber"></p>
-            <p class="heroLifePoints"></p>
-            <div class="heroPower"></div>
+    </div>
+    <div id="rightSide">
+        <div id="manaCrystalOpponent"></div>
+
+        <div id="decks">
+            <div id="deckOpponent"></div>
+            <div id="endTurn"></div>
+            <div id="deck"></div>
         </div>
-        <div class="manaCrystals">
-            <div class="manaCrystalsNumber"></div>
-            <div class="manaCrystalSlice">/</div>
-            <div class="manaCrystalsLimits"></div>
-        </div>
-        <div class="manaCrystalSymbol"></div>
-        <div class="cardsInHand"></div>
+        <button class="concede">concede</button>
+        <button class="settings">settings</button>
+
     </div>
 
-
-    <div class="rightSide">
-        <div class="manaCrystalOpponent"></div>
-
-        <div class="decks">
-            <div class="deckOpponent"></div>
-            <div class="endTurn"></div>
-            <div class="deck"></div>
-        </div>
-        <div class="concede">concede</div>
-        <div class="settings">settings</div>
-
+    <div id="cardPreview">
     </div>
 
 
 </main>
-<script src="assets/js/7_playField.js"></script>
+<script src="assets/js/7_payingField/initializingPlayers.js"></script>
+<script src="assets/js/7_payingField/initializingPlayingfield.js"></script>
+<script src="assets/js/7_payingField/fetchCards.js"></script>
+<script src="assets/js/7_payingField/cardInject.js"></script>
+<script src="assets/js/7_payingField/onHover.js"></script>
+<script src="assets/js/7_payingField/cardController.js"></script>
+<script src="assets/js/7_payingField/makeCardsMovable.js"></script>
+<script src="assets/js/7_payingField/main.js"></script>
 </body>
 </html>

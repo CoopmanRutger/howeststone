@@ -2,269 +2,36 @@
 body {
     height: 100vh;
     width: 100vw;
+    background-color: black
+}
+main {
+    background-image: url("../../images/crossPageBackground.png");
+    background-repeat: no-repeat;
+    width: 1024px;
+    height: 768px;
+    margin: auto;
 }
 
 header h1 {
+    color: #ffb600;
+    text-shadow: 2px 2px 5px #ffb600;
     text-align: center;
     margin-right: auto;
     margin-left: auto;
     font-size: 4rem;
-    padding-top: 30px;
-    padding-bottom: 30px;
-    /*font-family: "Bookman Old Style"; */
+    padding-top: 80px;
+    padding-bottom: 20px;
+    font-style: oblique;
 }
 
-.return:hover {
-    border: 5px;
-    border-style: solid;
-    border-color: chartreuse;
+/* buttons */
+
+button {
+	border-radius: 3px;
+	padding: 10px 15px 10px 15px;
+	margin: 10px;
 }
 
-.return {
-    color: crimson;
-    background-color: blue;
-}
-
-/* CSS for 5_makeANewDeck=9deckBuildLevel2 */
-
-
-
-
-
-
-.field .mid .heroOpponent .heroWeaponTurnsOpponent {
-    position: absolute;
-    left: 658px;
-    top: 208px;
-    color: white;
-    font-size: larger;
-    font-weight: bold;
-}
-
-.field .mid .heroOpponent .heroPictureOpponent {
-    position: absolute;
-    left: 685px;
-    top: 65px;
-
-}
-
-.field .mid .heroOpponent  .heroShieldOpponent {
-    position: absolute;
-    left: 820px;
-    top: 150px;
-}
-
-.field .mid .heroOpponent .heroShieldNumberOpponent {
-    position: absolute;
-    left: 829px;
-    top: 161px;
-    color: white;
-    font-size: larger;
-    font-weight: bold;
-}
-
-
-.field .mid .heroOpponent .heroLifePointsOpponent {
-    position: absolute;
-    left: 826px;
-    top: 212px;
-    color: white;
-    font-size: larger;
-    font-weight: bold;
-}
-
-.field .mid .heroOpponent .heroPowerOpponent {
-    position: absolute;
-    left: 858px;
-    top: 113px;
-}
-
-
-
-.field .mid .cardsOnFieldOpponent {
-    position: absolute;
-    left: 280px;
-    top: 250px;
-    /*background-color: black;*/
-    width: 930px;
-    height: 150px;
-}
-
-/*--------------------MIDDENLIJN------------------------*/
-
-
-
-.field .mid .cardsOnField {
-    position: absolute;
-    left: 280px;
-    top: 410px;
-    /*background-color: red;*/
-    width: 930px;
-    height: 150px;
-    display: flex;
-    flex-wrap: nowrap;
-    flex-direction: row;
-}
-
-.field .mid .hero {
-    display: flex;
-    flex-direction: row;
-
-}
-
-.field .mid .hero .heroWeapon {
-    position: absolute;
-    left: 560px;
-    top: 590px;
-}
-
-.field .mid .hero .heroWeaponAttack {
-    position: absolute;
-    left: 578px;
-    top: 667px;
-    color: white;
-    font-size: larger;
-    font-weight: bold;
-}
-
-.field .mid .hero .heroWeaponTurns {
-    position: absolute;
-    left: 658px;
-    top: 667px;
-    color: white;
-    font-size: larger;
-    font-weight: bold;
-}
-
-
-.field .mid .hero .heroPicture {
-    position: absolute;
-    left: 686px;
-    top: 565px;
-    width: 140px;
-    height: 145px;
-
-}
-
-
-.field .mid .hero .heroShield {
-    position: absolute;
-    left: 820px;
-    top: 650px;
-}
-
-.field .mid .hero .heroShieldNumber {
-    position: absolute;
-    left: 828px;
-    top: 660px;
-    color: white;
-    font-size: larger;
-    font-weight: bold;
-}
-
-
-.field .mid .hero .heroLifePoints {
-    position: absolute;
-    left: 824px;
-    top: 713px;
-    color: white;
-    font-size: larger;
-    font-weight: bold;
-}
-
-.field .mid .hero .heroPower {
-    position: absolute;
-    left: 863px;
-    top: 582px;
-}
-
-
-
-
-.field .mid .manaCrystals{
-    position: absolute;
-    left: 1005px;
-    top: 785px;
-    background-color: darkblue;
-    width: 69px;
-    height: 25px;
-    border-radius: 1rem;
-}
-
-.field .mid .manaCrystals .manaCrystalsNumber {
-    position: absolute;
-    left: 10px;
-    top: 3px;
-    color: white;
-    font-size: larger;
-    font-weight: bold;
-}
-
-.field .mid .manaCrystals .manaCrystalSlice {
-    position: absolute;
-    left: 31px;
-    top: 3Px;
-    color: white;
-    font-size: larger;
-    font-weight: bold;
-}
-
-.field .mid .manaCrystalsLimits {
-    position: absolute;
-    left: 40px;
-    top: 3px;
-    color: white;
-    font-size: larger;
-    font-weight: bold;
-}
-
-.field .mid .manaCrystalSymbol {
-    position: absolute;
-    left: 1095px;
-    top: 785px;
-}
-
-.field .mid .cardsInHand {
-    position: absolute;
-    left: 550px;
-    top: 740px;
-    /*background-color: red;*/
-    width: 435px;
-    height: 124px;
-    display: flex;
-    flex-direction: row;
-
-}
-
-
-/*-----------------RIGHTSIDE------------------------*/
-
-.field .rightSide {
-    /*background-color: red;*/
-    width: 25%;
-}
-
-
-.field .endTurn {
-    position: absolute;
-    left: 1229px;
-    top: 362px;
-}
-
-.field .concede {
-    position: absolute;
-    left: 1400px;
-    top: 740px;
-    width: 80px;
-    height: 30px;
-    background-color: blue;
-}
-
-.field .settings {
-    position: absolute;
-    left: 1400px;
-    top: 780px;
-    width: 80px;
-    height: 30px;
-    background-color: red;
+button:hover {
+    box-shadow:0 0 50px white;
 }

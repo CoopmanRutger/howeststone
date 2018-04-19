@@ -3,7 +3,6 @@
 document.addEventListener("DOMContentLoaded", init);
 
 function init(){
-    endTurn(true);
 
     manaCrystal(player);
     manaCrystal(opponent);
@@ -27,4 +26,33 @@ function init(){
     // makeMovable shit
     document.addEventListener('mousemove', cardMousemove);
     document.addEventListener("mouseup", cardMouseup);
+
+    document.querySelector('.concede').addEventListener('click', concede);
+    document.querySelector('.settings').addEventListener('click', settings);
+
+    endTurn(true);
+    document.querySelector('.endTurn').addEventListener('click', endTurnClickable);
+}
+
+
+function endTurnClickable(e) {
+    endTurn(false);
+}
+
+
+
+
+function concede(e) {
+e.preventDefault();
+window.location.href = "10_concede.html"
+
+return false; ;
+}
+
+
+function settings(e) {
+e.preventDefault();
+window.location.href = "11_settingsPlayField.html"
+
+return false; ;
 }

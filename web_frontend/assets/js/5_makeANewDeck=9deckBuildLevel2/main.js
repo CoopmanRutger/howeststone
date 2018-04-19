@@ -16,7 +16,22 @@ function init() {
         document.addEventListener('mousemove', cardMousemove);
         document.addEventListener("mouseup", cardMouseup);
     });
+
+
+    document.querySelector('#saveAndPlayButton').addEventListener('click', saveAndPlayGo);
 }
+
+
+function saveAndPlayGo(e) {
+e.preventDefault();
+window.location.href = "4_defaultPickYourOpponent.html"
+
+return false; ;
+}
+
+
+
+
 
 /*fixme: click on scrollbar, card dissapears */
 

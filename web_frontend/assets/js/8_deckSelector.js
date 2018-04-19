@@ -36,7 +36,19 @@ document.addEventListener("DOMContentLoaded", init);
 
 function init() {
     injectHeroDecks();
+
+    document.querySelector('.deck').addEventListener('click', deck);
 }
+
+
+function deck(e) {
+e.preventDefault();
+window.location.href = "5_makeANewDeck=9deckBuildLevel2.html";
+
+return false;
+}
+
+
 
 function injectHeroDecks() {
     for (let i = 0; i < heroesAndDecks.length; i++) {

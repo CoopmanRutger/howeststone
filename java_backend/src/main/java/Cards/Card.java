@@ -1,4 +1,4 @@
-package model;
+package Cards;
 
 import java.util.Objects;
 
@@ -7,12 +7,14 @@ public class Card {
     private int attack;
     private String name;
     private String img;
+    private String type;
 
-    public Card(String cardId, int attack, String name, String img) {
+    public Card(String cardId, int attack, String name, String img, String type) {
         this.cardId = cardId;
         this.attack = attack;
         this.name = name;
         this.img = img;
+        this.type = type;
     }
 
     public String getCardId() {
@@ -41,6 +43,10 @@ public class Card {
 
     public void setImg(String img) {
         this.img = img;
+    }
+
+    public String getType() {
+        return type;
     }
 
     @Override

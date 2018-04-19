@@ -5,14 +5,12 @@ import java.util.Objects;
 public class Card {
     private String cardId;
     private int attack;
-    private int health;
     private String name;
     private String img;
 
-    public Card(String cardId, int attack, int health, String name, String img, String type, int durability) {
+    public Card(String cardId, int attack, String name, String img, String type, int durability) {
         this.cardId = cardId;
         this.attack = attack;
-        this.health = health;
         this.name = name;
         this.img = img;
     }
@@ -27,14 +25,6 @@ public class Card {
 
     public void setAttack(int attack) {
         this.attack = attack;
-    }
-
-    public int getHealth() {
-        return health;
-    }
-
-    public void setHealth(int health) {
-        this.health = health;
     }
 
     public String getName() {

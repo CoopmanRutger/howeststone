@@ -5,6 +5,7 @@ let opponent = {
   "type" : "opponent",
   "heroName" : 'mage',
   "heroWeapon" : true,
+  // "weaponImage" : ,
   "weaponAttack" : 8,
   "weaponTurns" : 8,
   "amountShield" : 0,
@@ -18,10 +19,11 @@ let opponent = {
 // player
 let player = {
   "type" : "player",
-  "heroName" : 'priest',
-  "heroWeapon" : true,
-  "weaponAttack" : 8,
-  "weaponTurns" : 3,
+  "heroName" : 'rogue',
+  "heroWeapon" : false,
+  // "weaponImage" : ,
+  "weaponAttack" : 0,
+  "weaponTurns" : 0,
   "amountShield" : 0,
   "lifepoints" : 30,
   "manaCharge" : 10,

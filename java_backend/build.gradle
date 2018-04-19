@@ -2,7 +2,7 @@ plugins {
     id 'ru.vyarus.quality' version '2.4.0'
 }
 
-group 'be.howest.TI.project-I.group-XX'
+group 'be.howest.TI.project-I.group-07'
 version '0.1-SNAPSHOT'
 
 apply plugin: 'java'
@@ -20,4 +20,5 @@ dependencies {
     compile 'io.javalin:javalin:1.4.1'
     testCompile 'junit:junit:4.12'
     testCompile 'com.mashape.unirest:unirest-java:1.4.9'
+    compile group: 'com.fasterxml.jackson.core', name: 'jackson-databind', version: '2.9.5'
 }

@@ -1,0 +1,87 @@
+
+main {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
+
+main > div:nth-child(2), main > div:nth-child(3) {
+    display: flex;
+    margin: auto;
+}
+
+main > div:nth-child(2) > div {
+    flex-direction: column;
+    width: 330px;
+    height: 420px;
+    background-image: url('../media/kaderUpgradeChooseYrHero.png');
+    background-size: 330px;
+    background-repeat: no-repeat
+
+}
+main > div:nth-child(2) > div:first-child {
+    margin-right: 50px;
+}
+
+main > div  div button {
+    position: absolute;
+    top: 190px;
+    margin-left: 120px;
+    font-size: 1.5rem;
+    text-align: center;
+}
+
+main > div > div > div  {
+    margin-left: 65px;
+    margin-top: 80px;
+    background-repeat: no-repeat;
+    background-size: 275px;
+    background-position: 0px;
+    height: 200px;
+    width: 200px;
+}
+
+main > div div:first-child div {
+    /* andere images */
+    background-image: url('../media/JainaChooseYrHero.jpg');
+}
+
+main > div div:nth-child(2) div {
+    /* andere images */
+    background-image: url('../media/AnduinChooseYrHero.jpg');
+}
+
+main > div div p {
+    margin: 5px 60px 0 60px;
+}
+
+#threeMakeItYourself  {
+    flex-direction: column;
+    width: 500px;
+    height: 500px;
+}
+
+#threeMakeItYourself {
+   width: 150px;
+   height: 150px;
+   background-image: url('../media/chooseYrDeckSymbol.png');
+   background-repeat: no-repeat;
+   background-size: 100% 100%;
+}
+
+#threeMakeItYourself p {
+   position: relative;
+   left: 125px;
+   top: 50px;
+   visibility: hidden;
+   border-radius: 10px;
+   padding: 5px 5px 5px 5px;
+   line-height: 20px;
+   background-color: sandybrown;
+   color: white;
+   text-align: center;
+   /*Q wrm border radius niet goed werkt + wrm tekst onder elkaar staat*/
+}
+#threeMakeItYourself:hover h3 {
+   visibility: visible;
+}

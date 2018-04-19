@@ -10,6 +10,12 @@ public class Server {
 
     private final int port;
 
+    public static void main(final String[] args) {
+        LOGGER.debug("starting server");
+        new Server(4242).start();
+        LOGGER.debug("server started");
+    }
+
     Server(final int port) {
         this.port = port;
     }
@@ -21,9 +27,5 @@ public class Server {
         new Routes(server);
     }
 
-    public static void main(final String[] args) {
-        LOGGER.debug("starting server");
-        new Server(4242).start();
-        LOGGER.debug("server started");
-    }
+
 }

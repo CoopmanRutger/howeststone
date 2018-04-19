@@ -6,33 +6,35 @@
     <meta name="author" content="Bert Vervust">
     <link rel="stylesheet" href="assets/css/reset.css">
     <link rel="stylesheet" href="assets/css/screen.css">
-
+    <link rel="stylesheet" href="assets/css/3_chooseDeckForHero.css">
 </head>
 <body>
-<div>
+<main>
     <header>
         <h1>Choose your preferred deck for</h1>
     </header>
-    <main id="threeChooseYourHero">
+    <div>
         <div>
-            <article class="Decks"><h2>Deck 1</h2>
-                <p>Lorem ipsum dolor sit amet Lorem ipsum dolor sit ametLorem ipsum dolor sit ametLorem ipsum dolor sit
+            <button class="deck">Deck 1</button>
+            <div></div>
+            <p>Lorem ipsum dolor sit amet Lorem ipsum dolor sit ametLorem ipsum dolor sit ametLorem ipsum dolor sit
                     amet</p>
-            </article>
-            <article class="Decks"><h2>Deck 2</h2>
-                <p>Lorem ipsum dolor sit amet Lorem ipsum dolor sit ametLorem ipsum dolor sit ametLorem ipsum dolor sit
-                    amet</p>
-            </article>
         </div>
         <div>
-            <article id="threeMakeItYourself">
-                <p>Click me to create your own deck</p>
-                    <!--  -->
-            </article>
+            <button class="deck">Deck 2</button>
+            <div></div>
+            <p>Lorem ipsum dolor sit amet Lorem ipsum dolor sit ametLorem ipsum dolor sit ametLorem ipsum dolor sit
+                    amet</p>
         </div>
-    </main>
-    <button onclick="window.location.href='2_chooseYourHero.html'" class="return" type="button">Back</button>
-</div>
+    </div>
+    <div>
+        <div id="threeMakeItYourself">
+            <p>Click me to create your own deck</p>
+        </div>
+    </div>
+    <div id="returnButton">
+    </div>
+</main>
+<script src="assets/js/3_chooseDeckForHeroButtons.js"></script>
 </body>
 </html>
-

@@ -18,8 +18,15 @@ function cardController(X,Y, element, original, origin) {
 
         player.arrayCardsOnField.push(cardJson);
         player.arrayCardsInHand.splice(player.arrayCardsInHand.indexOf(cardJson), 1);
-
-        showCardField(cardJson,"#cardsOnFieldPlayer");
+        if (cardJson.type==="Weapon") {
+            player.heroWeapon = true;
+            player.weaponAttack = cardJson.attack;
+            player.weaponTurns = cardJson.durability;
+            // player. = cardJson.img;
+            hero(player);
+        } else {
+            showCardField(cardJson,"#cardsOnFieldPlayer");
+        }
     } else {
         console.log("cardsInHandPlayer");
 

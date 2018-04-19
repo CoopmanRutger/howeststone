@@ -27,4 +27,15 @@ public class ServerTest {
             e.printStackTrace ();
         }
     }
+
+//    @Test
+//    public void testCard() {
+//        try {
+//            assertTrue("testing /card/ as json",
+//                    Unirest.get("http://localhost:4242/card/").asJson()
+//                            .equals(""));
+//        } catch (UnirestException e) {
+//            e.printStackTrace ();
+//        }
+//    }
 }

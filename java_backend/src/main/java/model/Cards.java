@@ -16,11 +16,15 @@ public class Cards {
         cards.add(card);
     }
 
-    public void add(CardSpells card) {
+    public void add(CardSpell card) {
         cards.add(card);
     }
 
     public void add(CardWeapon card) {
         cards.add(card);
+    }
+
+    public Card get(){
+        return new CardSpell();
     }
 }

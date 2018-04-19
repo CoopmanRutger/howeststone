@@ -10,4 +10,19 @@ public class CardWeaponcard extends Card{
         this.durability = durability;
         this.type = type;
     }
+
+    public int getDurability() {
+        return durability;
+    }
+
+    public String getType() {
+        return type;
+    }
+
+    public void setDurability(int durability) {
+        this.durability = durability;
+    }
+
+    
+
 }

@@ -12,22 +12,26 @@
     display: flex;
     flex-direction: row;
 }
-#versus{
+
+#versus {
     background-image: url("../../images/vs.png");
     background-repeat: no-repeat;
     background-position: center;
     width: 300px;
 }
-.player{
+
+.player {
     height: 33%;
     width: auto;
     position: relative;
 }
-#mage{
+
+#mage {
 
     margin: 30px 30px;
 }
-#priest{
+
+#priest {
     margin: 435px auto auto 30px;
 
 }

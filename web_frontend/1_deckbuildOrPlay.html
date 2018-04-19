@@ -3,46 +3,33 @@
 <head>
     <meta charset="UTF-8">
     <title>Build your deck or play, Fool!</title>
-    <meta name="author" content="Bert Vervust">
     <link rel="stylesheet" type="text/css" href="assets/css/reset.css">
     <link rel="stylesheet" type="text/css" href="assets/css/screen.css">
-    <style>
-        #suckIt {
-            border-image: url("assets/media/borderPossiblitiesAreEndless.jpg") 20 20 20 20 repeat;
-            border-width: 20px 20px 20px 20px;
-        }
-    </style>
-</head>
-<body>
-<div>
-    <header>
-        <h1>Strategy or Fight</h1>
-    </header>
-    <main id="oneDeckBuild">
-        <div>
-            <article class="deckBuild">
-                <!-- image pertaining to deckbuild-->
-                <button onclick="window.location.href='8_deckbuildLevelOne.html'" id="deckBuildButton" type="button">
-                    Deck
-                    Builder
-                </button>
+    <link rel="stylesheet" type="text/css" href="assets/css/1_deckbuilderOrPlay.css">
 
-            </article>
+</head>
+
+<body>
+    <main>
+        <header>
+            <h1>Strategy or Fight</h1>
+        </header>
+        <div>
+            <div id="deckBuild">
+                <article>
+
+                </article>
+            </div>
+            <div id="play">
+                <article>
+
+                </article>
+            </div>
         </div>
         <div>
-            <article class="Play">
-                <!-- image pertaining to play-->
-                <button onclick="window.location.href='2_chooseYourHero.html'" id="playButton" type="button">Play
-                </button>
-            </article>
+        <!--<button class="return" type="button">Back</button>-->
         </div>
     </main>
-    <div>
-        <!--<button class="return" type="button">Back</button>-->
-        <button onclick="window.location.href='-1_LoginStart.html'" class="return" type="button">Login as a different
-            user
-        </button>
-    </div>
-</div>
+    <script src="assets/js/1_deckBuildOrPlayButtons.js"></script>
 </body>
 </html>

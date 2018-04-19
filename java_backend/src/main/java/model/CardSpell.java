@@ -2,11 +2,7 @@ package model;
 
 public class CardSpell extends Card{
     //Declaratie van field
-    private String cardId;
-    private int attack;
-    private int type;
-    private String name;
-    private String img;
+   private int type;
 
     // Bij de initialisatie van de classe verwacht de constructor de volgende variabelen, die worden opgevraagd vanuit de superclasse Cards
     public CardSpell(String cardId, int attack, String name, String img) {

@@ -1,12 +1,17 @@
-package CardCollection;
+package cardCollection;
 
 import java.util.HashSet;
 import java.util.Set;
 
-public class Cards {
-    private Set<Cards.Card> cards;
+import cards.Card;
+import cards.CardMinion;
+import cards.CardSpell;
+import cards.CardWeapon;
 
-    public Cards(Set cards) {
+public class Cards {
+    private Set<Card> cards;
+
+    public Cards(Set<Card> cards) {
         this.cards = cards;
     }
 
@@ -14,20 +19,20 @@ public class Cards {
         cards = new HashSet<>();
     }
 
-    public void add(Cards.CardMinion card) {
+    public void add(CardMinion card) {
         cards.add(card);
     }
 
-    public void add(Cards.CardSpell card) {
+    public void add(CardSpell card) {
         cards.add(card);
     }
 
-    public void add(Cards.CardWeapon card) {
+    public void add(CardWeapon card) {
         cards.add(card);
     }
 
-    public Cards.Card get(){
-        Cards.Card cardToReturn = cards.iterator().next();
+    public Card get(){
+        Card cardToReturn = cards.iterator().next();
         cards.remove(cardToReturn);
         return cardToReturn;
     }

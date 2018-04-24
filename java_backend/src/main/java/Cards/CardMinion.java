@@ -1,4 +1,4 @@
-package Cards;
+package cards;
 
 public class CardMinion extends Card{
     private int health;

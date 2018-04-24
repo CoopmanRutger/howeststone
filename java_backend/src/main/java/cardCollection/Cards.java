@@ -36,4 +36,8 @@ public class Cards {
         cards.remove(cardToReturn);
         return cardToReturn;
     }
+
+    public int getAmountOfCards(){
+        return cards.size();
+    }
 }

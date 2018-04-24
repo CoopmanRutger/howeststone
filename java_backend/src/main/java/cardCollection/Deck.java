@@ -14,8 +14,4 @@ public class Deck {
     public Cards getCards() {
         return cards;
     }
-
-
-
-
 }

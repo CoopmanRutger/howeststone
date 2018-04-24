@@ -4,15 +4,13 @@ import java.util.Objects;
 
 public class Card {
     private String cardId;
-    private int attack;
     private String name;
     private String img;
     private String type; // minion - spell - weapon
     private String heroType;
 
-    public Card(String cardId, int attack, String name, String img, String type, String heroType) {
+    public Card(String cardId, String name, int attack,  String type, String heroType, String img) {
         this.cardId = cardId;
-        this.attack = attack;
         this.name = name;
         this.img = img;
         this.type = type;

@@ -16,40 +16,40 @@ public class StartUpPrep {
                 "root",
                 "");
 
-//        selectWeapon();
-//        selectMinion();
-//        selectSpell();
-        selectOneMinion("Squire");
+        selectWeapon();
+        selectMinion();
+        selectSpell();
+//        selectOneMinion("Squire");
 //        insertCity("Mattigem","Matti-land");
     }
 
 
-
-
-    private void selectOneMinion(String minionName) {
-        try (
-                Connection conn = db.getConnection();
-                PreparedStatement stmt = conn.prepareStatement(SqlStatements.SELECT_ONE_MINION);
-        ){
-            stmt.setString(1, minionName);
-            try (ResultSet minion = stmt.executeQuery()) {
-                if (minion.next()) {
-                    String cardId = minion.getString("cardId");
-                    String name = minion.getString("name");
-                    int cost = minion.getInt("mana");
-                    int attack = minion.getInt("attack");
-                    int health = minion.getInt("health");
-                    String info = minion.getString("description");
-
-                    System.out.printf(" cardId: %s, name: %s, mana: %d, attack: %d, health: %d, description: %s \n", cardId,name , cost, attack, health, info);
-                } else {
-                    System.err.println("No "+ minionName +" found!");
-                }
-            }
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-    }
+//
+//
+//    private void selectOneMinion(String minionName) {
+//        try (
+//                Connection conn = db.getConnection();
+//                PreparedStatement stmt = conn.prepareStatement(SqlStatements.SELECT_ONE_MINION);
+//        ){
+//            stmt.setString(1, minionName);
+//            try (ResultSet minion = stmt.executeQuery()) {
+//                if (minion.next()) {
+//                    String cardId = minion.getString("cardId");
+//                    String name = minion.getString("name");
+//                    int cost = minion.getInt("mana");
+//                    int attack = minion.getInt("attack");
+//                    int health = minion.getInt("health");
+//                    String info = minion.getString("description");
+//
+//                    System.out.printf(" cardId: %s, name: %s, mana: %d, attack: %d, health: %d, description: %s \n", cardId,name , cost, attack, health, info);
+//                } else {
+//                    System.err.println("No "+ minionName +" found!");
+//                }
+//            }
+//        } catch (SQLException e) {
+//            e.printStackTrace();
+//        }
+//    }
 
 
 

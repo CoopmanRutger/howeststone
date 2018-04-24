@@ -1,10 +1,10 @@
-package Cards;
+package cards;
 
 public class CardMinion extends Card{
     private int health;
 
-    public CardMinion(String cardId, int attack, String name, String img, String type, int health) {
-        super(cardId, attack, name, img, type);
+    public CardMinion(String cardId, String name, int attack,  String type, String heroType, String img ,int health) {
+        super(cardId, name, attack, type, heroType, img);
         this.health = health;
     }
 

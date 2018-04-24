@@ -26,6 +26,4 @@ public class Server {
                 .start();
         new Routes(server);
     }
-
-
 }

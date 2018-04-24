@@ -1,6 +1,6 @@
 package cards;
 
-public class CardWeapon extends Card{
+public class CardWeapon extends Card {
 
     private int durability;
 

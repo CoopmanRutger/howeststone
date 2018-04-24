@@ -7,15 +7,22 @@ public class Card {
     private int attack;
     private String name;
     private String img;
-    private String type;
+    private String type; // minion - spell - weapon
+    private String heroType;
 
-    public Card(String cardId, int attack, String name, String img, String type) {
+    public Card(String cardId, int attack, String name, String img, String type, String heroType) {
         this.cardId = cardId;
         this.attack = attack;
         this.name = name;
         this.img = img;
         this.type = type;
+        this.heroType = heroType;
     }
+
+    public String getHeroType() {
+        return heroType;
+    }
+
 
     public String getCardId() {
         return cardId;

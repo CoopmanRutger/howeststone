@@ -13,6 +13,11 @@ public class ServerTest {
     }
 
     @Test
+    public void testSomeAppMethod() {
+        assertTrue("is this 'true'?", false);
+    }
+
+    @Test
     public void testRootRouteAsString() {
         try {
             assertTrue("testing / as string",

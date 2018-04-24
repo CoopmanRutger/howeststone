@@ -11,4 +11,16 @@ public class Hero {
         this.img = img;
         this.heroPower = heroPower;
     }
+
+    public String getName() {
+        return name;
+    }
+
+    public String getImg() {
+        return img;
+    }
+
+    public HeroPower getHeroPower() {
+        return heroPower;
+    }
 }

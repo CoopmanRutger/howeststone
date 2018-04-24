@@ -5,53 +5,48 @@ import java.util.Objects;
 public class Card {
     private String cardId;
     private String name;
-    private String img;
     private String type; // minion - spell - weapon
+    private int mana;
     private String heroType;
+    private String description;
+    private String img;
 
-    public Card(String cardId, String name, int attack,  String type, String heroType, String img) {
+    public Card(String cardId, String name, String type, int mana, String heroType, String description, String img) {
         this.cardId = cardId;
         this.name = name;
-        this.img = img;
         this.type = type;
+        this.mana = mana;
         this.heroType = heroType;
+        this.description = description;
+        this.img = img;
     }
-
-    public String getHeroType() {
-        return heroType;
-    }
-
 
     public String getCardId() {
         return cardId;
-    }
-
-    public int getAttack() {
-        return attack;
-    }
-
-    public void setAttack(int attack) {
-        this.attack = attack;
     }
 
     public String getName() {
         return name;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public String getType() {
+        return type;
+    }
+
+    public int getMana() {
+        return mana;
+    }
+
+    public String getHeroType() {
+        return heroType;
+    }
+
+    public String getDescription() {
+        return description;
     }
 
     public String getImg() {
         return img;
-    }
-
-    public void setImg(String img) {
-        this.img = img;
-    }
-
-    public String getType() {
-        return type;
     }
 
     @Override
@@ -65,5 +60,18 @@ public class Card {
     @Override
     public int hashCode() {
         return Objects.hash(cardId);
+    }
+
+    @Override
+    public String toString() {
+        return "Card{" +
+                "cardId='" + cardId + '\'' +
+                ", name='" + name + '\'' +
+                ", type='" + type + '\'' +
+                ", mana=" + mana +
+                ", heroType='" + heroType + '\'' +
+                ", description='" + description + '\'' +
+                ", img='" + img + '\'' +
+                '}';
     }
 }

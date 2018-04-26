@@ -19,4 +19,12 @@ public class Template {
     public Deck getDeck1() {
         return deck;
     }
+
+    public void setHero(Hero hero) {
+        this.hero = hero;
+    }
+
+    public void setDeck(Deck deck) {
+        this.deck = deck;
+    }
 }

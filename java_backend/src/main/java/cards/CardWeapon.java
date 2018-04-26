@@ -23,6 +23,14 @@ public class CardWeapon extends Card {
         return durability;
     }
 
+    public void setAttack(int attack) {
+        this.attack = attack;
+    }
+
+    public void setDurability(int durability) {
+        this.durability = durability;
+    }
+
     @Override
     public String toString() {
         return "CardWeapon{" +

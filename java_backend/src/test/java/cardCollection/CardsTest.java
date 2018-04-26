@@ -15,16 +15,16 @@ public class CardsTest {
 
     private Cards cards = new Cards();
 
-    private CardMinion card1 = new CardMinion("ID",0,"name","img","type","heroType",0);
-    private CardWeapon card2 = new CardWeapon("ID",0,"name","img","type", "heroType",0);
-    private CardSpell card3 = new CardSpell("ID",0,"name","img","type", "heroType");
+    private CardMinion card1 = new CardMinion("ID","0","name",0,"type","heroType","0",0,0,"black","lol");
+    private CardWeapon card2 = new CardWeapon("ID","0","name",0,"type", "heroType","0");
+    private CardSpell card3 = new CardSpell("ID","0","name",0,"type", "heroType","img","taunt");
 
     @Test
     public void adding() {
+        Set<Card> set = new HashSet<>();
         cards.add(card1);
         cards.add(card2);
         cards.add(card3);
-        Set set = new HashSet<Card>(card1,card2,card3);
         assertEquals(set,"bla");
     }
 }

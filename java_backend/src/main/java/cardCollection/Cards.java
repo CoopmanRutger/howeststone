@@ -19,23 +19,20 @@ public class Cards {
         cards = new HashSet<>();
     }
 
-    public void add(CardMinion card) {
+    public void add(Card card) {
         cards.add(card);
     }
 
-    public void add(CardSpell card) {
-        cards.add(card);
-    }
-
-    public void add(CardWeapon card) {
-        cards.add(card);
-    }
-
-    public Card get(){
+    public Card get(){ // neemt willekeurige kaart uit de set en verwijdert die kaart
         Card cardToReturn = cards.iterator().next();
         cards.remove(cardToReturn);
         return cardToReturn;
     }
+
+    public boolean contains(Card card){
+        return cards.contains(card);
+    }
+
 
     public int getAmountOfCards(){
         return cards.size();

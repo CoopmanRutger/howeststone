@@ -54,6 +54,8 @@ public class Card {
         return type;
     }
 
+
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -62,8 +64,11 @@ public class Card {
         return Objects.equals(cardId, card.cardId);
     }
 
+
+
     @Override
     public int hashCode() {
         return Objects.hash(cardId);
+
     }
 }

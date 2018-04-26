@@ -3,8 +3,7 @@ package SQLcontoller;
 public class SqlStatements {
 
     public static final String SElECT_MINION =
-            "SELECT cardId, name, type, mana, attack, health, heroType, " +
-                    "race, description, img, imgBack " +
+            "SELECT cardId, name, type, mana, attack, health, heroType, race, mechanicsName, description, img " +
                     "FROM minions;";
 
 

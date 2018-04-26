@@ -23,7 +23,13 @@ public class Cards {
         cards.add(card);
     }
 
-    public Card get(){ // neemt willekeurige kaart uit de set en verwijdert die kaart
+    public Set<Card> getCards() {
+        Set<Card> set = new HashSet<>();
+        set.addAll(cards);
+        return set;
+    }
+
+    public Card pop(){
         Card cardToReturn = cards.iterator().next();
         cards.remove(cardToReturn);
         return cardToReturn;

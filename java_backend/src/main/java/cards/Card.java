@@ -49,7 +49,33 @@ public class Card {
         return img;
     }
 
+    public void setCardId(String cardId) {
+        this.cardId = cardId;
+    }
 
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setType(String type) {
+        this.type = type;
+    }
+
+    public void setMana(int mana) {
+        this.mana = mana;
+    }
+
+    public void setHeroType(String heroType) {
+        this.heroType = heroType;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public void setImg(String img) {
+        this.img = img;
+    }
 
     @Override
     public boolean equals(Object o) {

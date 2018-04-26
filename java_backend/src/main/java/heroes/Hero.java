@@ -23,4 +23,16 @@ public class Hero {
     public HeroPower getHeroPower() {
         return heroPower;
     }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setImg(String img) {
+        this.img = img;
+    }
+
+    public void setHeroPower(HeroPower heroPower) {
+        this.heroPower = heroPower;
+    }
 }

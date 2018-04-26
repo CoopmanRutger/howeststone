@@ -18,7 +18,11 @@ public class Heroes {
         return cardChoices.get(hero);
     }
 
-//    public Cards getCards(String id) {
+    public void setCardChoices(Map<Hero, Cards> cardChoices) {
+        this.cardChoices = cardChoices;
+    }
+
+    //    public Cards getCards(String id) {
 //        return cardChoices.get(id);
 //    }
 }

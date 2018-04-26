@@ -1,5 +1,6 @@
 package player;
 
+import cardCollection.Cards;
 import cardCollection.Deck;
 import cards.Card;
 import heroes.Hero;
@@ -7,15 +8,23 @@ import heroes.Hero;
 public class Player {
     private Hero hero;
     private Deck deck;
-    private Deck cardsInHand;
+    private Cards cardsInHand;
 
     public Player(PlayableDeck playableDeck) {
-        this.hero = playableDeck.getHero();
-        this.deck = playableDeck.getDeck();
+//        if (playableDeck.getDeck().valid()){
+            this.hero = playableDeck.getHero();
+            this.deck = playableDeck.getDeck();
+            cardsInHand = new Cards();
+//        }
+    }
+
+    public Player(Deck deck,Hero hero) {
+        this.deck = deck;
+        this.hero = hero;
         cardsInHand = new Deck();
     }
 
-    public Card drawCards() {
+    public Card drawCard() {
         Card out = deck.drawRandom();
         cardsInHand.addCard(out);
         return out;
@@ -41,11 +50,11 @@ public class Player {
         this.deck = deck;
     }
 
-    public Deck getCardsInHand() {
+    public Cards getCardsInHand() {
         return cardsInHand;
     }
 
-    public void setCardsInHand(Deck cardsInHand) {
+    public void setCardsInHand(Cards cardsInHand) {
         this.cardsInHand = cardsInHand;
     }
 }

@@ -42,7 +42,7 @@ public class CardsTest {
         cards.add(card2);
         cards.add(card3);
 
-        assertEquals(3,cards.getAmountOfCards());
+        assertEquals(3,cards.getAmount());
     }
 
     @Test
@@ -52,7 +52,7 @@ public class CardsTest {
         cards.add(card1);
         cards.add(card1);
 
-        assertEquals(1,cards.getAmountOfCards());
+        assertEquals(1,cards.getAmount());
     }
 
     @Test
@@ -60,10 +60,10 @@ public class CardsTest {
         Cards cards = new Cards();
 
         cards.add(card1);
-        assertEquals(1,cards.getAmountOfCards());
+        assertEquals(1,cards.getAmount());
         
         cards.pop();
-        assertEquals(0,cards.getAmountOfCards());
+        assertEquals(0,cards.getAmount());
     }
 
     @Test
@@ -71,7 +71,7 @@ public class CardsTest {
         Cards cards = new Cards();
 
         cards.add(card1);
-        assertEquals(1,cards.getAmountOfCards());
+        assertEquals(1,cards.getAmount());
     }
 
     @Test
@@ -83,5 +83,27 @@ public class CardsTest {
 
         cards.add(card1);
         assertEquals(card1,cards.pop());
+    }
+
+    @Test
+    public void contains() {
+        Cards cards = new Cards();
+
+        cards.add(card1);
+        assertTrue(cards.contains(card1));
+
+        cards.pop();
+        assertTrue(!cards.contains(card1));
+    }
+
+    @Test
+    public void remove() {
+        Cards cards = new Cards();
+
+        cards.add(card1);
+        assertEquals(1,cards.getAmount());
+
+        cards.remove(card1);
+        assertEquals(0,cards.getAmount());
     }
 }

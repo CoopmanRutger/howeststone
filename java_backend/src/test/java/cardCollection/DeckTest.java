@@ -18,8 +18,40 @@ public class DeckTest {
     private CardSpell card3 = new CardSpell("ID","0","name",0,"type", "heroType","img","taunt");
 
     @Test
-    public void adding1() {
+    public void adding() {
         Deck deck = new Deck();
+
+        deck.addCards(card1);
+        assertEquals(1,deck.getAmount());
+        deck.addCards(card1);
+        assertEquals(2,deck.getAmount());
+        deck.addCards(card1);
+        assertEquals(2,deck.getAmount());
+        deck.addCards(card2);
+        assertEquals(3,deck.getAmount());
     }
 
+    @Test
+    public void pop() {
+        Deck deck = new Deck();
+
+        deck.addCards(card1);
+        deck.addCards(card1);
+        deck.addCards(card2);
+        deck.addCards(card3);
+
+        assertEquals(4,deck.getAmount());
+
+        assertEquals(card1.getClass(),deck.pop().getClass());
+        assertEquals(3,deck.getAmount());
+
+        deck.pop();
+        assertEquals(2,deck.getAmount());
+
+        deck.pop();
+        assertEquals(1,deck.getAmount());
+
+        deck.pop();
+        assertEquals(0,deck.getAmount());
+    }
 }

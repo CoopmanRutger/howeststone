@@ -35,12 +35,15 @@ public class Cards {
         return cardToReturn;
     }
 
+    public void remove(Card card){
+        cards.remove(card);
+    }
+
     public boolean contains(Card card){
         return cards.contains(card);
     }
 
-
-    public int getAmountOfCards(){
+    public int getAmount(){
         return cards.size();
     }
 }

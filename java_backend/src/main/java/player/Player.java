@@ -1,5 +1,8 @@
 package player;
 
+import cardCollection.Deck;
+import heroes.Hero;
+
 public class Player {
     private Hero hero;
     private Deck deck;

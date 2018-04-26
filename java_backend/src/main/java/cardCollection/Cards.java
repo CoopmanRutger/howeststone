@@ -19,16 +19,14 @@ public class Cards {
         cards = new HashSet<>();
     }
 
-    public void add(CardMinion card) {
+    public void add(Card card) {
         cards.add(card);
     }
 
-    public void add(CardSpell card) {
-        cards.add(card);
-    }
-
-    public void add(CardWeapon card) {
-        cards.add(card);
+    public Set<Card> getCards() {
+        Set<Card> set = new HashSet<>();
+        set.addAll(cards);
+        return set;
     }
 
     public Card get(){

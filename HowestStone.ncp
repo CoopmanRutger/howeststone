@@ -29,9 +29,10 @@
         <Location left="1030" top="1966" />
         <Size width="162" height="216" />
         <Collapsed>False</Collapsed>
-        <Member type="Field">int health</Member>
         <Member type="Field">int attack</Member>
+        <Member type="Field">int health</Member>
         <Member type="Field">string race</Member>
+        <Member type="Field">string mechanicsName</Member>
         <Modifier>None</Modifier>
       </Entity>
       <Entity type="Class">
@@ -49,8 +50,8 @@
         <Location left="1640" top="2058" />
         <Size width="162" height="216" />
         <Collapsed>False</Collapsed>
-        <Member type="Field">int durability</Member>
         <Member type="Field">int attack</Member>
+        <Member type="Field">int durability</Member>
         <Modifier>None</Modifier>
       </Entity>
       <Entity type="Class">

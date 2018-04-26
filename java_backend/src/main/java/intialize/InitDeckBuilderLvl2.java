@@ -9,16 +9,13 @@ import java.sql.*;
 public class InitDeckBuilderLvl2 extends Init {
 
 
-    public void selectMinion(){
+    public Cards selectMinion(){
+        Cards cards = new Cards();
         try (
                 Connection conn = db.getConnection();
                 Statement stmt = conn.createStatement();
                 ResultSet minion = stmt.executeQuery(SqlStatements.SElECT_MINION)
         ){
-
-
-            Cards cards = new Cards();
-            cards
             System.out.println("\n\n\n MINION \n");
 
             while(minion.next()) {
@@ -32,19 +29,20 @@ public class InitDeckBuilderLvl2 extends Init {
                 String heroType = minion.getString("heroType");
                 String img = minion.getString("img");
                 String race = minion.getString("race");
-                String imgBack = minion.getString("imgBack");
                 String mechanicsName = minion.getString("mechanicsName");
 
 //                System.out.printf(" cardId: %s, name: %s, mana: %d, attack: %d, health: %d, description: %s \n", cardId,name , mana, attack, health, info);
-                CardMinion kaart = new CardMinion(cardId, name, type, mana, heroType, info, img, attack, health, race, imgBack, mechanicsName );
+                CardMinion card = new CardMinion(cardId, name, type, mana, heroType, info, img, attack, health, race, mechanicsName );
+                cards.add(card);
 
-                System.out.println(kaart);
             }
 
 
         } catch (SQLException e) {
             e.printStackTrace();
         }
+        System.out.println(cards);
+        return cards;
     }
 
 

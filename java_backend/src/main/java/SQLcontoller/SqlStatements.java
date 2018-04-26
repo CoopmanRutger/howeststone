@@ -4,7 +4,7 @@ public class SqlStatements {
 
     public static final String SElECT_MINION =
             "SELECT cardId, name, type, mana, attack, health, heroType, " +
-                    "race, description, img, imgBack " +
+                    "race, mechanicsName, description, img, imgBack " +
                     "FROM minions;";
 
 

@@ -29,11 +29,16 @@ public class Cards {
         return set;
     }
 
-    public Card get(){
+    public Card pop(){
         Card cardToReturn = cards.iterator().next();
         cards.remove(cardToReturn);
         return cardToReturn;
     }
+
+    public boolean contains(Card card){
+        return cards.contains(card);
+    }
+
 
     public int getAmountOfCards(){
         return cards.size();

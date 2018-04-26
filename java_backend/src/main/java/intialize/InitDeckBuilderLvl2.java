@@ -33,7 +33,7 @@ public class InitDeckBuilderLvl2 extends Init {
 
 //                System.out.printf(" cardId: %s, name: %s, mana: %d, attack: %d, health: %d, description: %s \n", cardId,name , mana, attack, health, info);
                 CardMinion card = new CardMinion(cardId, name, type, mana, heroType, info, img, attack, health, race, mechanicsName );
-                cards.add(card);
+                cards.addCard(card);
 
             }
 

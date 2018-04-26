@@ -1,13 +1,13 @@
-package templates;
+package player;
 
 import cardCollection.Deck;
 import heroes.Hero;
 
-public class Template {
+public class PlayableDeck {
     private Hero hero;
     private Deck deck;
 
-    public Template(Hero hero, Deck deck) {
+    public PlayableDeck(Hero hero, Deck deck) {
         this.hero = hero;
         this.deck = deck;
     }
@@ -16,7 +16,7 @@ public class Template {
         return hero;
     }
 
-    public Deck getDeck1() {
+    public Deck getDeck() {
         return deck;
     }
 }

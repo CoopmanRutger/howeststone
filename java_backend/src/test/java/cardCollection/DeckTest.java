@@ -21,13 +21,13 @@ public class DeckTest {
     public void adding() {
         Deck deck = new Deck();
 
-        deck.addCards(card1);
+        deck.addCard(card1);
         assertEquals(1,deck.getAmount());
-        deck.addCards(card1);
+        deck.addCard(card1);
         assertEquals(2,deck.getAmount());
-        deck.addCards(card1);
+        deck.addCard(card1);
         assertEquals(2,deck.getAmount());
-        deck.addCards(card2);
+        deck.addCard(card2);
         assertEquals(3,deck.getAmount());
     }
 
@@ -35,23 +35,29 @@ public class DeckTest {
     public void pop() {
         Deck deck = new Deck();
 
-        deck.addCards(card1);
-        deck.addCards(card1);
-        deck.addCards(card2);
-        deck.addCards(card3);
+        deck.addCard(card1);
+        deck.addCard(card1);
+        deck.addCard(card2);
+        deck.addCard(card3);
 
         assertEquals(4,deck.getAmount());
 
-        assertEquals(card1.getClass(),deck.pop().getClass());
+        deck.drawRandom();
         assertEquals(3,deck.getAmount());
 
-        deck.pop();
+        deck.drawRandom();
         assertEquals(2,deck.getAmount());
 
-        deck.pop();
+        deck.drawRandom();
         assertEquals(1,deck.getAmount());
 
-        deck.pop();
+        deck.drawRandom();
         assertEquals(0,deck.getAmount());
+    }
+
+    @Test
+    public void thirtyLimit() {
+        Deck deck = new Deck();
+        assertTrue(!deck.valid());
     }
 }

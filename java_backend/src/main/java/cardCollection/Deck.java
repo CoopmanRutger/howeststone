@@ -1,40 +1,44 @@
 package cardCollection;
 
-
 import cards.Card;
+import java.util.List;
 
-public class Deck {
+public class Deck extends Cards{
 
-    private Cards cards1 = new Cards();
-    private Cards cards2 = new Cards();
+    public Deck(List<Card> cards) {
+        super(cards);
+    }
 
-    public void addCards(Card card){
-//        Exception Ex = new Exception();
-        if (getAmount()<30) {
-            try{
-                if (!cards1.contains(card)){  // sets bevatten geen dubbele waardes!
-                    cards1.add(card);
-                } else if (!cards2.contains(card)) {
-                    cards2.add(card);
-                } else {
-                    throw new Exception("meer dan 2 dezelfde kaarten");
-                }
-            } catch (Exception Ex) {
-                // laat gebruiker weten datt nie gelukt is
+    public Deck() {
+        super();
+    }
+
+    public void addCard(Card card){
+        try{
+            if (containsDouble(card)){  // sets bevatten geen dubbele waardes!
+                throw new Exception("er zijn 2 dezelfde kaarten");
+            } else if(getAmount()<30) {
+                cards.add(card);
+            } else {
+                throw new Exception("meer dan 30 kaarten!");
+            }
+        } catch (Exception Ex) {
+            // laat gebruiker weten datt nie gelukt is
+        }
+
+    }
+
+    public boolean valid(){
+        return getAmount()==30;
+    }
+
+    private boolean containsDouble(Card card) {
+        int amount = 0;
+        for (Card c : cards) {
+            if (c.equals(card)){
+                amount++;
             }
         }
-    }
-
-    public Card pop(){
-        Card cardToReturn = cards1.pop();
-        if (cards2.contains(cardToReturn)) {
-            cards2.remove(cardToReturn);
-            cards1.add(cardToReturn);
-        }
-        return cardToReturn;
-    }
-
-    public int getAmount(){
-        return cards1.getAmount() + cards2.getAmount();
+        return amount>1;
     }
 }

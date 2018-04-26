@@ -6,7 +6,9 @@ import cards.CardSpell;
 import cards.CardWeapon;
 import org.junit.Test;
 
+import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 import static org.junit.Assert.*;
@@ -21,48 +23,38 @@ public class CardsTest {
     public void adding1() {
         Cards cards = new Cards();
 
-        Set<Card> set = new HashSet<>();
+        List<Card> list = new ArrayList<>(30);
 
-        set.add(card1);
-        set.add(card2);
-        set.add(card3);
+        list.add(card1);
+        list.add(card2);
+        list.add(card3);
 
-        cards.add(card1);
-        cards.add(card2);
-        cards.add(card3);
+        cards.addCard(card1);
+        cards.addCard(card2);
+        cards.addCard(card3);
 
-        assertEquals(set,cards.getCards());
+        assertEquals(list,cards.getCards());
     }
 
     @Test
     public void adding2() {
         Cards cards = new Cards();
 
-        cards.add(card1);
-        cards.add(card2);
-        cards.add(card3);
+        cards.addCard(card1);
+        cards.addCard(card2);
+        cards.addCard(card3);
 
         assertEquals(3,cards.getAmount());
-    }
-
-    @Test
-    public void adding3() {
-        Cards cards = new Cards();
-
-        cards.add(card1);
-        cards.add(card1);
-
-        assertEquals(1,cards.getAmount());
     }
 
     @Test
     public void pop1() {
         Cards cards = new Cards();
 
-        cards.add(card1);
+        cards.addCard(card1);
         assertEquals(1,cards.getAmount());
         
-        cards.pop();
+        cards.drawRandom();
         assertEquals(0,cards.getAmount());
     }
 
@@ -70,7 +62,7 @@ public class CardsTest {
     public void pop2() {
         Cards cards = new Cards();
 
-        cards.add(card1);
+        cards.addCard(card1);
         assertEquals(1,cards.getAmount());
     }
 
@@ -78,21 +70,21 @@ public class CardsTest {
     public void pop3() {
         Cards cards = new Cards();
 
-        cards.add(card1);
-        assertEquals(card1.getClass(),cards.pop().getClass());
+        cards.addCard(card1);
+        assertEquals(card1.getClass(),cards.drawRandom().getClass());
 
-        cards.add(card1);
-        assertEquals(card1,cards.pop());
+        cards.addCard(card1);
+        assertEquals(card1,cards.drawRandom());
     }
 
     @Test
     public void contains() {
         Cards cards = new Cards();
 
-        cards.add(card1);
+        cards.addCard(card1);
         assertTrue(cards.contains(card1));
 
-        cards.pop();
+        cards.drawRandom();
         assertTrue(!cards.contains(card1));
     }
 
@@ -100,7 +92,7 @@ public class CardsTest {
     public void remove() {
         Cards cards = new Cards();
 
-        cards.add(card1);
+        cards.addCard(card1);
         assertEquals(1,cards.getAmount());
 
         cards.remove(card1);

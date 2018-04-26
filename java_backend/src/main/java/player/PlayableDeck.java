@@ -19,4 +19,12 @@ public class PlayableDeck {
     public Deck getDeck() {
         return deck;
     }
+
+    public void setHero(Hero hero) {
+        this.hero = hero;
+    }
+
+    public void setDeck(Deck deck) {
+        this.deck = deck;
+    }
 }

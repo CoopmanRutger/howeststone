@@ -13,6 +13,10 @@ public class CardSpell extends Card{
         return mechanicsName;
     }
 
+    public void setMechanicsName(String mechanicsName) {
+        this.mechanicsName = mechanicsName;
+    }
+
     @Override
     public String toString() {
         return "CardSpell{" +

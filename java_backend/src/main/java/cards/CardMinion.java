@@ -30,4 +30,20 @@ public class CardMinion extends Card{
     public String getMechanicsName() {
         return mechanicsName;
     }
+
+    public void setAttack(int attack) {
+        this.attack = attack;
+    }
+
+    public void setHealth(int health) {
+        this.health = health;
+    }
+
+    public void setRace(String race) {
+        this.race = race;
+    }
+
+    public void setMechanicsName(String mechanicsName) {
+        this.mechanicsName = mechanicsName;
+    }
 }

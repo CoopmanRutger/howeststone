@@ -1,21 +1,31 @@
 package playField;
 
+import player.Bot;
+import player.Player;
+
 public class PlayingField {
-    //Bot comp1;
-    //Player client;
-    //private int mana = 1;
-    //private final in maxMana=10;
-    //Player CurrentPlayer;
-    // int turn;
+    Player players[] = new Player[2];
+    private int turn = 1;
+    private final int maxMana = 10;
+    private short index = 0;
+    // Player CurrentPlayer;
 
-    //Constructor met daarin currentplayer = comp1 of client, mana = 1
+    private void incerement(){
+        if (index == 1) {
+            turn++;
+            index = 0;
+        } else if (index == 0) {
+            index++;
+        } else {
+//            't is nie gelukt
+        }
+    }
 
-    //public void selectNextPlayer(){
-    //if (currentPlayer = client){
-    //currentPlayer = comp1;
-    //for int i=1;i<maxMana;i++{mana++
-    //} else {
-    // currentPlayer=client;
-    //for int i=1;i<maxMana;i++{mana++}
-
+    public int getMana(){
+        if (turn < maxMana){
+            return turn;
+        } else {
+            return maxMana;
+        }
+    }
 }

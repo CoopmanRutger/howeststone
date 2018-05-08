@@ -52,11 +52,12 @@ public class PlayingField {
         } else if (index == 0) {
             index++;
         } else {
-//            't is nie gelukt
+//          // TODO  't is nie gelukt
         }
     }
 
     public int getMana(){
+
         if (turn < maxMana){
             return turn;
         } else {

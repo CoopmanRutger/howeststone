@@ -11,6 +11,7 @@ import playField.PlayingField;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertTrue;
 
 public class Playingfield {
 
@@ -37,6 +38,7 @@ public class Playingfield {
         // TODO als end turn is true kan de speler niets doen.
         // TODO als end turn is false kan je wel bepaalde dingen doen.
         // TODO (vodoo docter) als minion 1 leven af is en je hersteld met 2 levens krijgt hij toch maar 1 leven bij.
+        // TODO minion wordt aangevallen en heeft < 0 levens dus wordt van veld verwijderd.
 
     }
 
@@ -61,13 +63,15 @@ public class Playingfield {
 
         player.getHero().takeDamage(3);
         assertEquals(27, player.getHero().getLifePoints());
+        assertTrue(player.isAlive());
 
         player.getHero().takeDamage(4);
         assertEquals(23, player.getHero().getLifePoints());
+        assertTrue(player.isAlive());
 
         player.getHero().takeDamage(25);
         assertEquals(-2,player.getHero().getLifePoints());
-        assertFalse(player.getHero().isAlive());
+        assertFalse(player.isAlive());
 
     }
 }

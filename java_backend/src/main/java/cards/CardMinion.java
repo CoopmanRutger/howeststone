@@ -46,4 +46,14 @@ public class CardMinion extends Card{
     public void setMechanicsName(String mechanicsName) {
         this.mechanicsName = mechanicsName;
     }
+
+    @Override
+    public String toString() {
+        return "CardMinion " +
+                super.toString() +
+                "attack: " + attack +
+                ", health: " + health +
+                ", race: " + race +
+                ", mechanicsName:" + mechanicsName + "\n";
+    }
 }

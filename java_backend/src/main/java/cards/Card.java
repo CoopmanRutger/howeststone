@@ -85,8 +85,6 @@ public class Card {
         return Objects.equals(cardId, card.cardId);
     }
 
-
-
     @Override
     public int hashCode() {
         return Objects.hash(cardId);
@@ -95,14 +93,8 @@ public class Card {
 
     @Override
     public String toString() {
-        return "Card{" +
-                "cardId='" + cardId + '\'' +
-                ", name='" + name + '\'' +
-                ", type='" + type + '\'' +
-                ", mana=" + mana +
-                ", heroType='" + heroType + '\'' +
-                ", description='" + description + '\'' +
-                ", img='" + img + '\'' +
-                '}';
+        return "cardId: " + cardId +
+                ", name: " + name +
+                ", mana: " + mana + " ";
     }
 }

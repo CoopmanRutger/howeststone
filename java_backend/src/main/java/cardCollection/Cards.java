@@ -62,4 +62,13 @@ public class Cards {
     public int getAmount(){
         return cards.size();
     }
+
+    @Override
+    public String toString() {
+        String out = "";
+        for (Card c: cards) {
+            out += c.toString();
+        }
+        return out;
+    }
 }

@@ -36,9 +36,9 @@ public class CardWeapon extends Card {
 
     @Override
     public String toString() {
-        return "CardWeapon{" +
-                "attack=" + attack +
-                ", durability=" + durability +
-                '}';
+        return "CardWeapon " +
+                super.toString() +
+                "attack: " + attack +
+                ", durability: " + durability + "\n";
     }
 }

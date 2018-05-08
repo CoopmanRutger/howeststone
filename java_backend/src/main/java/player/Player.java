@@ -18,8 +18,6 @@ public class Player {
 //        }
     }
 
-
-
     public Player(Deck deck,Hero hero) {
         this.deck = deck;
         this.hero = hero;
@@ -46,6 +44,10 @@ public class Player {
 
     public Cards getCardsInHand() {
         return cardsInHand;
+    }
+
+    public boolean isAlive(){
+        return hero.isAlive();
     }
 
     @Override

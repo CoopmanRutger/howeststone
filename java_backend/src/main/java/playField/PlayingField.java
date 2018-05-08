@@ -1,21 +1,21 @@
 package playField;
 
 import cardCollection.Cards;
+import cards.Card;
 import player.Player;
 
-public class PlayingField {
-    Player players[] = new Player[2];
-    private Cards[] cardsOnField = new Cards[2];
-    boolean isOpponent[] = new boolean[2];
+import java.util.Arrays;
 
-    private int turn = 1;
+public class PlayingField {
+    private Player players[] = new Player[2];
+    private Cards[] cardsOnField = new Cards[2];
+    private boolean isOpponent[] = new boolean[2];
+
+    private int turn = 0;
     private static final int maxMana = 10;
     private short index = 0;
 
     public PlayingField(Player player, Player opponent, boolean begins) {
-        cardsOnField[0] = new Cards();
-        cardsOnField[1] = new Cards();
-
         if (begins) {
             players[0] = player;
             isOpponent[0] = false;
@@ -28,9 +28,24 @@ public class PlayingField {
             isOpponent[0] = true;
         }
 
+        cardsOnField[0] = new Cards();
+        cardsOnField[1] = new Cards();
+
+        for (int i = 0; i < 3; i++) {
+            drawCard();
+        }
+
+        incerement();
+
+        for (int i = 0; i < 3; i++) {
+            drawCard();
+        }
+
+        System.out.println(player);
+
     }
 
-    private void incerement(){
+    public void incerement(){
         if (index == 1) {
             turn++;
             index = 0;
@@ -49,7 +64,7 @@ public class PlayingField {
         }
     }
 
-    private Player getCurrentPlayer(){
+    public Player getCurrentPlayer(){
         return players[index];
     }
 
@@ -61,5 +76,23 @@ public class PlayingField {
         cardsOnField[index].addCard(
                 getCurrentPlayer().playCard(id)
         );
+    }
+
+    @Override
+    public String toString() {
+        int index2 = index + 1 % 2;
+
+        String out = "";
+
+        out += players[index].getCardsInHand();
+        out += "\n";
+//        out += cardsOnField[index];
+//        out += "\n";
+//        out += players[index2].getCardsInHand();
+//        out += "\n";
+//        out += cardsOnField[index2];
+//        out += "\n";
+
+        return out;
     }
 }

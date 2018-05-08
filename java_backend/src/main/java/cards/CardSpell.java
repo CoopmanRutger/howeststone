@@ -19,8 +19,8 @@ public class CardSpell extends Card{
 
     @Override
     public String toString() {
-        return "CardSpell{" +
-                "mechanicsName='" + mechanicsName + '\'' +
-                '}';
+        return "CardSpell " +
+                super.toString() +
+                "mechanicsName: " + mechanicsName + "\n";
     }
 }

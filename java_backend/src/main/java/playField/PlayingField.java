@@ -1,14 +1,34 @@
 package playField;
 
-import player.Bot;
+import cardCollection.Cards;
 import player.Player;
 
 public class PlayingField {
     Player players[] = new Player[2];
+    private Cards[] cardsOnField = new Cards[2];
+    boolean isOpponent[] = new boolean[2];
+
     private int turn = 1;
-    private final int maxMana = 10;
+    private static final int maxMana = 10;
     private short index = 0;
-    // Player CurrentPlayer;
+
+    public PlayingField(Player player, Player opponent, boolean begins) {
+        cardsOnField[0] = new Cards();
+        cardsOnField[1] = new Cards();
+
+        if (begins) {
+            players[0] = player;
+            isOpponent[0] = false;
+            players[1] = opponent;
+            isOpponent[1] = true;
+        } else {
+            players[1] = player;
+            isOpponent[1] = false;
+            players[0] = opponent;
+            isOpponent[0] = true;
+        }
+
+    }
 
     private void incerement(){
         if (index == 1) {
@@ -27,5 +47,19 @@ public class PlayingField {
         } else {
             return maxMana;
         }
+    }
+
+    private Player getCurrentPlayer(){
+        return players[index];
+    }
+
+    public void drawCard(){
+        getCurrentPlayer().drawCard();
+    }
+
+    public void playCard(String id){
+        cardsOnField[index].addCard(
+                getCurrentPlayer().playCard(id)
+        );
     }
 }

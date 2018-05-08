@@ -26,7 +26,8 @@ public class PlayingField {
         players[subIndex] = player;
         isOpponent[subIndex] = false;
 
-        subIndex = subIndex + 1 % 2;
+        subIndex++;
+        subIndex %= 2;
         
         players[subIndex] = opponent;
         isOpponent[subIndex] = true;
@@ -86,20 +87,24 @@ public class PlayingField {
         );
     }
 
+    public boolean isOpponent () {
+        return isOpponent[index];
+    }
+
     @Override
     public String toString() {
-        int index2 = index + 1 % 2;
+        int subIndex = index;
 
         String out = "";
 
-        out += players[index].getCardsInHand();
-        out += "\n";
-        out += cardsOnField[index];
-        out += "\n";
-        out += players[index2].getCardsInHand();
-        out += "\n";
-        out += cardsOnField[index2];
-        out += "\n";
+        out += players[subIndex].getCardsInHand() +"\n" +
+                cardsOnField[subIndex] + "\n";
+
+        subIndex++;
+        subIndex %= 2;
+
+        out += players[subIndex].getCardsInHand() +"\n" +
+                cardsOnField[subIndex] + "\n";
 
         return out;
     }

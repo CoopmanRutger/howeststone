@@ -43,19 +43,24 @@ public class Playingfield {
         // TODO minion wordt aangevallen en heeft < 0 levens dus wordt van veld verwijderd.
 
     }
+
     @Test
     public void checkIfItsYourTurn() {
-
-        System.out.println();
         assertEquals(1,testField.getMana());
 
         testField.increment();
-        //opponent speelt
+        // opponent speelt
         testField.increment();
-        //turn 2
+        // turn 2
         assertEquals(2,testField.getMana());
-    }
 
+        for (int i = 0; i < 10; i++) {
+            testField.increment();
+            testField.increment();
+        }
+
+        assertEquals(10,testField.getMana());
+    }
 
     @Test
     public void heroStartGame() {
@@ -64,7 +69,6 @@ public class Playingfield {
         assertEquals(0, player.getHero().getAmourPoints());
 
     }
-
 
     @Test
     public void heroGetsAmour() {
@@ -86,8 +90,5 @@ public class Playingfield {
         player.getHero().takeDamage(25);
         assertEquals(-2,player.getHero().getLifePoints());
         assertFalse(player.isAlive());
-
     }
-
-
 }

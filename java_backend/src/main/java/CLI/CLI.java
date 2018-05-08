@@ -1,6 +1,5 @@
 package CLI;
 
-import cardCollection.Cards;
 import cardCollection.Deck;
 import cards.CardMinion;
 import heroes.Hero;
@@ -41,12 +40,12 @@ public class CLI {
 
 //        System.out.println(pf);
 
-//        while (true) {
-//            System.out.println(pf);
-//            if (!pf.getCurrentPlayer().isAlive()){
-//                break;
-//            }
-//            pf.incerement();
-//        }
+        while (true) {
+            System.out.println(pf);
+            if (!pf.getCurrentPlayer().isAlive()){
+                break;
+            }
+            pf.increment();
+        }
     }
 }

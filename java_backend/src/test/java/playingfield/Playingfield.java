@@ -16,6 +16,8 @@ import static org.junit.Assert.assertTrue;
 public class Playingfield {
 
     public Player player;
+    public Player opponent;
+//    public PlayingField testField;
 
     @Before
     public void hmm() {
@@ -31,14 +33,22 @@ public class Playingfield {
         Hero hero = new Hero("mage", "im", heroPower);
 
         player = new Player(deck, hero);
+        opponent = new Player(deck, hero);
 
         Player players[] = new Player[2];
+        PlayingField testField = new PlayingField(player,opponent, true);
         // TODO minion met 3 mana kan niet gespeeld worden als je maar 2 mana hebt.
         // TODO als je 5 mana heb en je speelt een kaart van 2 mana, erna nog een kaart van 2, heb je nog 1 mana over.
         // TODO als end turn is true kan de speler niets doen.
         // TODO als end turn is false kan je wel bepaalde dingen doen.
         // TODO (vodoo docter) als minion 1 leven af is en je hersteld met 2 levens krijgt hij toch maar 1 leven bij.
         // TODO minion wordt aangevallen en heeft < 0 levens dus wordt van veld verwijderd.
+
+    }
+    @Test
+    public void checkIfItsYourTurn() {
+
+        System.out.println();
 
     }
 
@@ -74,4 +84,6 @@ public class Playingfield {
         assertFalse(player.isAlive());
 
     }
+
+
 }

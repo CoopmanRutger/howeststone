@@ -1,10 +1,7 @@
 package playField;
 
 import cardCollection.Cards;
-import cards.Card;
 import player.Player;
-
-import java.util.Arrays;
 
 public class PlayingField {
     private Player players[] = new Player[2];
@@ -13,7 +10,7 @@ public class PlayingField {
 
     private int turn = 0;
     private static final int maxMana = 10;
-    private short index = 0;
+    private short index = 0; // for your turn (you are for example 1, adversary = 0)
 
     public PlayingField(Player player, Player opponent, boolean begins) {
         int subIndex;
@@ -47,7 +44,7 @@ public class PlayingField {
         incerement();
     }
 
-    public void incerement(){
+    public void increment(){
         if (index == 1) {
             turn++;
             index = 0;

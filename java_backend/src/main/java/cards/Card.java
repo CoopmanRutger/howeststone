@@ -54,6 +54,7 @@ public class Card {
     }
 
     public void setName(String name) {
+
         this.name = name;
     }
 
@@ -61,8 +62,7 @@ public class Card {
         this.type = type;
     }
 
-    public void setMana(int mana) {
-        this.mana = mana;
+    public void setMana(int mana) { this.mana = mana;
     }
 
     public void setHeroType(String heroType) {

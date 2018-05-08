@@ -4,6 +4,9 @@ public class CardWeapon extends Card {
 
     private int attack;
     private int durability;
+//    private boolean heroWeaponActive;
+
+
 
     public CardWeapon(String cardId, String name, String type, int mana, String heroType, String description , String img) {
         super(cardId, name, type, mana, heroType, description, img);

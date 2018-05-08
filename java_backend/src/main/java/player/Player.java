@@ -38,23 +38,11 @@ public class Player {
         return hero;
     }
 
-    public void setHero(Hero hero) {
-        this.hero = hero;
-    }
-
     public Deck getDeck() {
         return deck;
     }
 
-    public void setDeck(Deck deck) {
-        this.deck = deck;
-    }
-
     public Cards getCardsInHand() {
         return cardsInHand;
-    }
-
-    public void setCardsInHand(Cards cardsInHand) {
-        this.cardsInHand = cardsInHand;
     }
 }

@@ -47,4 +47,13 @@ public class Player {
     public Cards getCardsInHand() {
         return cardsInHand;
     }
+
+    @Override
+    public String toString() {
+        return "Player{" +
+                "hero=" + hero +
+                ", deck=" + deck +
+                ", cardsInHand=" + cardsInHand +
+                '}';
+    }
 }

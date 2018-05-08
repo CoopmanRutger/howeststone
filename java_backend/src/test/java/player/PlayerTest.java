@@ -26,15 +26,19 @@ public class PlayerTest {
         }
 
         HeroPower heroPower = new HeroPower(0, 0, true);
-        Hero hero = new Hero("hero", "im", heroPower);
+        Hero hero = new Hero("mage", "im", heroPower);
 
         player = new Player(deck, hero);
     }
 
-    
+    @Test
+    public void isCorrectHero() {
+        assertEquals("mage", player.getHero().getName());
 
-
-
+        HeroPower heroPower = new HeroPower(0, 0, true);
+        Hero hero1 = new Hero("rogue", "im", heroPower );
+        assertEquals("rogue", hero1.getName());
+    }
 
     @Test
     public void maxTenCardInHand() {

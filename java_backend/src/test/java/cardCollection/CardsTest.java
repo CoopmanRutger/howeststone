@@ -19,6 +19,9 @@ public class CardsTest {
     private CardWeapon card2 = new CardWeapon("ID","0","name",0,"type", "heroType","0");
     private CardSpell card3 = new CardSpell("ID","0","name",0,"type", "heroType","img","taunt");
 
+    // TODO als een minion <0 levens heeft dan word hij van spel verwijderd. (rekening houden met deadrattle)
+
+
     @Test
     public void adding1() {
         Cards cards = new Cards();

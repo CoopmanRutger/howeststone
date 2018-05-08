@@ -35,13 +35,13 @@ public class PlayingField {
         for (int i = 0; i < 3; i++) {
             drawCard();
         }
-        incerement();
+        increment();
 
         for (int i = 0; i < 3; i++) {
             drawCard();
         }
 
-        incerement();
+        increment();
     }
 
     public void increment(){

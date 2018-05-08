@@ -47,32 +47,29 @@ public class Playingfield {
     @Test
     public void name() {
 
+        System.out.println(testField.minionAttack(player.drawMinionCard()));
+        System.out.println(testField);
+
         testField.increment();
         testField.getMana();
     }
 
     @Test
     public void checkIfItsYourTurn() {
-
-        System.out.println();
         assertEquals(1,testField.getMana());
-
-        testField.increment();
-        //opponent speelt
-        testField.increment();
-        //turn 2
-        assertEquals(2,testField.getMana());
+        for (int i = 0; i < 4; i++) {
+            testField.increment();
+            //opponent speelt
+            testField.increment();
+            //turn 2-5
+        }
+        assertEquals(5,testField.getMana());
     }
-
-
-    
 
     @Test
     public void heroStartGame() {
-
         assertEquals(30, player.getHero().getLifePoints());
         assertEquals(0, player.getHero().getAmourPoints());
-
     }
 
 
@@ -98,6 +95,4 @@ public class Playingfield {
         assertFalse(player.isAlive());
 
     }
-
-
 }

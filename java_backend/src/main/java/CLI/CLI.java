@@ -8,9 +8,11 @@ import playField.PlayingField;
 import player.Player;
 
 import java.util.Random;
+import java.util.Scanner;
 
 public class CLI {
     private Random r = new Random();
+    private Scanner input = new Scanner(System.in);
 
     public static void main(String[] args) {
         new CLI().run();
@@ -38,14 +40,13 @@ public class CLI {
 
         PlayingField pf = new PlayingField(p,o,begins);
 
-//        System.out.println(pf);
-
         while (true) {
             System.out.println(pf);
+            input.
             if (!pf.getCurrentPlayer().isAlive()){
                 break;
             }
-            pf.increment();
+            pf.incerement();
         }
     }
 }

@@ -17,7 +17,7 @@ public class Playingfield {
 
     public Player player;
     public Player opponent;
-//    public PlayingField testField;
+    public PlayingField testField;
 
     @Before
     public void hmm() {
@@ -45,6 +45,14 @@ public class Playingfield {
         // TODO minion wordt aangevallen en heeft < 0 levens dus wordt van veld verwijderd.
 
     }
+
+    @Test
+    public void name() {
+
+        testField.increment();
+        testField.getMana();
+    }
+
     @Test
     public void checkIfItsYourTurn() {
 
@@ -52,6 +60,8 @@ public class Playingfield {
 
     }
 
+
+    
 
     @Test
     public void heroStartGame() {

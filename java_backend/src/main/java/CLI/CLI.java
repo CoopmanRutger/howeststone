@@ -1,5 +1,6 @@
 package CLI;
 
+import cardCollection.Cards;
 import cardCollection.Deck;
 import cards.CardMinion;
 import heroes.Hero;

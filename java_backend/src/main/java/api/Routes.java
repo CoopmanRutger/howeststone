@@ -10,16 +10,27 @@ class Routes {
         server.get("/", this::handleRoot);
         server.get("/minions", this::minions);
         server.get("/API/welcomeScreen", this::welcomScreen);
+
         server.post("/API/deckbuildOrPlay", this::deckbuildOrPlay);
         server.post("/API/deckbuildOrPlay/chooseYourHero", this::chooseYourHero);
+        // TODO fetchen uit database hero's
         server.post("/API/deckbuildOrPlay/chooseYourHero/chooseDeckForHero", this::chooseDeckForHero);
-        server.post("/API/defaultPickYourOpponent", this::defaultPickYourOpponent);
-        server.post("/API/deckbuildOrPlay/deckbuildLevelOne", this::deckbuildLevelOne);
-        server.post("/API/deckbuildOrPlay/deckbuildLevelOne/makeANewDeck=deckBuildLevel2", this::deckBuildLevel2);
-        server.get("/API/versusScreen", this::versusScreen);
-        server.post("/API/gameStartingHand", this::gameStartingHand);
-        server.post("/API/gameStartingHand/playField", this::playField);
+        // TODO fetchen decks
 
+
+        server.post("/API/pickYourOpponent", this::pickYourOpponent);
+        // TODO fetchen uit database hero's
+        server.post("/API/deckbuildOrPlay/deckbuildLevelOne", this::deckbuildLevelOne);
+        // TODO
+        server.post("/API/deckbuildOrPlay/deckbuildLevelOne/makeANewDeck=deckBuildLevel2", this::deckBuildLevel2);
+        // TODO alle kaarten van het gekozen deck + alle mogelijke kaarten die je kunt kiezen
+
+        server.get("/API/versusScreen", this::versusScreen);
+        // TODO de 2 kozen hero's
+        server.post("/API/gameStartingHand", this::gameStartingHand);
+        // TODO de eerste 3 kaarten van het deck tonen. (fetch n(aantal) kaarten)
+        server.post("/API/gameStartingHand/playField", this::playField);
+        // TODO !!!!!
 
 //        server.get("/card/", this::getCardJson);
     }
@@ -44,8 +55,8 @@ class Routes {
         context.result("deckBuildLevel2");
     }
 
-    private void defaultPickYourOpponent(Context context) {
-        context.result("defaultPickYourOpponent");
+    private void pickYourOpponent(Context context) {
+        context.result("pickYourOpponent");
     }
 
     private void chooseDeckForHero(Context context) {

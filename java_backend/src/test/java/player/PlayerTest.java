@@ -1,40 +1,85 @@
 package player;
 
+import cardCollection.Cards;
 import cardCollection.Deck;
+import cards.Card;
 import cards.CardMinion;
 import cards.CardSpell;
 import cards.CardWeapon;
 import heroes.Hero;
 import heroes.HeroPower;
+import org.junit.Before;
 import org.junit.Test;
 
 import static org.junit.Assert.*;
 
 public class PlayerTest {
-    private CardMinion card1 = new CardMinion("ID","0","name",0,"type","heroType","0",0,0,"black","lol");
-    private CardWeapon card2 = new CardWeapon("ID","0","name",0,"type", "heroType","0");
-    private CardSpell card3 = new CardSpell("ID","0","name",0,"type", "heroType","img","taunt");
 
-    private Deck deck = new Deck();
+    public Player player;
 
-    private HeroPower heroPower = new HeroPower(0,0);
-    private Hero hero = new Hero("hero","im", heroPower);
+    @Before
+    public void max30cards() {
+        Deck deck = new Deck();
 
-//    @Test
+        for (int i = 0; i < 30; i++) {
+            deck.addCard(new CardMinion("ID" + i, "0", "name", 0, "type", "heroType", "0", 0, 0, "black", "lol"));
+        }
+
+        HeroPower heroPower = new HeroPower(0, 0, true);
+        Hero hero = new Hero("hero", "im", heroPower);
+
+        player = new Player(deck, hero);
+    }
+
+    
+
+
+
+
+    @Test
+    public void maxTenCardInHand() {
+        for (int i = 0; i < 10; i++) {
+            player.drawCard();
+        }
+
+        assertEquals(10, player.getCardsInHand().getAmount());
+        player.drawCard();
+
+        assertEquals(10, player.getCardsInHand().getAmount());
+
+        for (int i = 0; i < 3; i++) {
+            player.playCard("ID");
+        }
+        assertEquals(7, player.getCardsInHand().getAmount());
+    }
+
+    @Test
+    public void drawCard() {
+        for (int i = 0; i < 3; i++) {
+            player.drawCard();
+        }
+
+        assertEquals(27, player.getDeck().getAmount());
+        assertEquals(3,player.getCardsInHand().getAmount());
+
+        for (int i = 0; i < 4; i++) {
+            player.drawCard();
+        }
+
+        assertEquals(23, player.getDeck().getAmount());
+        assertEquals(7,player.getCardsInHand().getAmount());
+    }
+
+
+
+
+
+//        @Test
 //    public void validation() {
 //        deck.addCard(card1);
-//        deck.addCard(card2);
-//        deck.addCard(card3);
+//        deck.addCard(card20);
+//        deck.addCard(card30);
 //        Player player = new Player(deck, hero);
 //    }
-
-        @Test
-    public void drawCard() {
-        deck.addCard(card1);
-        deck.addCard(card2);
-        deck.addCard(card3);
-        Player player = new Player(deck, hero);
-
-    }
 
 }

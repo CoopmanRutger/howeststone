@@ -41,4 +41,11 @@ public class Deck extends Cards{
         }
         return amount>1;
     }
+
+    @Override
+    public String toString() {
+        return "Deck{" +
+                "cards=" + cards +
+                '}';
+    }
 }

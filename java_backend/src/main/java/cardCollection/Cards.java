@@ -66,9 +66,11 @@ public class Cards {
     @Override
     public String toString() {
         String out = "";
+
         for (Card c: cards) {
             out += c.toString();
         }
+
         return out;
     }
 }

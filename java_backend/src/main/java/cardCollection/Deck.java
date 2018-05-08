@@ -44,8 +44,6 @@ public class Deck extends Cards{
 
     @Override
     public String toString() {
-        return "Deck{" +
-                "cards=" + cards +
-                '}';
+        return super.toString();
     }
 }

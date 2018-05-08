@@ -20,10 +20,14 @@ public class CLI {
     private void run() {
 
         Deck deck = new Deck();
+        Cards cards = new Cards();
 
         for (int i = 0; i < 30; i++) {
             deck.addCard(new CardMinion("ID" + i, "0", "name", 0, "type", "heroType", "0", 0, 0, "black", "lol"));
+            cards.addCard(new CardMinion("ID" + i, "0", "name", 0, "type", "heroType", "0", 0, 0, "black", "lol"));
         }
+
+//        System.out.println(cards);
 
         HeroPower heroPower = new HeroPower(0, 0, true);
         Hero hero = new Hero("hero", "im", heroPower);
@@ -35,14 +39,14 @@ public class CLI {
 
         PlayingField pf = new PlayingField(p,o,begins);
 
-        System.out.println(pf);
+//        System.out.println(pf);
 
-        while (true) {
-            System.out.println(pf);
-            if (!pf.getCurrentPlayer().isAlive()){
-                break;
-            }
-            pf.incerement();
-        }
+//        while (true) {
+//            System.out.println(pf);
+//            if (!pf.getCurrentPlayer().isAlive()){
+//                break;
+//            }
+//            pf.incerement();
+//        }
     }
 }

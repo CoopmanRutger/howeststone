@@ -16,17 +16,21 @@ public class PlayingField {
     private short index = 0;
 
     public PlayingField(Player player, Player opponent, boolean begins) {
+        int subIndex;
+
         if (begins) {
-            players[0] = player;
-            isOpponent[0] = false;
-            players[1] = opponent;
-            isOpponent[1] = true;
+            subIndex = 0;
         } else {
-            players[1] = player;
-            isOpponent[1] = false;
-            players[0] = opponent;
-            isOpponent[0] = true;
+            subIndex = 1;
         }
+
+        players[subIndex] = player;
+        isOpponent[subIndex] = false;
+
+        subIndex = subIndex + 1 % 2;
+        
+        players[subIndex] = opponent;
+        isOpponent[subIndex] = true;
 
         cardsOnField[0] = new Cards();
         cardsOnField[1] = new Cards();
@@ -34,15 +38,13 @@ public class PlayingField {
         for (int i = 0; i < 3; i++) {
             drawCard();
         }
-
         incerement();
 
         for (int i = 0; i < 3; i++) {
             drawCard();
         }
 
-        System.out.println(player);
-
+        incerement();
     }
 
     public void incerement(){
@@ -86,12 +88,12 @@ public class PlayingField {
 
         out += players[index].getCardsInHand();
         out += "\n";
-//        out += cardsOnField[index];
-//        out += "\n";
-//        out += players[index2].getCardsInHand();
-//        out += "\n";
-//        out += cardsOnField[index2];
-//        out += "\n";
+        out += cardsOnField[index];
+        out += "\n";
+        out += players[index2].getCardsInHand();
+        out += "\n";
+        out += cardsOnField[index2];
+        out += "\n";
 
         return out;
     }

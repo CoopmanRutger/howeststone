@@ -5,7 +5,7 @@ import intialize.InitDeckBuilderLvl2;
 import io.javalin.Context;
 import io.javalin.Javalin;
 
-class Routes {
+class Routes extends GameState {
 
     Routes(final Javalin server) {
 //        server.get("/", this::handleRoot);

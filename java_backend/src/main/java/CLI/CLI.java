@@ -40,14 +40,10 @@ public class CLI {
 
     private void run(PlayingField pf) {
         while (true) {
-            if (pf.isOpponent())
-                botMechanics(pf);
-            else
-                playerMechanics(pf);
+            if (pf.isOpponent()) botMechanics(pf);
+            else playerMechanics(pf);
 
-            if (!pf.getCurrentPlayer().isAlive()){
-                break;
-            }
+            if (!pf.getCurrentPlayer().isAlive()) break;
             pf.increment();
         }
         String out;

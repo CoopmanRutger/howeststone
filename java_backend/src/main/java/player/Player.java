@@ -3,6 +3,7 @@ package player;
 import cardCollection.Cards;
 import cardCollection.Deck;
 import cards.Card;
+import cards.CardMinion;
 import heroes.Hero;
 
 public class Player {
@@ -26,6 +27,12 @@ public class Player {
 
     public Card drawCard() {
         Card out = deck.drawRandom();
+        cardsInHand.addCard(out);
+        return out;
+    }
+    public CardMinion drawMinionCard(){
+        CardMinion out = (CardMinion) deck.drawRandom();
+        out.setAttack(3); // TODO: override voor test
         cardsInHand.addCard(out);
         return out;
     }

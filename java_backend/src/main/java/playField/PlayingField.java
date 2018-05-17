@@ -1,6 +1,8 @@
 package playField;
 
 import cardCollection.Cards;
+import cards.Card;
+import cards.CardMinion;
 import player.Player;
 
 public class PlayingField {
@@ -45,15 +47,22 @@ public class PlayingField {
         increment();
     }
 
+    public int minionAttack(CardMinion card){
+        return  card.getAttack();
+    }
+
+
+
+
     public void increment(){
         if (index == 1) {
             turn++;
             index = 0;
         } else if (index == 0) {
             index++;
-        } else {
-//          // TODO  't is nie gelukt
-        }
+//        } else {
+////          // TODO  't is nie gelukt
+//        }
     }
 
     public int getMana(){

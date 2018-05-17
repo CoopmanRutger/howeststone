@@ -45,11 +45,13 @@ class Routes extends GameState {
 
 
     private void chooseYourHero(Context context) {
-        System.out.println(context.body());
+        String in = context.body().replaceAll("\"","");
+        System.out.println(in);
+
         InitChooseYourHero initChooseYourHero = new InitChooseYourHero();
-        hero = initChooseYourHero.getHero(context.body());
-        System.out.println(hero);
-//        context.result("chooseYourHero");
+        hero = initChooseYourHero.getHero(in);
+
+        context.result("chooseYourHero");
     }
 
     private void chooseDeckForHero(Context context) {

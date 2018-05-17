@@ -19,7 +19,7 @@ public class SqlStatements {
             "SELECT heroName, img, heroPower  " +
                     "FROM hero;";
 
-    public static final String SElECT_HEROPOWER =
+    public static final String SElECT_HEROPOWERS =
             "SELECT cardId, name, heroType, mana, tags, abilityType, duration, abilityValue, img  " +
                     "FROM heroPower;";
 
@@ -48,9 +48,9 @@ public class SqlStatements {
             "SELECT heroName, img, heroPower  " +
                     "FROM hero WHERE heroName = ?;";
 
-    public static final String SElECT_HEROPOWER_HERONAME =
-            "SELECT name, heroType, mana, tags, abilityType, duration, abilityValue, img  " +
-                    "FROM heroPower WHERE name = ?;";
+    public static final String SElECT_HEROPOWER =
+            "SELECT powerName, mana, tags, abilityType, duration, abilityValue, img  " +
+                    "FROM heroPower WHERE powerName = ?;";
 
 
 

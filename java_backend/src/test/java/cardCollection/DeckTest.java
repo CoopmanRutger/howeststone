@@ -14,7 +14,7 @@ import static org.junit.Assert.*;
 public class DeckTest {
 
     private CardMinion card1 = new CardMinion("ID","0","name",0,"type","heroType","0",0,0,"black","lol");
-    private CardWeapon card2 = new CardWeapon("ID","0","name",0,"type", "heroType","0");
+    private CardWeapon card2 = new CardWeapon("ID","1","name",0,"type", "heroType","0", 0, 0);
     private CardSpell card3 = new CardSpell("ID","0","name",0,"type", "heroType","img","taunt");
 
     @Test

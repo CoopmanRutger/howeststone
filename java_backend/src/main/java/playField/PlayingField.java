@@ -60,9 +60,9 @@ public class PlayingField {
             index = 0;
         } else if (index == 0) {
             index++;
-        } else {
-//          // TODO  't is nie gelukt
-        }
+//        } else {
+////          // TODO  't is nie gelukt
+//        }
     }
 
     public int getMana(){

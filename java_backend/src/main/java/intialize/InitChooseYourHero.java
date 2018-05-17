@@ -16,6 +16,7 @@ public class InitChooseYourHero extends Init {
                 PreparedStatement stmt = conn.prepareStatement(SqlStatements.SElECT_HERO_HERONAME);
         ){
             stmt.setString(1, HeroName);
+            System.out.println(stmt);
 
             ResultSet heroResult = stmt.executeQuery(SqlStatements.SElECT_HERO_HERONAME);
 
@@ -42,16 +43,15 @@ public class InitChooseYourHero extends Init {
         try (
                 Connection conn = db.getConnection();
 //                Statement stmt = conn.createStatement();
-                PreparedStatement stmt = conn.prepareStatement(SqlStatements.SElECT_HEROPOWER_HERONAME);
+                PreparedStatement stmt = conn.prepareStatement(SqlStatements.SElECT_HEROPOWER);
 
         ){
-
             stmt.setString(1, playerHeroPowerName);
-            ResultSet heroPowerResult = stmt.executeQuery(SqlStatements.SElECT_HEROPOWER_HERONAME);
+            ResultSet heroPowerResult = stmt.executeQuery(SqlStatements.SElECT_HEROPOWER);
 
             if(heroPowerResult.next()) {
 
-                String heroPowerName = heroPowerResult.getString("heroPowerName");
+                String heroPowerName = heroPowerResult.getString("powerName");
 
                 int mana = heroPowerResult.getInt("mana");
 

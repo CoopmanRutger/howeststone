@@ -19,6 +19,7 @@ public class InitChooseYourHeroTest {
     @Test
     public void getHeroPowerTest() {
         HeroPower heroPower = db.getHeroPower("Fireblast");
+        System.out.println(heroPower);
         assertNotNull(heroPower);
     }
     @Test

@@ -1,11 +1,18 @@
 package heroes;
 
-public class Hero {
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonProperty;
 
+public class Hero {
+    @JsonProperty("name")
     private String name;
+    @JsonProperty("img")
     private String img;
+    @JsonProperty("hero power")
     private HeroPower heroPower;
+    @JsonProperty("life points")
     private int lifePoints = 30;
+    @JsonProperty("amour points")
     private int amourPoints = 0;
 private boolean alive = true;
 
@@ -26,7 +33,8 @@ private boolean alive = true;
     }
 
 
-    public Hero(String name, String img, HeroPower heroPower) {
+    @JsonCreator
+    public Hero(@JsonProperty("name") String name, @JsonProperty("img") String img, @JsonProperty("heroPower") HeroPower heroPower) {
         this.name = name;
         this.img = img;
         this.heroPower = heroPower;
@@ -42,6 +50,11 @@ private boolean alive = true;
     public void setAmourPoints(int amourPoints) {
         this.amourPoints = amourPoints;
     }
+
+    public int getAmourPoints() {
+        return amourPoints;
+    }
+
     public String getName() {
         return name;
     }
@@ -54,7 +67,9 @@ private boolean alive = true;
         return heroPower;
     }
 
-
+    public boolean isAlive() {
+        return alive;
+    }
 
     public void setAlive(boolean alive) {
         this.alive = alive;
@@ -81,11 +96,7 @@ private boolean alive = true;
                 '}';
     }
 
-    public int getAmourPoints() {
-        return amourPoints;
-    }
 
-    public boolean isAlive() {
-        return alive;
-    }
+
+
 }

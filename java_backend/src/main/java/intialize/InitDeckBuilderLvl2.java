@@ -9,14 +9,47 @@ import java.sql.*;
 public class InitDeckBuilderLvl2 extends Init {
 
 
-    public Cards selectMinion(){
+//    public Cards getMinions(){
+//        Cards cards = new Cards();
+//        try (
+//                Connection conn = db.getConnection();
+//        Statement stmt = conn.createStatement();
+//                ResultSet minion = stmt.executeQuery(SqlStatements.SElECT_MINION)
+//        ){
+//            System.out.println("\n\n\n MINION \n");
+//
+//            while(minion.next()) {
+//                String cardId = minion.getString("cardId");
+//                String name = minion.getString("name");
+//                int mana = minion.getInt("mana");
+//                int attack = minion.getInt("attack");
+//                int health = minion.getInt("health");
+//                String info = minion.getString("description");
+//                String type = minion.getString("type");
+//                String heroType = minion.getString("heroType");
+//                String img = minion.getString("img");
+//                String race = minion.getString("race");
+//                String mechanicsName = minion.getString("mechanicsName");
+//
+////                System.out.printf(" cardId: %s, name: %s, mana: %d, attack: %d, health: %d, description: %s \n", cardId,name , mana, attack, health, info);
+//                CardMinion card = new CardMinion(cardId, name, type, mana, heroType, info, img, attack, health, race, mechanicsName );
+//                cards.addCard(card);
+//            }
+//        } catch (SQLException e) {
+//            e.printStackTrace();
+//        }
+//        System.out.println(cards);
+//        return cards;
+//    }
+
+    public Cards getMinions(String playerHeroType){
         Cards cards = new Cards();
         try (
                 Connection conn = db.getConnection();
                 Statement stmt = conn.createStatement();
-                ResultSet minion = stmt.executeQuery(SqlStatements.SElECT_MINION)
+                ResultSet minion = stmt.executeQuery(SqlStatements.SELECT_HEROTYPE_MINIONS)
         ){
-            System.out.println("\n\n\n MINION \n");
+            System.out.println("\n\n\n NEUTRAL \n");
 
             while(minion.next()) {
                 String cardId = minion.getString("cardId");
@@ -34,10 +67,7 @@ public class InitDeckBuilderLvl2 extends Init {
 //                System.out.printf(" cardId: %s, name: %s, mana: %d, attack: %d, health: %d, description: %s \n", cardId,name , mana, attack, health, info);
                 CardMinion card = new CardMinion(cardId, name, type, mana, heroType, info, img, attack, health, race, mechanicsName );
                 cards.addCard(card);
-
             }
-
-
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -47,12 +77,6 @@ public class InitDeckBuilderLvl2 extends Init {
 
 
 
-
-
-
-
-//
-//
 //    private void selectOneMinion(String minionName) {
 //        try (
 //                Connection conn = db.getConnection();

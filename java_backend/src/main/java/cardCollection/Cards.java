@@ -19,6 +19,12 @@ public class Cards {
         cards.add(card);
     }
 
+    public void addAllCards(Cards cards) {
+        for (Card card : cards.getCards()) {
+            this.addCard(card);
+        }
+    }
+
     public List<Card> getCards() {
         return Collections.unmodifiableList(cards);
     }

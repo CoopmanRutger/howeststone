@@ -32,7 +32,7 @@ public class CLI {
         Player p = new Player(deck, hero);
         Player o = new Player(deck, hero);
 
-        boolean begins = r.nextInt(2)==0;
+        boolean begins = r.nextInt(2) == 0;
 
         PlayingField pf = new PlayingField(p,o,begins);
         run(pf);

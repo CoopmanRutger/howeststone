@@ -1,5 +1,6 @@
 package api;
 
+import cardCollection.Cards;
 import intialize.InitDeckBuilderLvl2;
 import io.javalin.Context;
 import io.javalin.Javalin;
@@ -61,6 +62,15 @@ class Routes {
     }
 
     private void deckBuildLevel2(Context context) {
+        InitDeckBuilderLvl2 db = new InitDeckBuilderLvl2();
+
+        String heroType = "";
+
+        Cards cards = new Cards();
+
+        cards.addAllCards(db.getMinions("Neutral"));
+        cards.addAllCards(db.getMinions(heroType));
+
         context.result("deckBuildLevel2");
 
     }

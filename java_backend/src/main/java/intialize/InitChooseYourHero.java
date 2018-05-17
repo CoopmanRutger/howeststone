@@ -1,15 +1,10 @@
 package intialize;
 
 import SQLcontoller.SqlStatements;
-import cardCollection.Cards;
-import cards.CardMinion;
 import heroes.Hero;
 import heroes.HeroPower;
 
-import java.sql.Connection;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
+import java.sql.*;
 
 public class InitChooseYourHero extends Init {
 
@@ -18,9 +13,12 @@ public class InitChooseYourHero extends Init {
         Hero hero = null;
         try (
                 Connection conn = db.getConnection();
-                Statement stmt = conn.createStatement();
-                ResultSet heroResult = stmt.executeQuery(SqlStatements.SElECT_HERO_HERONAME)
+                //Statement stmt = conn.createStatement();
+                PreparedStatement stmt = conn.prepareStatement(SqlStatements.SElECT_HERO_HERONAME);
         ){
+            stmt.setString(1, HeroName);
+
+            ResultSet heroResult = stmt.executeQuery(SqlStatements.SElECT_HERO_HERONAME);
             System.out.println("\n\n\n NEUTRAL \n");
 
             if (minion.next()) {
@@ -39,13 +37,18 @@ public class InitChooseYourHero extends Init {
         return hero;
     }
 
-    public HeroPower getHeroPower(String heroPowerName){
-        HeroPower heroPower;
+    public HeroPower getHeroPower(String playerHeroPowerName){
+        HeroPower heroPower = null;
         try (
                 Connection conn = db.getConnection();
-                Statement stmt = conn.createStatement();
-                ResultSet heroPowerResult = stmt.executeQuery(SqlStatements.SELECT_HEROTYPE_MINIONS)
+//                Statement stmt = conn.createStatement();
+                PreparedStatement stmt = conn.prepareStatement(SqlStatements.SElECT_HEROPOWER_HERONAME);
+
         ){
+
+            stmt.setString(1, playerHeroPowerName);
+            ResultSet heroPowerResult = stmt.executeQuery(SqlStatements.SElECT_HEROPOWER_HERONAME);
+
             while(heroPowerResult.next()) {
 
                 String heroPowerName = heroPowerResult.getString("heroPowerName");

@@ -1,6 +1,8 @@
 package api;
 
 import cardCollection.Cards;
+import heroes.Hero;
+import intialize.InitChooseYourHero;
 import intialize.InitDeckBuilderLvl2;
 import io.javalin.Context;
 import io.javalin.Javalin;
@@ -44,6 +46,9 @@ class Routes extends GameState {
 
     private void chooseYourHero(Context context) {
         System.out.println(context.body());
+        InitChooseYourHero initChooseYourHero = new InitChooseYourHero();
+        hero = initChooseYourHero.getHero(context.body());
+        System.out.println(hero);
 //        context.result("chooseYourHero");
     }
 

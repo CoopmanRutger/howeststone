@@ -12,14 +12,13 @@ public class HeroTest {
 
     @Before
     public void before(){
-        heroPower = new HeroPower(5, 5, true);
+//        heroPower = new HeroPower(5, 5, true);
         Hero test = new Hero("Jaina", "muh img", heroPower);
 
 
     }
     @Test
     public void takeDamage(int damage){
- {
 
         hero.takeDamage(3);
         assertEquals(27, hero.getLifePoints());

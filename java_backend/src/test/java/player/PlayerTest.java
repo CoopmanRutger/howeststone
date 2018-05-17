@@ -25,19 +25,19 @@ public class PlayerTest {
             deck.addCard(new CardMinion("ID" + i, "0", "name", 0, "type", "heroType", "0", 0, 0, "black", "lol"));
         }
 
-        HeroPower heroPower = new HeroPower(0, 0, true);
-        Hero hero = new Hero("mage", "im", heroPower);
+//        HeroPower heroPower = new HeroPower(0, 0, true);
+//        Hero hero = new Hero("mage", "im", heroPower);
 
-        player = new Player(deck, hero);
+//        player = new Player(deck, hero);
     }
 
     @Test
     public void isCorrectHero() {
         assertEquals("mage", player.getHero().getName());
 
-        HeroPower heroPower = new HeroPower(0, 0, true);
-        Hero hero1 = new Hero("rogue", "im", heroPower );
-        assertEquals("rogue", hero1.getName());
+//        HeroPower heroPower = new HeroPower(0, 0, true);
+//        Hero hero1 = new Hero("rogue", "im", heroPower );
+//        assertEquals("rogue", hero1.getName());
     }
 
     @Test

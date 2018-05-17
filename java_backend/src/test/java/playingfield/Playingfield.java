@@ -28,11 +28,11 @@ public class Playingfield {
             deck.addCard(new CardMinion("ID" + 2 + i, "0", "name", 1, "mage", "heroType", "0", 3, 0, "asian", "lol"));
         }
 
-        HeroPower heroPower = new HeroPower(0, 0, true);
-        Hero hero = new Hero("mage", "im", heroPower);
+//        HeroPower heroPower = new HeroPower(0, 0, true);
+//        Hero hero = new Hero("mage", "im", heroPower);
 
-        player = new Player(deck, hero);
-        opponent = new Player(deck, hero);
+//        player = new Player(deck, hero);
+//        opponent = new Player(deck, hero);
 
         testField = new PlayingField(player,opponent, true);
         // TODO minion met 3 mana kan niet gespeeld worden als je maar 2 mana hebt.

@@ -26,16 +26,16 @@ public class CLI {
             deck.addCard(new CardMinion("ID" + i, "0", "name", 0, "type", "heroType", "0", 0, 0, "black", "lol"));
         }
 
-        HeroPower heroPower = new HeroPower(0, 0, true);
-        Hero hero = new Hero("hero", "im", heroPower);
+//        HeroPower heroPower = new HeroPower(0, 0, true);
+//        Hero hero = new Hero("hero", "im", heroPower);
 
-        Player p = new Player(deck, hero);
-        Player o = new Player(deck, hero);
+//        Player p = new Player(deck, hero);
+//        Player o = new Player(deck, hero);
 
         boolean begins = r.nextInt(2) == 0;
 
-        PlayingField pf = new PlayingField(p,o,begins);
-        run(pf);
+//        PlayingField pf = new PlayingField(p,o,begins);
+//        run(pf);
     }
 
     private void run(PlayingField pf) {

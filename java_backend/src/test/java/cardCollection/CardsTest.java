@@ -101,4 +101,8 @@ public class CardsTest {
         cards.remove(card1);
         assertEquals(0,cards.getAmount());
     }
+
+
+
+
 }

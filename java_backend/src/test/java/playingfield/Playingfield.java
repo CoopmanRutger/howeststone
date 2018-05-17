@@ -78,19 +78,5 @@ public class Playingfield {
         assertEquals(5, player.getHero().getAmourPoints());
     }
 
-    @Test
-    public void heroGetHits() {
 
-        player.getHero().takeDamage(3);
-        assertEquals(27, player.getHero().getLifePoints());
-        assertTrue(player.isAlive());
-
-        player.getHero().takeDamage(4);
-        assertEquals(23, player.getHero().getLifePoints());
-        assertTrue(player.isAlive());
-
-        player.getHero().takeDamage(25);
-        assertEquals(-2,player.getHero().getLifePoints());
-        assertFalse(player.isAlive());
-    }
 }

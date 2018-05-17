@@ -15,6 +15,15 @@ public class SqlStatements {
             "SELECT cardId, name, type, mana, attack, durability, heroType, description, img  " +
                     "FROM weapons;";
 
+    public static final String SElECT_HERO =
+            "SELECT heroName, img, heroPower  " +
+                    "FROM hero;";
+
+    public static final String SElECT_HEROPOWER =
+            "SELECT cardId, name, heroType, mana, tags, abilityType, duration, abilityValue, img  " +
+                    "FROM heroPower;";
+
+
 
 
     public static final String SELECT_ONE_MINION =
@@ -34,6 +43,16 @@ public class SqlStatements {
     public static final String SElECT_HEROTYPE_WEAPON =
             "SELECT cardId, name, type, mana, attack, durability, heroType, description, img  " +
                     "FROM weapons WHERE heroType = ?;";
+
+    public static final String SElECT_HERO_HERONAME =
+            "SELECT heroName, img, heroPower  " +
+                    "FROM hero WHERE heroName = ?;";
+
+    public static final String SElECT_HEROPOWER_HERONAME =
+            "SELECT name, heroType, mana, tags, abilityType, duration, abilityValue, img  " +
+                    "FROM heroPower WHERE name = ?;";
+
+
 
 
 //            "SELECT world.city.Name  FROM world.country INNER JOIN world.city ON world.country.Capital=world.city.ID " +

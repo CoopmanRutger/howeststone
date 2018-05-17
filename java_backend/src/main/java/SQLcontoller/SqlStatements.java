@@ -27,6 +27,14 @@ public class SqlStatements {
                     "race, description, img, imgBack " +
                     "FROM minions WHERE heroType = ?;";
 
+    public static final String SElECT_HEROTYPE_SPELLS =
+            "SELECT cardId, name, type, mana, heroType, mechanicsName, description, img " +
+                    "FROM spells WHERE heroType = ?;";
+
+    public static final String SElECT_HEROTYPE_WEAPON =
+            "SELECT cardId, name, type, mana, attack, durability, heroType, description, img  " +
+                    "FROM weapons WHERE heroType = ?;";
+
 
 //            "SELECT world.city.Name  FROM world.country INNER JOIN world.city ON world.country.Capital=world.city.ID " +
 //                    "WHERE world.country.Name = ?;";

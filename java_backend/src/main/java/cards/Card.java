@@ -1,17 +1,28 @@
 package cards;
 
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 import java.util.Objects;
 
 public class Card {
+    @JsonProperty("cardId")
     private String cardId;
+    @JsonProperty("name")
     private String name;
+    @JsonProperty("type")
     private String type; // minion - spell - weapon
+    @JsonProperty("mana")
     private int mana;
+    @JsonProperty("heroType")
     private String heroType;
+    @JsonProperty("description")
     private String description;
+    @JsonProperty("img")
     private String img;
 
-    public Card(String cardId, String name, String type, int mana, String heroType, String description, String img) {
+    @JsonCreator
+    public Card(@JsonProperty("cardId") String cardId, @JsonProperty("name") String name, @JsonProperty("type") String type, @JsonProperty("mana") int mana, @JsonProperty("heroType") String heroType, @JsonProperty("description") String description, @JsonProperty("img") String img) {
         this.cardId = cardId;
         this.name = name;
         this.type = type;

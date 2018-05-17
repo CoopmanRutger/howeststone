@@ -71,7 +71,6 @@ class Routes {
         context.result("deckbuildOrPlay");
     }
 
-
     private void welcomScreen(Context context) {
         context.result("welcomScreen");
     }

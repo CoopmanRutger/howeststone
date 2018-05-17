@@ -1,13 +1,30 @@
 package cards;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 public class CardMinion extends Card{
+    @JsonProperty("attack")
     private int attack;
+    @JsonProperty("health")
     private int health;
+    @JsonProperty("race")
     private String race;
+    @JsonProperty("mechanicsName")
     private String mechanicsName;
 
 
-    public CardMinion(String cardId, String name, String type, int mana, String heroType, String description, String img, int attack, int health, String race, String mechanicsName) {
+    public CardMinion(@JsonProperty("cardId") String cardId,
+                      @JsonProperty("name") String name,
+                      @JsonProperty("type") String type,
+                      @JsonProperty("mana") int mana,
+                      @JsonProperty("heroType") String heroType,
+                      @JsonProperty("description") String description,
+                      @JsonProperty("img") String img,
+                      @JsonProperty("attack") int attack,
+                      @JsonProperty("health") int health,
+                      @JsonProperty("race") String race,
+                      @JsonProperty("mechanicsName") String mechanicsName) {
+
         super(cardId, name, type, mana, heroType, description, img);
         this.attack = attack;
         this.health = health;

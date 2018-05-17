@@ -22,7 +22,7 @@ public class InitChooseYourHero extends Init {
         ){
             System.out.println("\n\n\n NEUTRAL \n");
 
-            while(minion.next()) {
+            if (minion.next()) {
                 String heroName = minion.getString("heroName");
                 String img = minion.getString("img");
                 int mana = minion.getInt("heroPower");

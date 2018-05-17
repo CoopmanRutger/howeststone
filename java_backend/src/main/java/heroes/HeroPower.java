@@ -26,7 +26,16 @@ public class HeroPower {
     @JsonProperty("img")
     private String img;
 
-    public HeroPower(String heroPowerName, int manaCost, String tags, String abilityType, int abilityValue, int duration, String img, boolean heroPowerActive) {
+    @JsonCreator
+    public HeroPower(@JsonProperty("heroPowerName") String heroPowerName,
+                     @JsonProperty("manaCost") int manaCost,
+                     @JsonProperty("tags") String tags,
+                     @JsonProperty("abilityType") String abilityType,
+                     @JsonProperty("abilityValue") int abilityValue,
+                     @JsonProperty("duration") int duration,
+                     @JsonProperty("img") String img,
+                     @JsonProperty("heroPowerActive") boolean heroPowerActive
+    ) {
         this.heroPowerName = heroPowerName;
         this.manaCost = manaCost;
         this.tags = tags;

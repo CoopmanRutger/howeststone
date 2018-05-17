@@ -54,7 +54,7 @@ public class PlayingField {
 
 
 
-    public void increment(){
+    public void increment() {
         if (index == 1) {
             turn++;
             index = 0;
@@ -63,9 +63,10 @@ public class PlayingField {
 //        } else {
 ////          // TODO  't is nie gelukt
 //        }
+        }
     }
 
-    public int getMana(){
+    public int getMana() {
         if (turn < maxMana){
             return turn;
         } else {

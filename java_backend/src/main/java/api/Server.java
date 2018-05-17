@@ -23,6 +23,7 @@ public class Server {
     public void start() {
         final Javalin server = Javalin.create()
                 .port(port)
+                .enableCorsForAllOrigins()
                 .start();
         new Routes(server);
     }

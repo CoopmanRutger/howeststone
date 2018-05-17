@@ -32,5 +32,12 @@ function toDeckBuilderLevel2(e){
 
 function toPickYrOpponent(e){
     e.preventDefault();
-    window.location.href = "4_defaultPickYourOpponent.html";
+    fetch("http://localhost:4242/API/deckbuildOrPlay/chooseYourHero/chooseDeckForHero", {
+        method: 'post',
+        body: JSON.stringify(this.value)
+    }).then(function (res) {
+        console.log(res);
+    }).then(function () {
+			window.location.href = "4_defaultPickYourOpponent.html";
+    })
 }

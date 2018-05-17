@@ -26,5 +26,15 @@ function loadButtons(){
 function pickAHero(e) {
     e.preventDefault();
     console.log("im in pick a hero");
-    window.location.href = "5.1_versusScreen.html";
+
+		e.preventDefault();
+    fetch("http://localhost:4242/API/pickYourOpponent", {
+        method: 'post',
+        body: JSON.stringify(this.value)
+    }).then(function (res) {
+        console.log(res);
+    }).then(function () {
+			window.location.href = "5.1_versusScreen.html";
+    })
+
 }

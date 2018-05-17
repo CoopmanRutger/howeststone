@@ -16,7 +16,6 @@ class Routes {
         server.post("/API/deckbuildOrPlay/chooseYourHero/chooseDeckForHero", this::chooseDeckForHero);
         // TODO fetchen decks
 
-
         server.post("/API/pickYourOpponent", this::pickYourOpponent);
         // TODO fetchen uit database hero's
         server.post("/API/deckbuildOrPlay/deckbuildLevelOne", this::deckbuildLevelOne);
@@ -32,28 +31,29 @@ class Routes {
         // TODO !!!!!
 
 //        server.get("/card/", this::getCardJson);
+        server.get("/API/test", this::test);
+    }
+
+    private void test(Context context) {
+        System.out.println("test worked");
+        context.result("test worked");
     }
 
 
-
-    private void welcomScreen(Context context) {
-        context.result("welcomScreen");
-    }
-
-    private void deckbuildOrPlay(Context context) {
-        context.result("deckbuildOrPlay");
-    }
 
     private void chooseYourHero(Context context) {
-        context.result("chooseYourHero");
+        System.out.println(context.body());
+//        context.result("chooseYourHero");
     }
 
     private void chooseDeckForHero(Context context) {
-        context.result("chooseDeckForHero");
+        System.out.println(context.body());
     }
 
     private void pickYourOpponent(Context context) {
-        context.result("pickYourOpponent");
+        System.out.println(context.body());
+
+
     }
 
     private void deckbuildLevelOne(Context context) {
@@ -69,10 +69,9 @@ class Routes {
     }
 
 
-    private void welcomScreen(Context context) {
-        context.result("welcomScreen");
+    private void gameStartingHand(Context context) {
+        context.result("gameStartingHand");
     }
-
 
     private void playField(Context context) {
         context.result("playField");

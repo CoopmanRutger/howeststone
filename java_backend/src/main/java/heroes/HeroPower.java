@@ -4,21 +4,43 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 public class HeroPower {
-    @JsonProperty("Damage")
-    private int damage;
-    @JsonProperty("Cost of mana")
+
+    @JsonProperty("heroPowerName")
+    private String heroPowerName;
+
+    @JsonProperty("manaCost")
     private int manaCost;
+
+    @JsonProperty("tags")
+    private String tags;
+
+    @JsonProperty("abilityType")
+    private String abilityType;
+
+    @JsonProperty("abilityValue")
+    private int abilityValue;
+
+    @JsonProperty("duration")
+    private int duration;
+
+    @JsonProperty("img")
+    private String img;
+
+    public HeroPower(String heroPowerName, int manaCost, String tags, String abilityType, int abilityValue, int duration, String img, boolean heroPowerActive) {
+        this.heroPowerName = heroPowerName;
+        this.manaCost = manaCost;
+        this.tags = tags;
+        this.abilityType = abilityType;
+        this.abilityValue = abilityValue;
+        this.duration = duration;
+        this.img = img;
+        this.heroPowerActive = heroPowerActive;
+    }
+
     @JsonProperty("Hero power active: ")
     private boolean heroPowerActive;
 
-    @JsonCreator
-    public HeroPower(@JsonProperty("Damage") int damage,
-                     @JsonProperty("Cost of mana") int manaCost,
-                     @JsonProperty("Hero power active:") boolean heroPowerActive) {
-        this.damage = damage;
-        this.manaCost = manaCost;
-        this.heroPowerActive = heroPowerActive;
-    }
+
 
 
 
@@ -32,8 +54,8 @@ public class HeroPower {
 
 
 
-    public int getDamage() {
-        return damage;
+    public int getAbilityValue() {
+        return abilityValue;
     }
 
     public int getManaCost() {
@@ -47,12 +69,4 @@ public class HeroPower {
     public void setHeroPowerActive(boolean heroPowerActive) {
         this.heroPowerActive = heroPowerActive;
     }
-
-//    public void setDamage(int damage) {
-//        this.damage = damage;
-//    }
-//
-//    public void setManaCost(int manaCost) {
-//        this.manaCost = manaCost;
-//    }
 }

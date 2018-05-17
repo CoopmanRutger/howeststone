@@ -38,27 +38,30 @@ public class InitChooseYourHero extends Init {
         return cards;
     }
 
-    public HeroPower getMinions(String playerHeroType){
-        HeroPower heroPower;
+    public HeroPower getHeroPower(String playerHeroPower){
+        HeroPower heroPower = null;
         try (
                 Connection conn = db.getConnection();
                 Statement stmt = conn.createStatement();
-                ResultSet minion = stmt.executeQuery(SqlStatements.SELECT_HEROTYPE_MINIONS)
+                ResultSet heroPowerResult = stmt.executeQuery(SqlStatements.SELECT_HEROTYPE_MINIONS)
         ){
-            System.out.println("\n\n\n NEUTRAL \n");
+            while(heroPowerResult.next()) {
 
-            while(minion.next()) {
-                String heroPowerName = minion.getString("heroPowerName");
-                int mana = minion.getInt("mana");
-                int tags = minion.getInt("tags");
-                int abilityType = minion.getInt("abilityType");
-                String duration = minion.getString("duration");
-//                String abilityValue = minion.getString("abilityValue");
-                String img = minion.getString("img");
+                String heroPowerName = heroPowerResult.getString("heroPowerName");
 
-//                System.out.printf(" cardId: %s, name: %s, mana: %d, attack: %d, health: %d, description: %s \n", cardId,name , mana, attack, health, info);
-                heroPower = new HeroPower(heroPowerName,mana, tags, abilityType,duration, img )
+                int mana = heroPowerResult.getInt("mana");
 
+                String tags = heroPowerResult.getString("tags");
+
+                String abilityType = heroPowerResult.getString("abilityType");
+
+                int abilityValue = heroPowerResult.getInt("abilityValue");
+
+                int duration = heroPowerResult.getInt("duration");
+
+                String img = heroPowerResult.getString("img");
+
+                heroPower = new HeroPower(heroPowerName, mana, tags, abilityType, abilityValue, duration, img, true);
             }
         } catch (SQLException e) {
             e.printStackTrace();

@@ -13,22 +13,22 @@ public class InitChooseYourHero extends Init {
         Hero hero = null;
         try (
                 Connection conn = db.getConnection();
-                //Statement stmt = conn.createStatement();
                 PreparedStatement stmt = conn.prepareStatement(SqlStatements.SElECT_HERO_HERONAME);
         ){
             stmt.setString(1, HeroName);
 
             ResultSet heroResult = stmt.executeQuery(SqlStatements.SElECT_HERO_HERONAME);
-            System.out.println("\n\n\n NEUTRAL \n");
 
             if (heroResult.next()) {
                 String heroName = heroResult.getString("heroName");
+
                 String img = heroResult.getString("img");
+
                 HeroPower heroPower = getHeroPower(heroResult.getString("heroPower"));
 
-//                System.out.printf(" cardId: %s, name: %s, mana: %d, attack: %d, health: %d, description: %s \n", cardId,name , mana, attack, health, info);
-                hero = new Hero(heroName, img, heroPower );
-
+                hero = new Hero(heroName, img, heroPower);
+            } else {
+                // TODO: 17/05/2018
             }
         } catch (SQLException e) {
             e.printStackTrace();

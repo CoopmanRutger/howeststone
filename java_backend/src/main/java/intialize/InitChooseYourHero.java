@@ -21,10 +21,10 @@ public class InitChooseYourHero extends Init {
             ResultSet heroResult = stmt.executeQuery(SqlStatements.SElECT_HERO_HERONAME);
             System.out.println("\n\n\n NEUTRAL \n");
 
-            if (minion.next()) {
-                String heroName = minion.getString("heroName");
-                String img = minion.getString("img");
-                int mana = minion.getInt("heroPower");
+            if (heroResult.next()) {
+                String heroName = heroResult.getString("heroName");
+                String img = heroResult.getString("img");
+                HeroPower heroPower = getHeroPower(heroResult.getString("heroPower"));
 
 //                System.out.printf(" cardId: %s, name: %s, mana: %d, attack: %d, health: %d, description: %s \n", cardId,name , mana, attack, health, info);
                 hero = new Hero(heroName, img, heroPower );
@@ -49,7 +49,7 @@ public class InitChooseYourHero extends Init {
             stmt.setString(1, playerHeroPowerName);
             ResultSet heroPowerResult = stmt.executeQuery(SqlStatements.SElECT_HEROPOWER_HERONAME);
 
-            while(heroPowerResult.next()) {
+            if(heroPowerResult.next()) {
 
                 String heroPowerName = heroPowerResult.getString("heroPowerName");
 
@@ -66,8 +66,11 @@ public class InitChooseYourHero extends Init {
                 String img = heroPowerResult.getString("img");
 
                 heroPower = new HeroPower(heroPowerName, mana, tags, abilityType, abilityValue, duration, img, true);
+            } else {
+                // TODO: 17/05/2018
             }
-        } catch (SQLException e) {
+
+            } catch (SQLException e) {
             e.printStackTrace();
         }
         System.out.println(heroPower);

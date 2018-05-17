@@ -19,11 +19,11 @@ public class InitChooseYourHeroTest {
     @Test
     public void getHeroPowerTest() {
         HeroPower heroPower = db.getHeroPower("Fireblast");
-
+        assertNotNull(heroPower);
     }
     @Test
     public void getHeroTest() {
         Hero hero = db.getHero("Mage");
-
+        assertNotNull(hero);
     }
 }

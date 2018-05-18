@@ -12,9 +12,13 @@ public class PlayingField {
 
     private int turn = 0;
     private static final int maxMana = 10;
-    private short index = 0; // for your turn (you are for example 1, adversary = 0)
+    private int mana;
+    private int index = 0; // for your turn (you are for example 1, adversary = 0)
+    private boolean begins;
 
     public PlayingField(Player player, Player opponent, boolean begins) {
+        this.begins = begins;
+
         int subIndex;
 
         if (begins) {
@@ -51,27 +55,26 @@ public class PlayingField {
         return  card.getAttack();
     }
 
-
-
-
     public void increment() {
         if (index == 1) {
             turn++;
             index = 0;
         } else if (index == 0) {
             index++;
-//        } else {
-////          // TODO  't is nie gelukt
-//        }
         }
+        mana = calculateMana();
     }
 
-    public int getMana() {
+    public int calculateMana() {
         if (turn < maxMana){
             return turn;
         } else {
             return maxMana;
         }
+    }
+
+    public int getMana() {
+        return mana;
     }
 
     public Player getCurrentPlayer(){
@@ -83,13 +86,33 @@ public class PlayingField {
     }
 
     public void playCard(String id){
-        cardsOnField[index].addCard(
-                getCurrentPlayer().playCard(id)
-        );
+        Card card = getCurrentPlayer().getCardsInHand().findById(id);
+        if (card.getMana() <= mana){
+            cardsOnField[index].addCard(
+                    getCurrentPlayer().playCard(id)
+            );
+            mana -= card.getMana();
+        }
     }
 
     public boolean isOpponent () {
         return isOpponent[index];
+    }
+
+    public Cards getCardsOnFieldOpponent() {
+        if (begins){
+            return cardsOnField[1];
+        } else {
+            return cardsOnField[0];
+        }
+    }
+
+    public Cards getCardsOnFieldPlayer() {
+        if (begins){
+            return cardsOnField[0];
+        } else {
+            return cardsOnField[1];
+        }
     }
 
     @Override

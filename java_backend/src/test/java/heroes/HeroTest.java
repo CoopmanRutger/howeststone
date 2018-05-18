@@ -12,7 +12,6 @@ public class HeroTest {
 
     @Before
     public void before() {
-        heroPower = new HeroPower(5, 5, true);
         Hero test = new Hero("Jaina", "muh img", heroPower);
 
 

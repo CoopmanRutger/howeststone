@@ -50,7 +50,7 @@ public class Player {
 
     public Cards getCardsInHand() {
         return cardsInHand;
-    }
+}
 
     public boolean isAlive() {
         return hero.isAlive();
@@ -62,8 +62,6 @@ public class Player {
 
     public void playCard(String id) {
         Card card = cardsInHand.findById(id);
-        System.out.println(id);
-        System.out.println(card);
         cardsOnField.addCard(
                 cardsInHand.findById(id)
         );

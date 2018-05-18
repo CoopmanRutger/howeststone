@@ -104,6 +104,7 @@ public class CLI {
                 case "getMana":
                     System.out.println(pf.getMana());
                     break;
+                case "c":
                 case "commit":
                     committed = true;
                     break;
@@ -120,20 +121,22 @@ public class CLI {
     private void botMechanics(PlayingField pf) {
         System.out.println("Opponent's turn!");
 
-//        Cards playable = pf.getCurrentPlayer().getCardsInHand();
-//
-//        boolean running = true;
-//        boolean stop;
-//
-//        while (running) {
-//            stop = true;
-//            for (Card card : playable.getCards()) {
-//                if (card.getMana() <= pf.getMana()) {
-//                    pf.playCard(card.getCardId());
-//                    stop = false;
-//                }
-//            }
-//            if (stop) running = false;
-//        }
+        Cards playable = pf.getOpponent().getCardsInHand();
+
+        System.out.println(playable);
+
+        boolean running = true;
+        boolean stop;
+
+        while (running) {
+            stop = true;
+            for (Card card : playable.getCards()) {
+                if (card.getMana() <= pf.getMana()) {
+                    pf.playCard(card.getCardId());
+                    stop = false;
+                }
+            }
+            if (stop) running = false;
+        }
     }
 }

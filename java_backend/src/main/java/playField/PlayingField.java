@@ -8,8 +8,6 @@ import player.Player;
 import java.util.Random;
 
 public class PlayingField {
-    // TODO: 18/05/2018 mischien gewoon apparte velden maken
-    // TODO: 18/05/2018 abstractie
     private Player player;
     private Player opponent;
 
@@ -22,8 +20,6 @@ public class PlayingField {
         Random r = new Random();
         begins = r.nextInt(2) == 0;
 
-        this.begins = begins;
-
         this.player = player;
         this.opponent = opponent;
 
@@ -31,10 +27,8 @@ public class PlayingField {
             player.drawCard();
             opponent.drawCard();
         }
-    }
 
-    public int minionAttack(CardMinion card){
-        return  card.getAttack();
+        mana = calculateMana();
     }
 
     public void increment() {
@@ -50,6 +44,16 @@ public class PlayingField {
 
     public int getMana() {
         return mana;
+    }
+
+
+
+    public Player getPlayer() {
+        return player;
+    }
+
+    public Player getOpponent() {
+        return opponent;
     }
 
 
@@ -80,7 +84,9 @@ public class PlayingField {
 
     public void playCard(String id){
         Player curPlayer = getCurrentPlayer();
-        int curMana = player.getManaFromId(id);
+
+        int curMana = curPlayer.getManaFromId(id);
+
         if (curMana <= mana) player.playCard(id);
     }
 
@@ -89,13 +95,5 @@ public class PlayingField {
     @Override
     public String toString() {
         return "doesn't yet have a toString()";
-    }
-
-    public Player getPlayer() {
-        return player;
-    }
-
-    public Player getOpponent() {
-        return opponent;
     }
 }

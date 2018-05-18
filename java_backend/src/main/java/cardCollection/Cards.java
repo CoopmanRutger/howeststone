@@ -5,7 +5,7 @@ import java.util.*;
 import cards.Card;
 
 public class Cards {
-    protected List<Card> cards;
+    public List<Card> cards;
 
     public Cards(List<Card> cards) {
         this.cards = cards;
@@ -29,17 +29,12 @@ public class Cards {
         return Collections.unmodifiableList(cards);
     }
 
-    // TODO: 18/05/2018 Commentaar bijzetten
     public Card findById(String id) {
-        for(Card c : cards) {
-            if (c.getCardId().equals(id)) {
-                return c;
-            }
-        }
+        for(Card c : cards) if (c.getCardId().equals(id)) return c;
         return null;
     }
 
-    public Card drawById(String id){
+    public Card drawById(String id){ //zoekt kaart op id en verwijderd ze
         Card c = findById(id);
         remove(c);
         return c;

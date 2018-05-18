@@ -25,7 +25,7 @@ function loadButtons(){
 
 function pickAHero(e) {
     e.preventDefault();
-    console.log("im in pick a hero");
+    console.log(this.value);
     fetch("http://localhost:4242/API/deckbuildOrPlay/chooseYourHero", {
         method: 'post',
         body: JSON.stringify(this.value)

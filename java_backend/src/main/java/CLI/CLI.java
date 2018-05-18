@@ -2,6 +2,7 @@ package CLI;
 
 import cardCollection.Cards;
 import cardCollection.Deck;
+import cards.Card;
 import cards.CardMinion;
 import heroes.Hero;
 import heroes.HeroPower;
@@ -26,16 +27,16 @@ public class CLI {
             deck.addCard(new CardMinion("ID" + i, "0", "name", 0, "type", "heroType", "0", 0, 0, "black", "lol"));
         }
 
-//        HeroPower heroPower = new HeroPower(0, 0, true);
-//        Hero hero = new Hero("hero", "im", heroPower);
+        HeroPower heroPower = new HeroPower("", 0, "","",1,1,"",true);
+        Hero hero = new Hero("hero", "im", heroPower);
 
-//        Player p = new Player(deck, hero);
-//        Player o = new Player(deck, hero);
+        Player p = new Player(deck, hero);
+        Player o = new Player(deck, hero);
 
         boolean begins = r.nextInt(2) == 0;
 
-//        PlayingField pf = new PlayingField(p,o,begins);
-//        run(pf);
+        PlayingField pf = new PlayingField(p,o,begins);
+        run(pf);
     }
 
     private void run(PlayingField pf) {
@@ -56,12 +57,60 @@ public class CLI {
     }
 
     private void playerMechanics(PlayingField pf) {
-        System.out.println(pf);
-        System.out.print("$");
-        System.out.println(input.next());
-        // game mechanics
+        boolean committed = false;
+
+        System.out.println("Your turn!");
+
+        while (!committed){
+            System.out.print("$ ");
+
+            String command = input.next();
+
+            switch (command) {
+                case "attack":
+                    System.out.print("Give id of attacking card: ");
+                    String idP = input.next();
+                    System.out.print("Give id of attacked card: ");
+                    String idO = input.next();
+
+                    CardMinion playerCard = (CardMinion) pf.getCardsOnFieldPlayer().findById(idP);
+                    Card opponentCard = pf.getCardsOnFieldOpponent().findById(idO);
+
+                    int damage = playerCard.getAttack();
+
+                    opponentCard.takeDamge(damage);
+
+                    if (!opponentCard.isAlive()){
+                        pf.getCardsOnFieldOpponent().remove(idO);
+                    }
+
+                    break;
+                case "playCard":
+                    System.out.print("Give id of card to play: ");
+                    String id = input.next();
+                    pf.playCard(id);
+                    break;
+                case "showCardsInHand":
+                    System.out.println(pf.getCurrentPlayer().getCardsInHand());
+                    break;
+                case "showCardsOnField":
+                    System.out.println("Opponent's cards:");
+                    System.out.println(pf.getCardsOnFieldOpponent());
+                    System.out.println("Your cards:");
+                    System.out.println(pf.getCardsOnFieldPlayer());
+                    break;
+                case "commit":
+                    committed = true;
+                    break;
+                default:
+                    System.out.println("Invalid command!");
+                    break;
+            }
+        }
+        pf.getCurrentPlayer().drawCard();
     }
 
     private void botMechanics(PlayingField pf) {
+        System.out.println("Opponent's turn!");
     }
 }

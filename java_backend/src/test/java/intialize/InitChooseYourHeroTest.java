@@ -25,6 +25,7 @@ public class InitChooseYourHeroTest {
     @Test
     public void getHeroTest() {
         Hero hero = db.getHero("Mage");
+        HeroPower heroPower = new HeroPower("blabla", 1, "hmm", "hmm", 2, 1, "hmm", true);
         assertNotNull(hero);
     }
 }

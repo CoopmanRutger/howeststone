@@ -32,7 +32,7 @@ public class Cards {
         return Collections.unmodifiableList(cards);
     }
 
-    protected Card findById(String id) {
+    public Card findById(String id) {
         for(Card c : cards) {
             if (c.getCardId().equals(id)) {
                 return c;

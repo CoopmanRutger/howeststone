@@ -24,7 +24,7 @@ public class CLI {
         Deck deck = new Deck();
 
         for (int i = 0; i < 30; i++) {
-            deck.addCard(new CardMinion("ID" + i, "0", "name", 0, "type", "heroType", "0", 0, 0, "black", "lol"));
+            deck.addCard(new CardMinion("ID" + i, "0", "name", i/6 + 1, "type", "heroType", "0", 0, 0, "black", "lol"));
         }
 
         HeroPower heroPower = new HeroPower("", 0, "","",1,1,"",true);
@@ -74,11 +74,11 @@ public class CLI {
                     String idO = input.next();
 
                     CardMinion playerCard = (CardMinion) pf.getCardsOnFieldPlayer().findById(idP);
-                    Card opponentCard = pf.getCardsOnFieldOpponent().findById(idO);
+                    CardMinion opponentCard = (CardMinion) pf.getCardsOnFieldOpponent().findById(idO);
 
                     int damage = playerCard.getAttack();
 
-                    opponentCard.takeDamge(damage);
+                    opponentCard.takeDamage(damage);
 
                     if (!opponentCard.isAlive()){
                         pf.getCardsOnFieldOpponent().remove(idO);
@@ -99,6 +99,9 @@ public class CLI {
                     System.out.println("Your cards:");
                     System.out.println(pf.getCardsOnFieldPlayer());
                     break;
+                case "getMana":
+                    System.out.println(pf.getMana());
+                    break;
                 case "commit":
                     committed = true;
                     break;
@@ -112,5 +115,7 @@ public class CLI {
 
     private void botMechanics(PlayingField pf) {
         System.out.println("Opponent's turn!");
+
+
     }
 }

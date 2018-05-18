@@ -3,6 +3,8 @@ package heroes;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
+import java.util.Objects;
+
 public class Hero {
     @JsonProperty("name")
     private String name;
@@ -96,7 +98,22 @@ private boolean alive = true;
                 '}';
     }
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Hero hero = (Hero) o;
+        return lifePoints == hero.lifePoints &&
+                amourPoints == hero.amourPoints &&
+                alive == hero.alive &&
+                Objects.equals(name, hero.name) &&
+                Objects.equals(img, hero.img) &&
+                Objects.equals(heroPower, hero.heroPower);
+    }
 
+    @Override
+    public int hashCode() {
 
-
+        return Objects.hash(name, img, heroPower, lifePoints, amourPoints, alive);
+    }
 }

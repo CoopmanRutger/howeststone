@@ -31,4 +31,21 @@ public class PlayableDeck {
     public void setDeck(Deck deck) {
         this.deck = deck;
     }
+
+    public String getDeckName() {
+        return deckName;
+    }
+
+    public void setDeckName(String deckName) {
+        this.deckName = deckName;
+    }
+
+    @Override
+    public String toString() {
+        return "PlayableDeck{" +
+                "deckName='" + deckName + '\'' +
+                ", hero=" + hero +
+                ", deck=" + deck +
+                '}';
+    }
 }

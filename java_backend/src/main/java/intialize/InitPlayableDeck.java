@@ -6,14 +6,98 @@ import heroes.Hero;
 import heroes.HeroPower;
 import player.PlayableDeck;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+import java.sql.*;
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 public class InitPlayableDeck extends Init {
+
+
+    public HashSet<PlayableDeck> GetPlayableDecks(){
+        PlayableDeck playableDeck = null;
+        HashSet<PlayableDeck> playableDecks = new HashSet<>();
+        try (
+                Connection conn = db.getConnection();
+                Statement stmt = conn.createStatement();
+                ResultSet playableDeckResult = stmt.executeQuery(SqlStatements.SElECT_PLAYABLEDECKS);
+        ){
+
+
+            while (playableDeckResult.next()) {
+                playableDeck = MakePlaybleDeck(playableDeckResult);
+                playableDecks.add(playableDeck);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+
+        return playableDecks;
+    }
+
+    public PlayableDeck MakePlaybleDeck(ResultSet playableDeckResult) throws SQLException {
+        PlayableDeck playableDeck = null;
+
+        InitChooseYourHero initChooseYourHero = new InitChooseYourHero();
+        String deckName = playableDeckResult.getString("deckName");
+
+        HeroPower heroPower = initChooseYourHero.getHeroPower(playableDeckResult.getString("heroPower"));
+        Hero hero = initChooseYourHero.getHero(playableDeckResult.getString("hero"),heroPower);
+
+
+        Deck deck = new Deck();
+        InitDeckBuilderLvl2 initDeckBuilderLvl2 = new InitDeckBuilderLvl2();
+
+        for (int i = 1; i < 31; i++){
+            String cardId = playableDeckResult.getString("card" + i);
+            if (initDeckBuilderLvl2.getMinion(cardId) !=null){
+            deck.addCard(initDeckBuilderLvl2.getMinion(cardId));}
+            if (initDeckBuilderLvl2.getSpells(cardId) != null){
+                deck.addCard(initDeckBuilderLvl2.getSpells(cardId));
+            }
+            if (initDeckBuilderLvl2.getWeapons(cardId) != null){
+                deck.addCard(initDeckBuilderLvl2.getWeapons(cardId));
+            }
+
+        }
+
+        // TODO: 18/05/2018  nieuw statement, om card'en te getten en nieuw deck te maken om deze terug te geven en hier toe te voegen.
+
+
+//                System.out.printf(" cardId: %s, name: %s, mana: %d, attack: %d, health: %d, description: %s \n", cardId,name , mana, attack, health, info);
+//                PlayableDeck = new PlayableDeck(deckname, hero, cardIds);
+
+
+        playableDeck = new PlayableDeck(deckName,hero,deck);
+        System.out.println("yeah" +playableDeck);
+        return  playableDeck;
+    }
+
+
+
+    public PlayableDeck GetPlayableDeck(String deckname){
+        PlayableDeck playableDeck = null;
+        try (
+                Connection conn = db.getConnection();
+                PreparedStatement stmt = conn.prepareStatement(SqlStatements.SElECT_PLAYABLEDECK);
+        ){
+            stmt.setString(1, deckname);
+            ResultSet playableDeckResult = stmt.executeQuery();
+
+            if (playableDeckResult.next()) {
+                playableDeck = MakePlaybleDeck(playableDeckResult);
+
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        System.out.println(playableDeck);
+        return playableDeck;
+    }
+
+
 
 
     public PlayableDeck SetPlayableDeck(String deckname,String deckHero, String deckHeroPower, List<String> deckCardIDs){
@@ -30,15 +114,15 @@ public class InitPlayableDeck extends Init {
             }
 
 
-            ResultSet playableDeckResult = stmt.executeQuery(SqlStatements.INSERT_PLAYABLEDECK);
+            ResultSet playableDeckResult = stmt.executeQuery();
             System.out.println(playableDeckResult);
             InitChooseYourHero initChooseYourHero = new InitChooseYourHero();
 
             if (playableDeckResult.next()) {
 
                 String deckName = playableDeckResult.getString("deckName");
-                Hero hero = initChooseYourHero.getHero(playableDeckResult.getString("hero"));
                 HeroPower heroPower = initChooseYourHero.getHeroPower(playableDeckResult.getString("herPower"));
+                Hero hero = initChooseYourHero.getHero(playableDeckResult.getString("hero"), heroPower);
                 List<String> cardIds = new ArrayList<>();
 
                 for (int i = 0; i < deckCardIDs.size(); i++){

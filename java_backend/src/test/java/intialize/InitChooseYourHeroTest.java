@@ -10,22 +10,23 @@ import static org.junit.Assert.*;
 public class InitChooseYourHeroTest {
 
     InitChooseYourHero db;
+    private HeroPower heroPower;
+    private Hero hero;
 
     @Before
     public void before() {
         db = new InitChooseYourHero();
+        heroPower = new HeroPower("Fireblast", 2, "Targeted", "damage", 2, 1, null, true);
+        hero = new Hero("Mage", null, heroPower);
     }
+
 
     @Test
     public void getHeroPowerTest() {
-        HeroPower heroPower = db.getHeroPower("Fireblast");
-        System.out.println(heroPower);
-        assertNotNull(heroPower);
+        assertEquals(heroPower   , db.getHeroPower("Fireblast"));
     }
     @Test
     public void getHeroTest() {
-        Hero hero = db.getHero("Mage");
-        HeroPower heroPower = new HeroPower("blabla", 1, "hmm", "hmm", 2, 1, "hmm", true);
-        assertNotNull(hero);
+        assertEquals(hero, db.getHero("Mage", heroPower));
     }
 }

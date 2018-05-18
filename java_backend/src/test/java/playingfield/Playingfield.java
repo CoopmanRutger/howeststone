@@ -44,8 +44,15 @@ public class Playingfield {
 
     }
 
-    @Test
-    public void name() {
+//    @Test
+//    public void name() {
+//
+//        System.out.println(testField.minionAttack(player.drawMinionCard()));
+//        System.out.println(testField);
+//
+//        testField.increment();
+//        testField.getMana();
+//    }
 
 //        System.out.println(testField.minionAttack(player.drawMinionCard()));
         System.out.println(testField);

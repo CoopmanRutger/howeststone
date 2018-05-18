@@ -8,14 +8,17 @@ public class Cards {
     public List<Card> cards;
 
     public Cards(List<Card> cards) {
+
         this.cards = cards;
     }
 
     public Cards() {
+
         cards = new ArrayList<>(30);
     }
 
     public void addCard(Card card) {
+
         cards.add(card);
     }
 
@@ -75,4 +78,5 @@ public class Cards {
 
         return out.toString();
     }
+
 }

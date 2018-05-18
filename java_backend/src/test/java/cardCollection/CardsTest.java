@@ -4,6 +4,7 @@ import cards.Card;
 import cards.CardMinion;
 import cards.CardSpell;
 import cards.CardWeapon;
+import org.junit.Before;
 import org.junit.Test;
 
 import java.util.ArrayList;
@@ -15,16 +16,52 @@ import static org.junit.Assert.*;
 
 public class CardsTest {
 
-    private CardMinion card1 = new CardMinion("ID","0","name",0,"type","heroType","0",0,0,"black","lol");
-    private CardWeapon card2 = new CardWeapon("ID","0","name",0,"type", "heroType","0", 0,0);
-    private CardSpell card3 = new CardSpell("ID","0","name",0,"type", "heroType","img","taunt");
+    private CardMinion card1;
+    private CardWeapon card2;
+    private CardSpell card3;
+    private Cards cards;
 
     // TODO als een minion <0 levens heeft dan word hij van spel verwijderd. (rekening houden met deadrattle)
+
+    @Before
+    public void before() {
+
+        card1 = new CardMinion("ID", "0", "name", 0, "type", "heroType", "0", 0, 0, "black", "lol");
+        card2 = new CardWeapon("ID", "0", "name", 0, "type", "heroType", "0", 0, 0);
+        card3 = new CardSpell("ID", "0", "name", 0, "type", "heroType", "img", "taunt");
+        cards = new Cards();
+        System.out.println(cards);
+
+
+    }
+
+//    public void addAllCards(Cards cards) {
+//        for (Card card : cards.getCards()) {
+//            this.addCard(card);
+//        }
+//    }
+//    cards.add(card1);
+
+    public void addCard(Card card) {
+
+        cards.addCard(card);
+    }
+
+
+    @Test
+    public void addAllCards() {
+        cards.addCard(card1);
+        cards.addCard(card2);
+        cards.addCard(card3);
+        System.out.println(cards);
+
+        assertEquals(3, cards.getAmount());
+
+    }
 
 
     @Test
     public void adding1() {
-        Cards cards = new Cards();
 
         List<Card> list = new ArrayList<>(30);
 
@@ -36,53 +73,48 @@ public class CardsTest {
         cards.addCard(card2);
         cards.addCard(card3);
 
-        assertEquals(list,cards.getCards());
+        assertEquals(list, cards.getCards());
     }
 
     @Test
     public void adding2() {
-        Cards cards = new Cards();
 
         cards.addCard(card1);
         cards.addCard(card2);
         cards.addCard(card3);
 
-        assertEquals(3,cards.getAmount());
+        assertEquals(3, cards.getAmount());
     }
 
     @Test
     public void pop1() {
-        Cards cards = new Cards();
 
         cards.addCard(card1);
-        assertEquals(1,cards.getAmount());
-        
+        assertEquals(1, cards.getAmount());
+
         cards.drawRandom();
-        assertEquals(0,cards.getAmount());
+        assertEquals(0, cards.getAmount());
     }
 
     @Test
     public void pop2() {
-        Cards cards = new Cards();
 
         cards.addCard(card1);
-        assertEquals(1,cards.getAmount());
+        assertEquals(1, cards.getAmount());
     }
 
     @Test
     public void pop3() {
-        Cards cards = new Cards();
 
         cards.addCard(card1);
-        assertEquals(card1.getClass(),cards.drawRandom().getClass());
+        assertEquals(card1.getClass(), cards.drawRandom().getClass());
 
         cards.addCard(card1);
-        assertEquals(card1,cards.drawRandom());
+        assertEquals(card1, cards.drawRandom());
     }
 
     @Test
     public void contains() {
-        Cards cards = new Cards();
 
         cards.addCard(card1);
         assertTrue(cards.contains(card1));
@@ -93,16 +125,13 @@ public class CardsTest {
 
     @Test
     public void remove() {
-        Cards cards = new Cards();
 
         cards.addCard(card1);
-        assertEquals(1,cards.getAmount());
+        assertEquals(1, cards.getAmount());
 
         cards.remove(card1);
-        assertEquals(0,cards.getAmount());
+        assertEquals(0, cards.getAmount());
     }
-
-
 
 
 }

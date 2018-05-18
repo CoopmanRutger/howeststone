@@ -9,7 +9,7 @@ import java.sql.*;
 public class InitChooseYourHero extends Init {
 
 
-    public Hero getHero(String HeroName){
+    public Hero getHero(String HeroName, HeroPower heroPower){
         Hero hero = null;
         try (
                 Connection conn = db.getConnection();
@@ -24,8 +24,6 @@ public class InitChooseYourHero extends Init {
                 String heroName = heroResult.getString("heroName");
 
                 String img = heroResult.getString("img");
-
-                HeroPower heroPower = getHeroPower(heroResult.getString("heroPower"));
 
                 hero = new Hero(heroName, img, heroPower);
             } else {
@@ -76,4 +74,6 @@ public class InitChooseYourHero extends Init {
         System.out.println(heroPower);
         return heroPower;
     }
+
+
 }

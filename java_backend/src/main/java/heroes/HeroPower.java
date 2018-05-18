@@ -3,6 +3,8 @@ package heroes;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
+import java.util.Objects;
+
 public class HeroPower {
 
     @JsonProperty("heroPowerName")
@@ -77,5 +79,40 @@ public class HeroPower {
 
     public void setHeroPowerActive(boolean heroPowerActive) {
         this.heroPowerActive = heroPowerActive;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        HeroPower heroPower = (HeroPower) o;
+        return manaCost == heroPower.manaCost &&
+                abilityValue == heroPower.abilityValue &&
+                duration == heroPower.duration &&
+                heroPowerActive == heroPower.heroPowerActive &&
+                Objects.equals(heroPowerName, heroPower.heroPowerName) &&
+                Objects.equals(tags, heroPower.tags) &&
+                Objects.equals(abilityType, heroPower.abilityType) &&
+                Objects.equals(img, heroPower.img);
+    }
+
+    @Override
+    public int hashCode() {
+
+        return Objects.hash(heroPowerName, manaCost, tags, abilityType, abilityValue, duration, img, heroPowerActive);
+    }
+
+    @Override
+    public String toString() {
+        return "HeroPower{" +
+                "heroPowerName='" + heroPowerName + '\'' +
+                ", manaCost=" + manaCost +
+                ", tags='" + tags + '\'' +
+                ", abilityType='" + abilityType + '\'' +
+                ", abilityValue=" + abilityValue +
+                ", duration=" + duration +
+                ", img='" + img + '\'' +
+                ", heroPowerActive=" + heroPowerActive +
+                '}';
     }
 }

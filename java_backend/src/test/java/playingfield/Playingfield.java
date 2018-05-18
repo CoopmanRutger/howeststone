@@ -34,7 +34,7 @@ public class Playingfield {
 //        player = new Player(deck, hero);
 //        opponent = new Player(deck, hero);
 
-        testField = new PlayingField(player,opponent, true);
+        testField = new PlayingField(player, opponent);
         // TODO minion met 3 mana kan niet gespeeld worden als je maar 2 mana hebt.
         // TODO als je 5 mana heb en je speelt een kaart van 2 mana, erna nog een kaart van 2, heb je nog 1 mana over.
         // TODO als end turn is true kan de speler niets doen.
@@ -47,7 +47,7 @@ public class Playingfield {
     @Test
     public void name() {
 
-        System.out.println(testField.minionAttack(player.drawMinionCard()));
+//        System.out.println(testField.minionAttack(player.drawMinionCard()));
         System.out.println(testField);
 
         testField.increment();

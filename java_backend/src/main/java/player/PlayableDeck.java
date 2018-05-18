@@ -3,11 +3,15 @@ package player;
 import cardCollection.Deck;
 import heroes.Hero;
 
+import java.util.List;
+
 public class PlayableDeck {
+    private  String deckName;
     private Hero hero;
     private Deck deck;
 
-    public PlayableDeck(Hero hero, Deck deck) {
+    public PlayableDeck(String deckName, Hero hero, Deck deck) {
+        this.deckName = deckName;
         this.hero = hero;
         this.deck = deck;
     }

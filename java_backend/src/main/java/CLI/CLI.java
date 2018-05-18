@@ -107,6 +107,8 @@ public class CLI {
                     break;
                 default:
                     System.out.println("Invalid command!");
+                    System.out.println("Valid commands are:");
+                    System.out.println("playCard, showCardsInHand, showCardsOnField, getMana, commit");
                     break;
             }
         }

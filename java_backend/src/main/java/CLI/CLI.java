@@ -126,17 +126,21 @@ public class CLI {
         System.out.println(playable);
 
         boolean running = true;
-        boolean stop;
+        boolean played;
 
         while (running) {
-            stop = true;
+            played = false;
             for (Card card : playable.getCards()) {
+                System.out.println(pf.getMana());
                 if (card.getMana() <= pf.getMana()) {
+                    played = true;
                     pf.playCard(card.getCardId());
-                    stop = false;
                 }
             }
-            if (stop) running = false;
+            System.out.println(played);
+            if (!played) {
+                running = false;
+            }
         }
     }
 }

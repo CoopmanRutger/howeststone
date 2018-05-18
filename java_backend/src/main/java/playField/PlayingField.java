@@ -88,6 +88,7 @@ public class PlayingField {
         int curMana = curPlayer.getManaFromId(id);
 
         if (curMana <= mana) player.playCard(id);
+        mana -= curMana;
     }
 
 

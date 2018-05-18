@@ -71,15 +71,15 @@ public class CLI {
                     System.out.print("Give id of attacked card: ");
                     String idO = input.next();
 
-                    CardMinion playerCard = (CardMinion) pf.getCardsOnFieldPlayer().findById(idP);
-                    CardMinion opponentCard = (CardMinion) pf.getCardsOnFieldOpponent().findById(idO);
+                    CardMinion playerCard = (CardMinion) pf.getPlayer().getCardsOnField().findById(idP);
+                    CardMinion opponentCard = (CardMinion) pf.getOpponent().getCardsOnField().findById(idO);
 
                     int damage = playerCard.getAttack();
 
                     opponentCard.takeDamage(damage);
 
                     if (!opponentCard.isAlive()){
-                        pf.getCardsOnFieldOpponent().remove(idO);
+                        pf.getOpponent().getCardsOnField().remove(idO);
                     }
 
                     break;
@@ -96,9 +96,9 @@ public class CLI {
                 case "scof":
                 case "showCardsOnField":
                     System.out.println("Opponent's cards:");
-                    System.out.println(pf.getCardsOnFieldOpponent());
+                    System.out.println(pf.getOpponent().getCardsOnField());
                     System.out.println("Your cards:");
-                    System.out.println(pf.getCardsOnFieldPlayer());
+                    System.out.println(pf.getPlayer().getCardsOnField());
                     break;
                 case "gm":
                 case "getMana":
@@ -114,7 +114,7 @@ public class CLI {
                     break;
             }
         }
-        pf.getCurrentPlayer().drawCard();
+        pf.getPlayer().drawCard();
     }
 
     private void botMechanics(PlayingField pf) {

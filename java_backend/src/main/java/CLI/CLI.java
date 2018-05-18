@@ -13,7 +13,7 @@ import java.util.Random;
 import java.util.Scanner;
 
 public class CLI {
-    private Random r = new Random();
+
     private Scanner input = new Scanner(System.in);
 
     public static void main(String[] args) {
@@ -24,7 +24,7 @@ public class CLI {
         Deck deck = new Deck();
 
         for (int i = 0; i < 30; i++) {
-            deck.addCard(new CardMinion("ID" + i, "0", "name", i/6 + 1, "type", "heroType", "0", 0, 0, "black", "lol"));
+            deck.addCard(new CardMinion("ID" + i, "0", "name", i/6 + 1, "type", "heroType", "0", 0, 0, "race", "mechanics"));
         }
 
         HeroPower heroPower = new HeroPower("", 0, "","",1,1,"",true);
@@ -33,9 +33,7 @@ public class CLI {
         Player p = new Player(deck, hero);
         Player o = new Player(deck, hero);
 
-        boolean begins = r.nextInt(2) == 0;
-
-        PlayingField pf = new PlayingField(p,o,begins);
+        PlayingField pf = new PlayingField(p,o);
         run(pf);
     }
 
@@ -73,32 +71,36 @@ public class CLI {
                     System.out.print("Give id of attacked card: ");
                     String idO = input.next();
 
-                    CardMinion playerCard = (CardMinion) pf.getCardsOnFieldPlayer().findById(idP);
-                    CardMinion opponentCard = (CardMinion) pf.getCardsOnFieldOpponent().findById(idO);
+                    CardMinion playerCard = (CardMinion) pf.getPlayer().getCardsOnField().findById(idP);
+                    CardMinion opponentCard = (CardMinion) pf.getOpponent().getCardsOnField().findById(idO);
 
                     int damage = playerCard.getAttack();
 
                     opponentCard.takeDamage(damage);
 
                     if (!opponentCard.isAlive()){
-                        pf.getCardsOnFieldOpponent().remove(idO);
+                        pf.getOpponent().getCardsOnField().remove(idO);
                     }
 
                     break;
+                case "pc":
                 case "playCard":
                     System.out.print("Give id of card to play: ");
                     String id = input.next();
                     pf.playCard(id);
                     break;
+                case "scih":
                 case "showCardsInHand":
                     System.out.println(pf.getCurrentPlayer().getCardsInHand());
                     break;
+                case "scof":
                 case "showCardsOnField":
                     System.out.println("Opponent's cards:");
-                    System.out.println(pf.getCardsOnFieldOpponent());
+                    System.out.println(pf.getOpponent().getCardsOnField());
                     System.out.println("Your cards:");
-                    System.out.println(pf.getCardsOnFieldPlayer());
+                    System.out.println(pf.getPlayer().getCardsOnField());
                     break;
+                case "gm":
                 case "getMana":
                     System.out.println(pf.getMana());
                     break;
@@ -112,12 +114,26 @@ public class CLI {
                     break;
             }
         }
-        pf.getCurrentPlayer().drawCard();
+        pf.getPlayer().drawCard();
     }
 
     private void botMechanics(PlayingField pf) {
         System.out.println("Opponent's turn!");
 
-
+//        Cards playable = pf.getCurrentPlayer().getCardsInHand();
+//
+//        boolean running = true;
+//        boolean stop;
+//
+//        while (running) {
+//            stop = true;
+//            for (Card card : playable.getCards()) {
+//                if (card.getMana() <= pf.getMana()) {
+//                    pf.playCard(card.getCardId());
+//                    stop = false;
+//                }
+//            }
+//            if (stop) running = false;
+//        }
     }
 }

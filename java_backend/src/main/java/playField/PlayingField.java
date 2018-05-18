@@ -5,50 +5,32 @@ import cards.Card;
 import cards.CardMinion;
 import player.Player;
 
-public class PlayingField {
-    private Player players[] = new Player[2];
-    private Cards[] cardsOnField = new Cards[2];
-    private boolean isOpponent[] = new boolean[2];
+import java.util.Random;
 
-    private int turn = 0;
+public class PlayingField {
+    // TODO: 18/05/2018 mischien gewoon apparte velden maken
+    // TODO: 18/05/2018 abstractie
+    private Player player;
+    private Player opponent;
+
     private static final int maxMana = 10;
     private int mana;
-    private int index = 0; // for your turn (you are for example 1, adversary = 0)
+    private int index = 2; // for your turn (you are for example 1, adversary = 0)
     private boolean begins;
 
-    public PlayingField(Player player, Player opponent, boolean begins) {
+    public PlayingField(Player player, Player opponent) {
+        Random r = new Random();
+        begins = r.nextInt(2) == 0;
+
         this.begins = begins;
 
-        int subIndex;
-
-        if (begins) {
-            subIndex = 0;
-        } else {
-            subIndex = 1;
-        }
-
-        players[subIndex] = player;
-        isOpponent[subIndex] = false;
-
-        subIndex++;
-        subIndex %= 2;
-        
-        players[subIndex] = opponent;
-        isOpponent[subIndex] = true;
-
-        cardsOnField[0] = new Cards();
-        cardsOnField[1] = new Cards();
+        this.player = player;
+        this.opponent = opponent;
 
         for (int i = 0; i < 3; i++) {
-            drawCard();
+            player.drawCard();
+            opponent.drawCard();
         }
-        increment();
-
-        for (int i = 0; i < 3; i++) {
-            drawCard();
-        }
-
-        increment();
     }
 
     public int minionAttack(CardMinion card){
@@ -56,80 +38,64 @@ public class PlayingField {
     }
 
     public void increment() {
-        if (index == 1) {
-            turn++;
-            index = 0;
-        } else if (index == 0) {
-            index++;
-        }
+        index++;
         mana = calculateMana();
     }
 
     public int calculateMana() {
-        if (turn < maxMana){
-            return turn;
-        } else {
-            return maxMana;
-        }
+        int turn = getTurn();
+        if (turn < maxMana) return turn;
+        else return maxMana;
     }
 
     public int getMana() {
         return mana;
     }
 
-    public Player getCurrentPlayer(){
-        return players[index];
+
+
+    private int getPlayerIndex(){
+        int playerIndex;
+
+        if (begins) playerIndex = 0;
+        else playerIndex = 1;
+
+        return playerIndex;
     }
 
-    public void drawCard(){
-        getCurrentPlayer().drawCard();
+    public Player getCurrentPlayer() {
+        if (index % 2 == getPlayerIndex()) return player;
+        else return opponent;
+    }
+
+    private int getTurn(){
+        return index/2;
+    }
+
+
+
+    public boolean isOpponent () {
+        return getPlayerIndex() != (index % 2);
     }
 
     public void playCard(String id){
-        Card card = getCurrentPlayer().getCardsInHand().findById(id);
-        if (card.getMana() <= mana){
-            cardsOnField[index].addCard(
-                    getCurrentPlayer().playCard(id)
-            );
-            mana -= card.getMana();
-        }
+        Player curPlayer = getCurrentPlayer();
+        int curMana = player.getManaFromId(id);
+        if (curMana <= mana) player.playCard(id);
     }
 
-    public boolean isOpponent () {
-        return isOpponent[index];
-    }
 
-    public Cards getCardsOnFieldOpponent() {
-        if (begins){
-            return cardsOnField[1];
-        } else {
-            return cardsOnField[0];
-        }
-    }
-
-    public Cards getCardsOnFieldPlayer() {
-        if (begins){
-            return cardsOnField[0];
-        } else {
-            return cardsOnField[1];
-        }
-    }
 
     @Override
     public String toString() {
-        int subIndex = index;
+        return "doesn't yet have a toString()";
+    }
 
-        String out = "";
+    public Player getPlayer() {
+        return player;
+    }
 
-        out += players[subIndex].getCardsInHand() +"\n" +
-                cardsOnField[subIndex] + "\n";
-
-        subIndex++;
-        subIndex %= 2;
-
-        out += players[subIndex].getCardsInHand() +"\n" +
-                cardsOnField[subIndex] + "\n";
-
-        return out;
+    public Player getOpponent() {
+        return opponent;
     }
 }

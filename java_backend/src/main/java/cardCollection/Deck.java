@@ -13,6 +13,7 @@ public class Deck extends Cards{
         super();
     }
 
+
     public void addCard(Card card){
         try{
             if (containsDouble(card)){  // sets bevatten geen dubbele waardes!
@@ -30,16 +31,16 @@ public class Deck extends Cards{
 
     public boolean valid(){
         return getAmount()==30;
-    }
+    } // TODO: 18/05/2018 make a constant
 
     private boolean containsDouble(Card card) {
         int amount = 0;
-        for (Card c : cards) {
+        for (Card c : cards) { // TODO: 18/05/2018 aparte methode maken cardCount
             if (c.equals(card)){
                 amount++;
             }
         }
-        return amount>1;
+        return amount > 1;
     }
 
     @Override

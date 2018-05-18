@@ -12,11 +12,11 @@ public class Player {
     private Cards cardsInHand;
 
     public Player(PlayableDeck playableDeck) {
-//        if (playableDeck.getDeck().valid()){
+        if (playableDeck.getDeck().valid()){
             this.hero = playableDeck.getHero();
             this.deck = playableDeck.getDeck();
             cardsInHand = new Cards();
-//        }
+        }
     }
 
     public Player(Deck deck,Hero hero) {
@@ -27,12 +27,6 @@ public class Player {
 
     public Card drawCard() {
         Card out = deck.drawRandom();
-        cardsInHand.addCard(out);
-        return out;
-    }
-    public CardMinion drawMinionCard(){
-        CardMinion out = (CardMinion) deck.drawRandom();
-        out.setAttack(3); // TODO: override voor test
         cardsInHand.addCard(out);
         return out;
     }

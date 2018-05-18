@@ -80,7 +80,9 @@ public class CLI {
 
                     opponentCard.takeDamge(damage);
 
-                    if ()
+                    if (!opponentCard.isAlive()){
+                        pf.getCardsOnFieldOpponent().remove(idO);
+                    }
 
                     break;
                 case "playCard":

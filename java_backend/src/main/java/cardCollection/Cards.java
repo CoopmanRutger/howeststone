@@ -29,6 +29,7 @@ public class Cards {
         return Collections.unmodifiableList(cards);
     }
 
+    // TODO: 18/05/2018 Commentaar bijzetten
     public Card findById(String id) {
         for(Card c : cards) {
             if (c.getCardId().equals(id)) {
@@ -71,12 +72,12 @@ public class Cards {
 
     @Override
     public String toString() {
-        String out = "";
+        StringBuilder out = new StringBuilder();
 
         for (Card c: cards) {
-            out += c.toString();
+            out.append(c.toString());
         }
 
-        return out;
+        return out.toString();
     }
 }

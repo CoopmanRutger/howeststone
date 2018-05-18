@@ -5,18 +5,24 @@ import cards.Card;
 import cards.CardMinion;
 import player.Player;
 
+import java.util.Random;
+
 public class PlayingField {
+    // TODO: 18/05/2018 mischien gewoon apparte velden maken
+    // TODO: 18/05/2018 abstractie
     private Player players[] = new Player[2];
-    private Cards[] cardsOnField = new Cards[2];
+    private Cards[] cardsOnField = new Cards[2]; // TODO: 18/05/2018 waarom nie in player zelf?
     private boolean isOpponent[] = new boolean[2];
 
-    private int turn = 0;
     private static final int maxMana = 10;
     private int mana;
     private int index = 0; // for your turn (you are for example 1, adversary = 0)
     private boolean begins;
 
-    public PlayingField(Player player, Player opponent, boolean begins) {
+    public PlayingField(Player player, Player opponent) {
+        Random r = new Random();
+        begins = r.nextInt(2) == 0;
+
         this.begins = begins;
 
         int subIndex;
@@ -56,18 +62,13 @@ public class PlayingField {
     }
 
     public void increment() {
-        if (index == 1) {
-            turn++;
-            index = 0;
-        } else if (index == 0) {
-            index++;
-        }
-        mana = calculateMana();
+        index++;
+        calculateMana();
     }
 
     public int calculateMana() {
-        if (turn < maxMana){
-            return turn;
+        if (index/2 < maxMana){
+            return index/2;
         } else {
             return maxMana;
         }
@@ -78,7 +79,7 @@ public class PlayingField {
     }
 
     public Player getCurrentPlayer(){
-        return players[index];
+        return players[index%2];
     }
 
     public void drawCard(){

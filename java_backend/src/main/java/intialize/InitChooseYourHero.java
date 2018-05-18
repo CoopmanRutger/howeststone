@@ -18,7 +18,7 @@ public class InitChooseYourHero extends Init {
             stmt.setString(1, HeroName);
             System.out.println(stmt);
 
-            ResultSet heroResult = stmt.executeQuery(SqlStatements.SElECT_HERO_HERONAME);
+            ResultSet heroResult = stmt.executeQuery();
 
             if (heroResult.next()) {
                 String heroName = heroResult.getString("heroName");
@@ -47,7 +47,7 @@ public class InitChooseYourHero extends Init {
 
         ){
             stmt.setString(1, playerHeroPowerName);
-            ResultSet heroPowerResult = stmt.executeQuery(SqlStatements.SElECT_HEROPOWER);
+            ResultSet heroPowerResult = stmt.executeQuery();
 
             if(heroPowerResult.next()) {
 

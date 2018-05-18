@@ -154,35 +154,35 @@ public class InitDeckBuilderLvl2 extends Init {
 
 
 
-
-
-    private void insertCity(String city, String district){
-        try (
-                Connection conn = db.getConnection();
-                PreparedStatement stmt = conn.prepareStatement(SqlStatements.INSERT_CITY,
-                        Statement.RETURN_GENERATED_KEYS);
-        ){
-            stmt.setString(1, city);
-            stmt.setString(2, district);
-            int affectedRows = stmt.executeUpdate();
-
-            if (affectedRows == 0) {
-                throw new SQLException("No city created: no rows affected.");
-            }
-
-            try (ResultSet rs = stmt.getGeneratedKeys()) {
-                if (rs.next()) {
-                    long id = rs.getLong(1);
-                    System.out.printf("%s now has ID %d", city, id);
-                }
-                else {
-                    throw new SQLException("No city created: no id obtained.");
-                }
-            }
-
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-    }
+//
+//
+//    private void insertCity(String city, String district){
+//        try (
+//                Connection conn = db.getConnection();
+//                PreparedStatement stmt = conn.prepareStatement(SqlStatements.INSERT_CITY,
+//                        Statement.RETURN_GENERATED_KEYS);
+//        ){
+//            stmt.setString(1, city);
+//            stmt.setString(2, district);
+//            int affectedRows = stmt.executeUpdate();
+//
+//            if (affectedRows == 0) {
+//                throw new SQLException("No city created: no rows affected.");
+//            }
+//
+//            try (ResultSet rs = stmt.getGeneratedKeys()) {
+//                if (rs.next()) {
+//                    long id = rs.getLong(1);
+//                    System.out.printf("%s now has ID %d", city, id);
+//                }
+//                else {
+//                    throw new SQLException("No city created: no id obtained.");
+//                }
+//            }
+//
+//        } catch (SQLException e) {
+//            e.printStackTrace();
+//        }
+//    }
 
 }

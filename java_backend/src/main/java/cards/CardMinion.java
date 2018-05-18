@@ -32,6 +32,16 @@ public class CardMinion extends Card{
         this.mechanicsName = mechanicsName;
     }
 
+
+    public void takeDamage(int damage){
+        health -= damage;
+    }
+
+    public boolean isAlive(){
+        return health > 0;
+
+    }
+
     public int getAttack() {
         return attack;
     }

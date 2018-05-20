@@ -1,146 +1,119 @@
 package CLI;
 
 import cardCollection.Cards;
-import cardCollection.Deck;
 import cards.Card;
 import cards.CardMinion;
 import heroes.Hero;
-import heroes.HeroPower;
+import playField.GameCLI;
 import playField.PlayingField;
-import player.Player;
 
-import java.util.Random;
-import java.util.Scanner;
+import java.util.ArrayList;
+import java.util.List;
 
-public class CLI {
-
-    private Scanner input = new Scanner(System.in);
-
+public class CLI extends GameCLI {
     public static void main(String[] args) {
-        new CLI().init();
+        new CLI();
     }
 
-    private void init(){
-        Deck deck = new Deck();
+    private CLI() {
+        super();
+    }
 
-        for (int i = 0; i < 30; i++) {
-            deck.addCard(new CardMinion("ID" + i, "0", "name", i/6 + 1, "type", "heroType", "0", 0, 0, "race", "mechanics"));
+    @Override
+    protected void showCardsOnField(PlayingField pf) {
+        System.out.println("Opponent's cards:");
+        System.out.println(pf.getOpponent().getCardsOnField());
+        System.out.println("Your cards:");
+        System.out.println(pf.getPlayer().getCardsOnField());
+    }
+
+    @Override
+    protected void commit(PlayingField pf) {
+        committed = true;
+    }
+
+    @Override
+    protected void getCurMana(PlayingField pf) {
+        System.out.println(pf.getCurMana());
+    }
+
+    @Override
+    protected void showHeroes(PlayingField pf) {
+        System.out.println("Opponent's Hero:");
+        System.out.println(pf.getOpponent().getHero());
+        System.out.println("Your Hero:");
+        System.out.println(pf.getPlayer().getHero());
+    }
+
+    @Override
+    protected void showCardsInHand(PlayingField pf) {
+        System.out.println(pf.getCurrentPlayer().getCardsInHand());
+    }
+
+    @Override
+    protected void playCard(PlayingField pf) {
+        System.out.print("Give id of card to play: ");
+        String id = input.next();
+        pf.playCard(id);
+    }
+
+    @Override
+    protected void attackHero(PlayingField pf) {
+        System.out.print("Give id of attacking card: ");
+        String idP = input.next();
+
+        CardMinion playerCard = (CardMinion) pf.getPlayer().getCardsOnField().findById(idP);
+        Hero hero = pf.getOpponent().getHero();
+
+        int damage = playerCard.getAttack();
+
+        hero.takeDamage(damage);
+
+        if (!hero.isAlive()){
+            endGame(pf);
         }
-
-        HeroPower heroPower = new HeroPower("", 0, "","",1,1,"",true);
-        Hero hero = new Hero("hero", "im", heroPower);
-
-        Player p = new Player(deck, hero);
-        Player o = new Player(deck, hero);
-
-        PlayingField pf = new PlayingField(p,o);
-        run(pf);
     }
 
-    private void run(PlayingField pf) {
-        while (true) {
-            if (pf.isOpponent()) botMechanics(pf);
-            else playerMechanics(pf);
+    @Override
+    protected void attackCard(PlayingField pf) {
+        System.out.print("Give id of attacking card: ");
+        String idP = input.next();
+        System.out.print("Give id of attacked card: ");
+        String idO = input.next();
 
-            if (!pf.getCurrentPlayer().isAlive()) break;
-            pf.increment();
+        CardMinion playerCard = (CardMinion) pf.getPlayer().getCardsOnField().findById(idP);
+        CardMinion opponentCard = (CardMinion) pf.getOpponent().getCardsOnField().findById(idO);
+
+        int damage = playerCard.getAttack();
+
+        opponentCard.takeDamage(damage);
+
+        if (!opponentCard.isAlive()){
+            pf.getOpponent().getCardsOnField().remove(idO);
         }
-        String out;
-        if (pf.isOpponent())
-            out = "you won";
-        else
-            out = "you lost";
-
-        System.out.println(out);
     }
 
-    private void playerMechanics(PlayingField pf) {
-        boolean committed = false;
-
-        System.out.println("Your turn!");
-
-        while (!committed){
-            System.out.print("$ ");
-
-            String command = input.next();
-
-            switch (command) {
-                case "attack":
-                    System.out.print("Give id of attacking card: ");
-                    String idP = input.next();
-                    System.out.print("Give id of attacked card: ");
-                    String idO = input.next();
-
-                    CardMinion playerCard = (CardMinion) pf.getPlayer().getCardsOnField().findById(idP);
-                    CardMinion opponentCard = (CardMinion) pf.getOpponent().getCardsOnField().findById(idO);
-
-                    int damage = playerCard.getAttack();
-
-                    opponentCard.takeDamage(damage);
-
-                    if (!opponentCard.isAlive()){
-                        pf.getOpponent().getCardsOnField().remove(idO);
-                    }
-
-                    break;
-                case "pc":
-                case "playCard":
-                    System.out.print("Give id of card to play: ");
-                    String id = input.next();
-                    pf.playCard(id);
-                    break;
-                case "scih":
-                case "showCardsInHand":
-                    System.out.println(pf.getCurrentPlayer().getCardsInHand());
-                    break;
-                case "scof":
-                case "showCardsOnField":
-                    System.out.println("Opponent's cards:");
-                    System.out.println(pf.getOpponent().getCardsOnField());
-                    System.out.println("Your cards:");
-                    System.out.println(pf.getPlayer().getCardsOnField());
-                    break;
-                case "gm":
-                case "getMana":
-                    System.out.println(pf.getMana());
-                    break;
-                case "c":
-                case "commit":
-                    committed = true;
-                    break;
-                default:
-                    System.out.println("Invalid command!");
-                    System.out.println("Valid commands are:");
-                    System.out.println("playCard, showCardsInHand, showCardsOnField, getMana, commit");
-                    break;
-            }
-        }
-        pf.getPlayer().drawCard();
-    }
-
-    private void botMechanics(PlayingField pf) {
+    protected void botMechanics(PlayingField pf) {
         System.out.println("Opponent's turn!");
 
         Cards playable = pf.getOpponent().getCardsInHand();
 
-        System.out.println(playable);
-
         boolean running = true;
         boolean played;
+        List<Card> toRemove;
 
         while (running) {
             played = false;
+            toRemove = new ArrayList<>();
             for (Card card : playable.getCards()) {
-                System.out.println(pf.getMana());
-                if (card.getMana() <= pf.getMana()) {
+                if (card.getMana() <= pf.getCurMana()) {
                     played = true;
-                    pf.playCard(card.getCardId());
+                    toRemove.add(card);
                 }
             }
-            System.out.println(played);
-            if (!played) {
-                running = false;
-            }
+            for (Card card : toRemove) pf.playCard(card.getCardId());
+            if (!played) running = false;
         }
+        pf.getOpponent().drawCard();
     }
 }

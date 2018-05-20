@@ -7,7 +7,7 @@ import cards.Card;
 public class Cards {
     public List<Card> cards;
 
-    public Cards(List<Card> cards) {
+    protected Cards(List<Card> cards) {
 
         this.cards = cards;
     }
@@ -18,7 +18,6 @@ public class Cards {
     }
 
     public void addCard(Card card) {
-
         cards.add(card);
     }
 

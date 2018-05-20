@@ -1,8 +1,5 @@
 package playField;
 
-import cardCollection.Cards;
-import cards.Card;
-import cards.CardMinion;
 import player.Player;
 
 import java.util.Random;
@@ -11,10 +8,10 @@ public class PlayingField {
     private Player player;
     private Player opponent;
 
-    private static final int maxMana = 10;
-    private int mana;
     private int index = 2; // for your turn (you are for example 1, adversary = 0)
+    private int curMana;
     private boolean begins;
+    private static final int maxMana = 10;
 
     public PlayingField(Player player, Player opponent) {
         Random r = new Random();
@@ -28,12 +25,12 @@ public class PlayingField {
             opponent.drawCard();
         }
 
-        mana = calculateMana();
+        curMana = calculateMana();
     }
 
     public void increment() {
         index++;
-        mana = calculateMana();
+        curMana = calculateMana();
     }
 
     public int calculateMana() {
@@ -42,8 +39,8 @@ public class PlayingField {
         else return maxMana;
     }
 
-    public int getMana() {
-        return mana;
+    public int getCurMana() {
+        return curMana;
     }
 
 
@@ -85,10 +82,10 @@ public class PlayingField {
     public void playCard(String id){
         Player curPlayer = getCurrentPlayer();
 
-        int curMana = curPlayer.getManaFromId(id);
+        int mana = curPlayer.getManaFromId(id);
 
-        if (curMana <= mana) player.playCard(id);
-        mana -= curMana;
+        if (mana <= this.curMana) curPlayer.playCard(id);
+        this.curMana -= mana;
     }
 
 

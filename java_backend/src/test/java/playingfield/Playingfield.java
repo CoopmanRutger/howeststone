@@ -2,8 +2,6 @@ package playingfield;
 
 import cardCollection.Deck;
 import cards.CardMinion;
-import heroes.Hero;
-import heroes.HeroPower;
 import org.junit.Before;
 import org.junit.Test;
 import player.Player;
@@ -51,26 +49,26 @@ public class Playingfield {
 //        System.out.println(testField);
 //
 //        testField.increment();
-//        testField.getMana();
+//        testField.getCurMana();
 //    }
 
 //        System.out.println(testField.minionAttack(player.drawMinionCard()));
-        System.out.println(testField);
-
-        testField.increment();
-        testField.getMana();
-    }
+//        System.out.println(testField);
+//
+//        testField.increment();
+//        testField.getMana();
+//    }
 
     @Test
     public void checkIfItsYourTurn() {
-        assertEquals(1,testField.getMana());
+        assertEquals(1,testField.getCurMana());
         for (int i = 0; i < 4; i++) {
             testField.increment();
             //opponent speelt
             testField.increment();
             //turn 2-5
         }
-        assertEquals(5,testField.getMana());
+        assertEquals(5,testField.getCurMana());
     }
 
     @Test

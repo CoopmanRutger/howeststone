@@ -13,13 +13,14 @@ public class Player {
     private Cards cardsInHand;
     private Cards cardsOnField;
 
+    // CHAINED CONSTRUCTORS
+
     public Player(Deck deck, Hero hero) {
         if (deck.valid()) {
             this.hero = hero;
             this.deck = deck;
             cardsInHand = new Cards();
             cardsOnField = new Cards();
-            System.out.println(cardsOnField);
         }
     }
 
@@ -27,17 +28,10 @@ public class Player {
         this(playableDeck.getDeck(), playableDeck.getHero());
     }
 
+    // GETTERS AND SETTERS
+
     public Cards getCardsOnField() {
         return cardsOnField;
-    }
-
-    public Card drawCard() {
-        Card out;
-        if (cardsInHand.getAmount() < 10) {
-            out = deck.drawRandom();
-            cardsInHand.addCard(out);
-        } else out = null;
-        return out;
     }
 
     public Hero getHero() {
@@ -50,7 +44,9 @@ public class Player {
 
     public Cards getCardsInHand() {
         return cardsInHand;
-}
+    }
+
+    // THE GOOD STUFF
 
     public boolean isAlive() {
         return hero.isAlive();
@@ -60,13 +56,24 @@ public class Player {
         return cardsInHand.findById(id).getMana();
     }
 
-    public void playCard(String id) {
+    public Card drawCard() { // TAKES A RANDOM CARD FROM YOUR DECK AND PUT'S IT IN YOUR HAND
+        Card out;
+        if (cardsInHand.getAmount() < 10) {
+            out = deck.drawRandom();
+            cardsInHand.addCard(out);
+        } else out = null;
+        return out;
+    }
+
+    public void playCard(String id) { // PLAY'S A CARD FROM YOUR HAND TO "CARDSONFIELD" BASED ON ID
         Card card = cardsInHand.findById(id);
         cardsOnField.addCard(
-                cardsInHand.findById(id)
+                card
         );
         cardsInHand.remove(card);
     }
+
+    // TOSTRING
 
     @Override
     public String toString() {

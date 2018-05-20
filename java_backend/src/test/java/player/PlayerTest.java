@@ -15,8 +15,9 @@ import static org.junit.Assert.*;
 
 public class PlayerTest {
 
-    public Player player;
+    private Player player;
     private Deck deck;
+    private HeroPower heroPower;
 
     @Before
     public void max30cards() {
@@ -36,9 +37,8 @@ public class PlayerTest {
     public void isCorrectHero() {
         assertEquals("mage", player.getHero().getName());
 
-//        HeroPower heroPower = new HeroPower(0, 0, true);
-//        Hero hero1 = new Hero("rogue", "im", heroPower );
-//        assertEquals("rogue", hero1.getName());
+        Hero hero1 = new Hero("rogue", "im", heroPower );
+        assertEquals("rogue", hero1.getName());
     }
 
     @Test
@@ -73,5 +73,22 @@ public class PlayerTest {
 
         assertEquals(23, player.getDeck().getAmount());
         assertEquals(7,player.getCardsInHand().getAmount());
+    }
+
+    @Test
+    public void playCard(){
+        player.drawCard();
+        player.drawCard();
+        player.drawCard();
+
+        System.out.println("blabla");
+        System.out.println(player.getCardsInHand());
+        System.out.println(player.getCardsOnField());
+
+        player.playCard(player.getCardsInHand().getCards().get(0).getCardId());
+
+        System.out.println("blabla");
+        System.out.println(player.getCardsInHand());
+        System.out.println(player.getCardsOnField());
     }
 }

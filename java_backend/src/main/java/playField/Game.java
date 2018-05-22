@@ -23,6 +23,14 @@ public abstract class Game {
 
     // CONTRUCTOR
 
+    public Game(Deck playerDeck,
+                Deck opponentDeck,
+                Hero playerHero,
+                Hero opponentHero){
+
+        pf = new PlayingField(new Player(playerDeck, playerHero), new Player(opponentDeck, opponentHero));
+    }
+
     public Game(){
         Set<CardMinionAbility> tempSet;
 
@@ -47,7 +55,7 @@ public abstract class Game {
         Player p = new Player(playerDeck, playerHero);
         Player o = new Player(opponentDeck, opponentHero);
 
-        pf = new PlayingField(p,o);
+        pf = new PlayingField(new Player(playerDeck, playerHero), new Player(opponentDeck, opponentHero));
     }
 
     protected void run() {

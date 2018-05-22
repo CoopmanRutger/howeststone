@@ -18,7 +18,10 @@ import static playField.player.heroes.AbilityType.attack;
 import static playField.player.heroes.AbilityType.heal;
 
 public abstract class Game {
+
     protected PlayingField pf;
+
+    // CONTRUCTOR
 
     public Game(){
         Set<CardMinionAbility> tempSet;
@@ -61,22 +64,14 @@ public abstract class Game {
         endGame();
     }
 
-    private void updateCanAttack() {
+    private void updateCanAttack() { // zet de minions op "kan aanvallen"
         List<Card> cards = pf.getCurrentPlayer().getCardsOnField().getCards();
         for (Card card : cards) {
             ((CardMinion) card).resetCanAttack(true);
         }
     }
 
-    protected void endGame(){
-        String out;
-        if (pf.isOpponent())
-            out = "you won";
-        else
-            out = "you lost";
-
-        System.out.println(out);
-    };
+    protected abstract void endGame();
 
     protected abstract void botMechanics();
 

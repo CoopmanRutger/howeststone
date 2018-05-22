@@ -34,7 +34,7 @@ function toPickYrOpponent(e){
     e.preventDefault();
     fetch("http://localhost:4242/API/deckbuildOrPlay/chooseYourHero/chooseDeckForHero", {
         method: 'post',
-        body: JSON.stringify(this.value)
+        body: this.value
     }).then(function (res) {
         console.log(res);
     }).then(function () {

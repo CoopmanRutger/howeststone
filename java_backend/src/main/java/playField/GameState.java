@@ -5,7 +5,7 @@ import playField.player.heroes.Hero;
 import playField.player.heroes.HeroPower;
 import playField.player.Player;
 
-public class GameState {
+public abstract class GameState extends Game {
     public Deck deck;
 
     public HeroPower heroPower;

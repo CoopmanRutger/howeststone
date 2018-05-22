@@ -6,6 +6,7 @@ import playField.api.intialize.InitDeckBuilderLvl2;
 import io.javalin.Context;
 import io.javalin.Javalin;
 import playField.GameState;
+import playField.player.heroes.HeroPower;
 
 class Routes extends GameState {
 
@@ -45,11 +46,13 @@ class Routes extends GameState {
 
 
     private void chooseYourHero(Context context) {
-        String in = context.body().replaceAll("\"","");
-        System.out.println(in);
+        String in = context.body().replace("\"","");
+        System.out.println("Chosen Hero: " + in);
 
-        InitChooseYourHero initChooseYourHero = new InitChooseYourHero();
-        hero = initChooseYourHero.getHero(in, heroPower);
+//        InitChooseYourHero initChooseYourHero = new InitChooseYourHero();
+//        hero = initChooseYourHero.getHero(in, heroPower);
+
+//        playerHero = lbalbalabla(in);
 
         context.result("chooseYourHero");
     }
@@ -95,8 +98,35 @@ class Routes extends GameState {
         context.result("playField");
     }
 
+    @Override
+    protected void endGame() {
 
+    }
 
+    @Override
+    protected void botMechanics() {
+
+    }
+
+    @Override
+    protected void playerMechanics() {
+
+    }
+
+    @Override
+    protected void commit() {
+
+    }
+
+    @Override
+    protected void attackHeroPower(HeroPower playerHeroPower) {
+
+    }
+
+    @Override
+    protected void healHeroPower(HeroPower playerHeroPower) {
+
+    }
 
 
 //    private void handleRoot(final Context context) {

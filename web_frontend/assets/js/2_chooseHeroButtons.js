@@ -32,6 +32,6 @@ function pickAHero(e) {
     }).then(function (res) {
         console.log(res);
     }).then(function () {
-			window.location.href = "3_chooseDeckForHero.html";
+        window.location.href = "3_chooseDeckForHero.html";
     })
 }

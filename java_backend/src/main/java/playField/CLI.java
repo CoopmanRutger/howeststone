@@ -57,8 +57,9 @@ public class CLI extends GameCLI {
     @Override
     protected void attackCardCLI() {
         System.out.print("Give id of attacking card: ");
-        String idP = input.next();
+        String pId = input.next();
         System.out.print("Give id of attacked card: ");
-        String idO = input.next();
+        String oId = input.next();
+        attackCard(pId,oId);
     }
 }

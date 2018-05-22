@@ -82,8 +82,10 @@ public class Card {
         this.type = type;
     }
 
-    public void setMana(int mana) { this.mana = mana;
+    public void setMana(int mana) {
+        this.mana = mana;
     }
+
 
     public void setHeroType(String heroType) {
         this.heroType = heroType;
@@ -114,10 +116,6 @@ public class Card {
     @Override
     public String toString() {
         return name + "\tcardId: " + cardId +
-                ",\tmana: " + mana + ",\t";
-    }
-
-    public int getAttack() {
-        return 0;
+                "\tmana: " + mana + "\t";
     }
 }

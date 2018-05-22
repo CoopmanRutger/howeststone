@@ -13,6 +13,8 @@ public class PlayingField {
     private boolean begins;
     private static final int maxMana = 10;
 
+    // CONSTRUCTOR
+
     public PlayingField(Player player, Player opponent) {
         Random r = new Random();
         begins = r.nextInt(2) == 0;
@@ -28,22 +30,7 @@ public class PlayingField {
         curMana = calculateMana();
     }
 
-    public void increment() {
-        index++;
-        curMana = calculateMana();
-    }
-
-    public int calculateMana() {
-        int turn = getTurn();
-        if (turn < maxMana) return turn;
-        else return maxMana;
-    }
-
-    public int getCurMana() {
-        return curMana;
-    }
-
-
+    // GETTERS
 
     public Player getPlayer() {
         return player;
@@ -53,7 +40,7 @@ public class PlayingField {
         return opponent;
     }
 
-
+    // GETTING THE RIGHT PLAYER
 
     private int getPlayerIndex(){
         if (begins) return 0;
@@ -65,26 +52,49 @@ public class PlayingField {
         else return opponent;
     }
 
-    private int getTurn(){
-        return index/2;
+    public Player getOppositePlayer() {
+        if (index % 2 != getPlayerIndex()) return player;
+        else return opponent;
     }
-
-
 
     public boolean isOpponent () {
         return getPlayerIndex() != (index % 2);
     }
+
+    // TURN AND INCREMENT
+
+    private int getTurn(){
+        return index/2;
+    }
+
+    public void increment() {
+        index++;
+        curMana = calculateMana();
+    }
+
+    // MANA FUNCTIONS
+
+    public int calculateMana() {
+        int turn = getTurn();
+        if (turn < maxMana) return turn;
+        else return maxMana;
+    }
+
+    public int getCurMana() {
+        return curMana;
+    }
+
+    // UTILITY
 
     public void playCard(String id){
         Player curPlayer = getCurrentPlayer();
 
         int mana = curPlayer.getManaFromId(id);
 
-        if (mana <= this.curMana) curPlayer.playCard(id);
+        if ((mana != -1) && (mana <= this.curMana)) curPlayer.playCard(id);
+        else System.out.println("ilegal ID!");
         this.curMana -= mana;
     }
-
-
 
     @Override
     public String toString() {

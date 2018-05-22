@@ -79,9 +79,10 @@ public class CardMinion extends Card{
     @Override
     public String toString() {
         return super.toString() +
-                "attack: " + attack +
-                ", health: " + health +
-                ", mechanicsName:" + mechanicsName + "\n";
+                "\tattack: " + attack +
+                "\thealth: " + health +
+                "\tcanPlay:" + canAttack +
+                "\tmechanicsName:" + mechanicsName + "\n";
     }
 
     public boolean getCanAttack() {

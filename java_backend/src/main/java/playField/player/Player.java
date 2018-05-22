@@ -51,7 +51,9 @@ public class Player {
     }
 
     public int getManaFromId(String id) {
-        return cardsInHand.findById(id).getMana();
+        Card card = cardsInHand.findById(id);
+        if (card != null) return cardsInHand.findById(id).getMana();
+        else return -1;
     }
 
     public Card drawCard() { // TAKES A RANDOM CARD FROM YOUR DECK AND PUT'S IT IN YOUR HAND
@@ -77,7 +79,7 @@ public class Player {
     public String toString() {
         return "Player{" +
                 "hero=" + hero +
-                ", cardsInHand=" + cardsInHand +
+                ", cardsInHand\n" + cardsInHand +
                 '}';
     }
 }

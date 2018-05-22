@@ -34,8 +34,6 @@ public abstract class Game {
         while (true) {
             updateCanAttack();
 
-            System.out.println(pf.getCurrentPlayer());
-
             if (pf.isOpponent()) botMechanics();
             else playerMechanics();
 
@@ -49,7 +47,6 @@ public abstract class Game {
     private void updateCanAttack() {
         List<Card> cards = pf.getCurrentPlayer().getCardsOnField().getCards();
         for (Card card : cards) {
-            System.out.println(card);
             ((CardMinion) card).setCanAttack(true);
         }
     }
@@ -77,10 +74,10 @@ public abstract class Game {
     }
 
     protected void attackCard(String pId, String oId) {
-        CardMinion playerCard = (CardMinion) pf.getPlayer().getCardsOnField().findById(pId);
-        CardMinion opponentCard = (CardMinion) pf.getOpponent().getCardsOnField().findById(oId);
+        CardMinion playerCard = (CardMinion) pf.getCurrentPlayer().getCardsOnField().findById(pId);
+        CardMinion opponentCard = (CardMinion) pf.getOppositePlayer().getCardsOnField().findById(oId);
 
-        if (playerCard.getCanAttack()) {
+        if (playerCard != null && opponentCard != null && playerCard.getCanAttack()) {
             int damage = playerCard.getAttack();
 
             opponentCard.takeDamage(damage);
@@ -92,12 +89,12 @@ public abstract class Game {
     }
 
     protected void attackHero(String pId) {
-        CardMinion playerCard = (CardMinion) pf.getPlayer().getCardsOnField().findById(pId);
+        CardMinion playerCard = (CardMinion) pf.getCurrentPlayer().getCardsOnField().findById(pId);
+        Hero hero = pf.getOppositePlayer().getHero();
 
-        if (playerCard.getCanAttack()) {
+        if (playerCard != null && hero != null && playerCard.getCanAttack()) {
             int damage = playerCard.getAttack();
 
-            Hero hero = pf.getOpponent().getHero();
             hero.takeDamage(damage);
 
             playerCard.setCanAttack(false);

@@ -2,6 +2,7 @@ package playField;
 
 import playField.cardCollection.Cards;
 import playField.cardCollection.cards.Card;
+import playField.cardCollection.cards.CardMinion;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -20,7 +21,11 @@ public abstract class GameCLI extends Game {
     protected void playerMechanics() {
         committed = false;
 
-        System.out.println("Your turn!");
+        System.out.println("####################");
+        System.out.println("#                  #");
+        System.out.println("#    Your turn!    #");
+        System.out.println("#                  #");
+        System.out.println("####################");
 
         while (!committed){
             System.out.print("$ ");
@@ -71,7 +76,11 @@ public abstract class GameCLI extends Game {
     }
 
     protected void botMechanics() {
-        System.out.println("Opponent's turn!");
+        System.out.println("##########################");
+        System.out.println("#                        #");
+        System.out.println("#    Opponent's turn!    #");
+        System.out.println("#                        #");
+        System.out.println("##########################");
 
         // GETTING PLAYABLE CARDS
 
@@ -111,8 +120,7 @@ public abstract class GameCLI extends Game {
         // ATTACKING
 
         for (Card card : toAttack.getCards()) {
-            damage = card.getAttack();
-            pf.getPlayer().getHero().takeDamage(damage);
+            attackHero(card.getCardId());
         }
 
         // DRAWING NEW CARD
@@ -121,18 +129,11 @@ public abstract class GameCLI extends Game {
     }
 
     protected void endGame(){
-        String out;
+        String out = "\n";
 
-        System.out.println("Player is alive? " + pf.getPlayer().isAlive());
-        System.out.println("Opponent is alive? " + pf.getOpponent().isAlive());
-
-        if (pf.getPlayer().isAlive())
-            out = "you won";
-        else if (pf.getOpponent().isAlive()) {
-            out = "you lost";
-        } else {
-            out = "somting wong";
-        }
+        if (pf.getPlayer().isAlive()) out = "you won";
+        else if (pf.getOpponent().isAlive()) out = "you lost";
+        else out = "somting wong";
 
         System.out.println(out);
     };

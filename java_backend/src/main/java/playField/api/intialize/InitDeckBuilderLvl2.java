@@ -2,12 +2,10 @@ package playField.api.intialize;
 
 import playField.api.intialize.SQLcontoller.SqlStatements;
 import playField.cardCollection.Cards;
-import playField.cardCollection.cards.Card;
-import playField.cardCollection.cards.CardMinion;
-import playField.cardCollection.cards.CardSpell;
-import playField.cardCollection.cards.CardWeapon;
+import playField.cardCollection.cards.*;
 
 import java.sql.*;
+import java.util.HashSet;
 
 public class InitDeckBuilderLvl2 extends Init {
 
@@ -36,7 +34,7 @@ public class InitDeckBuilderLvl2 extends Init {
                 String mechanicsName = minion.getString("mechanicsName");
 
 //                System.out.printf(" cardId: %s, name: %s, mana: %d, attack: %d, health: %d, description: %s \n", cardId,name , mana, attack, health, info);
-                card = new CardMinion(cardId, name, type, mana, heroType, info, img, attack, health, race, mechanicsName );
+                card = new CardMinion(cardId, name, type, mana, heroType, info, img, attack, health, race, mechanicsName, new HashSet<CardMinionAbility>());
             }
         } catch (SQLException e) {
             e.printStackTrace();
@@ -160,7 +158,7 @@ public class InitDeckBuilderLvl2 extends Init {
                 String mechanicsName = minion.getString("mechanicsName");
 
 //                System.out.printf(" cardId: %s, name: %s, mana: %d, attack: %d, health: %d, description: %s \n", cardId,name , mana, attack, health, info);
-                CardMinion card = new CardMinion(cardId, name, type, mana, heroType, info, img, attack, health, race, mechanicsName );
+                CardMinion card = new CardMinion(cardId, name, type, mana, heroType, info, img, attack, health, race, mechanicsName, new HashSet<CardMinionAbility>());
                 cards.addCard(card);
             }
         } catch (SQLException e) {

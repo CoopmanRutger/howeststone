@@ -3,20 +3,34 @@ package playField;
 import playField.cardCollection.Deck;
 import playField.cardCollection.cards.Card;
 import playField.cardCollection.cards.CardMinion;
+import playField.cardCollection.cards.CardMinionAbility;
 import playField.player.heroes.Hero;
 import playField.player.heroes.HeroPower;
 import playField.player.Player;
 
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
+
+import static playField.cardCollection.cards.CardMinionAbility.*;
 
 public abstract class Game {
     protected PlayingField pf;
 
     public Game(){
-        Deck deck = new Deck();
+        Set<CardMinionAbility> tempSet;
+
+        Deck playerDeck = new Deck();
+        Deck opponentDeck = new Deck();
 
         for (int i = 0; i < 30; i++) {
-            deck.addCard(new CardMinion("ID" + i, "name" + i, "type", i/6 + 1, "type", "heroType", "img", i/5 + 1, (i+1)/5 + 1, "race", "mechanics"));
+            tempSet = new HashSet<>();
+            tempSet.add(charge);
+            playerDeck.addCard(new CardMinion("ID" + i, "name" + i, "type", i/6 + 1, "type", "heroType", "img", i/5 + 1, (i+1)/5 + 1, "race", "mechanics", tempSet));
+
+            tempSet = new HashSet<>();
+            tempSet.add(charge);
+            opponentDeck.addCard(new CardMinion("ID" + i, "name" + i, "type", i/6 + 1, "type", "heroType", "img", i/5 + 1, (i+1)/5 + 1, "race", "mechanics", tempSet));
         }
 
         HeroPower playerHeroPower = new HeroPower("", 0, "","",1,1,"",true);
@@ -24,8 +38,8 @@ public abstract class Game {
         Hero playerHero = new Hero("heroPlayer", "im", playerHeroPower);
         Hero opponentHero = new Hero("heroOpponent", "im", opponentHeroPower);
 
-        Player p = new Player(deck, playerHero);
-        Player o = new Player(deck, opponentHero);
+        Player p = new Player(playerDeck, playerHero);
+        Player o = new Player(opponentDeck, opponentHero);
 
         pf = new PlayingField(p,o);
     }

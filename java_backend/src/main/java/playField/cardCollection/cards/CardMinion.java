@@ -2,6 +2,10 @@ package playField.cardCollection.cards;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
+import java.util.Set;
+
+import static playField.cardCollection.cards.CardMinionAbility.*;
+
 public class CardMinion extends Card{
     @JsonProperty("attack")
     private int attack;
@@ -13,6 +17,8 @@ public class CardMinion extends Card{
     private String mechanicsName;
     @JsonProperty("canAttack")
     private boolean canAttack;
+    @JsonProperty("abilities")
+    private Set<CardMinionAbility> abilities;
 
 
     public CardMinion(@JsonProperty("cardId") String cardId,
@@ -25,13 +31,15 @@ public class CardMinion extends Card{
                       @JsonProperty("attack") int attack,
                       @JsonProperty("health") int health,
                       @JsonProperty("race") String race,
-                      @JsonProperty("mechanicsName") String mechanicsName) {
+                      @JsonProperty("mechanicsName") String mechanicsName,
+                      @JsonProperty("abilities") Set<CardMinionAbility> abilities
+                      ) {
         super(cardId, name, type, mana, heroType, description, img);
         this.attack = attack;
         this.health = health;
         this.race = race;
         this.mechanicsName = mechanicsName;
-        canAttack = false;
+        canAttack = abilities.contains(charge);
     }
 
 

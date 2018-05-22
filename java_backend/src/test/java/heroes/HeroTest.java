@@ -7,19 +7,16 @@ import static org.junit.Assert.*;
 
 public class HeroTest {
 
-    private HeroPower heroPower;
     private Hero hero;
 
     @Before
     public void before() {
-        heroPower = new HeroPower("", 5, "yes","",0,0,"",true);
-        Hero test = new Hero("Jaina", "muh img", heroPower);
-
-
+        HeroPower heroPower = new HeroPower("", 5, "yes", "", 0, 0, "", true);
+        hero = new Hero("Jaina", "muh img", heroPower);
     }
 
     @Test
-    public void takeDamage(int damage){
+    public void takeDamage(){
             hero.takeDamage(3);
             assertEquals(27, hero.getLifePoints());
 
@@ -28,5 +25,13 @@ public class HeroTest {
 
             hero.takeDamage(25);
             assertEquals(-2, hero.getLifePoints());
+    }
+
+    @Test
+    public void isAlive(){
+        assertTrue(hero.isAlive());
+
+        hero.takeDamage(30);
+        assertFalse(hero.isAlive());
     }
 }

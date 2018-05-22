@@ -79,7 +79,7 @@ public class Playingfield {
 
     @Test
     public void heroGetsAmour() {
-        player.getHero().setAmourPoints(5);
+//        player.getHero().setAmourPoints(5);
         assertEquals(5, player.getHero().getAmourPoints());
     }
 

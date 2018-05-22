@@ -20,9 +20,17 @@ public class Card {
     private String description;
     @JsonProperty("img")
     private String img;
+    @JsonProperty("age")
+    private int age;
 
     @JsonCreator
-    public Card(@JsonProperty("cardId") String cardId, @JsonProperty("name") String name, @JsonProperty("type") String type, @JsonProperty("mana") int mana, @JsonProperty("heroType") String heroType, @JsonProperty("description") String description, @JsonProperty("img") String img) {
+    public Card(@JsonProperty("cardId") String cardId,
+                @JsonProperty("name") String name,
+                @JsonProperty("type") String type,
+                @JsonProperty("mana") int mana,
+                @JsonProperty("heroType") String heroType,
+                @JsonProperty("description") String description,
+                @JsonProperty("img") String img) {
         this.cardId = cardId;
         this.name = name;
         this.type = type;
@@ -30,6 +38,7 @@ public class Card {
         this.heroType = heroType;
         this.description = description;
         this.img = img;
+        age = 0;
     }
 
     public String getCardId() {
@@ -104,8 +113,11 @@ public class Card {
 
     @Override
     public String toString() {
-        return "cardId: " + cardId +
-                ", name: " + name +
-                ", mana: " + mana + " ";
+        return name + "\tcardId: " + cardId +
+                ",\tmana: " + mana + ",\t";
+    }
+
+    public int getAttack() {
+        return 0;
     }
 }

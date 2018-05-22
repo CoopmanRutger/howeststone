@@ -11,6 +11,8 @@ public class CardMinion extends Card{
     private String race;
     @JsonProperty("mechanicsName")
     private String mechanicsName;
+    @JsonProperty("canAttack")
+    private boolean canAttack;
 
 
     public CardMinion(@JsonProperty("cardId") String cardId,
@@ -24,12 +26,12 @@ public class CardMinion extends Card{
                       @JsonProperty("health") int health,
                       @JsonProperty("race") String race,
                       @JsonProperty("mechanicsName") String mechanicsName) {
-
         super(cardId, name, type, mana, heroType, description, img);
         this.attack = attack;
         this.health = health;
         this.race = race;
         this.mechanicsName = mechanicsName;
+        canAttack = false;
     }
 
 
@@ -76,11 +78,17 @@ public class CardMinion extends Card{
 
     @Override
     public String toString() {
-        return "CardMinion " +
-                super.toString() +
+        return super.toString() +
                 "attack: " + attack +
                 ", health: " + health +
-                ", race: " + race +
                 ", mechanicsName:" + mechanicsName + "\n";
+    }
+
+    public boolean getCanAttack() {
+        return canAttack;
+    }
+
+    public void setCanAttack(boolean canAttack) {
+        this.canAttack = canAttack;
     }
 }

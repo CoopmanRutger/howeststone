@@ -28,6 +28,9 @@ public class HeroPower {
     @JsonProperty("img")
     private String img;
 
+    @JsonProperty("Hero power active: ") // TODO: 21/05/2018 ???
+    private boolean heroPowerActive;
+
     @JsonCreator
     public HeroPower(@JsonProperty("heroPowerName") String heroPowerName,
                      @JsonProperty("manaCost") int manaCost,
@@ -48,19 +51,12 @@ public class HeroPower {
         this.heroPowerActive = heroPowerActive;
     }
 
-    @JsonProperty("Hero power active: ")
-    private boolean heroPowerActive;
 
-
-
-
-
-    public int jusheroPower(){
+    public void jusheroPower(){
 
         // TODO : wat gebeurt er als je op heropower klikt
 
         setHeroPowerActive(false);
-        return -1;
     }
 
 
@@ -98,21 +94,17 @@ public class HeroPower {
 
     @Override
     public int hashCode() {
-
         return Objects.hash(heroPowerName, manaCost, tags, abilityType, abilityValue, duration, img, heroPowerActive);
     }
 
     @Override
     public String toString() {
-        return "HeroPower{" +
-                "heroPowerName='" + heroPowerName + '\'' +
-                ", manaCost=" + manaCost +
-                ", tags='" + tags + '\'' +
-                ", abilityType='" + abilityType + '\'' +
-                ", abilityValue=" + abilityValue +
-                ", duration=" + duration +
-                ", img='" + img + '\'' +
-                ", heroPowerActive=" + heroPowerActive +
-                '}';
+        return heroPowerName +
+                ",\tcost: " + manaCost +
+                ",\tabilityType: " + abilityType +
+                ",\tabilityValue: " + abilityValue +
+                ",\ttags: " + tags +
+                ",\tduration: " + duration +
+                ",\tactive: " + heroPowerActive;
     }
 }

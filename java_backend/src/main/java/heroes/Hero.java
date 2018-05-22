@@ -16,7 +16,15 @@ public class Hero {
     private int lifePoints = 30;
     @JsonProperty("amour points")
     private int amourPoints = 0;
-private boolean alive = true;
+
+    @JsonCreator
+    public Hero(@JsonProperty("name") String name, @JsonProperty("img") String img, @JsonProperty("heroPower") HeroPower heroPower) {
+        this.name = name;
+        this.img = img;
+        this.heroPower = heroPower;
+    }
+
+    // DAMGE AND LIFE FUNCTIONS
 
     public void takeDamage(int damage){
         if (amourPoints <= 0){
@@ -28,30 +36,17 @@ private boolean alive = true;
             amourPoints = 0;
             lifePoints -= damage;
         }
-
-        if (getLifePoints() <= 0){
-            setAlive(false);
-        }
     }
 
-
-    @JsonCreator
-    public Hero(@JsonProperty("name") String name, @JsonProperty("img") String img, @JsonProperty("heroPower") HeroPower heroPower) {
-        this.name = name;
-        this.img = img;
-        this.heroPower = heroPower;
+    public boolean isAlive() {
+        return lifePoints > 0;
     }
+
     public int getLifePoints() {
         return lifePoints;
     }
 
-    public void setLifePoints(int lifePoints) {
-        this.lifePoints = lifePoints;
-    }
-
-    public void setAmourPoints(int amourPoints) {
-        this.amourPoints = amourPoints;
-    }
+    // GETTERS AND SETTERS
 
     public int getAmourPoints() {
         return amourPoints;
@@ -69,33 +64,11 @@ private boolean alive = true;
         return heroPower;
     }
 
-    public boolean isAlive() {
-        return alive;
-    }
-
-    public void setAlive(boolean alive) {
-        this.alive = alive;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public void setImg(String img) {
-        this.img = img;
-    }
-
-    public void setHeroPower(HeroPower heroPower) {
-        this.heroPower = heroPower;
-    }
+    // UTIL STUFF
 
     @Override
     public String toString() {
-        return "Hero{" +
-                "name='" + name + '\'' +
-                ", img='" + img + '\'' +
-                ", heroPower=" + heroPower +
-                '}';
+        return name + ":\thealth: " + lifePoints + ",\theroPower: " + heroPower;
     }
 
     @Override
@@ -105,7 +78,6 @@ private boolean alive = true;
         Hero hero = (Hero) o;
         return lifePoints == hero.lifePoints &&
                 amourPoints == hero.amourPoints &&
-                alive == hero.alive &&
                 Objects.equals(name, hero.name) &&
                 Objects.equals(img, hero.img) &&
                 Objects.equals(heroPower, hero.heroPower);
@@ -113,7 +85,6 @@ private boolean alive = true;
 
     @Override
     public int hashCode() {
-
-        return Objects.hash(name, img, heroPower, lifePoints, amourPoints, alive);
+        return Objects.hash(name, img, heroPower, lifePoints, amourPoints);
     }
 }

@@ -25,7 +25,7 @@ public abstract class Game {
 
         for (int i = 0; i < 30; i++) {
             tempSet = new HashSet<>();
-            tempSet.add(charge);
+            tempSet.add(windFury);
             playerDeck.addCard(new CardMinion("ID" + i, "name" + i, "type", i/6 + 1, "type", "heroType", "img", i/5 + 1, (i+1)/5 + 1, "race", "mechanics", tempSet));
 
             tempSet = new HashSet<>();
@@ -61,7 +61,7 @@ public abstract class Game {
     private void updateCanAttack() {
         List<Card> cards = pf.getCurrentPlayer().getCardsOnField().getCards();
         for (Card card : cards) {
-            ((CardMinion) card).setCanAttack(true);
+            ((CardMinion) card).resetCanAttack(true);
         }
     }
 
@@ -96,7 +96,7 @@ public abstract class Game {
 
             opponentCard.takeDamage(damage);
 
-            playerCard.setCanAttack(false);
+            playerCard.incrCanAttack(false);
 
             if (!opponentCard.isAlive()) pf.getOpponent().getCardsOnField().remove(oId);
         }
@@ -111,7 +111,7 @@ public abstract class Game {
 
             hero.takeDamage(damage);
 
-            playerCard.setCanAttack(false);
+            playerCard.incrCanAttack(false);
 
             if (!hero.isAlive()) commit();
         }

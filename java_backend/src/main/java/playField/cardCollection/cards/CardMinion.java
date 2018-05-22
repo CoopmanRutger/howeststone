@@ -15,11 +15,12 @@ public class CardMinion extends Card{
     private String race;
     @JsonProperty("mechanicsName")
     private String mechanicsName;
-    @JsonProperty("canAttack")
-    private boolean canAttack;
     @JsonProperty("abilities")
     private Set<CardMinionAbility> abilities;
-
+    @JsonProperty("maxAmountAttack")
+    private int maxAmountAttack = 1;
+    @JsonProperty("amountAttack")
+    private int amountAttack = 1;
 
     public CardMinion(@JsonProperty("cardId") String cardId,
                       @JsonProperty("name") String name,
@@ -39,7 +40,8 @@ public class CardMinion extends Card{
         this.health = health;
         this.race = race;
         this.mechanicsName = mechanicsName;
-        canAttack = abilities.contains(charge);
+        if (abilities.contains(charge)) amountAttack = 0;
+        if (abilities.contains(windFury)) maxAmountAttack = 2;
     }
 
 
@@ -89,15 +91,19 @@ public class CardMinion extends Card{
         return super.toString() +
                 "\tattack: " + attack +
                 "\thealth: " + health +
-                "\tcanPlay:" + canAttack +
+                "\tcanPlay:" + getCanAttack() +
                 "\tmechanicsName:" + mechanicsName + "\n";
     }
 
     public boolean getCanAttack() {
-        return canAttack;
+        return amountAttack < maxAmountAttack;
     }
 
-    public void setCanAttack(boolean canAttack) {
-        this.canAttack = canAttack;
+    public void incrCanAttack(boolean canAttack) {
+        amountAttack++;
+    }
+
+    public void resetCanAttack(boolean canAttack) {
+        amountAttack = 0;
     }
 }

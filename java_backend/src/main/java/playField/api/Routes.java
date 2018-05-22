@@ -1,8 +1,8 @@
-package api;
+package playField.api;
 
-import cardCollection.Cards;
-import intialize.InitChooseYourHero;
-import intialize.InitDeckBuilderLvl2;
+import playField.cardCollection.Cards;
+import playField.api.intialize.InitChooseYourHero;
+import playField.api.intialize.InitDeckBuilderLvl2;
 import io.javalin.Context;
 import io.javalin.Javalin;
 import playField.GameState;

@@ -1,11 +1,9 @@
-package player;
+package playField.player;
 
-import cardCollection.Cards;
-import cardCollection.Deck;
-import cards.Card;
-import cards.CardMinion;
-import heroes.Hero;
-import heroes.HeroPower;
+import playField.cardCollection.Cards;
+import playField.cardCollection.Deck;
+import playField.cardCollection.cards.Card;
+import playField.player.heroes.Hero;
 
 public class Player {
     private Hero hero;
@@ -79,7 +77,6 @@ public class Player {
     public String toString() {
         return "Player{" +
                 "hero=" + hero +
-                ", deck=" + deck +
                 ", cardsInHand=" + cardsInHand +
                 '}';
     }

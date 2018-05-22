@@ -1,6 +1,6 @@
 package playField;
 
-import player.Player;
+import playField.player.Player;
 
 import java.util.Random;
 
@@ -56,12 +56,8 @@ public class PlayingField {
 
 
     private int getPlayerIndex(){
-        int playerIndex;
-
-        if (begins) playerIndex = 0;
-        else playerIndex = 1;
-
-        return playerIndex;
+        if (begins) return 0;
+        else return 1;
     }
 
     public Player getCurrentPlayer() {

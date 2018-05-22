@@ -1,4 +1,4 @@
-package cards;
+package playField.cardCollection.cards;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 

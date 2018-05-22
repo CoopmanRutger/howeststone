@@ -1,10 +1,10 @@
 package playingfield;
 
-import cardCollection.Deck;
-import cards.CardMinion;
+import playField.cardCollection.Deck;
+import playField.cardCollection.cards.CardMinion;
 import org.junit.Before;
 import org.junit.Test;
-import player.Player;
+import playField.player.Player;
 import playField.PlayingField;
 
 import static org.junit.Assert.assertEquals;

@@ -1,4 +1,4 @@
-package api;
+package playField.api;
 
 import io.javalin.Javalin;
 import org.slf4j.Logger;

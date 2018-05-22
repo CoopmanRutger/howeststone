@@ -1,16 +1,15 @@
 package cardCollection;
 
-import cards.Card;
-import cards.CardMinion;
-import cards.CardSpell;
-import cards.CardWeapon;
+import playField.cardCollection.cards.Card;
+import playField.cardCollection.cards.CardMinion;
+import playField.cardCollection.cards.CardSpell;
+import playField.cardCollection.cards.CardWeapon;
 import org.junit.Before;
 import org.junit.Test;
+import playField.cardCollection.Cards;
 
 import java.util.ArrayList;
-import java.util.HashSet;
 import java.util.List;
-import java.util.Set;
 
 import static org.junit.Assert.*;
 

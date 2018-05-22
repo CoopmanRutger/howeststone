@@ -1,13 +1,10 @@
 package cardCollection;
 
-import cards.Card;
-import cards.CardMinion;
-import cards.CardSpell;
-import cards.CardWeapon;
+import playField.cardCollection.cards.CardMinion;
+import playField.cardCollection.cards.CardSpell;
+import playField.cardCollection.cards.CardWeapon;
 import org.junit.Test;
-
-import java.util.HashSet;
-import java.util.Set;
+import playField.cardCollection.Deck;
 
 import static org.junit.Assert.*;
 

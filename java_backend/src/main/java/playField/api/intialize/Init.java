@@ -1,6 +1,6 @@
-package intialize;
+package playField.api.intialize;
 
-import SQLcontoller.SqlDatabase;
+import playField.api.intialize.SQLcontoller.SqlDatabase;
 
 public class Init {
 

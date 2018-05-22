@@ -4,6 +4,8 @@ import com.mashape.unirest.http.Unirest;
 import com.mashape.unirest.http.exceptions.UnirestException;
 import org.junit.BeforeClass;
 import org.junit.Test;
+import playField.api.Server;
+
 import static org.junit.Assert.*;
 
 public class ServerTest {

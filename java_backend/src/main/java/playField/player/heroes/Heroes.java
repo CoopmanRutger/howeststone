@@ -1,6 +1,6 @@
-package heroes;
+package playField.player.heroes;
 
-import cardCollection.Cards;
+import playField.cardCollection.Cards;
 
 import java.util.Map;
 

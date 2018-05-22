@@ -1,6 +1,6 @@
-package cardCollection;
+package playField.cardCollection;
 
-import cards.Card;
+import playField.cardCollection.cards.Card;
 import java.util.List;
 
 public class Deck extends Cards{

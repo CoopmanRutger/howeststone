@@ -1,9 +1,7 @@
 package playField;
 
-import cardCollection.Cards;
-import cards.Card;
-import cards.CardMinion;
-import heroes.Hero;
+import playField.cardCollection.Cards;
+import playField.cardCollection.cards.Card;
 
 import java.util.ArrayList;
 import java.util.List;

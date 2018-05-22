@@ -1,9 +1,7 @@
-package player;
+package playField.player;
 
-import cardCollection.Deck;
-import heroes.Hero;
-
-import java.util.List;
+import playField.cardCollection.Deck;
+import playField.player.heroes.Hero;
 
 public class PlayableDeck {
     private  String deckName;

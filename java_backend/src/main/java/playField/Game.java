@@ -1,17 +1,13 @@
 package playField;
 
-import cardCollection.Cards;
-import cardCollection.Deck;
-import cards.Card;
-import cards.CardMinion;
-import heroes.Hero;
-import heroes.HeroPower;
-import player.Player;
+import playField.cardCollection.Deck;
+import playField.cardCollection.cards.Card;
+import playField.cardCollection.cards.CardMinion;
+import playField.player.heroes.Hero;
+import playField.player.heroes.HeroPower;
+import playField.player.Player;
 
-import java.util.ArrayList;
 import java.util.List;
-import java.util.Scanner;
-import java.util.Set;
 
 public abstract class Game {
     protected PlayingField pf;
@@ -25,8 +21,8 @@ public abstract class Game {
 
         HeroPower playerHeroPower = new HeroPower("", 0, "","",1,1,"",true);
         HeroPower opponentHeroPower = new HeroPower("", 0, "","",1,1,"",true);
-        Hero playerHero = new Hero("hero", "im", playerHeroPower);
-        Hero opponentHero = new Hero("hero", "im", opponentHeroPower);
+        Hero playerHero = new Hero("heroPlayer", "im", playerHeroPower);
+        Hero opponentHero = new Hero("heroOpponent", "im", opponentHeroPower);
 
         Player p = new Player(deck, playerHero);
         Player o = new Player(deck, opponentHero);
@@ -37,6 +33,8 @@ public abstract class Game {
     protected void run() {
         while (true) {
             updateCanAttack();
+
+            System.out.println(pf.getCurrentPlayer());
 
             if (pf.isOpponent()) botMechanics();
             else playerMechanics();
@@ -51,8 +49,8 @@ public abstract class Game {
     private void updateCanAttack() {
         List<Card> cards = pf.getCurrentPlayer().getCardsOnField().getCards();
         for (Card card : cards) {
-            CardMinion newCard = (CardMinion) card;
-            newCard.setCanAttack(true);
+            System.out.println(card);
+            ((CardMinion) card).setCanAttack(true);
         }
     }
 
@@ -87,6 +85,8 @@ public abstract class Game {
 
             opponentCard.takeDamage(damage);
 
+            playerCard.setCanAttack(false);
+
             if (!opponentCard.isAlive()) pf.getOpponent().getCardsOnField().remove(oId);
         }
     }
@@ -99,6 +99,8 @@ public abstract class Game {
 
             Hero hero = pf.getOpponent().getHero();
             hero.takeDamage(damage);
+
+            playerCard.setCanAttack(false);
 
             if (!hero.isAlive()) commit();
         }

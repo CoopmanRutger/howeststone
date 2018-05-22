@@ -1,10 +1,9 @@
 package playField;
 
-import cardCollection.Deck;
-import heroes.Hero;
-import heroes.HeroPower;
-import playField.PlayingField;
-import player.Player;
+import playField.cardCollection.Deck;
+import playField.player.heroes.Hero;
+import playField.player.heroes.HeroPower;
+import playField.player.Player;
 
 public class GameState {
     public Deck deck;

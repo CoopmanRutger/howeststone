@@ -1,8 +1,8 @@
-package cardCollection;
+package playField.cardCollection;
 
 import java.util.*;
 
-import cards.Card;
+import playField.cardCollection.cards.Card;
 
 public class Cards {
     public List<Card> cards;

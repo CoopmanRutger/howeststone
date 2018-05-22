@@ -1,14 +1,4 @@
-package CLI;
-
-import cardCollection.Cards;
-import cards.Card;
-import cards.CardMinion;
-import heroes.Hero;
-import playField.GameCLI;
-import playField.PlayingField;
-
-import java.util.ArrayList;
-import java.util.List;
+package playField;
 
 public class CLI extends GameCLI {
     public static void main(String[] args) {

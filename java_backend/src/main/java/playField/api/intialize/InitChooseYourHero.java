@@ -1,10 +1,13 @@
 package playField.api.intialize;
 
 import playField.api.intialize.SQLcontoller.SqlStatements;
+import playField.player.heroes.AbilityType;
 import playField.player.heroes.Hero;
 import playField.player.heroes.HeroPower;
 
 import java.sql.*;
+
+import static playField.player.heroes.AbilityType.heal;
 
 public class InitChooseYourHero extends Init {
 
@@ -55,7 +58,7 @@ public class InitChooseYourHero extends Init {
 
                 String tags = heroPowerResult.getString("tags");
 
-                String abilityType = heroPowerResult.getString("abilityType");
+                String abilityType = heroPowerResult.getString("AbilityType");
 
                 int abilityValue = heroPowerResult.getInt("abilityValue");
 
@@ -63,7 +66,9 @@ public class InitChooseYourHero extends Init {
 
                 String img = heroPowerResult.getString("img");
 
-                heroPower = new HeroPower(heroPowerName, mana, tags, abilityType, abilityValue, duration, img, true);
+                // TODO: 22/05/2018 make string to enum parser
+
+                heroPower = new HeroPower(heroPowerName, mana, tags, heal, abilityValue, duration, img, true);
             } else {
                 // TODO: 17/05/2018
             }

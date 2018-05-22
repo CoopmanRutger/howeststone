@@ -16,8 +16,8 @@ public class HeroPower {
     @JsonProperty("tags")
     private String tags;
 
-    @JsonProperty("abilityType")
-    private String abilityType;
+    @JsonProperty("AbilityType")
+    private final AbilityType abilityType;
 
     @JsonProperty("abilityValue")
     private int abilityValue;
@@ -35,7 +35,7 @@ public class HeroPower {
     public HeroPower(@JsonProperty("heroPowerName") String heroPowerName,
                      @JsonProperty("manaCost") int manaCost,
                      @JsonProperty("tags") String tags,
-                     @JsonProperty("abilityType") String abilityType,
+                     @JsonProperty("AbilityType") AbilityType abilityType,
                      @JsonProperty("abilityValue") int abilityValue,
                      @JsonProperty("duration") int duration,
                      @JsonProperty("img") String img,
@@ -63,6 +63,10 @@ public class HeroPower {
 
     public int getAbilityValue() {
         return abilityValue;
+    }
+
+    public AbilityType getAbilityType() {
+        return abilityType;
     }
 
     public int getManaCost() {
@@ -101,7 +105,7 @@ public class HeroPower {
     public String toString() {
         return heroPowerName +
                 ",\tcost: " + manaCost +
-                ",\tabilityType: " + abilityType +
+                ",\tAbilityType: " + abilityType +
                 ",\tabilityValue: " + abilityValue +
                 ",\ttags: " + tags +
                 ",\tduration: " + duration +

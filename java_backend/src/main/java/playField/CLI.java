@@ -1,5 +1,9 @@
 package playField;
 
+import playField.cardCollection.cards.CardMinion;
+import playField.player.heroes.Hero;
+import playField.player.heroes.HeroPower;
+
 public class CLI extends GameCLI {
     public static void main(String[] args) {
         new CLI().run();
@@ -7,6 +11,23 @@ public class CLI extends GameCLI {
 
     private CLI() {
         super();
+    }
+
+    @Override
+    protected void attackHeroPower(HeroPower playerHeroPower) {
+        Hero oppponentHero = pf.getOppositePlayer().getHero();
+
+        int damage = playerHeroPower.getAbilityValue();
+
+        oppponentHero.takeDamage(damage);
+    }
+
+    @Override
+    protected void healHeroPower(HeroPower playerHeroPower){
+        System.out.print("Give id of card to heal: ");
+        String id = input.next();
+
+        ((CardMinion) pf.getCurrentPlayer().getCardsOnField().findById(id)).heal(playerHeroPower.getAbilityValue());
     }
 
     @Override

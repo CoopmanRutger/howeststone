@@ -11,6 +11,8 @@ public class CardMinion extends Card{
     private int attack;
     @JsonProperty("health")
     private int health;
+    @JsonProperty("maxHealth")
+    private int maxHealth;
     @JsonProperty("race")
     private String race;
     @JsonProperty("mechanicsName")
@@ -40,6 +42,7 @@ public class CardMinion extends Card{
         super(cardId, name, type, mana, heroType, description, img);
         this.attack = attack;
         this.health = health;
+        this.maxHealth = health;
         this.race = race;
         this.mechanicsName = mechanicsName;
         if (abilities.contains(charge)) amountAttack = 0;
@@ -52,6 +55,13 @@ public class CardMinion extends Card{
     public void takeDamage(int damage){
         if (devineShield) devineShield = false;
         else health -= damage;
+    }
+
+    // HEAL MOTHAFUCKAAA
+
+    public void heal(int amount){
+        health += amount;
+        if (maxHealth < health) health = maxHealth;
     }
 
     // UTIL

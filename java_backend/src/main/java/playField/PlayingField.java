@@ -84,6 +84,10 @@ public class PlayingField {
         return curMana;
     }
 
+    public void decrMana(int amount){
+        curMana -= amount;
+    }
+
     // UTILITY
 
     public void playCard(String id){
@@ -91,9 +95,8 @@ public class PlayingField {
 
         int mana = curPlayer.getManaFromId(id);
 
-        if ((mana != -1) && (mana <= this.curMana)) curPlayer.playCard(id);
-        else System.out.println("ilegal ID!");
-        this.curMana -= mana;
+        if ((mana != -1) && (mana <= curMana)) curPlayer.playCard(id);
+        curMana -= mana;
     }
 
     @Override

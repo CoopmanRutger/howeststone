@@ -4,6 +4,14 @@ import java.sql.*;
 
 public class SqlDatabase {
 
+    private final String url, user, password;
+
+    public SqlDatabase(String url, String user, String password) {
+        this.url = url;
+        this.user = user;
+        this.password = password;
+    }
+
     static {
         try {
             Class.forName("com.mysql.jdbc.Driver");
@@ -11,14 +19,6 @@ public class SqlDatabase {
             System.err.println("Failed to load database driver, shutting down ...");
             System.exit(-1);
         }
-    }
-
-    private final String url, user, password;
-
-    public SqlDatabase(String url, String user, String password) {
-        this.url = url;
-        this.user = user;
-        this.password = password;
     }
 
     public Connection getConnection() throws SQLException {

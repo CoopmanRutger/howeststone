@@ -61,6 +61,10 @@ public abstract class GameCLI extends Game {
                 case "getCurMana":
                     getCurManaCLI();
                     break;
+                case "php":
+                case "playHeroPower":
+                    playHeroPower();
+                    break;
                 case "c":
                 case "commit":
                     commit();

@@ -4,6 +4,7 @@ import playField.cardCollection.Deck;
 import playField.cardCollection.cards.Card;
 import playField.cardCollection.cards.CardMinion;
 import playField.cardCollection.cards.CardMinionAbility;
+import playField.player.heroes.AbilityType;
 import playField.player.heroes.Hero;
 import playField.player.heroes.HeroPower;
 import playField.player.Player;
@@ -13,6 +14,8 @@ import java.util.List;
 import java.util.Set;
 
 import static playField.cardCollection.cards.CardMinionAbility.*;
+import static playField.player.heroes.AbilityType.attack;
+import static playField.player.heroes.AbilityType.heal;
 
 public abstract class Game {
     protected PlayingField pf;
@@ -33,8 +36,8 @@ public abstract class Game {
             opponentDeck.addCard(new CardMinion("ID" + i, "name" + i, "type", i/6 + 1, "type", "heroType", "img", i/5 + 1, (i+1)/5 + 1, "race", "mechanics", tempSet));
         }
 
-        HeroPower playerHeroPower = new HeroPower("", 0, "","",1,1,"",true);
-        HeroPower opponentHeroPower = new HeroPower("", 0, "","",1,1,"",true);
+        HeroPower playerHeroPower = new HeroPower("", 0, "", heal,1,1,"",true);
+        HeroPower opponentHeroPower = new HeroPower("", 0, "", attack,1,1,"",true);
         Hero playerHero = new Hero("heroPlayer", "im", playerHeroPower);
         Hero opponentHero = new Hero("heroOpponent", "im", opponentHeroPower);
 
@@ -122,11 +125,26 @@ public abstract class Game {
         }
     }
 
+    protected void playHeroPower() {
+        HeroPower playerHeroPower = pf.getCurrentPlayer().getHero().getHeroPower();
+
+        int mana = playerHeroPower.getManaCost();
+
+
+        if (mana <= pf.getCurMana()) {
+            if (playerHeroPower.getAbilityType() == attack)
+                attackHeroPower(playerHeroPower);
+            else healHeroPower(playerHeroPower);
+
+            pf.decrMana(mana);
+        }
+    }
+
     // TO IMPLEMENT:
 
-    protected void playHeroPower() {
+    protected abstract void attackHeroPower(HeroPower playerHeroPower);
 
-    }
+    protected abstract void healHeroPower(HeroPower playerHeroPower);
 
     protected void playWeaponOnCard() {
 

@@ -58,7 +58,7 @@ public abstract class Game {
         pf = new PlayingField(new Player(playerDeck, playerHero), new Player(opponentDeck, opponentHero));
     }
 
-    protected void run() {
+    public void run() {
         while (true) {
             updateCanAttack();
 

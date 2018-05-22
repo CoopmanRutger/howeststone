@@ -5,16 +5,11 @@ import playField.player.heroes.Hero;
 import playField.player.heroes.HeroPower;
 import playField.player.Player;
 
-public abstract class GameState extends Game {
-    public Deck deck;
+public class GameState{
+    protected Game game;
 
-    public HeroPower heroPower;
-    public Hero hero;
-
-    public Player p;
-    public Player o;
-
-    public boolean begins;
-
-    public PlayingField pf;
+    protected Deck playerDeck;
+    protected Deck opponentDeck;
+    protected Hero playerHero;
+    protected Hero opponentHero;
 }

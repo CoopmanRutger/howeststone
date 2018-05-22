@@ -17,7 +17,7 @@ function init(){
     fetchPromise.then(function () {
         injectCards(player.arrayCardsInHand);
 
-        let elements = document.querySelectorAll(".cardHand")
+        let elements = document.querySelectorAll(".cardHand");
         for (let i = 0; i < elements.length; i++) {
             elements[i].addEventListener("mousedown", cardMousedown);
             elements[i].addEventListener("mouseenter", cardOnmouseEnter);
@@ -27,4 +27,9 @@ function init(){
     // makeMovable shit
     document.addEventListener('mousemove', cardMousemove);
     document.addEventListener("mouseup", cardMouseup);
+
+    fetch("/API/gameStartingHand/playingField", {
+    }).then(function (res) {
+        console.log(res);
+    });
 }

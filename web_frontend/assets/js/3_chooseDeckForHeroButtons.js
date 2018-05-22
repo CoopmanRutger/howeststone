@@ -39,5 +39,5 @@ function toPickYrOpponent(e){
         console.log(res);
     }).then(function () {
 			window.location.href = "4_defaultPickYourOpponent.html";
-    })
+    });
 }

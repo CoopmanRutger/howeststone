@@ -102,7 +102,8 @@ public abstract class Game {
 
             playerCard.incrCanAttack(false);
 
-            if (!opponentCard.isAlive()) pf.getOpponent().getCardsOnField().remove(oId);
+            if (!playerCard.isAlive()) pf.getCurrentPlayer().getCardsOnField().remove(pId);
+            if (!opponentCard.isAlive()) pf.getOppositePlayer().getCardsOnField().remove(oId);
         }
     }
 

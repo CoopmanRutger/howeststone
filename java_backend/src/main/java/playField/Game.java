@@ -25,11 +25,11 @@ public abstract class Game {
 
         for (int i = 0; i < 30; i++) {
             tempSet = new HashSet<>();
-            tempSet.add(windFury);
+            tempSet.add(charge);
             playerDeck.addCard(new CardMinion("ID" + i, "name" + i, "type", i/6 + 1, "type", "heroType", "img", i/5 + 1, (i+1)/5 + 1, "race", "mechanics", tempSet));
 
             tempSet = new HashSet<>();
-            tempSet.add(charge);
+            tempSet.add(divineShield);
             opponentDeck.addCard(new CardMinion("ID" + i, "name" + i, "type", i/6 + 1, "type", "heroType", "img", i/5 + 1, (i+1)/5 + 1, "race", "mechanics", tempSet));
         }
 
@@ -91,10 +91,14 @@ public abstract class Game {
         CardMinion playerCard = (CardMinion) pf.getCurrentPlayer().getCardsOnField().findById(pId);
         CardMinion opponentCard = (CardMinion) pf.getOppositePlayer().getCardsOnField().findById(oId);
 
-        if (playerCard != null && opponentCard != null && playerCard.getCanAttack()) {
-            int damage = playerCard.getAttack();
+        int damage;
 
+        if (playerCard != null && opponentCard != null && playerCard.getCanAttack()) {
+            damage = playerCard.getAttack();
             opponentCard.takeDamage(damage);
+
+            damage = opponentCard.getAttack();
+            playerCard.takeDamage(damage);
 
             playerCard.incrCanAttack(false);
 

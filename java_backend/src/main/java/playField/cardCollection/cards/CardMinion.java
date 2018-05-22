@@ -21,6 +21,8 @@ public class CardMinion extends Card{
     private int maxAmountAttack = 1;
     @JsonProperty("amountAttack")
     private int amountAttack = 1;
+    @JsonProperty("amountAttack")
+    private boolean devineShield = false;
 
     public CardMinion(@JsonProperty("cardId") String cardId,
                       @JsonProperty("name") String name,
@@ -42,12 +44,17 @@ public class CardMinion extends Card{
         this.mechanicsName = mechanicsName;
         if (abilities.contains(charge)) amountAttack = 0;
         if (abilities.contains(windFury)) maxAmountAttack = 2;
+        if (abilities.contains(divineShield)) devineShield = true;
     }
 
+    // TAKE DAMAGE FUNCTION
 
     public void takeDamage(int damage){
-        health -= damage;
+        if (devineShield) devineShield = false;
+        else health -= damage;
     }
+
+    // UTIL
 
     public boolean isAlive(){
         return health > 0;

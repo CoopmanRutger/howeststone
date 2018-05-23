@@ -50,6 +50,11 @@ public class CardMinion extends Card{
         if (abilities.contains(divineShield)) devineShield = true;
     }
 
+    @Override
+    public String identifier(){
+        return "CardMinion";
+    }
+
     // TAKE DAMAGE FUNCTION
 
     public void takeDamage(int damage){

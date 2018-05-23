@@ -21,10 +21,10 @@ public class PlayerTest {
         deck = new Deck();
 
         for (int i = 0; i < 30; i++) {
-            deck.addCard(new CardMinion("ID" + i, "0", "name", 0, "type", "heroType", "0", 0, 0, "black", "lol"));
+//            deck.addCard(+new CardMinion("ID" + i, "0", "name", 0, "type", "heroType", "0", 0, 0, "black", "lol"));
         }
 
-        HeroPower heroPower = new HeroPower("", 0, "","",0,0,"",true);
+//        HeroPower heroPower = new HeroPower("", 0, "","",0,0,"",true);
         Hero hero = new Hero("mage", "im", heroPower);
 
         player = new Player(deck, hero);

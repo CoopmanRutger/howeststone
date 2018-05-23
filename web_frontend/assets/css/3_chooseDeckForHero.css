@@ -41,16 +41,6 @@ main > div > div > div  {
     width: 200px;
 }
 
-main > div div:first-child div {
-    /* andere images */
-    background-image: url('../media/JainaChooseYrHero.jpg');
-}
-
-main > div div:nth-child(2) div {
-    /* andere images */
-    background-image: url('../media/AnduinChooseYrHero.jpg');
-}
-
 main > div div p {
     margin: 5px 60px 0 60px;
 }

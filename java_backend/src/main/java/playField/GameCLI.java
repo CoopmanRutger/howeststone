@@ -110,7 +110,8 @@ public abstract class GameCLI extends Game {
 
             // PLAYING CARDS TO PLAY
 
-            for (Card card : toRemove) pf.playCard(card.getCardId());
+            for (Card card : toRemove) playCard(card.getCardId());
+//            for (Card card : toRemove) playCard(card.getCardId());
             if (!played) running = false;
         }
 
@@ -155,4 +156,5 @@ public abstract class GameCLI extends Game {
     protected abstract void attackHeroCLI();
 
     protected abstract void attackCardCLI();
+
 }

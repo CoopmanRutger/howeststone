@@ -46,6 +46,10 @@ public class Hero {
         return lifePoints;
     }
 
+    public void incrArmour(int amount) {
+        amourPoints += amount;
+    }
+
     // GETTERS AND SETTERS
 
     public int getAmourPoints() {
@@ -68,7 +72,7 @@ public class Hero {
 
     @Override
     public String toString() {
-        return name + ":\thealth: " + lifePoints + ",\theroPower: " + heroPower;
+        return name + ":\thealth: " + lifePoints + ",\theroPower: " + heroPower + "\tarmour: " + amourPoints;
     }
 
     @Override

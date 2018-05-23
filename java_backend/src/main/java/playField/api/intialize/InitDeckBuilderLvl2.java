@@ -6,6 +6,7 @@ import playField.cardCollection.cards.*;
 
 import java.sql.*;
 import java.util.HashSet;
+import java.util.Set;
 
 public class InitDeckBuilderLvl2 extends Init {
 
@@ -95,7 +96,7 @@ public class InitDeckBuilderLvl2 extends Init {
                 String mechanicsName = spell.getString("mechanicsName");
                 String info = spell.getString("description");
                 String img = spell.getString("img");
-                card = new CardSpell(cardId, name, type, mana, heroType, info, img,mechanicsName);
+                card = new CardSpell(cardId, name, type, mana, heroType, info, img, mechanicsName, new HashSet<CardSpellAbilities>(),0);
             }
         } catch (SQLException e) {
             e.printStackTrace();

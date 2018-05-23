@@ -88,16 +88,7 @@ public class PlayingField {
         curMana -= amount;
     }
 
-    // UTILITY
-
-    public void playCard(String id){
-        Player curPlayer = getCurrentPlayer();
-
-        int mana = curPlayer.getManaFromId(id);
-
-        if ((mana != -1) && (mana <= curMana)) curPlayer.playCard(id);
-        curMana -= mana;
-    }
+    // TO STRING
 
     @Override
     public String toString() {

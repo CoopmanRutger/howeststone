@@ -13,11 +13,18 @@ public class CardWeaponTest {
     @Before
     public  void before(){
         test = new CardWeapon("id01","name", "blue", 25, "blueGuy", "i am a faggot", "muh image",41, 20);
+
     }
 
     @Test
     public void defaultAttack(){
         assertEquals(15, test.defaultAttack());
+    }
+
+    @Test
+    public void blbala(){
+        System.out.println(test.getClass());
+        assertEquals("class playField.cardCollection.cards.CardWeapon",test.getClass().toString());
     }
 
 }

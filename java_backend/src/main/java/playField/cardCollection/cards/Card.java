@@ -5,7 +5,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 
 import java.util.Objects;
 
-public class Card {
+public abstract class Card {
     @JsonProperty("cardId")
     private String cardId;
     @JsonProperty("name")
@@ -40,6 +40,8 @@ public class Card {
         this.img = img;
         age = 0;
     }
+
+    public abstract String identifier();
 
     public String getCardId() {
         return cardId;

@@ -30,6 +30,21 @@ public class GameAPI extends Game {
     }
 
     @Override
+    protected void addArmour(int amount) {
+
+    }
+
+    @Override
+    protected void addHealth() {
+
+    }
+
+    @Override
+    protected void addAttack() {
+
+    }
+
+    @Override
     protected void attackHeroPower(HeroPower playerHeroPower) {
 
     }

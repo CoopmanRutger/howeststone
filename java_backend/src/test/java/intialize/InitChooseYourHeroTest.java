@@ -17,7 +17,7 @@ public class InitChooseYourHeroTest {
     @Before
     public void before() {
         db = new InitChooseYourHero();
-        heroPower = new HeroPower("Fireblast", 2, "Targeted", "damage", 2, 1, null, true);
+//        heroPower = new HeroPower("Fireblast", 2, "Targeted", "damage", 2, 1, null, true);
         hero = new Hero("Mage", null, heroPower);
     }
 

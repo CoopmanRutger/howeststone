@@ -1,9 +1,7 @@
 package playField;
 
 import playField.cardCollection.Deck;
-import playField.cardCollection.cards.Card;
-import playField.cardCollection.cards.CardMinion;
-import playField.cardCollection.cards.CardMinionAbility;
+import playField.cardCollection.cards.*;
 import playField.player.heroes.AbilityType;
 import playField.player.heroes.Hero;
 import playField.player.heroes.HeroPower;
@@ -14,8 +12,8 @@ import java.util.List;
 import java.util.Set;
 
 import static playField.cardCollection.cards.CardMinionAbility.*;
-import static playField.player.heroes.AbilityType.attack;
-import static playField.player.heroes.AbilityType.heal;
+import static playField.cardCollection.cards.CardSpellAbilities.*;
+import static playField.player.heroes.AbilityType.*;
 
 public abstract class Game {
 
@@ -95,19 +93,44 @@ public abstract class Game {
         Card card = curPlayer.getCardsInHand().findById(pId);
         int mana = curPlayer.getManaFromId(pId);
 
-        System.out.println(card.getType());
-
-
-
         if (card != null && mana <= pf.getCurMana()) {
-            String type = card.getType();
+            String type = card.identifier();
+            System.out.println("type is " + type);
             switch (type) {
                 case "CardMinion":
                     curPlayer.playCard(pId);
                     break;
+                case "CardSpell":
+                    spell(((CardSpell) card).getAbilities(), (CardSpell) card);
+                    break;
+                case "CardWeapon":
+                    break;
+                default:
+                    System.out.println("someting wong");
             }
         }
     }
+
+    public void spell(Set<CardSpellAbilities> abilities, CardSpell card) { // does spell-action
+        if (abilities.contains(drawCard)) pf.getCurrentPlayer().drawCard();
+        if (abilities.contains(addArmour)) {
+            addArmour();
+        }
+        if (abilities.contains(addHealth)) {
+            addHealth();
+        }
+        if (abilities.contains(addAttack)) {
+            addAttack();
+        }
+    }
+
+    protected abstract void addArmour();
+
+    protected abstract void addHealth();
+
+    protected abstract void addAttack();
+
+    // ABSTRACT SPELS
 
     protected void attackCard(String pId, String oId) {
         CardMinion playerCard = (CardMinion) pf.getCurrentPlayer().getCardsOnField().findById(pId);

@@ -156,4 +156,5 @@ public abstract class GameCLI extends Game {
     protected abstract void attackHeroCLI();
 
     protected abstract void attackCardCLI();
+
 }

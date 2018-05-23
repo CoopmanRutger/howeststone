@@ -3,7 +3,10 @@ package playField.player;
 import playField.cardCollection.Cards;
 import playField.cardCollection.Deck;
 import playField.cardCollection.cards.Card;
+import playField.cardCollection.cards.CardSpellAbilities;
 import playField.player.heroes.Hero;
+
+import java.util.Set;
 
 public class Player {
     private Hero hero;

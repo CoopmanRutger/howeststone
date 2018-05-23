@@ -25,9 +25,9 @@ public class CardsTest {
     @Before
     public void before() {
 
-        card1 = new CardMinion("ID", "0", "name", 0, "type", "heroType", "0", 0, 0, "black", "lol");
-        card2 = new CardWeapon("ID", "0", "name", 0, "type", "heroType", "0", 0, 0);
-        card3 = new CardSpell("ID", "0", "name", 0, "type", "heroType", "img", "taunt");
+//        card1 = new CardMinion("ID", "0", "name", 0, "type", "heroType", "0", 0, 0, "black", "lol");
+//        card2 = new CardWeapon("ID", "0", "name", 0, "type", "heroType", "0", 0, 0);
+//        card3 = new CardSpell("ID", "0", "name", 0, "type", "heroType", "img", "taunt");
         cards = new Cards();
         System.out.println(cards);
 

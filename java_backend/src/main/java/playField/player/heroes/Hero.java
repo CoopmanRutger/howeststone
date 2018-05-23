@@ -46,6 +46,10 @@ public class Hero {
         return lifePoints;
     }
 
+    public void incrArmour(int amount) {
+        amourPoints += amount;
+    }
+
     // GETTERS AND SETTERS
 
     public int getAmourPoints() {

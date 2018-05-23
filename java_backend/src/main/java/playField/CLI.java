@@ -2,6 +2,7 @@ package playField;
 
 import playField.cardCollection.cards.Card;
 import playField.cardCollection.cards.CardMinion;
+import playField.cardCollection.cards.CardSpell;
 import playField.player.heroes.Hero;
 import playField.player.heroes.HeroPower;
 
@@ -90,5 +91,22 @@ public class CLI extends GameCLI {
         System.out.print("Give id of attacked card: ");
         String oId = input.next();
         attackCard(pId,oId);
+    }
+
+    // IMPLEMENTING SPELL ACTIONS
+
+    @Override
+    protected void addArmour(CardSpell card){
+        pf.getCurrentPlayer().getHero().incrArmour(card.);
+    }
+
+    @Override
+    protected void addHealth(){
+
+    }
+
+    @Override
+    protected void addAttack(){
+
     }
 }

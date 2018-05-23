@@ -52,6 +52,19 @@ public class CLI extends GameCLI {
     }
 
     @Override
+    protected void playWeapon() {
+        System.out.println("give id of card to heal or \"hero\" for healing hero");
+        System.out.print("$ ");
+
+        String id = input.next();
+
+        int damage = pf.getCurrentPlayer().getHero().getHeroPower().getAbilityValue();
+
+        if (id.equals("hero")) playWeaponOnHero(damage);
+        else  addHealthCard(healthToGive, id);
+    }
+
+    @Override
     protected void getCurManaCLI() {
         System.out.println(pf.getCurMana());
     }
@@ -99,9 +112,8 @@ public class CLI extends GameCLI {
         System.out.println("give id of card to heal or \"hero\" for healing hero");
         System.out.print("$ ");
         String id = input.next();
-        if (id.equals("hero")) {
-            addHealthHero(healthToGive);
-        } else  addHealthCard(healthToGive, id);
+        if (id.equals("hero")) addHealthHero(healthToGive);
+        else  addHealthCard(healthToGive, id);
     }
 
     @Override

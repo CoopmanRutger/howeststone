@@ -46,7 +46,7 @@ public abstract class Game {
         for (int i = 0; i < 30; i++) {
             tempSet2 = new HashSet<>();
             tempSet2.add(addHealth);
-            playerDeck.addCard(new CardSpell("ID" + i, "name" + i, "type", 1, "type", "heroType", "img","", tempSet2,2, 1));
+            playerDeck.addCard(new CardSpell("ID" + i, "name" + i, "type", 1, "type", "heroType", "img","", tempSet2,2, 1, 1));
 
             tempSet = new HashSet<>();
             tempSet.add(divineShield);
@@ -85,16 +85,8 @@ public abstract class Game {
         }
     }
 
-    protected abstract void endGame();
-
-    protected abstract void botMechanics();
-
-    protected abstract void playerMechanics();
-
-    protected abstract void commit();
 
     // POSSIBLE ACTIONS
-
     protected void playCard(String pId) {
         Player curPlayer = pf.getCurrentPlayer();
 
@@ -122,18 +114,14 @@ public abstract class Game {
 
     public void spell(Set<CardSpellAbilities> abilities, CardSpell card) { // does spell-action
         if (abilities.contains(drawCard)) pf.getCurrentPlayer().drawCard();
-        if (abilities.contains(directAttack)){
-            directAttackCard(directAttackCard());
-        }
+        if (abilities.contains(directAttack)) playWeapon();
         if (abilities.contains(addArmour)) addArmour(card.getArmourToGive());
         if (abilities.contains(addHealth)) addHealth(card.getHealthToGive());
         if (abilities.contains(addAttack)) addAttack();
     }
 
 
-    protected abstract void addArmour(int amount);
     // ABSTRACT SPELS
-
     protected void addArmour(int amount){
         pf.getCurrentPlayer().getHero().incrArmour(amount);
     }
@@ -148,13 +136,10 @@ public abstract class Game {
 
     protected void addAttack(){
 
-
     }
 
-    protected abstract void addHealth(int healthToGive);
 
     // BASIC METHOD'S
-
     protected void attackCard(String pId, String oId) {
         CardMinion playerCard = (CardMinion) pf.getCurrentPlayer().getCardsOnField().findById(pId);
         CardMinion opponentCard = (CardMinion) pf.getOppositePlayer().getCardsOnField().findById(oId);
@@ -174,17 +159,6 @@ public abstract class Game {
             if (!opponentCard.isAlive()) pf.getOppositePlayer().getCardsOnField().remove(oId);
         }
     }
-
-    protected void directAttackCard(String pId,String oId){
-        CardSpell playerCard = (CardSpell) pf.getCurrentPlayer().getCardsOnField().findById(pId);
-        CardMinion opponentCard = (CardMinion) pf.getOppositePlayer().getCardsOnField().findById(oId);
-
-        if(playerCard != null && opponentCard != null ){
-            int damage = playerCard.getAmountToAttack();
-            opponentCard.takeDamage(damage);
-        }
-    }
-
 
     protected void attackHero(String pId) {
         CardMinion playerCard = (CardMinion) pf.getCurrentPlayer().getCardsOnField().findById(pId);
@@ -215,17 +189,35 @@ public abstract class Game {
         }
     }
 
+    protected void playWeaponOnCard(String oId, int damage) {
+        CardMinion opponentCard = (CardMinion) pf.getOppositePlayer().getCardsOnField().findById(oId);
+
+        if (opponentCard != null){
+            opponentCard.takeDamage(damage);
+        }
+    }
+
+    protected void playWeaponOnHero(int damage) {
+        Hero hero = pf.getOppositePlayer().getHero();
+        hero.takeDamage(damage);
+    }
+
+
+
     // TO IMPLEMENT:
+    protected abstract void addHealth(int healthToGive);
 
     protected abstract void attackHeroPower(HeroPower playerHeroPower);
 
     protected abstract void healHeroPower(HeroPower playerHeroPower);
 
-    protected void playWeaponOnCard() {
+    protected abstract void endGame();
 
-    }
+    protected abstract void botMechanics();
 
-    protected void playWeaponOnHero() {
+    protected abstract void playerMechanics();
 
-    }
+    protected abstract void commit();
+
+    protected abstract void playWeapon();
 }

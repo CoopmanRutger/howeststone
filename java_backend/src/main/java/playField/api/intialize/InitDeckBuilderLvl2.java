@@ -33,12 +33,39 @@ public class InitDeckBuilderLvl2 extends Init {
                 String img = minion.getString("img");
                 String race = minion.getString("race");
                 String mechanicsName = minion.getString("mechanicsName");
-                // mechName niet voldoende om ability te bepalen
-                // nood aan fctie die 4 ndzkrlijke abilites overloopt (where 1 -> weergeven)
 
+                int extraAbility = minion.getInt("extraAbility");
+                boolean windfury = minion.getBoolean("windfury");
+                boolean charge = minion.getBoolean("charge");
+                boolean battleCry = minion.getBoolean("battleCry");
+                boolean divineShield = minion.getBoolean("divineShield");
+                boolean spellDamage = minion.getBoolean("spellDamage");
+
+                int doesDamage = minion.getInt("doesDamage");
+                int doesHealth = minion.getInt("doesHealth");
+                String effectTarget = minion.getString("effectTarget");
+
+                String onCondition = minion.getString("onCondition");
+                String conditionItSelf = minion.getString("conditionItSelf");
+                String conditionClarification = minion.getString("conditionClarification");
+
+                String drawCard= minion.getString("drawCard");
+                int amountOfDrawnCards = minion.getInt("amountOfDrawnCards");
+
+                String battleCryEffectAbilityTarget = minion.getString("battleCryEffectAbilityTarget");
+                int battleCryEffectBoostAttackOfTarget = minion.getInt("battleCryEffectBoostAttackOfTarget");
+                int battleCryEffectBoostHealthOfTarget = minion.getInt("battleCryEffectBoostHealthOfTarget");
+
+
+
+
+
+                HashSet<CardMinionAbility> bla = new HashSet<>();
 
 //                System.out.printf(" cardId: %s, name: %s, mana: %d, attack: %d, health: %d, description: %s \n", cardId,name , mana, attack, health, info);
-                card = new CardMinion(cardId, name, type, mana, heroType, info, img, attack, health, race, mechanicsName, new HashSet<CardMinionAbility>());
+                card = new CardMinion(cardId, name, type, mana, heroType, info, img, attack, health, race, mechanicsName, extraAbility, windfury, charge, battleCry, divineShield,
+                        spellDamage, doesDamage, doesHealth, effectTarget, onCondition, conditionItSelf, conditionClarification, drawCard, amountOfDrawnCards, battleCryEffectAbilityTarget,
+                        battleCryEffectBoostAttackOfTarget, battleCryEffectBoostHealthOfTarget, bla);
             }
         } catch (SQLException e) {
             e.printStackTrace();
@@ -161,9 +188,38 @@ public class InitDeckBuilderLvl2 extends Init {
                 String race = minion.getString("race");
                 String mechanicsName = minion.getString("mechanicsName");
 
+                int extraAbility = minion.getInt("extraAbility");
+                boolean windfury = minion.getBoolean("windfury");
+                boolean charge = minion.getBoolean("charge");
+                boolean battleCry = minion.getBoolean("battleCry");
+                boolean divineShield = minion.getBoolean("divineShield");
+                boolean spellDamage = minion.getBoolean("spellDamage");
+
+                int doesDamage = minion.getInt("doesDamage");
+                int doesHealth = minion.getInt("doesHealth");
+                String effectTarget = minion.getString("effectTarget");
+
+                String onCondition = minion.getString("onCondition");
+                String conditionItSelf = minion.getString("conditionItSelf");
+                String conditionClarification = minion.getString("conditionClarification");
+
+                String drawCard= minion.getString("drawCard");
+                int amountOfDrawnCards = minion.getInt("amountOfDrawnCards");
+
+                String battleCryEffectAbilityTarget = minion.getString("battleCryEffectAbilityTarget");
+                int battleCryEffectBoostAttackOfTarget = minion.getInt("battleCryEffectBoostAttackOfTarget");
+                int battleCryEffectBoostHealthOfTarget = minion.getInt("battleCryEffectBoostHealthOfTarget");
+
+
+
+
+
+                HashSet<CardMinionAbility> bla = new HashSet<>();
+
 //                System.out.printf(" cardId: %s, name: %s, mana: %d, attack: %d, health: %d, description: %s \n", cardId,name , mana, attack, health, info);
-                CardMinion card = new CardMinion(cardId, name, type, mana, heroType, info, img, attack, health, race, mechanicsName, new HashSet<CardMinionAbility>());
-                cards.addCard(card);
+                card = new CardMinion(cardId, name, type, mana, heroType, info, img, attack, health, race, mechanicsName, extraAbility, windfury, charge, battleCry, divineShield,
+                        spellDamage, doesDamage, doesHealth, effectTarget, onCondition, conditionItSelf, conditionClarification, drawCard, amountOfDrawnCards, battleCryEffectAbilityTarget,
+                        battleCryEffectBoostAttackOfTarget, battleCryEffectBoostHealthOfTarget, bla);
             }
         } catch (SQLException e) {
             e.printStackTrace();

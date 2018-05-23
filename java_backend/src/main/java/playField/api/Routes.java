@@ -32,7 +32,11 @@ class Routes extends GameState {
 //        server.get("/API/deckbuildOrPlay", this::deckbuildOrPlay);
         server.post("/API/deckbuildOrPlay/chooseYourHero", this::chooseYourHero);
         // TODO fetchen uit database hero's
-        server.post("/API/deckbuildOrPlay/chooseYourHero/chooseDeckForHero", this::chooseDeckForHero);
+
+        server.get("/API/deckbuildOrPlay/chooseYourHero/chooseDeckForHero/getHeroName", this::getHeroNameForDecks);
+
+        server.post("/API/deckbuildOrPlay/chooseYourHero/chooseDeckForHero/postChooseDeck", this::ChooseDeckForHero);
+        server.post("/API/deckbuildOrPlay/chooseYourHero/chooseDeckForHero/postChooseDeckSQL", this::ChooseDeckForHeroSQL);
         // TODO fetchen decks
 
         server.post("/API/pickYourOpponent", this::pickYourOpponent);
@@ -54,6 +58,7 @@ class Routes extends GameState {
 //        server.get("/card/", this::getCardJson);
         server.get("/API/test", this::test);
     }
+
 
     private void test(Context context) {
         System.out.println("test worked");
@@ -83,9 +88,22 @@ class Routes extends GameState {
         context.result("chooseYourHero");
     }
 
-    private void chooseDeckForHero(Context context) {
-        System.out.println(context.body());
+    private void getHeroNameForDecks(Context context) {
+//        context.result(playerHero.getName());
+        context.result("hmm");
+    }
+
+    private void ChooseDeckForHero(Context context) {
+        String in = context.body().replace("\"", "");
+        System.out.println("Chosen Hero: " + in);
+
+    }
+
+    private void ChooseDeckForHeroSQL(Context context) {
         // TODO: 22/05/2018 sql liiiiiink
+        InitDeckBuilderLvl2 init = new InitDeckBuilderLvl2();
+//        playerDeck = init.??
+// TODO: 23/05/2018  ???
     }
 
     private void pickYourOpponent(Context context) {

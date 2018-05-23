@@ -108,6 +108,11 @@ public class CardMinion extends Card{
         this.mechanicsName = mechanicsName;
     }
 
+    public void incrAttack(int amount){
+        amountAttack += amount;
+        maxAmountAttack  += amount;
+    }
+
     @Override
     public String toString() {
         return super.toString() +

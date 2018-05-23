@@ -2,7 +2,6 @@ package playField;
 
 import playField.cardCollection.Cards;
 import playField.cardCollection.cards.Card;
-import playField.cardCollection.cards.CardMinion;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -41,6 +40,14 @@ public abstract class GameCLI extends Game {
                 case "attackHero":
                     attackHeroCLI();
                     break;
+                case "sw":
+                case "showWeapon":
+                    showWeapon();
+                    break;
+                case "pw":
+                case "playWeapon":
+                    attackWithWeapon();
+                    break;
                 case "pc":
                 case "playCard":
                     playCardCLI();
@@ -78,6 +85,8 @@ public abstract class GameCLI extends Game {
         }
         pf.getPlayer().drawCard();
     }
+
+    protected abstract void showWeapon();
 
     protected void botMechanics() {
         System.out.println("##########################");
@@ -156,5 +165,4 @@ public abstract class GameCLI extends Game {
     protected abstract void attackHeroCLI();
 
     protected abstract void attackCardCLI();
-
 }

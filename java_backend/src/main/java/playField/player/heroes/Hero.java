@@ -46,6 +46,10 @@ public class Hero {
         return lifePoints;
     }
 
+    public void incrHealth(int amount) {
+        lifePoints += amount;
+    }
+
     public void incrArmour(int amount) {
         amourPoints += amount;
     }

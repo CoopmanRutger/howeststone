@@ -96,13 +96,13 @@ public class CLI extends GameCLI {
     // IMPLEMENTING SPELL ACTIONS
 
     @Override
-    protected void addArmour(int amount){
-        pf.getCurrentPlayer().getHero().incrArmour(amount);
-    }
-
-    @Override
-    protected void addHealth(){
-
+    protected void addHealth(int healthToGive){
+        System.out.println("give id of card to heal or \"hero\" for healing hero");
+        System.out.print("$ ");
+        String id = input.next();
+        if (id.equals("hero")) {
+            addHealthHero(healthToGive);
+        } else  addHealthCard(healthToGive, id);
     }
 
     @Override

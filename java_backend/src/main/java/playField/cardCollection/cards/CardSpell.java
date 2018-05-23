@@ -12,6 +12,8 @@ public class CardSpell extends Card{
     private int armourToGive;
     @JsonProperty("abilities")
     private Set<CardSpellAbilities> abilities;
+    @JsonProperty("healthToGive")
+    private int healthToGive;
 
     public CardSpell(@JsonProperty("cardId") String cardId,
                      @JsonProperty("name") String name,
@@ -22,11 +24,14 @@ public class CardSpell extends Card{
                      @JsonProperty("img") String img,
 					 @JsonProperty("mechanicsName") String mechanicsName,
                      @JsonProperty("abilities") Set<CardSpellAbilities> abilities,
-                     @JsonProperty("armourToGive") int armourToGive
+                     @JsonProperty("armourToGive") int armourToGive,
+                     @JsonProperty("healthToGive") int healthToGive
     ) {
         super(cardId, name, type, mana, heroType, description, img);
         this.mechanicsName = mechanicsName;
         this.abilities = abilities;
+        this.armourToGive = armourToGive;
+        this.healthToGive = healthToGive;
     }
 
     @Override
@@ -55,5 +60,9 @@ public class CardSpell extends Card{
 
     public int getArmourToGive() {
         return armourToGive;
+    }
+
+    public int getHealthToGive() {
+        return healthToGive;
     }
 }

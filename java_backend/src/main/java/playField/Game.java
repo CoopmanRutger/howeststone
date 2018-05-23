@@ -38,8 +38,8 @@ public abstract class Game {
 
         for (int i = 0; i < 30; i++) {
             tempSet2 = new HashSet<>();
-            tempSet2.add(drawCard);
-            playerDeck.addCard(new CardSpell("ID" + i, "name" + i, "type", 1, "type", "heroType", "img","", tempSet2,2));
+            tempSet2.add(addHealth);
+            playerDeck.addCard(new CardSpell("ID" + i, "name" + i, "type", 1, "type", "heroType", "img","", tempSet2,2, 1));
 
             tempSet = new HashSet<>();
             tempSet.add(divineShield);
@@ -114,27 +114,34 @@ public abstract class Game {
     }
 
     public void spell(Set<CardSpellAbilities> abilities, CardSpell card) { // does spell-action
-        System.out.println("arived in spell");
-        System.out.println(abilities);
         if (abilities.contains(drawCard)) pf.getCurrentPlayer().drawCard();
-        if (abilities.contains(addArmour)) {
-            addArmour(card.getArmourToGive());
-        }
-        if (abilities.contains(addHealth)) {
-            addHealth();
-        }
-        if (abilities.contains(addAttack)) {
-            addAttack();
-        }
+        if (abilities.contains(addArmour)) addArmour(card.getArmourToGive());
+        if (abilities.contains(addHealth)) addHealth(card.getHealthToGive());
+        if (abilities.contains(addAttack)) addAttack();
     }
 
-    protected abstract void addArmour(int amount);
-
-    protected abstract void addHealth();
-
-    protected abstract void addAttack();
-
     // ABSTRACT SPELS
+
+    protected void addArmour(int amount){
+        pf.getCurrentPlayer().getHero().incrArmour(amount);
+    }
+
+    protected void addHealthHero(int healAmount) {
+        pf.getCurrentPlayer().getHero().incrHealth(healAmount);
+    }
+
+    protected void addHealthCard(int healAmount, String id) {
+        ((CardMinion) pf.getCurrentPlayer().getCardsOnField().findById(id)).heal(healAmount);
+    }
+
+    protected void addAttack(){
+
+
+    }
+
+    protected abstract void addHealth(int healthToGive);
+
+    // BASIC METHOD'S
 
     protected void attackCard(String pId, String oId) {
         CardMinion playerCard = (CardMinion) pf.getCurrentPlayer().getCardsOnField().findById(pId);

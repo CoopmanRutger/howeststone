@@ -96,7 +96,7 @@ public class InitDeckBuilderLvl2 extends Init {
                 String mechanicsName = spell.getString("mechanicsName");
                 String info = spell.getString("description");
                 String img = spell.getString("img");
-                card = new CardSpell(cardId, name, type, mana, heroType, info, img, mechanicsName, new HashSet<CardSpellAbilities>(),0);
+                card = new CardSpell(cardId, name, type, mana, heroType, info, img, mechanicsName, new HashSet<CardSpellAbilities>(),0,0);
             }
         } catch (SQLException e) {
             e.printStackTrace();

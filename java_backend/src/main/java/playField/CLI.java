@@ -127,7 +127,7 @@ public class CLI extends GameCLI {
         System.out.print("$ ");
         String id = input.next();
         if (id.equals("hero")) addHealthHero(healthToGive);
-        else  addHealthCard(healthToGive, id);
+        else addHealthCard(healthToGive, id);
     }
 
     @Override

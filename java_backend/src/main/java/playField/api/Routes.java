@@ -90,14 +90,14 @@ class Routes extends GameState {
 
     private void getHeroNameForDecks(Context context) {
         context.result(playerHero.getName());
-//        context.result("hmm");
+        System.out.println(playerHero.getName());
     }
 
     private void ChooseDeckForHero(Context context) {
         String in = context.body().replace("\"", "");
-        System.out.println("Chosen Hero: " + in);
-
+        System.out.println("Chosen deck is " + in);
     }
+
 
     private void ChooseDeckForHeroSQL(Context context) {
         // TODO: 22/05/2018 sql liiiiiink

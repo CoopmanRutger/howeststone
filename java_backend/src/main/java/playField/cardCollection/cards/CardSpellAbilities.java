@@ -1,5 +1,5 @@
 package playField.cardCollection.cards;
 
-enum CardSpellAbilities {
+public enum CardSpellAbilities {
     drawCard, addArmour, addHealth, addAttack;
 }

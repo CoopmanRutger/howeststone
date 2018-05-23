@@ -90,7 +90,23 @@ public abstract class Game {
     // POSSIBLE ACTIONS
 
     protected void playCard(String pId) {
-        pf.playCard(pId);
+        Player curPlayer = pf.getCurrentPlayer();
+
+        Card card = curPlayer.getCardsInHand().findById(pId);
+        int mana = curPlayer.getManaFromId(pId);
+
+        System.out.println(card.getType());
+
+
+
+        if (card != null && mana <= pf.getCurMana()) {
+            String type = card.getType();
+            switch (type) {
+                case "CardMinion":
+                    curPlayer.playCard(pId);
+                    break;
+            }
+        }
     }
 
     protected void attackCard(String pId, String oId) {

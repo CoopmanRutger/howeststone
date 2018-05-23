@@ -90,7 +90,23 @@ public abstract class Game {
     // POSSIBLE ACTIONS
 
     protected void playCard(String pId) {
-        pf.playCard(pId);
+        Player curPlayer = pf.getCurrentPlayer();
+
+        Card card = curPlayer.getCardsInHand().findById(pId);
+        int mana = curPlayer.getManaFromId(pId);
+
+        System.out.println(card.getType());
+
+
+
+        if (card != null && mana <= pf.getCurMana()) {
+            String type = card.getType();
+            switch (type) {
+                case "CardMinion":
+                    curPlayer.playCard(pId);
+                    break;
+            }
+        }
     }
 
     protected void attackCard(String pId, String oId) {
@@ -129,15 +145,14 @@ public abstract class Game {
     }
 
     protected void playHeroPower() {
-        HeroPower playerHeroPower = pf.getCurrentPlayer().getHero().getHeroPower();
+        HeroPower heroPower = pf.getCurrentPlayer().getHero().getHeroPower();
 
-        int mana = playerHeroPower.getManaCost();
-
+        int mana = heroPower.getManaCost();
 
         if (mana <= pf.getCurMana()) {
-            if (playerHeroPower.getAbilityType() == attack)
-                attackHeroPower(playerHeroPower);
-            else healHeroPower(playerHeroPower);
+            if (heroPower.getAbilityType() == attack)
+                attackHeroPower(heroPower);
+            else healHeroPower(heroPower);
 
             pf.decrMana(mana);
         }

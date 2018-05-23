@@ -1,15 +1,10 @@
 "use strict";
 
 document.addEventListener("DOMContentLoaded", init);
-let heroName = '';
-
 
 function init() {
     console.log("im in init");
     getHeroNameOutJava();
-    getDecksSQL(heroName);
-    setHeroDeckPictures(heroName);
-
     loadButtons();
     document.getElementById('chooseYourHero').addEventListener('click', nextScreen5);
     document.getElementById('threeMakeItYourself').addEventListener('click', toDeckBuilderLevel2);
@@ -35,8 +30,11 @@ function getDecksSQL(heroname) {
 }
 
 function setHeroDeckPictures(heroname) {
+    // \assets\media\hero_mage_deck1.jpg
 
-    document.getElementsByClassName(heroPicture).innerHTML = "<img src='hero_" + heroname  +  "_deck1' alt='hero_" + heroname  + "_deck1'";
+
+
+    document.querySelector('.heroPicture').innerHTML = "<img src='../media/hero_" + heroname  +  "_deck1.jpg' alt='hero_" + heroname  + "_deck1.jpg'>";
 
     // main > div div:first-child div
     // main > div div:nth-child(2) div
@@ -60,13 +58,22 @@ function toPickYrOpponent(e){
 			window.location.href = "4_defaultPickYourOpponent.html";
     });
 }
+// headers: {
+//     ,
+// },
 function getHeroNameOutJava() {
-    fetch("/API/deckbuildOrPlay/chooseYourHero/chooseDeckForHero/getHeroName", {
-        method: 'get'
+    fetch("http://localhost:4242/API/deckbuildOrPlay/chooseYourHero/chooseDeckForHero/getHeroName", {
+        method: 'get',
+        headers: new Headers({
+                    "Accept": "text/plain"
+                })
+    }).then(function (response) {
+                if (response.ok) {
+                    return response.text();
+                }
     }).then(function (res) {
         console.log(res);
-        heroName = res;
-
-    });
-
-}
+        let heroname = res.toLowerCase();
+        setHeroDeckPictures(heroname);
+        getDecksSQL(heroname);
+    })}

@@ -4,6 +4,8 @@ document.addEventListener("DOMContentLoaded", init);
 
 function init() {
     console.log("im in init");
+    getHeroNameOutJava();
+    
     loadButtons();
     document.getElementById('chooseYourHero').addEventListener('click', nextScreen5);
     document.getElementById('threeMakeItYourself').addEventListener('click', toDeckBuilderLevel2);
@@ -25,6 +27,18 @@ function loadButtons(){
 
 }
 
+function setHeroDeckPictures(heroname) {
+
+    document.getElementsByClassName(heroPicture).innerHTML = "<img src='hero_" + heroname  +  "_deck1' alt='hero_" + heroname  + "_deck1'";
+
+
+
+    // main > div div:first-child div
+    // main > div div:nth-child(2) div
+    // background-image: url('../media/JainaChooseYrHero.jpg');
+
+}
+
 function toDeckBuilderLevel2(e){
     e.preventDefault();
     window.location.href = "5_makeANewDeck=9deckBuildLevel2.html";
@@ -32,12 +46,19 @@ function toDeckBuilderLevel2(e){
 
 function toPickYrOpponent(e){
     e.preventDefault();
-    fetch("http://localhost:4242/API/deckbuildOrPlay/chooseYourHero/chooseDeckForHero", {
+    fetch("http://localhost:4242/API/deckbuildOrPlay/chooseYourHero/chooseDeckForHero/postHeroDeck", {
         method: 'post',
         body: this.value
     }).then(function (res) {
         console.log(res);
     }).then(function () {
 			window.location.href = "4_defaultPickYourOpponent.html";
+    });
+}
+function getHeroNameOutJava() {
+    fetch("/API/deckbuildOrPlay/chooseYourHero/chooseDeckForHero/getHeroName", {
+        method: 'get'
+    }).then(function (res) {
+        console.log(res);
     });
 }

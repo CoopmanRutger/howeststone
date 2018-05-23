@@ -142,18 +142,7 @@ public abstract class Game {
         pf.getCurrentPlayer().getHero().incrHealth(healAmount);
     }
 
-    protected void addHealthCard(int healAmount, String id) {
-        ((CardMinion) pf.getCurrentPlayer().getCardsOnField().findById(id)).heal(healAmount);
-    }
-
-    protected void addAttack(){
-
-
-    }
-
-    protected abstract void addHealth(int healthToGive);
-
-    // BASIC METHOD'S
+    // ABSTRACT SPELS
 
     protected void attackCard(String pId, String oId) {
         CardMinion playerCard = (CardMinion) pf.getCurrentPlayer().getCardsOnField().findById(pId);

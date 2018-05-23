@@ -32,6 +32,9 @@ public class InitDeckBuilderLvl2 extends Init {
                 String img = minion.getString("img");
                 String race = minion.getString("race");
                 String mechanicsName = minion.getString("mechanicsName");
+                // mechName niet voldoende om ability te bepalen
+                // nood aan fctie die 4 ndzkrlijke abilites overloopt (where 1 -> weergeven)
+
 
 //                System.out.printf(" cardId: %s, name: %s, mana: %d, attack: %d, health: %d, description: %s \n", cardId,name , mana, attack, health, info);
                 card = new CardMinion(cardId, name, type, mana, heroType, info, img, attack, health, race, mechanicsName, new HashSet<CardMinionAbility>());

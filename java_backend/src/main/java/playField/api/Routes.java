@@ -89,8 +89,8 @@ class Routes extends GameState {
     }
 
     private void getHeroNameForDecks(Context context) {
-//        context.result(playerHero.getName());
-        context.result("hmm");
+        context.result(playerHero.getName());
+//        context.result("hmm");
     }
 
     private void ChooseDeckForHero(Context context) {

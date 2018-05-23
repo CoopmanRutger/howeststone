@@ -26,6 +26,12 @@ public class CardWeapon extends Card {
         this.attack = attack;
         this.durability = durability;
     }
+
+    @Override
+    public String identifier(){
+        return "CardWeapon";
+    }
+
     public int defaultAttack(){
         attack = 15;
         return attack;

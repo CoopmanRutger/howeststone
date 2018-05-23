@@ -1,9 +1,7 @@
 package playField;
 
 import playField.cardCollection.Deck;
-import playField.cardCollection.cards.Card;
-import playField.cardCollection.cards.CardMinion;
-import playField.cardCollection.cards.CardMinionAbility;
+import playField.cardCollection.cards.*;
 import playField.player.heroes.AbilityType;
 import playField.player.heroes.Hero;
 import playField.player.heroes.HeroPower;
@@ -14,8 +12,8 @@ import java.util.List;
 import java.util.Set;
 
 import static playField.cardCollection.cards.CardMinionAbility.*;
-import static playField.player.heroes.AbilityType.attack;
-import static playField.player.heroes.AbilityType.heal;
+import static playField.cardCollection.cards.CardSpellAbilities.*;
+import static playField.player.heroes.AbilityType.*;
 
 public abstract class Game {
 
@@ -33,14 +31,15 @@ public abstract class Game {
 
     public Game(){
         Set<CardMinionAbility> tempSet;
+        Set<CardSpellAbilities> tempSet2;
 
         Deck playerDeck = new Deck();
         Deck opponentDeck = new Deck();
 
         for (int i = 0; i < 30; i++) {
-            tempSet = new HashSet<>();
-            tempSet.add(charge);
-            playerDeck.addCard(new CardMinion("ID" + i, "name" + i, "type", i/6 + 1, "type", "heroType", "img", i/5 + 1, (i+1)/5 + 1, "race", "mechanics", tempSet));
+            tempSet2 = new HashSet<>();
+            tempSet2.add(addHealth);
+            playerDeck.addCard(new CardSpell("ID" + i, "name" + i, "type", 1, "type", "heroType", "img","", tempSet2,2, 1));
 
             tempSet = new HashSet<>();
             tempSet.add(divineShield);
@@ -90,8 +89,59 @@ public abstract class Game {
     // POSSIBLE ACTIONS
 
     protected void playCard(String pId) {
-        pf.playCard(pId);
+        Player curPlayer = pf.getCurrentPlayer();
+
+        Card card = curPlayer.getCardsInHand().findById(pId);
+        int mana = curPlayer.getManaFromId(pId);
+
+        if (card != null && mana <= pf.getCurMana()) {
+            String type = card.identifier();
+            switch (type) {
+                case "CardMinion":
+                    curPlayer.playCard(pId);
+                    break;
+                case "CardSpell":
+                    spell(((CardSpell) card).getAbilities(), (CardSpell) card);
+                    break;
+                case "CardWeapon":
+                    break;
+                default:
+                    System.out.println("someting wong");
+            }
+        }
+        curPlayer.getCardsInHand().remove(card);
+        pf.decrMana(mana);
     }
+
+    public void spell(Set<CardSpellAbilities> abilities, CardSpell card) { // does spell-action
+        if (abilities.contains(drawCard)) pf.getCurrentPlayer().drawCard();
+        if (abilities.contains(addArmour)) addArmour(card.getArmourToGive());
+        if (abilities.contains(addHealth)) addHealth(card.getHealthToGive());
+        if (abilities.contains(addAttack)) addAttack();
+    }
+
+    // ABSTRACT SPELS
+
+    protected void addArmour(int amount){
+        pf.getCurrentPlayer().getHero().incrArmour(amount);
+    }
+
+    protected void addHealthHero(int healAmount) {
+        pf.getCurrentPlayer().getHero().incrHealth(healAmount);
+    }
+
+    protected void addHealthCard(int healAmount, String id) {
+        ((CardMinion) pf.getCurrentPlayer().getCardsOnField().findById(id)).heal(healAmount);
+    }
+
+    protected void addAttack(){
+
+
+    }
+
+    protected abstract void addHealth(int healthToGive);
+
+    // BASIC METHOD'S
 
     protected void attackCard(String pId, String oId) {
         CardMinion playerCard = (CardMinion) pf.getCurrentPlayer().getCardsOnField().findById(pId);
@@ -129,15 +179,14 @@ public abstract class Game {
     }
 
     protected void playHeroPower() {
-        HeroPower playerHeroPower = pf.getCurrentPlayer().getHero().getHeroPower();
+        HeroPower heroPower = pf.getCurrentPlayer().getHero().getHeroPower();
 
-        int mana = playerHeroPower.getManaCost();
-
+        int mana = heroPower.getManaCost();
 
         if (mana <= pf.getCurMana()) {
-            if (playerHeroPower.getAbilityType() == attack)
-                attackHeroPower(playerHeroPower);
-            else healHeroPower(playerHeroPower);
+            if (heroPower.getAbilityType() == attack)
+                attackHeroPower(heroPower);
+            else healHeroPower(heroPower);
 
             pf.decrMana(mana);
         }

@@ -1,6 +1,8 @@
 package playField;
 
+import playField.cardCollection.cards.Card;
 import playField.cardCollection.cards.CardMinion;
+import playField.cardCollection.cards.CardSpell;
 import playField.player.heroes.Hero;
 import playField.player.heroes.HeroPower;
 
@@ -14,20 +16,27 @@ public class CLI extends GameCLI {
     }
 
     @Override
-    protected void attackHeroPower(HeroPower playerHeroPower) {
+    protected void attackHeroPower(HeroPower heroPower) {
         Hero oppponentHero = pf.getOppositePlayer().getHero();
 
-        int damage = playerHeroPower.getAbilityValue();
+        int damage = heroPower.getAbilityValue();
 
         oppponentHero.takeDamage(damage);
+
+        heroPower.setHeroPowerActive(false);
     }
 
     @Override
-    protected void healHeroPower(HeroPower playerHeroPower){
+    protected void healHeroPower(HeroPower heroPower){
         System.out.print("Give id of card to heal: ");
         String id = input.next();
 
-        ((CardMinion) pf.getCurrentPlayer().getCardsOnField().findById(id)).heal(playerHeroPower.getAbilityValue());
+        Card card = pf.getCurrentPlayer().getCardsOnField().findById(id);
+
+        if (card != null) {
+            ((CardMinion) card).heal(heroPower.getAbilityValue());
+            heroPower.setHeroPowerActive(false);
+        }
     }
 
     @Override
@@ -82,5 +91,22 @@ public class CLI extends GameCLI {
         System.out.print("Give id of attacked card: ");
         String oId = input.next();
         attackCard(pId,oId);
+    }
+
+    // IMPLEMENTING SPELL ACTIONS
+
+    @Override
+    protected void addHealth(int healthToGive){
+        System.out.println("give id of card to heal or \"hero\" for healing hero");
+        System.out.print("$ ");
+        String id = input.next();
+        if (id.equals("hero")) {
+            addHealthHero(healthToGive);
+        } else  addHealthCard(healthToGive, id);
+    }
+
+    @Override
+    protected void addAttack(){
+
     }
 }

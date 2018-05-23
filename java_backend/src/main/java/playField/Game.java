@@ -31,14 +31,15 @@ public abstract class Game {
 
     public Game(){
         Set<CardMinionAbility> tempSet;
+        Set<CardSpellAbilities> tempSet2;
 
         Deck playerDeck = new Deck();
         Deck opponentDeck = new Deck();
 
         for (int i = 0; i < 30; i++) {
-            tempSet = new HashSet<>();
-            tempSet.add(charge);
-            playerDeck.addCard(new CardMinion("ID" + i, "name" + i, "type", i/6 + 1, "type", "heroType", "img", i/5 + 1, (i+1)/5 + 1, "race", "mechanics", tempSet));
+            tempSet2 = new HashSet<>();
+            tempSet2.add(drawCard);
+            playerDeck.addCard(new CardSpell("ID" + i, "name" + i, "type", 1, "type", "heroType", "img","", tempSet2,2));
 
             tempSet = new HashSet<>();
             tempSet.add(divineShield);
@@ -95,7 +96,6 @@ public abstract class Game {
 
         if (card != null && mana <= pf.getCurMana()) {
             String type = card.identifier();
-            System.out.println("type is " + type);
             switch (type) {
                 case "CardMinion":
                     curPlayer.playCard(pId);
@@ -109,12 +109,16 @@ public abstract class Game {
                     System.out.println("someting wong");
             }
         }
+        curPlayer.getCardsInHand().remove(card);
+        pf.decrMana(mana);
     }
 
     public void spell(Set<CardSpellAbilities> abilities, CardSpell card) { // does spell-action
+        System.out.println("arived in spell");
+        System.out.println(abilities);
         if (abilities.contains(drawCard)) pf.getCurrentPlayer().drawCard();
         if (abilities.contains(addArmour)) {
-            addArmour();
+            addArmour(card.getArmourToGive());
         }
         if (abilities.contains(addHealth)) {
             addHealth();
@@ -124,7 +128,7 @@ public abstract class Game {
         }
     }
 
-    protected abstract void addArmour();
+    protected abstract void addArmour(int amount);
 
     protected abstract void addHealth();
 

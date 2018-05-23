@@ -72,7 +72,7 @@ public class Hero {
 
     @Override
     public String toString() {
-        return name + ":\thealth: " + lifePoints + ",\theroPower: " + heroPower;
+        return name + ":\thealth: " + lifePoints + ",\theroPower: " + heroPower + "\tarmour: " + amourPoints;
     }
 
     @Override

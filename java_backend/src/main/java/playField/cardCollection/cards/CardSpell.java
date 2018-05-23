@@ -22,10 +22,11 @@ public class CardSpell extends Card{
                      @JsonProperty("img") String img,
 					 @JsonProperty("mechanicsName") String mechanicsName,
                      @JsonProperty("abilities") Set<CardSpellAbilities> abilities,
-                     @JsonProperty("armourToGive") int armourToGive;
+                     @JsonProperty("armourToGive") int armourToGive
     ) {
         super(cardId, name, type, mana, heroType, description, img);
         this.mechanicsName = mechanicsName;
+        this.abilities = abilities;
     }
 
     @Override

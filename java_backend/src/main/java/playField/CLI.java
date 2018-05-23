@@ -96,8 +96,8 @@ public class CLI extends GameCLI {
     // IMPLEMENTING SPELL ACTIONS
 
     @Override
-    protected void addArmour(CardSpell card){
-        pf.getCurrentPlayer().getHero().incrArmour(card.);
+    protected void addArmour(int amount){
+        pf.getCurrentPlayer().getHero().incrArmour(amount);
     }
 
     @Override

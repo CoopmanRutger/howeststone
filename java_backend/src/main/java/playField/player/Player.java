@@ -73,7 +73,6 @@ public class Player {
         cardsOnField.addCard(
                 card
         );
-        cardsInHand.remove(card);
     }
 
     // TOSTRING

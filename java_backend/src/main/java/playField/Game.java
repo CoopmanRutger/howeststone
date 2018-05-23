@@ -129,15 +129,14 @@ public abstract class Game {
     }
 
     protected void playHeroPower() {
-        HeroPower playerHeroPower = pf.getCurrentPlayer().getHero().getHeroPower();
+        HeroPower heroPower = pf.getCurrentPlayer().getHero().getHeroPower();
 
-        int mana = playerHeroPower.getManaCost();
-
+        int mana = heroPower.getManaCost();
 
         if (mana <= pf.getCurMana()) {
-            if (playerHeroPower.getAbilityType() == attack)
-                attackHeroPower(playerHeroPower);
-            else healHeroPower(playerHeroPower);
+            if (heroPower.getAbilityType() == attack)
+                attackHeroPower(heroPower);
+            else healHeroPower(heroPower);
 
             pf.decrMana(mana);
         }

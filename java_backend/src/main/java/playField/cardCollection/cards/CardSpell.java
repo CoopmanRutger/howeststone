@@ -15,7 +15,6 @@ public class CardSpell extends Card{
                      @JsonProperty("description") String description,
                      @JsonProperty("img") String img,
 					 @JsonProperty("mechanicsName") String mechanicsName) {
-
         super(cardId, name, type, mana, heroType, description, img);
         this.mechanicsName = mechanicsName;
     }

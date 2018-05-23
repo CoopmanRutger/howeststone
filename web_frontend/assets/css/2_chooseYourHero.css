@@ -45,11 +45,12 @@ main > div > div > div  {
 }
 
 main > div > div:first-child > div {
-    background-image: url('../media/JainaChooseYrHero.jpg');
+    background-image: url('../media/hero_mage.jpg');
+
 }
 
 main > div > div:nth-child(2) > div {
-    background-image: url('../media/AnduinChooseYrHero.jpg');
+    background-image: url('../media/hero_priest.jpg');
 }
 
 

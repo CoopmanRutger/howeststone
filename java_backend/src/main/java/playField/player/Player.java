@@ -7,8 +7,6 @@ import playField.cardCollection.cards.CardSpellAbilities;
 import playField.cardCollection.cards.CardWeapon;
 import playField.player.heroes.Hero;
 
-import java.util.Set;
-
 public class Player {
     private Hero hero;
     private Deck deck;

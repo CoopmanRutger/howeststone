@@ -16,7 +16,7 @@ public class Server {
         LOGGER.debug("server started");
     }
 
-    Server(final int port) {
+    public Server(final int port) {
         this.port = port;
     }
 

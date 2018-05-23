@@ -10,13 +10,19 @@ import java.sql.*;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 public class InitPlayableDeck extends Init {
 
 
-    public HashSet<PlayableDeck> GetPlayableDecks(){
+
+
+
+
+
+    public List<PlayableDeck> GetPlaybleDecks(){
         PlayableDeck playableDeck = null;
-        HashSet<PlayableDeck> playableDecks = new HashSet<>();
+        List<PlayableDeck> playableDecks = new ArrayList<>();
         try (
                 Connection conn = db.getConnection();
                 Statement stmt = conn.createStatement();
@@ -31,10 +37,9 @@ public class InitPlayableDeck extends Init {
         } catch (SQLException e) {
             e.printStackTrace();
         }
-
-
         return playableDecks;
     }
+
 
     public PlayableDeck MakePlaybleDeck(ResultSet playableDeckResult) throws SQLException {
         PlayableDeck playableDeck = null;
@@ -70,8 +75,30 @@ public class InitPlayableDeck extends Init {
 
 
         playableDeck = new PlayableDeck(deckName,hero,deck);
-        System.out.println("yeah" +playableDeck);
         return  playableDeck;
+    }
+
+
+    public Set<PlayableDeck> GetPlayableDecksByHeroname(String heroname){
+        Set<PlayableDeck> playableDeckSet = new HashSet<>();
+        PlayableDeck playableDeck = null;
+        try (
+                Connection conn = db.getConnection();
+                PreparedStatement stmt = conn.prepareStatement(SqlStatements.SElECT_PLAYABLEDECK_BYHERONAME);
+        ){
+            stmt.setString(1, heroname);
+            ResultSet playableDeckResult = stmt.executeQuery();
+
+            while (playableDeckResult.next()) {
+                playableDeck = MakePlaybleDeck(playableDeckResult);
+                playableDeckSet.add(playableDeck);
+
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+//        System.out.println(playableDeckSet);
+        return playableDeckSet;
     }
 
 
@@ -92,7 +119,7 @@ public class InitPlayableDeck extends Init {
         } catch (SQLException e) {
             e.printStackTrace();
         }
-        System.out.println(playableDeck);
+//        System.out.println(playableDeck);
         return playableDeck;
     }
 
@@ -114,7 +141,7 @@ public class InitPlayableDeck extends Init {
 
 
             ResultSet playableDeckResult = stmt.executeQuery();
-            System.out.println(playableDeckResult);
+//            System.out.println(playableDeckResult);
             InitChooseYourHero initChooseYourHero = new InitChooseYourHero();
 
             if (playableDeckResult.next()) {
@@ -139,7 +166,7 @@ public class InitPlayableDeck extends Init {
         } catch (SQLException e) {
             e.printStackTrace();
         }
-        System.out.println(playableDeck);
+//        System.out.println(playableDeck);
         return playableDeck;
     }
 

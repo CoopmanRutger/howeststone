@@ -10,7 +10,7 @@ public class Hero {
     private String name;
     @JsonProperty("img")
     private String img;
-    @JsonProperty("hero power")
+    @JsonProperty("heroPower")
     private HeroPower heroPower;
     @JsonProperty("life points")
     private int lifePoints = 30;

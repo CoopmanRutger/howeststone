@@ -28,7 +28,7 @@ public class HeroPower {
     @JsonProperty("img")
     private String img;
 
-    @JsonProperty("Hero power active: ") // TODO: 21/05/2018 ???
+    @JsonProperty("heroPowerActive") // TODO: 21/05/2018 ???
     private boolean heroPowerActive;
 
     @JsonCreator

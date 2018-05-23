@@ -1,7 +1,7 @@
 package playField.api;
 
-import playField.Game;
 import playField.GameAPI;
+import playField.api.intialize.InitPlayableDeck;
 import playField.cardCollection.Cards;
 import playField.api.intialize.InitChooseYourHero;
 import playField.api.intialize.InitDeckBuilderLvl2;
@@ -15,7 +15,9 @@ import playField.player.Player;
 import playField.player.heroes.Hero;
 import playField.player.heroes.HeroPower;
 
+import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 import static playField.cardCollection.cards.CardMinionAbility.charge;
@@ -35,19 +37,23 @@ class Routes extends GameState {
 
         server.get("/API/deckbuildOrPlay/chooseYourHero/chooseDeckForHero/getHeroName", this::getHeroNameForDecks);
 
+
+        server.get("/API/deckbuildOrPlay/chooseYourHero/chooseDeckForHero/getChooseDeckSQL", this::ChooseDeckForHeroSQL);
         server.post("/API/deckbuildOrPlay/chooseYourHero/chooseDeckForHero/postChooseDeck", this::ChooseDeckForHero);
-        server.post("/API/deckbuildOrPlay/chooseYourHero/chooseDeckForHero/postChooseDeckSQL", this::ChooseDeckForHeroSQL);
-        // TODO fetchen decks
 
         server.post("/API/pickYourOpponent", this::pickYourOpponent);
         // TODO fetchen uit database hero's
+        server.get("/API/pickYourOpponent/getHeroName", this::getHeroNameFromOpponent);
+
+        server.get("/API/deckbuildOrPlay/deckbuildLevelOne/getHeroNames", this::getAllHeroNames);
+
         server.post("/API/deckbuildOrPlay/deckbuildLevelOne", this::deckbuildLevelOne);
         // TODO
         server.post("/API/deckbuildOrPlay/deckbuildLevelOne/makeANewDeck=deckBuildLevel2", this::deckBuildLevel2);
         // TODO alle kaarten van het gekozen deck + alle mogelijke kaarten die je kunt kiezen
 
         server.get("/API/versusScreen", this::versusScreen);
-        // TODO de 2 kozen hero's
+
         server.post("/API/gameStartingHand", this::gameStartingHand);
         // TODO de eerste 3 kaarten van het deck tonen. (fetch n(aantal) kaarten)
 
@@ -65,8 +71,12 @@ class Routes extends GameState {
         context.result("test worked");
     }
 
-    // FILLING FIELDS
+    private void getAllHeroNames(Context context) {
+        InitChooseYourHero initChooseYourHero = new InitChooseYourHero();
+        context.json(initChooseYourHero.GetPlaybleHeros());
 
+    }
+    // FILLING FIELDS
     private void chooseYourHero(Context context) {
         String in = context.body().replace("\"","");
         System.out.println("Chosen Hero: " + in);
@@ -83,8 +93,6 @@ class Routes extends GameState {
                 true)
         );
 
-        System.out.println(playerHero);
-
         context.result("chooseYourHero");
     }
 
@@ -93,17 +101,27 @@ class Routes extends GameState {
         System.out.println(playerHero.getName());
     }
 
+    private void getHeroNameFromOpponent(Context context) {
+        context.result(opponentHero.getName());
+        System.out.println(opponentHero.getName());
+    }
+
     private void ChooseDeckForHero(Context context) {
-        String in = context.body().replace("\"", "");
-        System.out.println("Chosen deck is " + in);
+       String in = context.body().replace("\"","");
+       String hmm = in + playerHero.getName();
+        System.out.println("Chosen Deck: " + hmm);
+        InitPlayableDeck initPlayableDeck = new InitPlayableDeck();
+
+        playerDeck = initPlayableDeck.GetPlayableDeck(hmm);
+//        System.out.println(playerDeck);
     }
 
 
     private void ChooseDeckForHeroSQL(Context context) {
-        // TODO: 22/05/2018 sql liiiiiink
-        InitDeckBuilderLvl2 init = new InitDeckBuilderLvl2();
-//        playerDeck = init.??
-// TODO: 23/05/2018  ???
+        InitPlayableDeck initPlayableDeck = new InitPlayableDeck();
+        playableDeckSet = initPlayableDeck.GetPlayableDecksByHeroname(playerHero.getName());
+        context.json(playableDeckSet);
+
     }
 
     private void pickYourOpponent(Context context) {
@@ -122,7 +140,7 @@ class Routes extends GameState {
                 true)
         );
 
-        System.out.println(opponentHero);
+//        System.out.println(opponentHero);
 
         context.result("pickYourOpponent");
     }
@@ -151,34 +169,29 @@ class Routes extends GameState {
 
     private void versusScreen(Context context) {
         Set<CardMinionAbility> tempSet;
-
-        Deck playerDeck = new Deck();
-        Deck opponentDeck = new Deck();
-
-        for (int i = 0; i < 30; i++) {
-            tempSet = new HashSet<>();
-            tempSet.add(charge);
-            playerDeck.addCard(new CardMinion("ID" + i, "name" + i, "type", i/6 + 1, "type", "heroType", "img", i/5 + 1, (i+1)/5 + 1, "race", "mechanics", tempSet));
-
-            tempSet = new HashSet<>();
-            tempSet.add(divineShield);
-            opponentDeck.addCard(new CardMinion("ID" + i, "name" + i, "type", i/6 + 1, "type", "heroType", "img", i/5 + 1, (i+1)/5 + 1, "race", "mechanics", tempSet));
-        }
-
-        HeroPower playerHeroPower = new HeroPower("", 0, "", heal,1,1,"",true);
-        HeroPower opponentHeroPower = new HeroPower("", 0, "", attack,1,1,"",true);
-        Hero playerHero = new Hero("heroPlayer", "im", playerHeroPower);
-        Hero opponentHero = new Hero("heroOpponent", "im", opponentHeroPower);
-
-        Player p = new Player(playerDeck, playerHero);
-        Player o = new Player(opponentDeck, opponentHero);
-
-        game = new GameAPI(playerDeck,
-                opponentDeck,
-                playerHero,
-                opponentHero);
-
-        context.result("versusScreen");
+//
+//        playerDeck = new Deck();
+//        Deck opponentDeck = new Deck();
+//
+//
+//
+//            tempSet = new HashSet<>();
+//            tempSet.add(divineShield);
+//            opponentDeck.addCard(new CardMinion("ID" + i, "name" + i, "type", i/6 + 1, "type", "heroType", "img", i/5 + 1, (i+1)/5 + 1, "race", "mechanics", tempSet));
+//        }
+//
+//        HeroPower playerHeroPower = new HeroPower("", 0, "", heal,1,1,"",true);
+//        HeroPower opponentHeroPower = new HeroPower("", 0, "", attack,1,1,"",true);
+//
+//        Player p = new Player(playerDeck, playerHero);
+//        Player o = new Player(opponentDeck, opponentHero);
+//
+//        game = new GameAPI(playerDeck,
+//                opponentDeck,
+//                playerHero,
+//                opponentHero);
+//
+//        context.result("versusScreen " + p.getHero().getName() + " " + o.getHero().getName());
     }
 
     private void gameStartingHand(Context context) {

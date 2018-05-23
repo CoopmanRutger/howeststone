@@ -23,8 +23,9 @@ public class CardMinion extends Card{
     private int maxAmountAttack = 1;
     @JsonProperty("amountAttack")
     private int amountAttack = 1;
-    @JsonProperty("amountAttack")
+    @JsonProperty("devineShield")
     private boolean devineShield = false;
+
 
     public CardMinion(@JsonProperty("cardId") String cardId,
                       @JsonProperty("name") String name,

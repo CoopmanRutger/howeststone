@@ -40,9 +40,13 @@ public abstract class GameCLI extends Game {
                 case "attackHero":
                     attackHeroCLI();
                     break;
-                case "da":
-                case "directAttack":
-                    directAttackCLI();
+                case "sw":
+                case "showWeapon":
+                    showWeapon();
+                    break;
+                case "pw":
+                case "playWeapon":
+                    attackWithWeapon();
                     break;
                 case "pc":
                 case "playCard":
@@ -81,6 +85,8 @@ public abstract class GameCLI extends Game {
         }
         pf.getPlayer().drawCard();
     }
+
+    protected abstract void showWeapon();
 
     protected void botMechanics() {
         System.out.println("##########################");
@@ -159,6 +165,4 @@ public abstract class GameCLI extends Game {
     protected abstract void attackHeroCLI();
 
     protected abstract void attackCardCLI();
-
-    protected abstract void directAttackCLI();
 }

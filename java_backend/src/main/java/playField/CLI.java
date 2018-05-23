@@ -2,16 +2,25 @@ package playField;
 
 import playField.cardCollection.cards.Card;
 import playField.cardCollection.cards.CardMinion;
+import playField.cardCollection.cards.CardSpell;
+import playField.cardCollection.cards.CardWeapon;
+import playField.player.Player;
 import playField.player.heroes.Hero;
 import playField.player.heroes.HeroPower;
 
 public class CLI extends GameCLI {
+
     public static void main(String[] args) {
         new CLI().run();
     }
 
     private CLI() {
         super();
+    }
+
+    @Override
+    protected void showWeapon() {
+        System.out.println(pf.getPlayer().getWeapon());
     }
 
     @Override
@@ -52,7 +61,7 @@ public class CLI extends GameCLI {
     }
 
     @Override
-    protected void playWeapon() {
+    protected void attackWithWeapon() {
         System.out.println("give id of card to heal or \"hero\" for healing hero");
         System.out.print("$ ");
 
@@ -61,7 +70,12 @@ public class CLI extends GameCLI {
         int damage = pf.getCurrentPlayer().getHero().getHeroPower().getAbilityValue();
 
         if (id.equals("hero")) playWeaponOnHero(damage);
-        else  addHealthCard(healthToGive, id);
+        else playWeaponOnCard(id, damage);
+    }
+
+    @Override
+    protected void playWeapon(Card card) {
+        pf.getCurrentPlayer().setWeapon((CardWeapon) card);
     }
 
     @Override
@@ -117,17 +131,10 @@ public class CLI extends GameCLI {
     }
 
     @Override
-    protected void addAttack(){
-
+    protected void addAttack(int amount){
+        System.out.println("give ID of card to give extra attack");
+        System.out.print("$ ");
+        String id = input.next();
+        ((CardMinion) pf.getCurrentPlayer().getCardsOnField().findById(id)).incrAttack(amount);
     }
-
-    @Override
-    protected void directAttackCLI() {
-        System.out.print("Give id of attacking card: ");
-        String pId = input.next();
-        System.out.println("Give id of attacked card: ");
-        String oId = input.next();
-        directAttackCard(pId,oId);
-    }
-
 }

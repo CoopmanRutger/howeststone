@@ -60,8 +60,6 @@ public class Hero {
         return amourPoints;
     }
 
-    public int getAttackPoints(){return attackPoints;}
-
     public String getName() {
         return name;
     }

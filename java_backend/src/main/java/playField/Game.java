@@ -46,7 +46,7 @@ public abstract class Game {
         for (int i = 0; i < 30; i++) {
             tempSet2 = new HashSet<>();
             tempSet2.add(addHealth);
-            playerDeck.addCard(new CardSpell("ID" + i, "name" + i, "type", 1, "type", "heroType", "img","", tempSet2,2, 1, 1));
+            playerDeck.addCard(new CardSpell("ID" + i, "name" + i, "type", 1, "type", "heroType", "img","", tempSet2,2, 1, 1,3));
 
             tempSet = new HashSet<>();
             tempSet.add(divineShield);
@@ -103,6 +103,7 @@ public abstract class Game {
                     spell(((CardSpell) card).getAbilities(), (CardSpell) card);
                     break;
                 case "CardWeapon":
+                    playWeapon(card);
                     break;
                 default:
                     System.out.println("someting wong");
@@ -114,10 +115,10 @@ public abstract class Game {
 
     public void spell(Set<CardSpellAbilities> abilities, CardSpell card) { // does spell-action
         if (abilities.contains(drawCard)) pf.getCurrentPlayer().drawCard();
-        if (abilities.contains(directAttack)) playWeapon();
+        if (abilities.contains(directAttack)) attackWithWeapon();
         if (abilities.contains(addArmour)) addArmour(card.getArmourToGive());
         if (abilities.contains(addHealth)) addHealth(card.getHealthToGive());
-        if (abilities.contains(addAttack)) addAttack();
+        if (abilities.contains(addAttack)) addAttack(card.getAttackToGive());
     }
 
 
@@ -134,9 +135,7 @@ public abstract class Game {
         ((CardMinion) pf.getCurrentPlayer().getCardsOnField().findById(id)).heal(healAmount);
     }
 
-    protected void addAttack(){
-
-    }
+    protected abstract void addAttack(int amount);
 
 
     // BASIC METHOD'S
@@ -202,9 +201,8 @@ public abstract class Game {
         hero.takeDamage(damage);
     }
 
-
-
     // TO IMPLEMENT:
+
     protected abstract void addHealth(int healthToGive);
 
     protected abstract void attackHeroPower(HeroPower playerHeroPower);
@@ -219,5 +217,7 @@ public abstract class Game {
 
     protected abstract void commit();
 
-    protected abstract void playWeapon();
+    protected abstract void playWeapon(Card card);
+
+    protected abstract void attackWithWeapon();
 }

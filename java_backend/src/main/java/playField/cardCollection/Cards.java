@@ -37,6 +37,7 @@ public class Cards {
     }
 
     public Card drawById(String id){ //zoekt kaart op id en verwijderd ze
+    public Card drawById(String id){ //zoekt kaart op id en verwijder ze
         Card c = findById(id);
         remove(c);
         return c;

@@ -1,6 +1,7 @@
 package playField;
 
 import playField.cardCollection.Deck;
+import playField.cardCollection.cards.Card;
 import playField.player.heroes.Hero;
 import playField.player.heroes.HeroPower;
 
@@ -30,17 +31,27 @@ public class GameAPI extends Game {
     }
 
     @Override
+    protected void playWeapon(Card card) {
+
+    }
+
+    @Override
+    protected void attackWithWeapon() {
+
+    }
+
+    @Override
     protected void addArmour(int amount) {
 
     }
 
     @Override
-    protected void addHealth() {
+    protected void addAttack() {
 
     }
 
     @Override
-    protected void addAttack() {
+    protected void addHealth(int healthToGive) {
 
     }
 

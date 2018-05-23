@@ -17,6 +17,7 @@ public class HeroPower {
     private String tags;
 
     @JsonProperty("AbilityType")
+    @JsonProperty("abilityType")
     private final AbilityType abilityType;
 
     @JsonProperty("abilityValue")
@@ -36,6 +37,7 @@ public class HeroPower {
                      @JsonProperty("manaCost") int manaCost,
                      @JsonProperty("tags") String tags,
                      @JsonProperty("AbilityType") AbilityType abilityType,
+                     @JsonProperty("abilityType") AbilityType abilityType,
                      @JsonProperty("abilityValue") int abilityValue,
                      @JsonProperty("duration") int duration,
                      @JsonProperty("img") String img,

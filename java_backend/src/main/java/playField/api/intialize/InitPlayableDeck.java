@@ -66,7 +66,7 @@ public class InitPlayableDeck extends Init {
             }
 
         }
-
+        // noob Q; moet er geen else statement komen om aan te geven wat er gebeuren zou wnnr het wel null is?
         // TODO: 18/05/2018  nieuw statement, om card'en te getten en nieuw deck te maken om deze terug te geven en hier toe te voegen.
 
 

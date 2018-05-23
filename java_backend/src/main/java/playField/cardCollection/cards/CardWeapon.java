@@ -46,7 +46,11 @@ public class CardWeapon extends Card {
     }
 
     public void setAttack(int attack) {
-        this.attack = attack;
+        if(durability>0){
+          this.attack=attack;
+        }else if(durability == 0 ){
+            setAttack(0);
+        }
     }
 
     public void setDurability(int durability) {

@@ -2,7 +2,6 @@ package playField;
 
 import playField.cardCollection.cards.Card;
 import playField.cardCollection.cards.CardMinion;
-import playField.cardCollection.cards.CardSpell;
 import playField.player.heroes.Hero;
 import playField.player.heroes.HeroPower;
 
@@ -109,4 +108,14 @@ public class CLI extends GameCLI {
     protected void addAttack(){
 
     }
+
+    @Override
+    protected void directAttackCLI() {
+        System.out.print("Give id of attacking card: ");
+        String pId = input.next();
+        System.out.println("Give id of attacked card: ");
+        String oId = input.next();
+        directAttackCard(pId,oId);
+    }
+
 }

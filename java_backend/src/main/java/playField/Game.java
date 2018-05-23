@@ -1,19 +1,26 @@
 package playField;
 
 import playField.cardCollection.Deck;
+
 import playField.cardCollection.cards.*;
-import playField.player.heroes.AbilityType;
+
+import playField.cardCollection.cards.Card;
+import playField.cardCollection.cards.CardMinion;
+import playField.cardCollection.cards.CardMinionAbility;
+import playField.player.Player;
+
 import playField.player.heroes.Hero;
 import playField.player.heroes.HeroPower;
-import playField.player.Player;
 
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
-
-import static playField.cardCollection.cards.CardMinionAbility.*;
 import static playField.cardCollection.cards.CardSpellAbilities.*;
-import static playField.player.heroes.AbilityType.*;
+
+import static playField.cardCollection.cards.CardMinionAbility.divineShield;
+import static playField.player.heroes.AbilityType.attack;
+import static playField.player.heroes.AbilityType.heal;
+
 
 public abstract class Game {
 
@@ -126,7 +133,11 @@ public abstract class Game {
         if (abilities.contains(addAttack)) {
             addAttack();
         }
+        if (abilities.contains(directAttack)){
+            directAttackCard(directAttackCard());
+        }
     }
+
 
     protected abstract void addArmour(int amount);
 
@@ -155,6 +166,17 @@ public abstract class Game {
             if (!opponentCard.isAlive()) pf.getOppositePlayer().getCardsOnField().remove(oId);
         }
     }
+
+    protected void directAttackCard(String pId,String oId){
+        CardSpell playerCard = (CardSpell) pf.getCurrentPlayer().getCardsOnField().findById(pId);
+        CardMinion opponentCard = (CardMinion) pf.getOppositePlayer().getCardsOnField().findById(oId);
+
+        if(playerCard != null && opponentCard != null ){
+            int damage = playerCard.getAmountToAttack();
+            opponentCard.takeDamage(damage);
+        }
+    }
+
 
     protected void attackHero(String pId) {
         CardMinion playerCard = (CardMinion) pf.getCurrentPlayer().getCardsOnField().findById(pId);

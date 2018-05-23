@@ -2,7 +2,6 @@ package playField;
 
 import playField.cardCollection.Cards;
 import playField.cardCollection.cards.Card;
-import playField.cardCollection.cards.CardMinion;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -40,6 +39,10 @@ public abstract class GameCLI extends Game {
                 case "ah":
                 case "attackHero":
                     attackHeroCLI();
+                    break;
+                case "da":
+                case "directAttack":
+                    directAttackCLI();
                     break;
                 case "pc":
                 case "playCard":
@@ -157,4 +160,5 @@ public abstract class GameCLI extends Game {
 
     protected abstract void attackCardCLI();
 
+    protected abstract void directAttackCLI();
 }

@@ -16,7 +16,6 @@ public class Hero {
     private int lifePoints = 30;
     @JsonProperty("amour points")
     private int amourPoints = 0;
-
     @JsonCreator
     public Hero(@JsonProperty("name") String name, @JsonProperty("img") String img, @JsonProperty("heroPower") HeroPower heroPower) {
         this.name = name;
@@ -38,6 +37,7 @@ public class Hero {
         }
     }
 
+
     public boolean isAlive() {
         return lifePoints > 0;
     }
@@ -55,6 +55,8 @@ public class Hero {
     public int getAmourPoints() {
         return amourPoints;
     }
+
+    public int getAttackPoints(){return attackPoints;}
 
     public String getName() {
         return name;

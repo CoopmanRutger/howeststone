@@ -37,7 +37,7 @@ public class CardMinion extends Card{
                       @JsonProperty("health") int health,
                       @JsonProperty("race") String race,
                       @JsonProperty("mechanicsName") String mechanicsName,
-                      @JsonProperty("abilities") Set<CardMinionAbility> abilities
+                      @JsonProperty("abilities") Set<CardAbility> abilities
                       ) {
         super(cardId, name, type, mana, heroType, description, img);
         this.attack = attack;
@@ -106,6 +106,11 @@ public class CardMinion extends Card{
 
     public void setMechanicsName(String mechanicsName) {
         this.mechanicsName = mechanicsName;
+    }
+
+    public void incrAttack(int amount){
+        amountAttack += amount;
+        maxAmountAttack  += amount;
     }
 
     @Override

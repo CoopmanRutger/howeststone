@@ -4,15 +4,15 @@ import playField.cardCollection.Cards;
 import playField.cardCollection.Deck;
 import playField.cardCollection.cards.Card;
 import playField.cardCollection.cards.CardSpellAbilities;
+import playField.cardCollection.cards.CardWeapon;
 import playField.player.heroes.Hero;
-
-import java.util.Set;
 
 public class Player {
     private Hero hero;
     private Deck deck;
     private Cards cardsInHand;
     private Cards cardsOnField;
+    private CardWeapon weapon;
 
     // CHAINED CONSTRUCTORS
 
@@ -83,5 +83,13 @@ public class Player {
                 "hero=" + hero +
                 ", cardsInHand\n" + cardsInHand +
                 '}';
+    }
+
+    public CardWeapon getWeapon() {
+        return weapon;
+    }
+
+    public void setWeapon(CardWeapon weapon) {
+        this.weapon = weapon;
     }
 }

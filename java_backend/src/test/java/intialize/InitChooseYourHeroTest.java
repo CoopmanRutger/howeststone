@@ -21,13 +21,13 @@ public class InitChooseYourHeroTest {
         hero = new Hero("Mage", null, heroPower);
     }
 
-
     @Test
     public void getHeroPowerTest() {
         assertEquals(heroPower   , db.getHeroPower("Fireblast"));
     }
+
     @Test
     public void getHeroTest() {
-        assertEquals(hero, db.getHero("Mage", heroPower));
+        assertEquals(hero, db.getHero("Mage", null));
     }
 }

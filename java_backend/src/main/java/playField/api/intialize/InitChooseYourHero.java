@@ -105,7 +105,6 @@ public class InitChooseYourHero extends Init {
             } catch (SQLException e) {
             e.printStackTrace();
         }
-        System.out.println(heroPower);
         return heroPower;
     }
 

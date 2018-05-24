@@ -2,9 +2,11 @@ package playField.cardCollection;
 
 import java.util.*;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import playField.cardCollection.cards.Card;
 
 public class Cards {
+    @JsonProperty("cards")
     public List<Card> cards;
 
     protected Cards(List<Card> cards) {

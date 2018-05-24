@@ -1,5 +1,6 @@
 package playField.player;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import playField.cardCollection.Cards;
 import playField.cardCollection.Deck;
 import playField.cardCollection.cards.Card;
@@ -8,10 +9,14 @@ import playField.cardCollection.cards.CardWeapon;
 import playField.player.heroes.Hero;
 
 public class Player {
+    @JsonProperty("hero")
     private Hero hero;
     private Deck deck;
+    @JsonProperty("cardsInHand")
     private Cards cardsInHand;
+    @JsonProperty("cardOnField")
     private Cards cardsOnField;
+    @JsonProperty("weapon")
     private CardWeapon weapon;
 
     // CHAINED CONSTRUCTORS

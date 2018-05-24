@@ -22,8 +22,11 @@ public class InitPlayableDeckTest {
 
     @Test
     public void getPlayableDecksByHeroname() {
-        Set<PlayableDeck> blabla = initPlayableDeck.GetPlayableDecksByHeroname("Mage");
-        System.out.println(blabla);
-
+//        Set<PlayableDeck> blabla = initPlayableDeck.GetPlayableDecksByHeroname("Mage");
+//        System.out.println(blabla);
+        assertNotNull(new InitPlayableDeck().GetPlayableDeck("noob" + "Mage"));
+        assertNotNull(new InitPlayableDeck().GetPlayableDeck("noob" + "Priest"));
+        System.out.println(new InitPlayableDeck().GetPlayableDeck("noob" + "Mage"));
+        System.out.println(new InitPlayableDeck().GetPlayableDeck("noob" + "Priest"));
     }
 }

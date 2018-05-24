@@ -1,14 +1,21 @@
 package playField;
 
+import com.fasterxml.jackson.annotation.JacksonAnnotation;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import playField.player.Player;
 
 import java.util.Random;
 
 public class PlayingField {
+
+    @JsonProperty("player")
     private Player player;
+    @JsonProperty("opponent")
     private Player opponent;
 
     private int index = 2; // for your turn (you are for example 1, adversary = 0)
+    @JsonProperty("curMana")
     private int curMana;
     private boolean begins;
     private static final int maxMana = 10;
@@ -47,12 +54,12 @@ public class PlayingField {
         else return 1;
     }
 
-    public Player getCurrentPlayer() {
+    @JsonIgnore public Player getCurrentPlayer() {
         if (index % 2 == getPlayerIndex()) return player;
         else return opponent;
     }
 
-    public Player getOppositePlayer() {
+    @JsonIgnore public Player getOppositePlayer() {
         if (index % 2 != getPlayerIndex()) return player;
         else return opponent;
     }
@@ -74,7 +81,7 @@ public class PlayingField {
 
     // MANA FUNCTIONS
 
-    public int calculateMana() {
+    @JsonProperty("totalMana") public int calculateMana() {
         int turn = getTurn();
         if (turn < maxMana) return turn;
         else return maxMana;

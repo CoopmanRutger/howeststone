@@ -13,9 +13,7 @@ function cardController(X,Y, element, original, origin) {
 
     if (place === "#cardsOnFieldPlayer" && player.arrayCardsOnField.length < 7) {
         console.log("cardsOnFieldPlayer");
-        sendPlayCard(player.arrayCardsInHand[index].cardId).then(function (res) {
-					update();
-        });
+        sendPlayCard(player.arrayCardsInHand[index].cardId)
 
         element.remove();
 				element = null;
@@ -61,8 +59,13 @@ function getPlace(X, Y) {
 }
 
 function sendPlayCard(id) {
-	fetch("http://localhost:4242/API/playingField/playedCard",{
+	return fetch("http://localhost:4242/API/playingField/playedCard",{
 		method : "post",
 		body : JSON.stringify(id)
-	})
+	}).then(function (res) {
+		return res.json();
+	}).then(function (res) {
+		console.log(res);
+		update();
+	});
 }

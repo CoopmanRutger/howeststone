@@ -38,11 +38,11 @@ function update() {
         return res.json();
     }).then(function (res) {
         console.log(res);
-        console.log(res.player.weapon);
+        // console.log(res.player.weapon);
 
         player.heroName = res.player.hero.name;
         player.manaCharge = res.curMana;
-        // player.manaLimit = res.player;
+        player.manaLimit = res.totalMana;
         player.lifepoints = res.player.hero.lifePoints;
         player.amountShield = res.player.hero.armourPoints;
         player.arrayCardsInHand = res.player.cardsInHand.cards;
@@ -54,7 +54,7 @@ function update() {
 
         opponent.heroName = res.opponent.hero.name;
         opponent.manaCharge = res.curMana;
-        // opponent.manaLimit = res.opponent;
+        opponent.manaLimit = res.totalMana;
         opponent.lifepoints = res.opponent.hero.lifePoints;
         opponent.amountShield = res.opponent.hero.armourPoints;
         opponent.arrayCardsInHand = res.opponent.cardsInHand.cards;

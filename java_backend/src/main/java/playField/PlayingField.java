@@ -18,7 +18,6 @@ public class PlayingField {
     @JsonProperty("curMana")
     private int curMana;
     private boolean begins;
-    @JsonProperty("maxMana")
     private static final int maxMana = 10;
 
     // CONSTRUCTOR
@@ -82,7 +81,7 @@ public class PlayingField {
 
     // MANA FUNCTIONS
 
-    public int calculateMana() {
+    @JsonProperty("totalMana") public int calculateMana() {
         int turn = getTurn();
         if (turn < maxMana) return turn;
         else return maxMana;

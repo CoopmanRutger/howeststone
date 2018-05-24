@@ -2,6 +2,7 @@ package playField;
 
 import playField.cardCollection.Deck;
 import playField.cardCollection.cards.Card;
+import playField.cardCollection.cards.CardSpell;
 import playField.player.PlayableDeck;
 import playField.player.heroes.Hero;
 import playField.player.heroes.HeroPower;

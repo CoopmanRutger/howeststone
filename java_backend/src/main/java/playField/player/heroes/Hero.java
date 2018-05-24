@@ -26,15 +26,17 @@ public class Hero {
     // DAMGE AND LIFE FUNCTIONS
 
     public void takeDamage(int damage){
+//        if (amourPoints <= 0){
         if (armourPoints <= 0){
-             lifePoints -= damage;
-        } else if (armourPoints > damage){
+             lifePoints -= damage;}
+//
+          else if (armourPoints > damage){
             armourPoints =- damage;
         } else if (armourPoints < damage){
             damage -= armourPoints;
             armourPoints = 0;
             lifePoints -= damage;
-        }
+         }
     }
 
 

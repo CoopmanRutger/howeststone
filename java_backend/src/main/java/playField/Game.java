@@ -24,7 +24,7 @@ import static playField.player.heroes.AbilityType.heal;
 
 public abstract class Game {
 
-    protected PlayingField pf;
+    public PlayingField pf;
 
     // CONTRUCTOR
 

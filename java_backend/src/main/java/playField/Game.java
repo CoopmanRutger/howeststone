@@ -37,14 +37,13 @@ public abstract class Game {
 
     public Game(){
         Set<CardAbility> tempSet;
-        Set<CardAbility> tempSet2;
 
         Deck playerDeck = new Deck();
         Deck opponentDeck = new Deck();
 
         for (int i = 0; i < 30; i++) {
-            tempSet2 = new HashSet<>();
-            tempSet2.add(addHealth);
+            tempSet = new HashSet<>();
+            tempSet.add(addHealth);
             playerDeck.addCard(new CardSpell("ID" + i, "name" + i, "type", 1, "type", "heroType", "img","", tempSet2,2, 1, 1,3));
 
             tempSet = new HashSet<>();

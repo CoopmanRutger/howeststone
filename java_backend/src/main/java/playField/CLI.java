@@ -76,7 +76,7 @@ public class CLI extends GameCLI {
     protected void spellDamage(CardSpell card) {
         int damage = card.getSpellDamage();
 
-        System.out.println("Give ID of card to attack: ");
+        System.out.print("Give ID of card to attack: ");
         String oId = input.next();
 
         System.out.println(damage);

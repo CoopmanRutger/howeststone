@@ -12,9 +12,9 @@ public class Hero {
     private String img;
     @JsonProperty("heroPower")
     private HeroPower heroPower;
-    @JsonProperty("life points")
+    @JsonProperty("lifePoints")
     private int lifePoints = 30;
-    @JsonProperty("amour points")
+    @JsonProperty("armourPoints")
     private int armourPoints = 0;
     @JsonCreator
     public Hero(@JsonProperty("name") String name, @JsonProperty("img") String img, @JsonProperty("heroPower") HeroPower heroPower) {

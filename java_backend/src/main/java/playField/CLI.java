@@ -4,7 +4,6 @@ import playField.cardCollection.cards.Card;
 import playField.cardCollection.cards.CardMinion;
 import playField.cardCollection.cards.CardSpell;
 import playField.cardCollection.cards.CardWeapon;
-import playField.player.Player;
 import playField.player.heroes.Hero;
 import playField.player.heroes.HeroPower;
 
@@ -62,7 +61,7 @@ public class CLI extends GameCLI {
 
     @Override
     protected void attackWithWeapon() {
-        System.out.println("give id of card to heal or \"hero\" for healing hero");
+        System.out.println("Give id of card to heal or \"hero\" for healing hero");
         System.out.print("$ ");
 
         String id = input.next();
@@ -73,6 +72,29 @@ public class CLI extends GameCLI {
         else playWeaponOnCard(id, damage);
     }
 
+    @Override
+    protected void spellDamage(int spellDamage) {
+        System.out.println("Give ID of attacking spellcard: ");
+        System.out.print("$ ");
+        String pId = input.next();
+
+        System.out.println("Give ID of card to attack: ");
+        System.out.print("$ ");
+        String oId = input.next();
+
+        CardSpell playerCard = (CardSpell) pf.getCurrentPlayer().getCardsInHand().findById(pId);
+        CardMinion opponentCard = (CardMinion) pf.getOppositePlayer().getCardsOnField().findById(oId);
+
+        spellDamage = playerCard.getSpellDamage();
+        int mana = playerCard.getMana();
+
+        if (mana <= pf.getCurMana()) {
+            if (playerCard != null && opponentCard != null) {
+                opponentCard.takeDamage(spellDamage);
+                pf.decrMana(mana);
+            }
+        }
+    }
     @Override
     protected void playWeapon(Card card) {
         pf.getCurrentPlayer().setWeapon((CardWeapon) card);

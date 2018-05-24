@@ -42,7 +42,7 @@ public abstract class Game {
         for (int i = 0; i < 30; i++) {
             tempSet = new HashSet<>();
             tempSet.add(addHealth);
-            playerDeck.addCard(new CardSpell("ID" + i, "name" + i, "type", 1, "type", "heroType", "img","", tempSet,2, 1, 1,3));
+            playerDeck.addCard(new CardSpell("ID" + i, "name" + i, "type", 1, "type", "heroType", "img","", tempSet,2, 1, 1,3,0));
 
             tempSet = new HashSet<>();
             tempSet.add(divineShield);
@@ -115,6 +115,7 @@ public abstract class Game {
         if (abilities.contains(addArmour)) addArmour(card.getArmourToGive());
         if (abilities.contains(addHealth)) addHealth(card.getHealthToGive());
         if (abilities.contains(addAttack)) addAttack(card.getAttackToGive());
+        if (abilities.contains(spellDamage)) spellDamage(card.getSpellDamage());
     }
 
 
@@ -202,7 +203,7 @@ public abstract class Game {
         Hero hero = pf.getOppositePlayer().getHero();
         hero.takeDamage(damage);
     }
-
+    
     // TO IMPLEMENT:
 
     protected abstract void addHealth(int healthToGive);
@@ -222,4 +223,8 @@ public abstract class Game {
     protected abstract void playWeapon(Card card);
 
     protected abstract void attackWithWeapon();
+
+    protected abstract void spellDamage(int spellDamage);
+
+
 }

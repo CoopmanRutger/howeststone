@@ -33,6 +33,9 @@ class Routes extends GameState {
         server.get("/API/gameStartingHand/initializingGame", this::initializingGame);
 
         server.get("/API/playingField/getGameState", this::getGameState);
+        server.post("/API/playingField/playedCard", this::postPlayedCard);
+        server.get("/API/playingField/commit", this::commit);
+
 
         // NOT CHRONOLOGICAL !!!!
 
@@ -51,6 +54,7 @@ class Routes extends GameState {
         server.get("/API/test", this::test);
     }
 
+
     private void test(Context context) {
         System.out.println("test worked");
         context.result("test worked");
@@ -63,6 +67,7 @@ class Routes extends GameState {
 
 
     // FILLING FIELDS
+
     private void chooseYourHero(Context context) {
         String in = context.body().replace("\"", "");
         System.out.println("Chosen Hero: " + in);
@@ -72,7 +77,6 @@ class Routes extends GameState {
 
         context.result("chooseYourHero");
     }
-
     private void getHeroNameForDecks(Context context) {
         context.result(playerHero.getName());
     }
@@ -109,6 +113,7 @@ class Routes extends GameState {
 
 
     // INITIALIZE GAME
+
     private void initializingGame(Context context) {
         opponentDeck = new InitPlayableDeck().GetPlayableDeck("noob" + opponentHero.getName());
         System.out.println("Chosen Opponent Deck: noob" + opponentHero.getName());
@@ -117,16 +122,27 @@ class Routes extends GameState {
         context.json(game);
     }
 
-
     // FIXING STARTING HAND
+
     private void gameStartingHand(Context context) {
         context.result("gameStartingHand");
     }
 
     // THE GAME ITSELF
-
     private void getGameState(Context context) {
         context.json(game.pf);
+    }
+
+
+    private void postPlayedCard(Context context) {
+        String in = context.body().replace("\"", "");
+        System.out.println("Card id is: " + in);
+        game.playCard(in);
+    }
+
+    private void commit(Context context) {
+        game.commit();
+        context.result("");
     }
 
     // NOT FOR CHRONOLOGICAL ORDERD //

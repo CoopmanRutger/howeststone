@@ -11,27 +11,32 @@ function cardController(X,Y, element, original, origin) {
 
     console.log(place);
 
-    if (place==="#cardsOnFieldPlayer"&&player.arrayCardsOnField.length<7) {
+    if (place === "#cardsOnFieldPlayer" && player.arrayCardsOnField.length < 7) {
         console.log("cardsOnFieldPlayer");
+        sendPlayCard(player.arrayCardsInHand[index].cardId).then(function (res) {
+					update();
+        });
+
         element.remove();
+				element = null;
         original.remove();
 
-        player.arrayCardsOnField.push(cardJson);
-        player.arrayCardsInHand.splice(player.arrayCardsInHand.indexOf(cardJson), 1);
-        if (cardJson.type==="Weapon") {
-            player.heroWeapon = true;
-            player.weaponAttack = cardJson.attack;
-            player.weaponTurns = cardJson.durability;
-            // player. = cardJson.img;
-            hero(player);
+
+        // player.arrayCardsOnField.push(cardJson);
+        // player.arrayCardsInHand.splice(player.arrayCardsInHand.indexOf(cardJson), 1);
+        if (cardJson.type === "Weapon") {
+            // player.heroWeapon = true;
+            // player.weaponAttack = cardJson.attack;
+            // player.weaponTurns = cardJson.durability;
+            // hero(player);
         } else {
-            showCardField(cardJson,"#cardsOnFieldPlayer");
+            // showCardField(cardJson,"#cardsOnFieldPlayer");
         }
     } else {
-        console.log("cardsInHandPlayer");
-
-        original.style.position = "";
-        original.style.visibility = "visible";
+        // console.log("cardsInHandPlayer");
+        //
+        // original.style.position = "";
+        // original.style.visibility = "visible";
 
         element.remove();
     }
@@ -53,4 +58,11 @@ function getPlace(X, Y) {
    } else {
        return "#cardsInHandPlayer";
    }
+}
+
+function sendPlayCard(id) {
+	fetch("http://localhost:4242/API/playingField/playedCard",{
+		method : "post",
+		body : JSON.stringify(id)
+	})
 }

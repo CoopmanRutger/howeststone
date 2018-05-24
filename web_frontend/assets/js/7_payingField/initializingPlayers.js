@@ -51,6 +51,7 @@ function update() {
         // player.weaponTurns = res.player.weapon;
         // player.heroWeapon = res.player.weapon;
 
+				injectCards(player.arrayCardsInHand)
 
         opponent.heroName = res.opponent.hero.name;
         opponent.manaCharge = res.curMana;
@@ -67,7 +68,6 @@ function update() {
         manaCrystal(opponent);
         cardsInHandOpponent(opponent.arrayCardsInHand);
 
-				injectCards()
 
         hero(opponent);
         hero(player);
@@ -81,28 +81,4 @@ function update() {
             elements[i].addEventListener("mouseleave", cardOnmouseLeave);
         }
     })
-}
-
-function typesCards(typeCard, who) {
-		let card;
-    for (let i = 0; i < typeCard.length; i++) {
-        // console.log(typeCard[i]);
-        card = {
-            "cardId": typeCard[i].cardId,
-            "attack": typeCard[i].attack,
-            "health": typeCard[i].health,
-            "name": typeCard[i].name,
-            "img": typeCard[i].img,
-            "type": typeCard[i].type,
-            "durability": typeCard[i].durability,
-        };
-
-		player.arrayCardsInHand.push(card)
-
-        if (type === "Basic"){
-            cards.Basic.push(card)
-        } else if (type === "Specific"){
-            cards.Specific.push(card)
-        }
-    }
 }

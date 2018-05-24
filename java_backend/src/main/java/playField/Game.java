@@ -16,9 +16,7 @@ import java.util.List;
 import java.util.Set;
 
 import static playField.cardCollection.cards.CardAbility.*;
-
-import static playField.player.heroes.AbilityType.attack;
-import static playField.player.heroes.AbilityType.heal;
+import static playField.player.heroes.AbilityType.*;
 
 
 public abstract class Game {

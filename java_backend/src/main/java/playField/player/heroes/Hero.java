@@ -14,7 +14,7 @@ public class Hero {
     private HeroPower heroPower;
     @JsonProperty("life points")
     private int lifePoints = 30;
-    @JsonProperty("amour points")
+    @JsonProperty("armour points")
     private int armourPoints = 0;
     @JsonCreator
     public Hero(@JsonProperty("name") String name, @JsonProperty("img") String img, @JsonProperty("heroPower") HeroPower heroPower) {
@@ -26,15 +26,17 @@ public class Hero {
     // DAMGE AND LIFE FUNCTIONS
 
     public void takeDamage(int damage){
+//        if (amourPoints <= 0){
         if (armourPoints <= 0){
-             lifePoints -= damage;
-        } else if (armourPoints > damage){
+             lifePoints -= damage;}
+//
+          else if (armourPoints > damage){
             armourPoints =- damage;
         } else if (armourPoints < damage){
             damage -= armourPoints;
             armourPoints = 0;
             lifePoints -= damage;
-        }
+         }
     }
 
 

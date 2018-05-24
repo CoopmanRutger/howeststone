@@ -21,7 +21,7 @@ document.addEventListener("DOMContentLoaded", init);
 function init() {
     // fillJson();
     console.log("test");
-    // console.log(makeDecks("Mage"))
+    console.log(makeDecks("Mage"))
     // console.log(heroesAndDecks);
     // injectHeroDecks();
 }

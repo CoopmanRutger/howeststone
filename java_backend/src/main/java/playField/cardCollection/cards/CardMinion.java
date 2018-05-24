@@ -4,9 +4,8 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 
 import java.util.Set;
 
-import static playField.cardCollection.cards.CardAbility.charge;
-import static playField.cardCollection.cards.CardAbility.divineShield;
-import static playField.cardCollection.cards.CardAbility.windFury;
+import static playField.cardCollection.cards.CardAbility.*;
+
 
 
 public class CardMinion extends Card{

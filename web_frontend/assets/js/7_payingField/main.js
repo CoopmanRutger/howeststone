@@ -28,8 +28,11 @@ function init(){
     document.addEventListener('mousemove', cardMousemove);
     document.addEventListener("mouseup", cardMouseup);
 
-    fetch("/API/gameStartingHand/playingField", {
+    fetch("http://localhost:4242/API/playingField/getGameState", {
     }).then(function (res) {
+        return res.Json;
+    }).then(function (res) {
+        console.log("fetched gamestate");
         console.log(res);
     });
 }

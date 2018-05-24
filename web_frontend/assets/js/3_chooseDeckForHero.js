@@ -3,7 +3,6 @@
 document.addEventListener("DOMContentLoaded", init);
 
 function init() {
-    console.log("im in init");
     getHeroNameOutJava();
     loadButtons();
     document.getElementById('chooseYourHero').addEventListener('click', nextScreen5);
@@ -73,9 +72,9 @@ function getHeroNameOutJava() {
                     "Accept": "text/plain"
                 })
     }).then(function (response) {
-                if (response.ok) {
-                    return response.text();
-                }
+console.log(response);
+        return response.text();
+
     }).then(function (res) {
         console.log(res);
         let heroname = res.toLowerCase();

@@ -35,6 +35,7 @@ class Routes extends GameState {
         server.get("/API/playingField/getGameState", this::getGameState);
         server.post("/API/playingField/playedCard", this::postPlayedCard);
         server.get("/API/playingField/commit", this::commit);
+        server.get("/API/playingField/commitOpponent", this::commitOpponent);
 
 
         // NOT CHRONOLOGICAL !!!!
@@ -146,12 +147,20 @@ class Routes extends GameState {
     }
 
     private void commit(Context context) {
+        game.pf.getPlayer().drawCard();
         game.commit();
-        context.result("");
+        game.botMechanics();
+    }
+
+    private void commitOpponent(Context context){
+        game.commit();
+        System.out.println("commited");
     }
 
     //------------------------------//
+    //                              //
     // NOT FOR CHRONOLOGICAL ORDERD //
+    //                              //
     //------------------------------//
 
     // MAKING DECK

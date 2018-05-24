@@ -41,7 +41,12 @@ function update() {
         console.log(res);
         // console.log(res.player.weapon);
 
+				isOpponent = res.isOpponent;
+				endTurn(!isOpponent);
+
 				if (!isOpponent) {
+					
+
 					player.manaCharge = res.curMana;
 					player.manaLimit = res.totalMana;
 				}
@@ -78,16 +83,8 @@ function update() {
         hero(opponent);
         hero(player);
 
-		isOpponent = res.isOpponent;
-		console.log("isOpponent?", isOpponent);
-        endTurn(!isOpponent);
-
-		document.querySelector('#endTurn').addEventListener('click', sendCommit);
-
-        // console.log(player);
-        // console.log(opponent);
-
         let elements = document.querySelectorAll(".cardHand");
+
         for (let i = 0; i < elements.length; i++) {
             elements[i].addEventListener("mousedown", cardMousedown);
             elements[i].addEventListener("mouseenter", cardOnmouseEnter);

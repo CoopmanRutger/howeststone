@@ -4,28 +4,24 @@ document.addEventListener("DOMContentLoaded", init);
 
 function init(){
     update();
-
-    // makeMovable shit
+		document.getElementById('endTurn').addEventListener("click", sendCommit)
 }
 
-function sendCommit(id) {
+function sendCommit(e) {
+	console.log("sending commit");
 	if (!isOpponent) { //moet true zijn alst je beurt is
 		fetch("http://localhost:4242/API/playingField/commit",{
 			method : "get",
-		}).then(function (res) {
-				return res.text();
 		}).then(function () {
 			console.log("Twas aan ons ma nu nie meer!");
 			update();
-		})
-	} else {
-		fetch("http://localhost:4242/API/playingField/commit",{
-			method : "get",
-		}).then(function (res) {
-				return res.text();
 		}).then(function () {
-			console.log("Twas aan undr ma nu nie meer!");
-			update();
+			fetch("http://localhost:4242/API/playingField/commitOpponent",{
+				method : "get",
+			}).then(function () {
+				console.log("Twas aan undr ma nu nie meer!");
+				update();
+			})
 		})
 	}
 }

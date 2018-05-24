@@ -87,8 +87,6 @@ public abstract class Game {
         Card card = curPlayer.getCardsInHand().findById(pId);
         int mana = curPlayer.getManaFromId(pId);
 
-        System.out.println("condition: " + (card != null && mana <= pf.getCurMana()));
-
         if (card != null && mana <= pf.getCurMana()) {
             String type = card.identifier();
             System.out.println("The type of the card with id " + card.getCardId() + " is " + type);

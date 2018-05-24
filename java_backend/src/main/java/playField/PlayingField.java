@@ -49,29 +49,32 @@ public class PlayingField {
 
     // GETTING THE RIGHT PLAYER
 
-    private int getPlayerIndex(){
+    private int getPlayerIndex() {
         if (begins) return 0;
         else return 1;
     }
 
-    @JsonIgnore public Player getCurrentPlayer() {
+    @JsonIgnore
+    public Player getCurrentPlayer() {
         if (index % 2 == getPlayerIndex()) return player;
         else return opponent;
     }
 
-    @JsonIgnore public Player getOppositePlayer() {
+    @JsonIgnore
+    public Player getOppositePlayer() {
         if (index % 2 != getPlayerIndex()) return player;
         else return opponent;
     }
 
-    @JsonProperty("isOpponent")  public boolean whosTurn() {
+    @JsonProperty("isOpponent")
+    public boolean whosTurn() {
         return getPlayerIndex() != (index % 2);
     }
 
     // TURN AND INCREMENT
 
-    private int getTurn(){
-        return index/2;
+    private int getTurn() {
+        return index / 2;
     }
 
     public void increment() {
@@ -81,7 +84,8 @@ public class PlayingField {
 
     // MANA FUNCTIONS
 
-    @JsonProperty("totalMana") public int calculateMana() {
+    @JsonProperty("totalMana")
+    public int calculateMana() {
         int turn = getTurn();
         if (turn < maxMana) return turn;
         else return maxMana;
@@ -91,7 +95,7 @@ public class PlayingField {
         return curMana;
     }
 
-    public void decrMana(int amount){
+    public void decrMana(int amount) {
         curMana -= amount;
     }
 
@@ -99,6 +103,11 @@ public class PlayingField {
 
     @Override
     public String toString() {
-        return "doesn't have a toString() yet";
+        return "Tegenspeler:\n" +
+                getOppositePlayer().getCardsOnField().toString() +
+                "Jezelf:\n" +
+                getCurrentPlayer().getCardsOnField().toString() +
+                "Je kaarten:\n" +
+                getCurrentPlayer().getCardsInHand().toString();
     }
 }

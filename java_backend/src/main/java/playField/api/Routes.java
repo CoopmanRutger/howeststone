@@ -119,6 +119,9 @@ class Routes extends GameState {
         System.out.println("Chosen Opponent Deck: noob" + opponentHero.getName());
 
         game = new GameAPI(playerDeck, opponentDeck);
+
+        System.out.println(game.pf);
+
         context.json(game);
     }
 

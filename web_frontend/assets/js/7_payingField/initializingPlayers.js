@@ -68,6 +68,7 @@ function update() {
         manaCrystal(opponent);
         cardsInHandOpponent(opponent.arrayCardsInHand);
 
+				injectCards(player.arrayCardsInHand)
 
         hero(opponent);
         hero(player);

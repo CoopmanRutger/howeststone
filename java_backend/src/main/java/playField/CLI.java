@@ -76,16 +76,17 @@ public class CLI extends GameCLI {
     protected void spellDamage(CardSpell card) {
         int damage = card.getSpellDamage();
 
-        System.out.println("Give ID of card to attack: ");
+        System.out.print("Give ID of card to attack: ");
         String oId = input.next();
 
         System.out.println(damage);
-
+        System.out.println(oId);
         CardMinion opponentCard = (CardMinion) pf.getOppositePlayer().getCardsOnField().findById(oId);
 
         int mana = card.getMana();
 
         if (mana <= pf.getCurMana() && opponentCard != null) {
+            System.out.println(oId);
             opponentCard.takeDamage(damage);
             pf.decrMana(mana);
         }

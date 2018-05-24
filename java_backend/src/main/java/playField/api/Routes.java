@@ -141,6 +141,7 @@ class Routes extends GameState {
         String in = context.body().replace("\"", "");
         System.out.println("Card id is: " + in);
         game.playCard(in);
+        context.result("you played card with id:" + in);
     }
 
     private void commit(Context context) {

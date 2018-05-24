@@ -37,6 +37,10 @@ public class CardSpell extends Card{
         super(cardId, name, type, mana, heroType, description, img);
         this.mechanicsName = mechanicsName;
         this.abilities = abilities;
+        healthToGive;
+        armourToGive;
+        attackToGive;
+        spellDamage;
     }
     
 

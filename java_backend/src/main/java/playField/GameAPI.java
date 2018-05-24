@@ -2,6 +2,7 @@ package playField;
 
 import playField.cardCollection.Deck;
 import playField.cardCollection.cards.Card;
+import playField.cardCollection.cards.CardSpell;
 import playField.player.heroes.Hero;
 import playField.player.heroes.HeroPower;
 
@@ -37,6 +38,11 @@ public class GameAPI extends Game {
 
     @Override
     protected void attackWithWeapon() {
+
+    }
+
+    @Override
+    protected void spellDamage(CardSpell card) {
 
     }
 

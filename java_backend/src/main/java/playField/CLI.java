@@ -73,26 +73,21 @@ public class CLI extends GameCLI {
     }
 
     @Override
-    protected void spellDamage(int spellDamage) {
-        System.out.println("Give ID of attacking spellcard: ");
-        System.out.print("$ ");
-        String pId = input.next();
+    protected void spellDamage(CardSpell card) {
+        int damage = card.getSpellDamage();
 
         System.out.println("Give ID of card to attack: ");
-        System.out.print("$ ");
         String oId = input.next();
 
-        CardSpell playerCard = (CardSpell) pf.getCurrentPlayer().getCardsInHand().findById(pId);
+        System.out.println(damage);
+
         CardMinion opponentCard = (CardMinion) pf.getOppositePlayer().getCardsOnField().findById(oId);
 
-        spellDamage = playerCard.getSpellDamage();
-        int mana = playerCard.getMana();
+        int mana = card.getMana();
 
-        if (mana <= pf.getCurMana()) {
-            if (playerCard != null && opponentCard != null) {
-                opponentCard.takeDamage(spellDamage);
-                pf.decrMana(mana);
-            }
+        if (mana <= pf.getCurMana() && opponentCard != null) {
+            opponentCard.takeDamage(damage);
+            pf.decrMana(mana);
         }
     }
     @Override

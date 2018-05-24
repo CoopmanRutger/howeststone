@@ -3,34 +3,27 @@ package intialize;
 import org.junit.Before;
 import org.junit.Test;
 import playField.api.intialize.InitPlayableDeck;
+import playField.player.PlayableDeck;
+
+import java.util.Set;
 
 import static org.junit.Assert.*;
 
 public class InitPlayableDeckTest {
 
-    public InitPlayableDeck playableDeck;
+    public InitPlayableDeck initPlayableDeck;
 
     @Before
     public void before() {
-        playableDeck = new InitPlayableDeck();
+        initPlayableDeck = new InitPlayableDeck();
     }
 
 
-    @Test
-    public void getPlayableDecks() {
-        assertNotNull(playableDeck.GetPlayableDecks());
-
-    }
 
     @Test
-    public void makePlaybleDeck() {
-    }
+    public void getPlayableDecksByHeroname() {
+        Set<PlayableDeck> blabla = initPlayableDeck.GetPlayableDecksByHeroname("Mage");
+        System.out.println(blabla);
 
-    @Test
-    public void getPlayableDeck() {
-    }
-
-    @Test
-    public void setPlayableDeck() {
     }
 }

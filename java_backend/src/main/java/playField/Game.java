@@ -6,7 +6,6 @@ import playField.cardCollection.cards.*;
 
 import playField.cardCollection.cards.Card;
 import playField.cardCollection.cards.CardMinion;
-import playField.cardCollection.cards.CardMinionAbility;
 import playField.player.Player;
 
 import playField.player.heroes.Hero;
@@ -15,9 +14,9 @@ import playField.player.heroes.HeroPower;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
-import static playField.cardCollection.cards.CardSpellAbilities.*;
 
-import static playField.cardCollection.cards.CardMinionAbility.divineShield;
+import static playField.cardCollection.cards.CardAbility.*;
+
 import static playField.player.heroes.AbilityType.attack;
 import static playField.player.heroes.AbilityType.heal;
 
@@ -37,8 +36,8 @@ public abstract class Game {
     }
 
     public Game(){
-        Set<CardMinionAbility> tempSet;
-        Set<CardSpellAbilities> tempSet2;
+        Set<CardAbility> tempSet;
+        Set<CardAbility> tempSet2;
 
         Deck playerDeck = new Deck();
         Deck opponentDeck = new Deck();
@@ -113,7 +112,7 @@ public abstract class Game {
         pf.decrMana(mana);
     }
 
-    public void spell(Set<CardSpellAbilities> abilities, CardSpell card) { // does spell-action
+    public void spell(Set<CardAbility> abilities, CardSpell card) { // does spell-action
         if (abilities.contains(drawCard)) pf.getCurrentPlayer().drawCard();
         if (abilities.contains(directAttack)) attackWithWeapon();
         if (abilities.contains(addArmour)) addArmour(card.getArmourToGive());
@@ -123,12 +122,20 @@ public abstract class Game {
 
 
     // ABSTRACT SPELS
+
     protected void addArmour(int amount){
         pf.getCurrentPlayer().getHero().incrArmour(amount);
     }
 
     protected void addHealthHero(int healAmount) {
         pf.getCurrentPlayer().getHero().incrHealth(healAmount);
+    }
+
+    protected void addHealthCard(int healAmount, String id) {
+        Player curPlayer =  pf.getCurrentPlayer();
+        CardMinion card = ((CardMinion) curPlayer.getCardsOnField().findById(id));
+
+        if (card != null) card.heal(healAmount);
     }
 
     // ABSTRACT SPELS

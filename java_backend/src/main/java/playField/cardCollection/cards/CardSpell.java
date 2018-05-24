@@ -11,7 +11,7 @@ public class CardSpell extends Card{
     @JsonProperty("armourToGive")
     private int armourToGive;
     @JsonProperty("amountToAttack")
-    private Set<CardSpellAbilities> abilities;
+    private Set<CardAbility> abilities;
     @JsonProperty("healthToGive")
     private int healthToGive;
     @JsonProperty("attackToGive")
@@ -25,7 +25,7 @@ public class CardSpell extends Card{
                      @JsonProperty("description") String description,
                      @JsonProperty("img") String img,
 					 @JsonProperty("mechanicsName") String mechanicsName,
-                     @JsonProperty("abilities") Set<CardSpellAbilities> abilities,
+                     @JsonProperty("abilities") Set<CardAbility> abilities,
                      @JsonProperty("amountToAttack") int amountToAttack,
                      @JsonProperty("healthToGive") int healthToGive,
                      @JsonProperty("armourToGive") int armourToGive,
@@ -57,7 +57,7 @@ public class CardSpell extends Card{
                 "mechanicsName: " + mechanicsName + "\n";
     }
 
-    public Set<CardSpellAbilities> getAbilities() {
+    public Set<CardAbility> getAbilities() {
         return abilities;
     }
 

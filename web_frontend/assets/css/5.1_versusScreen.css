@@ -26,6 +26,12 @@
     position: relative;
 }
 
+
+#playerHeroPicture img, #opponentHeroPicture img {
+    padding-top: 150px;
+    height: 400px;
+}
+
 #mage {
 
     margin: 30px 30px;

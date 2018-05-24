@@ -46,9 +46,10 @@ public class GameAPI extends Game {
     }
 
     @Override
-    protected void addAttack() {
+    protected void addAttack(int amount) {
 
     }
+
 
     @Override
     protected void addHealth(int healthToGive) {

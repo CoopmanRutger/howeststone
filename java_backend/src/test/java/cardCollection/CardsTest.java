@@ -21,6 +21,7 @@ public class CardsTest {
     private Cards cards;
 
     // TODO als een minion <0 levens heeft dan word hij van spel verwijderd. (rekening houden met deadrattle)
+    // TODO als een minion <0 levens heeft dan wordt hij van spel verwijderd. (rekening houden met deathrattle)
 
     @Before
     public void before() {

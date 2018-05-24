@@ -6,10 +6,42 @@ import playField.player.heroes.Hero;
 import playField.player.heroes.HeroPower;
 
 import java.sql.*;
+import java.util.ArrayList;
+import java.util.List;
 
 import static playField.player.heroes.AbilityType.heal;
 
 public class InitChooseYourHero extends Init {
+
+
+
+    public List<Hero> GetPlaybleHeros(){
+        List<Hero> heroes = new ArrayList<>();
+        try (
+                Connection conn = db.getConnection();
+                Statement stmt = conn.createStatement();
+                ResultSet heroResult = stmt.executeQuery(SqlStatements.SElECT_HEROS);
+        ){
+
+
+            while (heroResult.next()) {
+                String heroName = heroResult.getString("heroName");
+                String img = heroResult.getString("img");
+
+                Hero hero = new Hero(heroName, img, getHeroPower(heroResult.getString("heroPower")));
+                heroes.add(hero);
+
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+
+        return heroes;
+    }
+
+
+
 
 
     public Hero getHero(String HeroName, HeroPower heroPower){
@@ -27,9 +59,8 @@ public class InitChooseYourHero extends Init {
 
                 String img = heroResult.getString("img");
 
-                hero = new Hero(heroName, img, heroPower);
-            } else {
-                // TODO: 17/05/2018
+                if (heroPower != null) hero = new Hero(heroName, img, heroPower);
+                else hero = new Hero(heroName, img, getHeroPower(heroResult.getString("heroPower")));
             }
         } catch (SQLException e) {
             e.printStackTrace();

@@ -54,6 +54,9 @@ public class SqlStatements {
     public static final String SElECT_PLAYABLEDECK =
             "SELECT * FROM playabledeck WHERE deckName = ?";
 
+    public static final String SElECT_PLAYABLEDECK_BYHERONAME =
+            "SELECT * FROM playabledeck WHERE hero = ?";
+
 
 
 

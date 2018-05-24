@@ -26,7 +26,6 @@ function loadButtons(){
 function pickAHero(e) {
     e.preventDefault();
     console.log("im in pick a hero");
-
 		e.preventDefault();
     fetch("http://localhost:4242/API/pickYourOpponent", {
         method: 'post',

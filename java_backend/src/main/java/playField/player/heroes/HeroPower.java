@@ -16,7 +16,7 @@ public class HeroPower {
     @JsonProperty("tags")
     private String tags;
 
-    @JsonProperty("AbilityType")
+    @JsonProperty("abilityType")
     private final AbilityType abilityType;
 
     @JsonProperty("abilityValue")
@@ -28,14 +28,14 @@ public class HeroPower {
     @JsonProperty("img")
     private String img;
 
-    @JsonProperty("Hero power active: ") // TODO: 21/05/2018 ???
+    @JsonProperty("heroPowerActive") // TODO: 21/05/2018 ???
     private boolean heroPowerActive;
 
     @JsonCreator
     public HeroPower(@JsonProperty("heroPowerName") String heroPowerName,
                      @JsonProperty("manaCost") int manaCost,
                      @JsonProperty("tags") String tags,
-                     @JsonProperty("AbilityType") AbilityType abilityType,
+                     @JsonProperty("abilityType") AbilityType abilityType,
                      @JsonProperty("abilityValue") int abilityValue,
                      @JsonProperty("duration") int duration,
                      @JsonProperty("img") String img,

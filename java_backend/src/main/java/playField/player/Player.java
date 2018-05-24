@@ -3,7 +3,7 @@ package playField.player;
 import playField.cardCollection.Cards;
 import playField.cardCollection.Deck;
 import playField.cardCollection.cards.Card;
-import playField.cardCollection.cards.CardSpellAbilities;
+import playField.cardCollection.cards.CardAbility;
 import playField.cardCollection.cards.CardWeapon;
 import playField.player.heroes.Hero;
 

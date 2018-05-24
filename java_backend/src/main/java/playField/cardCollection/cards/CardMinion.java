@@ -4,7 +4,10 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 
 import java.util.Set;
 
-import static playField.cardCollection.cards.CardMinionAbility.*;
+import static playField.cardCollection.cards.CardAbility.charge;
+import static playField.cardCollection.cards.CardAbility.divineShield;
+import static playField.cardCollection.cards.CardAbility.windFury;
+
 
 public class CardMinion extends Card{
     @JsonProperty("attack")
@@ -18,13 +21,14 @@ public class CardMinion extends Card{
     @JsonProperty("mechanicsName")
     private String mechanicsName;
     @JsonProperty("abilities")
-    private Set<CardMinionAbility> abilities;
+    private Set<CardAbility> abilities;
     @JsonProperty("maxAmountAttack")
     private int maxAmountAttack = 1;
     @JsonProperty("amountAttack")
     private int amountAttack = 1;
-    @JsonProperty("amountAttack")
+    @JsonProperty("devineShield")
     private boolean devineShield = false;
+
 
     public CardMinion(@JsonProperty("cardId") String cardId,
                       @JsonProperty("name") String name,
@@ -37,7 +41,7 @@ public class CardMinion extends Card{
                       @JsonProperty("health") int health,
                       @JsonProperty("race") String race,
                       @JsonProperty("mechanicsName") String mechanicsName,
-                      @JsonProperty("abilities") Set<CardMinionAbility> abilities
+                      @JsonProperty("abilities") Set<CardAbility> abilities
                       ) {
         super(cardId, name, type, mana, heroType, description, img);
         this.attack = attack;

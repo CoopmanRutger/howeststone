@@ -80,12 +80,13 @@ public class CLI extends GameCLI {
         String oId = input.next();
 
         System.out.println(damage);
-
+        System.out.println(oId);
         CardMinion opponentCard = (CardMinion) pf.getOppositePlayer().getCardsOnField().findById(oId);
 
         int mana = card.getMana();
 
         if (mana <= pf.getCurMana() && opponentCard != null) {
+            System.out.println(oId);
             opponentCard.takeDamage(damage);
             pf.decrMana(mana);
         }

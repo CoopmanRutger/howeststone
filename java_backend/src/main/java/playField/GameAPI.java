@@ -42,6 +42,11 @@ public class GameAPI extends Game {
     }
 
     @Override
+    protected void spellDamage(CardSpell card) {
+
+    }
+
+    @Override
     protected void addArmour(int amount) {
 
     }

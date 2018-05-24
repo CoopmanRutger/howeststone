@@ -17,9 +17,7 @@ import java.util.List;
 import java.util.Set;
 
 import static playField.cardCollection.cards.CardAbility.*;
-
-import static playField.player.heroes.AbilityType.attack;
-import static playField.player.heroes.AbilityType.heal;
+import static playField.player.heroes.AbilityType.*;
 
 
 public abstract class Game {
@@ -35,18 +33,17 @@ public abstract class Game {
 
     public Game(){
         Set<CardAbility> tempSet;
-        Set<CardAbility> tempSet2;
 
         Deck playerDeck = new Deck();
         Deck opponentDeck = new Deck();
 
         for (int i = 0; i < 30; i++) {
-            tempSet2 = new HashSet<>();
-            tempSet2.add(addHealth);
-            playerDeck.addCard(new CardSpell("ID" + i, "name" + i, "type", 1, "type", "heroType", "img","", tempSet2,2, 1, 1,3));
+            tempSet = new HashSet<>();
+            tempSet.add(spellDamage);
+            playerDeck.addCard(new CardSpell("ID" + i, "name" + i, "type", 1, "type", "heroType", "img","", tempSet,2, 1, 1,3,2));
 
             tempSet = new HashSet<>();
-            tempSet.add(divineShield);
+//            tempSet.add(divineShield);
             opponentDeck.addCard(new CardMinion("ID" + i, "name" + i, "type", i/6 + 1, "type", "heroType", "img", i/5 + 1, (i+1)/5 + 1, "race", "mechanics", tempSet));
         }
 
@@ -82,8 +79,8 @@ public abstract class Game {
         }
     }
 
-
     // POSSIBLE ACTIONS
+
     protected void playCard(String pId) {
         Player curPlayer = pf.getCurrentPlayer();
 
@@ -116,6 +113,7 @@ public abstract class Game {
         if (abilities.contains(addArmour)) addArmour(card.getArmourToGive());
         if (abilities.contains(addHealth)) addHealth(card.getHealthToGive());
         if (abilities.contains(addAttack)) addAttack(card.getAttackToGive());
+        if (abilities.contains(spellDamage)) spellDamage(card);
     }
 
 
@@ -203,7 +201,7 @@ public abstract class Game {
         Hero hero = pf.getOppositePlayer().getHero();
         hero.takeDamage(damage);
     }
-
+    
     // TO IMPLEMENT:
 
     protected abstract void addHealth(int healthToGive);
@@ -223,4 +221,6 @@ public abstract class Game {
     protected abstract void playWeapon(Card card);
 
     protected abstract void attackWithWeapon();
+
+    protected abstract void spellDamage(CardSpell card);
 }

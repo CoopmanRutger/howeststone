@@ -17,12 +17,10 @@ public class Deck extends Cards{
     public void addCard(Card card){
         try{
             if (containsDouble(card)){  // sets bevatten geen dubbele waardes!
-                throw new Exception("er zijn 2 dezelfde kaarten");
                 throw new Exception("There already are two of the same cards!");
             } else if(getAmount()<30) {
                 cards.add(card);
             } else {
-                throw new Exception("meer dan 30 kaarten!");
                 throw new Exception("More than 30 cards!");
             }
         } catch (Exception Ex) {

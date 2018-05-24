@@ -9,8 +9,8 @@ import io.javalin.Context;
 import io.javalin.Javalin;
 import playField.GameState;
 import playField.cardCollection.Deck;
+import playField.cardCollection.cards.CardAbility;
 import playField.cardCollection.cards.CardMinion;
-import playField.cardCollection.cards.CardMinionAbility;
 import playField.player.Player;
 import playField.player.heroes.Hero;
 import playField.player.heroes.HeroPower;
@@ -20,8 +20,6 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
-import static playField.cardCollection.cards.CardMinionAbility.charge;
-import static playField.cardCollection.cards.CardMinionAbility.divineShield;
 import static playField.player.heroes.AbilityType.attack;
 import static playField.player.heroes.AbilityType.heal;
 
@@ -168,7 +166,7 @@ class Routes extends GameState {
     // INITIALIZING GAME
 
     private void versusScreen(Context context) {
-        Set<CardMinionAbility> tempSet;
+        Set<CardAbility> tempSet;
 //
 //        playerDeck = new Deck();
 //        Deck opponentDeck = new Deck();

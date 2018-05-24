@@ -15,7 +15,7 @@ public class Hero {
     @JsonProperty("life points")
     private int lifePoints = 30;
     @JsonProperty("amour points")
-    private int amourPoints = 0;
+    private int armourPoints = 0;
     @JsonCreator
     public Hero(@JsonProperty("name") String name, @JsonProperty("img") String img, @JsonProperty("heroPower") HeroPower heroPower) {
         this.name = name;
@@ -26,14 +26,8 @@ public class Hero {
     // DAMGE AND LIFE FUNCTIONS
 
     public void takeDamage(int damage){
-        if (amourPoints <= 0){
         if (armourPoints <= 0){
              lifePoints -= damage;
-        } else if (amourPoints > damage){
-            amourPoints =- damage;
-        } else if (amourPoints < damage){
-            damage -= amourPoints;
-            amourPoints = 0;
         } else if (armourPoints > damage){
             armourPoints =- damage;
         } else if (armourPoints < damage){
@@ -42,6 +36,8 @@ public class Hero {
             lifePoints -= damage;
         }
     }
+
+
 
 
     public boolean isAlive() {
@@ -57,14 +53,12 @@ public class Hero {
     }
 
     public void incrArmour(int amount) {
-        amourPoints += amount;
         armourPoints += amount;
     }
 
     // GETTERS AND SETTERS
 
     public int getAmourPoints() {
-        return amourPoints;
         return armourPoints;
     }
 
@@ -84,7 +78,6 @@ public class Hero {
 
     @Override
     public String toString() {
-        return name + ":\thealth: " + lifePoints + ",\theroPower: " + heroPower + "\tarmour: " + amourPoints;
         return name + ":\thealth: " + lifePoints + ",\theroPower: " + heroPower + "\tarmour: " + armourPoints;
     }
 
@@ -94,7 +87,6 @@ public class Hero {
         if (o == null || getClass() != o.getClass()) return false;
         Hero hero = (Hero) o;
         return lifePoints == hero.lifePoints &&
-                amourPoints == hero.amourPoints &&
                 armourPoints == hero.armourPoints &&
                 Objects.equals(name, hero.name) &&
                 Objects.equals(img, hero.img) &&
@@ -103,7 +95,6 @@ public class Hero {
 
     @Override
     public int hashCode() {
-        return Objects.hash(name, img, heroPower, lifePoints, amourPoints);
         return Objects.hash(name, img, heroPower, lifePoints, armourPoints);
     }
 }

@@ -21,7 +21,7 @@ public class InitDeckBuilderLvl2 extends Init {
             stmt.setString(1, cardID);
             ResultSet minion = stmt.executeQuery();
 
-            HashSet<CardMinionAbility> bla;
+            HashSet<CardAbility> bla;
 
             while(minion.next()) {
 
@@ -64,9 +64,9 @@ public class InitDeckBuilderLvl2 extends Init {
                 // blablablablabal
 
                 if (extraAbility){
-                    if (windfury) bla.add(CardMinionAbility.windFury);
-                    if (charge) bla.add(CardMinionAbility.charge);
-                    if (charge) bla.add(CardMinionAbility.divineShield);
+                    if (windfury) bla.add(CardAbility.windFury);
+                    if (charge) bla.add(CardAbility.charge);
+                    if (charge) bla.add(CardAbility.divineShield);
 
                 }
 
@@ -135,7 +135,7 @@ public class InitDeckBuilderLvl2 extends Init {
                 String mechanicsName = spell.getString("mechanicsName");
                 String info = spell.getString("description");
                 String img = spell.getString("img");
-                card = new CardSpell(cardId, name, type, mana, heroType, info, img, mechanicsName, new HashSet<CardSpellAbilities>(),0,0,1);
+                card = new CardSpell(cardId, name, type, mana, heroType, info, img, mechanicsName, new HashSet<CardAbility>(),0,0,1, 1);
             }
         } catch (SQLException e) {
             e.printStackTrace();
@@ -223,12 +223,12 @@ public class InitDeckBuilderLvl2 extends Init {
 
 
 
-                HashSet<CardMinionAbility> bla = new HashSet<>();
-
-//                System.out.printf(" cardId: %s, name: %s, mana: %d, attack: %d, health: %d, description: %s \n", cardId,name , mana, attack, health, info);
-                card = new CardMinion(cardId, name, type, mana, heroType, info, img, attack, health, race, mechanicsName, extraAbility, windfury, charge, battleCry, divineShield,
-                        spellDamage, doesDamage, doesHealth, effectTarget, onCondition, conditionItSelf, conditionClarification, drawCard, amountOfDrawnCards, battleCryEffectAbilityTarget,
-                        battleCryEffectBoostAttackOfTarget, battleCryEffectBoostHealthOfTarget, bla);
+                HashSet<CardAbility> bla = new HashSet<>();
+//
+////                System.out.printf(" cardId: %s, name: %s, mana: %d, attack: %d, health: %d, description: %s \n", cardId,name , mana, attack, health, info);
+//                card = new CardMinion(cardId, name, type, mana, heroType, info, img, attack, health, race, mechanicsName, extraAbility, windfury, charge, battleCry, divineShield,
+//                        spellDamage, doesDamage, doesHealth, effectTarget, onCondition, conditionItSelf, conditionClarification, drawCard, amountOfDrawnCards, battleCryEffectAbilityTarget,
+//                        battleCryEffectBoostAttackOfTarget, battleCryEffectBoostHealthOfTarget, bla);
             }
         } catch (SQLException e) {
             e.printStackTrace();

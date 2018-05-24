@@ -3,6 +3,9 @@
 document.addEventListener("DOMContentLoaded", init);
 
 function init() {
+    getPlayerHeroNameOutJava()
+    getOpponentHeroNameOutJava();
+
     window.setTimeout(function () {
         fetch("http://localhost:4242/API/versusScreen", {
         }).then(function (res) {
@@ -12,3 +15,44 @@ function init() {
         });
     },1500);
 }
+
+function setPlayerHeroPicture(heroname) {
+    document.querySelector('#playerHeroPicture').innerHTML += "<img src='/web_frontend/assets/media/hero_" + heroname
+                + ".jpg' alt='hero_" + heroname  + ".jpg'>";
+}
+
+function setOpponetHeroPicture(heroname) {
+    document.querySelector('#opponentHeroPicture').innerHTML += "<img src='/web_frontend/assets/media/hero_" + heroname
+                + ".jpg' alt='hero_" + heroname  + ".jpg'>";
+}
+
+
+    function getPlayerHeroNameOutJava() {
+        fetch("http://localhost:4242/API/deckbuildOrPlay/chooseYourHero/chooseDeckForHero/getHeroName", {
+            method: 'get',
+            headers: new Headers({
+                        "Accept": "text/plain"
+                    })
+        }).then(function (response) {
+            console.log(response);
+                        return response.text();
+        }).then(function (res) {
+            console.log(res);
+            let heroname = res.toLowerCase();
+            setPlayerHeroPicture(heroname)
+        })}
+
+        function getOpponentHeroNameOutJava() {
+            fetch("http://localhost:4242/API/pickYourOpponent/getHeroName", {
+                method: 'get',
+                headers: new Headers({
+                            "Accept": "text/plain"
+                        })
+            }).then(function (response) {
+                console.log(response);
+                            return response.text();
+            }).then(function (res) {
+                console.log(res);
+                let heroname = res.toLowerCase();
+                setOpponetHeroPicture(heroname);
+            })}

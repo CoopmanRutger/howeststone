@@ -6,6 +6,7 @@ import playField.cardCollection.cards.*;
 
 import playField.cardCollection.cards.Card;
 import playField.cardCollection.cards.CardMinion;
+import playField.player.PlayableDeck;
 import playField.player.Player;
 
 import playField.player.heroes.Hero;
@@ -27,12 +28,9 @@ public abstract class Game {
 
     // CONTRUCTOR
 
-    public Game(Deck playerDeck,
-                Deck opponentDeck,
-                Hero playerHero,
-                Hero opponentHero){
+    public Game(PlayableDeck playerDeck, PlayableDeck opponentDeck){
 
-        pf = new PlayingField(new Player(playerDeck, playerHero), new Player(opponentDeck, opponentHero));
+        pf = new PlayingField(new Player(playerDeck), new Player(opponentDeck));
     }
 
     public Game(){

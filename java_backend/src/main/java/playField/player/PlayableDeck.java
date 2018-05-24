@@ -1,14 +1,22 @@
 package playField.player;
 
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import playField.cardCollection.Deck;
 import playField.player.heroes.Hero;
 
 public class PlayableDeck {
+    @JsonProperty("deckName")
     private  String deckName;
+    @JsonProperty("hero")
     private Hero hero;
+    @JsonProperty("deck")
     private Deck deck;
 
-    public PlayableDeck(String deckName, Hero hero, Deck deck) {
+    @JsonCreator
+    public PlayableDeck(@JsonProperty("deckName")String deckName,
+                        @JsonProperty("hero")Hero hero,
+                        @JsonProperty("deck")Deck deck) {
         this.deckName = deckName;
         this.hero = hero;
         this.deck = deck;

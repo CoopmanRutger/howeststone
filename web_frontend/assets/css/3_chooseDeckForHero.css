@@ -44,6 +44,10 @@ main > div > div > div  {
 main > div div p {
     margin: 5px 60px 0 60px;
 }
+.heroPicture img {
+    height: 200px;
+}
+
 
 #threeMakeItYourself  {
     flex-direction: column;

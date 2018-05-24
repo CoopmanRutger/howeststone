@@ -10,7 +10,7 @@ function init() {
     document.getElementById('threeMakeItYourself').addEventListener('click', toDeckBuilderLevel2);
     let twoDecks = document.querySelectorAll('.deck');
     for(let i = 0; i < twoDecks.length; i++) {
-        twoDecks[i].addEventListener('click', toPickYrOpponent);
+        twoDecks[i].addEventListener('click', pickADeck);
     }
     // console.log(document.getElementById('test'));
 }
@@ -25,21 +25,39 @@ function loadButtons(){
 }
 
 
+
+function pickADeck(e) {
+    e.preventDefault();
+    console.log(this.value);
+    fetch("http://localhost:4242/API/deckbuildOrPlay/chooseYourHero/chooseDeckForHero/postChooseDeck", {
+        method: 'post',
+        body: JSON.stringify(this.value)
+    }).then(function (res) {
+        console.log(res);
+    }).then(function () {
+        window.location.href = "4_defaultPickYourOpponent.html";
+    })
+}
+
+
+
+
 function getDecksSQL(heroname) {
+    fetch("http://localhost:4242/API/deckbuildOrPlay/chooseYourHero/chooseDeckForHero/getChooseDeckSQL",).
+    then(function (response) {
+        return response.json();
+    }).then(function (res) {
+        console.log(res);
+    })
 
 }
 
 function setHeroDeckPictures(heroname) {
-    // \assets\media\hero_mage_deck1.jpg
-
-
-
-    document.querySelector('.heroPicture').innerHTML = "<img src='../media/hero_" + heroname  +  "_deck1.jpg' alt='hero_" + heroname  + "_deck1.jpg'>";
-
-    // main > div div:first-child div
-    // main > div div:nth-child(2) div
-    // background-image: url('../media/JainaChooseYrHero.jpg');
-
+    let tempArray = document.querySelectorAll('.heroPicture');
+    for (var i = 1; i <= tempArray.length; i++) {
+        tempArray[i-1].innerHTML += "<img src='/web_frontend/assets/media/hero_" + heroname
+                +  "_deck" + i + ".jpg' alt='hero_" + heroname  + "_deck" + i + ".jpg'>";
+    }
 }
 
 function toDeckBuilderLevel2(e){
@@ -47,20 +65,7 @@ function toDeckBuilderLevel2(e){
     window.location.href = "5_makeANewDeck=9deckBuildLevel2.html";
 }
 
-function toPickYrOpponent(e){
-    e.preventDefault();
-    fetch("http://localhost:4242/API/deckbuildOrPlay/chooseYourHero/chooseDeckForHero/postHeroDeck", {
-        method: 'post',
-        body: this.value
-    }).then(function (res) {
-        console.log(res);
-    }).then(function () {
-			window.location.href = "4_defaultPickYourOpponent.html";
-    });
-}
-// headers: {
-//     ,
-// },
+
 function getHeroNameOutJava() {
     fetch("http://localhost:4242/API/deckbuildOrPlay/chooseYourHero/chooseDeckForHero/getHeroName", {
         method: 'get',

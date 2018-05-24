@@ -10,8 +10,8 @@ public class CardSpell extends Card{
     private String mechanicsName;
     @JsonProperty("armourToGive")
     private int armourToGive;
-    @JsonProperty("amountToAttack")
-    private Set<CardSpellAbilities> abilities;
+    @JsonProperty("abilities")
+    private Set<CardAbility> abilities;
     @JsonProperty("healthToGive")
     private int healthToGive;
     @JsonProperty("attackToGive")

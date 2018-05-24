@@ -136,4 +136,8 @@ public class CardMinion extends Card{
     public void resetCanAttack(boolean canAttack) {
         amountAttack = 0;
     }
+
+    public void incrHealth(int healAmount) {
+        maxHealth += healAmount;
+    }
 }

@@ -131,7 +131,7 @@ public abstract class Game {
         Player curPlayer =  pf.getCurrentPlayer();
         CardMinion card = ((CardMinion) curPlayer.getCardsOnField().findById(id));
 
-        if (card != null) card.heal(healAmount);
+        if (card != null) card.incrHealth(healAmount);
     }
 
     // ABSTRACT SPELS

@@ -11,6 +11,7 @@ import playField.GameState;
 import playField.cardCollection.Deck;
 import playField.cardCollection.cards.CardAbility;
 import playField.cardCollection.cards.CardMinion;
+import playField.player.PlayableDeck;
 import playField.player.Player;
 import playField.player.heroes.Hero;
 import playField.player.heroes.HeroPower;
@@ -44,6 +45,7 @@ class Routes extends GameState {
         server.get("/API/pickYourOpponent/getHeroName", this::getHeroNameFromOpponent);
 
         server.get("/API/deckbuildOrPlay/deckbuildLevelOne/getHeroNames", this::getAllHeroNames);
+        server.post("/API/deckbuildOrPlay/chooseYourHero/chooseDeckForHero/postHeroNamesOneByOne", this::getDeckForHeroSQL);
 
         server.post("/API/deckbuildOrPlay/deckbuildLevelOne", this::deckbuildLevelOne);
         // TODO
@@ -51,18 +53,19 @@ class Routes extends GameState {
         // TODO alle kaarten van het gekozen deck + alle mogelijke kaarten die je kunt kiezen
 
         server.get("/API/versusScreen", this::versusScreen);
+        server.get("/API/versusScreen/opponentsDeck", this::getOpponentsDeck);
 
         server.post("/API/gameStartingHand", this::gameStartingHand);
         // TODO de eerste 3 kaarten van het deck tonen. (fetch n(aantal) kaarten)
 
 
+        server.get("/API/gameStartingHand/initializingGame", this::initializingGame);
         server.post("/API/gameStartingHand/playingField", this::playField);
         // TODO !!!!!
 
 //        server.get("/card/", this::getCardJson);
         server.get("/API/test", this::test);
     }
-
 
     private void test(Context context) {
         System.out.println("test worked");
@@ -74,6 +77,7 @@ class Routes extends GameState {
         context.json(initChooseYourHero.GetPlaybleHeros());
 
     }
+
     // FILLING FIELDS
     private void chooseYourHero(Context context) {
         String in = context.body().replace("\"","");
@@ -93,7 +97,6 @@ class Routes extends GameState {
 
         context.result("chooseYourHero");
     }
-
     private void getHeroNameForDecks(Context context) {
         context.result(playerHero.getName());
         System.out.println(playerHero.getName());
@@ -143,8 +146,8 @@ class Routes extends GameState {
         context.result("pickYourOpponent");
     }
 
-    // MAKING DECK
 
+    // MAKING DECK
     private void deckbuildLevelOne(Context context) {
         context.result("deckbuildLevelOne");
     }
@@ -163,33 +166,26 @@ class Routes extends GameState {
 
     }
 
+    private void getDeckForHeroSQL(Context context) {
+        InitPlayableDeck initPlayableDeck = new InitPlayableDeck();
+        Set<PlayableDeck> tempplayableDeckSet = initPlayableDeck.GetPlayableDecksByHeroname(context.body().replace("\"", ""));
+        context.json(tempplayableDeckSet);
+    }
+
+    private void getOpponentsDeck(Context context) {
+        opponentDeck = new  InitPlayableDeck().GetPlayableDeck("noob" + opponentHero.getName());
+        context.json(opponentDeck);
+    }
+
+
+
+
+
     // INITIALIZING GAME
 
-    private void versusScreen(Context context) {
-        Set<CardAbility> tempSet;
-//
-//        playerDeck = new Deck();
-//        Deck opponentDeck = new Deck();
-//
-//
-//
-//            tempSet = new HashSet<>();
-//            tempSet.add(divineShield);
-//            opponentDeck.addCard(new CardMinion("ID" + i, "name" + i, "type", i/6 + 1, "type", "heroType", "img", i/5 + 1, (i+1)/5 + 1, "race", "mechanics", tempSet));
-//        }
-//
-//        HeroPower playerHeroPower = new HeroPower("", 0, "", heal,1,1,"",true);
-//        HeroPower opponentHeroPower = new HeroPower("", 0, "", attack,1,1,"",true);
-//
-//        Player p = new Player(playerDeck, playerHero);
-//        Player o = new Player(opponentDeck, opponentHero);
-//
-//        game = new GameAPI(playerDeck,
-//                opponentDeck,
-//                playerHero,
-//                opponentHero);
-//
-//        context.result("versusScreen " + p.getHero().getName() + " " + o.getHero().getName());
+    private void initializingGame(Context context) {
+        game = new GameAPI(playerDeck, opponentDeck);
+
     }
 
     private void gameStartingHand(Context context) {

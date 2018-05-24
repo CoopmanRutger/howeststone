@@ -17,7 +17,7 @@ public abstract class GameCLI extends Game {
         input = new Scanner(System.in);
     }
 
-    protected void playerMechanics() {
+    public void playerMechanics() {
         committed = false;
 
         System.out.println("####################");
@@ -88,7 +88,7 @@ public abstract class GameCLI extends Game {
 
     protected abstract void showWeapon();
 
-    protected void botMechanics() {
+    public void botMechanics() {
         System.out.println("##########################");
         System.out.println("#                        #");
         System.out.println("#    Opponent's turn!    #");
@@ -142,7 +142,7 @@ public abstract class GameCLI extends Game {
         pf.getOpponent().drawCard();
     }
 
-    protected void endGame(){
+    public void endGame(){
         String out = "\n";
 
         if (pf.getPlayer().isAlive()) out = "you won";

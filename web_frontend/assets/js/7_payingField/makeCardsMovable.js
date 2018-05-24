@@ -1,7 +1,7 @@
 "use strict";
 
 let original;
-let moving;
+let moving = null;
 
 let diffX;
 let diffY;
@@ -26,16 +26,22 @@ function cardMousedown(e) {
     original.style.visibility = "hidden"
 
     document.querySelector("body").appendChild(moving);
+
+		document.addEventListener('mousemove', cardMousemove);
+    document.addEventListener("mouseup", cardMouseup);
 }
 
 function cardMouseup(e) {
    e.preventDefault();
    try {
-       // let card = moving.cloneNode(true);
-       moving.style.position = "";
+	 // let card = moving.cloneNode(true);
+	 moving.style.position = "";
 
-       cardController(e.clientX, e.clientY, moving, original, origin);
+	 cardController(e.clientX, e.clientY, moving, original, origin);
    } catch (e) {}
+
+	 document.removeEventListener('mousemove', cardMousemove);
+	 document.removeEventListener("mouseup", cardMouseup);
 }
 
 function cardMousemove(e) {

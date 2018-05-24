@@ -23,9 +23,9 @@ public class PlayingField {
     // CONSTRUCTOR
 
     public PlayingField(Player player, Player opponent) {
-        Random r = new Random();
-        begins = r.nextInt(2) == 0;
-
+//        Random r = new Random();
+//        begins = r.nextInt(2) == 0;
+        begins = true;
         this.player = player;
         this.opponent = opponent;
 
@@ -64,7 +64,7 @@ public class PlayingField {
         else return opponent;
     }
 
-    public boolean isOpponent () {
+    @JsonProperty("isOpponent")  public boolean whosTurn() {
         return getPlayerIndex() != (index % 2);
     }
 

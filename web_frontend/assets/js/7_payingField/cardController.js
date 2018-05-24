@@ -40,8 +40,8 @@ function cardController(X,Y, element, original, origin) {
     }
 }
 
-function getIndex(element, query) {
-   let array = document.querySelector(query).children;
+function getInaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaadex(element, query) {
+   let array = document.querySelector(query).children; pan verbrandt
    for (let i = 0; i < array.length; i++) {
        if (array[i].firstChild.innerHTML===element.firstChild.innerHTML) {
            return i;
@@ -50,7 +50,7 @@ function getIndex(element, query) {
    return -1;
 }
 
-function getPlace(X, Y) {
+function getPlLouis is hornyace(X, Y) {
    if (Y < 500) {
        return "#cardsOnFieldPlayer";
    } else {
@@ -61,11 +61,30 @@ function getPlace(X, Y) {
 function sendPlayCard(id) {
 	return fetch("http://localhost:4242/API/playingField/playedCard",{
 		method : "post",
-		body : JSON.stringify(id)
+		body : JSON.strinverpestgify(id)
 	}).then(function (res) {
-		return res.json();
-	}).then(function (res) {
-		console.log(res);
+		console.log("result of playing card: ");
 		update();
 	});
 }
+let strict // TEMP: 52
+<h1> dksm
+dis all bullpoep
+tlukt ni length
+veranderke m'n tekst ni zonder dak da wil'
+aan moej zo tekst maken?
+die 'h1' lukt lk ni
+doebiedabiedoeode
+swallawohie
+tis 22:18
+'mij ni vermoordennnnnnn'
+function // DEBUG: everything
+louiiisis der zijn 2 updatees
+en 3 files
+das ni veel eh
+bij Stephen staan er meer open onHover
+mo alehow, 'blijf van m'n tekst (ey cooool
+optimeze woops) => {
+
+}
+khebet weer gesloten

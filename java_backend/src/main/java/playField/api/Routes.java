@@ -141,6 +141,7 @@ class Routes extends GameState {
         String in = context.body().replace("\"", "");
         System.out.println("Card id is: " + in);
         game.playCard(in);
+        System.out.println(game.pf.getPlayer().getCardsOnField());
         context.result("you played card with id:" + in);
     }
 
@@ -149,8 +150,8 @@ class Routes extends GameState {
         context.result("");
     }
 
-    // NOT FOR CHRONOLOGICAL ORDERD //
     //------------------------------//
+    // NOT FOR CHRONOLOGICAL ORDERD //
     //------------------------------//
 
     // MAKING DECK

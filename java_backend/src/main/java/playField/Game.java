@@ -45,7 +45,7 @@ public abstract class Game {
             playerDeck.addCard(new CardSpell("ID" + i, "name" + i, "type", 1, "type", "heroType", "img","", tempSet,2, 1, 1,3,2));
 
             tempSet = new HashSet<>();
-            tempSet.add(divineShield);
+//            tempSet.add(divineShield);
             opponentDeck.addCard(new CardMinion("ID" + i, "name" + i, "type", i/6 + 1, "type", "heroType", "img", i/5 + 1, (i+1)/5 + 1, "race", "mechanics", tempSet));
         }
 

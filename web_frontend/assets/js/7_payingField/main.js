@@ -2,13 +2,16 @@
 
 document.addEventListener("DOMContentLoaded", init);
 
+let possibleTargets = document.getElementById("cardsOnFieldOpponent").children;
+let possibleAttackers = document.getElementById("cardsOnFieldPlayer").children;
+
 function init(){
     update();
-		document.getElementById('endTurn').addEventListener("click", sendCommit)
+	document.getElementById('endTurn').addEventListener("click", sendCommit)
 }
 
 function sendCommit(e) {
-	console.log("sending commit");
+	// console.log("sending commit");
 	if (!isOpponent) { //moet true zijn alst je beurt is
 		fetch("http://localhost:4242/API/playingField/commit",{
 			method : "get",

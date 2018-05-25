@@ -140,12 +140,12 @@ class Routes extends GameState {
         String pickedCardAsJsonString = context.body();
         System.out.println(pickedCardAsJsonString);
 
-        ObjectMapper mapper = new ObjectMapper();
-        Card actualCardObject = mapper.readValue(pickedCardAsJsonString, Card.class);
-
-        pickedCardId = actualCardObject.getId();
-
-        System.out.printf("Some picked %s as card\n", pickedCardId);
+//        ObjectMapper mapper = new ObjectMapper();
+//        Card actualCardObject = mapper.readValue(pickedCardAsJsonString, Card.class);
+//
+//        pickedCardId = actualCardObject.getId();
+//
+//        System.out.printf("Some picked %s as card\n", pickedCardId);
 
 //        ArrayList<String> array = context.body();
 //        for (String id : array) {

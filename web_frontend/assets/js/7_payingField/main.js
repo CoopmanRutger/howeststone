@@ -15,15 +15,40 @@ function sendCommit(e) {
 	if (!isOpponent) { //moet true zijn alst je beurt is
 		fetch("http://localhost:4242/API/playingField/commit",{
 			method : "get",
-		}).then(function () {
+		}).then(function (result) {
 			console.log("Twas aan ons ma nu nie meer!");
 			update();
-		}).then(function () {
-			fetch("http://localhost:4242/API/playingField/commitOpponent",{
+            return result.text();
+		}).then(function (result) {
+            if (result === "stop") {
+                if (player.lifepoints <= 0) {
+                    window.alert("You lose!")
+                } else {
+                    window.alert("You won!!")
+                }
+            }
+
+        }).then(function () {
+			fetch("http://localhost:4242/API/playingField/bot",{
 				method : "get",
 			}).then(function () {
-				console.log("Twas aan undr ma nu nie meer!");
-				update();
+                fetch("http://localhost:4242/API/playingField/commitOpponent",{
+                    method : "get",
+                }).then(function (result) {
+                    console.log("Twas aan undr ma nu nie meer!");
+                    update();
+                    return result.text();
+                }).then(function (result) {
+                    console.log(result);
+                    if (result === "stop") {
+                        if (player.lifepoints <= 0) {
+                            window.alert("You lose!")
+                        } else {
+                            window.alert("You won!!")
+                        }
+                    }
+
+                })
 			})
 		})
 	}

@@ -2,6 +2,7 @@ package playField.cardCollection.cards;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
+import java.util.HashSet;
 import java.util.Set;
 
 public class CardSpell extends Card {
@@ -24,9 +25,9 @@ public class CardSpell extends Card {
     @JsonProperty("doesHealth")
     private int doesHealth;
     @JsonProperty("damageTarget")
-    private int damageTarget;
+    private String damageTarget;
     @JsonProperty("healthTarget")
-    private int healthTarget;
+    private String healthTarget;
     @JsonProperty("drawCard")
     private boolean drawCard;
     @JsonProperty("amountOfDrawnCards")
@@ -47,21 +48,21 @@ public class CardSpell extends Card {
                      @JsonProperty("description") String description,
                      @JsonProperty("img") String img,
                      @JsonProperty("mechanicsName") String mechanicsName,
-                     @JsonProperty("abilities") Set<CardAbility> abilities,
+                     @JsonProperty("abilities") HashSet<CardAbility> abilities,
                      @JsonProperty("doesDamage") int doesDamage,
                      @JsonProperty("doesHealth") int doesHealth,
-                     @JsonProperty("damageTarget") int damageTarget,
-                     @JsonProperty("healthTarget") int healthTarget,
+                     @JsonProperty("damageTarget") String damageTarget,
+                     @JsonProperty("healthTarget") String healthTarget,
                      @JsonProperty("drawCard") boolean drawCard,
                      @JsonProperty("amountOfDrawnCards") int amountOfDrawnCards,
                      @JsonProperty("onCondition") boolean onCondition,
                      @JsonProperty("conditionItSelf") String conditionItSelf,
                      @JsonProperty("destroy") boolean destroy
-                     @JsonProperty("amountToAttack") int amountToAttack,
-                     @JsonProperty("healthToGive") int healthToGive,
-                     @JsonProperty("armourToGive") int armourToGive,
-                     @JsonProperty("attackToGive") int attackToGive,
-                     @JsonProperty("spellDamage") int spellDamage
+//                     @JsonProperty("amountToAttack") int amountToAttack,
+//                     @JsonProperty("healthToGive") int healthToGive,
+//                     @JsonProperty("armourToGive") int armourToGive,
+//                     @JsonProperty("attackToGive") int attackToGive,
+//                     @JsonProperty("spellDamage") int spellDamage
     ) {
         super(cardId, name, type, mana, heroType, description, img);
         this.mechanicsName = mechanicsName;
@@ -125,11 +126,9 @@ public class CardSpell extends Card {
         return doesHealth;
     }
 
-    public int getDamageTarget() {
-        return damageTarget;
-    }
+    public String  getDamageTarget() { return damageTarget; }
 
-    public int getHealthTarget() {
+    public String  getHealthTarget() {
         return healthTarget;
     }
 

@@ -17,6 +17,7 @@ function cardController(X,Y, element, original, origin) {
         original.remove();
     } else {
         element.remove();
+        update();
     }
 }
 

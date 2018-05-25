@@ -77,7 +77,8 @@ function update() {
 
     	showCardsOnField(opponent)
         makeAttackable();
-
+        // make hero attackable
+        document.getElementById("heroPictureOpponent").addEventListener('click', selectHero);
 
         manaCrystal(player);
         manaCrystal(opponent);

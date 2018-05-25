@@ -17,6 +17,7 @@ import java.util.List;
 import java.util.Set;
 
 import static playField.cardCollection.cards.CardAbility.*;
+import static playField.cardCollection.cards.CardActions.*;
 import static playField.player.heroes.AbilityType.*;
 
 
@@ -32,15 +33,15 @@ public abstract class Game {
     }
 
     public Game(){
-        Set<CardAbility> tempSet;
+        HashSet<CardAbility> tempSet;
 
         Deck playerDeck = new Deck();
         Deck opponentDeck = new Deck();
 
         for (int i = 0; i < 30; i++) {
             tempSet = new HashSet<>();
-            tempSet.add(addHealth);
-            playerDeck.addCard(new CardSpell("ID" + i, "name" + i, "type", 1, "type", "heroType", "http://media.services.zam.com/v1/media/byName/hs/cards/enus/EX1_015.png","", tempSet,2, 1, 1,3,2));
+//            tempSet.add(addHealth);
+            playerDeck.addCard(new CardSpell("ID" + i, "name" + i, "type", 1, "type", "heroType", "http://media.services.zam.com/v1/media/byName/hs/cards/enus/EX1_015.png","", tempSet,2, 1, "","",true, 1,true ,"" ,true ));
 
             tempSet = new HashSet<>();
 //            tempSet.add(divineShield);
@@ -114,7 +115,7 @@ public abstract class Game {
         if (abilities.contains(addArmour)) addArmour(card.getArmourToGive());
         if (abilities.contains(addHealth)) addHealth(card.getHealthToGive());
         if (abilities.contains(addAttack)) addAttack(card.getAttackToGive());
-        if (abilities.contains(spellDamage)) spellDamage(card);
+//        if (abilities.contains(spellDamage)) spellDamage(card);
     }
 
 
@@ -189,7 +190,7 @@ public abstract class Game {
         CardMinion playerCard = (CardMinion) pf.getCurrentPlayer().getCardsOnField().findById(pId);
         Hero hero = pf.getOppositePlayer().getHero();
 
-
+        System.out.println(playerCard);
         System.out.println(playerCard.getCanAttack());
 
         if (playerCard != null && playerCard.getCanAttack()) {

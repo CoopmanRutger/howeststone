@@ -128,11 +128,11 @@ public class InitDeckBuilderLvl2 extends Init {
             stmt.setString(1, cardID);
             ResultSet spell = stmt.executeQuery();
 
-            HashSet<CardAbility> bla2;
+            boolean bla2;
 
             while(spell.next()) {
 
-                bla2 = new HashSet<>();
+                bla2 = true;
 
                 String cardId = spell.getString("cardId");
                 String name = spell.getString("name");
@@ -153,9 +153,8 @@ public class InitDeckBuilderLvl2 extends Init {
                 String conditionItSelf = spell.getString("conditionItSelf");
 
 
-
-
-                card = new CardSpell(cardId, name, type, mana, heroType, info, img, mechanicsName, destroy, doesDamage, doesHealth, damageTarget,
+                HashSet<CardAbility> tempset = new HashSet<>();
+                card = new CardSpell(cardId, name, type, mana, heroType, info, img, mechanicsName, tempset, doesDamage, doesHealth, damageTarget,
                         healthTarget, drawCard, amountOfDrawnCards, onCondition, conditionItSelf,  bla2);
             }
         } catch (SQLException e) {

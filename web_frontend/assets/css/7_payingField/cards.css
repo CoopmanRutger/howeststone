@@ -37,6 +37,11 @@
     box-shadow: 0 0  20px blue;
 }
 
+.selectedHeroToAttack{
+    box-shadow: 0 0  20px Yellow;
+
+}
+
 /* TODO: betere class name fixen */
 
 .card, .selectedToAttack, .selectedForAttack {

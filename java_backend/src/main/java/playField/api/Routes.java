@@ -30,7 +30,7 @@ class Routes extends GameState {
         server.get("/API/pickYourOpponent/getHeroName", this::getHeroNameFromOpponent);
 
         // TODO: 24/05/2018 make gameStartingHand
-        server.post("/API/gameStartingHand/remove", this::gameStartingHandRemove);
+//        server.post("/API/gameStartingHand/remove", this::gameStartingHandRemove);
 
         server.get("/API/gameStartingHand/initializingGame", this::initializingGame);
 
@@ -132,14 +132,14 @@ class Routes extends GameState {
 
 
     // FIXING STARTING HAND
-    private void gameStartingHandRemove(Context context) {
-        String array = context.body();
-
-//        ArrayList<String> array = context.body();
-        for (String id : array) {
-            game.pf.getCurrentPlayer().moveBack(id);
-        }
-    }
+//    private void gameStartingHandRemove(Context context) {
+//        String array = context.body();
+//
+////        ArrayList<String> array = context.body();
+//        for (String id : array) {
+//            game.pf.getCurrentPlayer().moveBack(id);
+//        }
+//    }
 
     // THE GAME ITSELF
 

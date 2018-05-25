@@ -35,21 +35,20 @@ let player = {
 
 function update() {
     fetch("http://localhost:4242/API/playingField/getGameState", {
-    }).then(function (res) {
+        }).then(function (res) {
         return res.json();
-    }).then(function (res) {
-        console.log(res);
-        // console.log(res.player.weapon);
+        }).then(function (res) {
+            // console.log(res);
+            // console.log(res.player.weapon);
 
-				isOpponent = res.isOpponent;
-				endTurn(!isOpponent);
+        isOpponent = res.isOpponent;
+    	endTurn(!isOpponent);
 
-				if (!isOpponent) {
+        if (!isOpponent) {
+    		player.manaCharge = res.curMana;
+    		player.manaLimit = res.totalMana;
+    	}
 
-
-					player.manaCharge = res.curMana;
-					player.manaLimit = res.totalMana;
-				}
         player.heroName = res.player.hero.name;
         player.lifepoints = res.player.hero.lifePoints;
         player.amountShield = res.player.hero.armourPoints;
@@ -60,13 +59,14 @@ function update() {
         // player.heroWeapon = res.player.weapon;
 
         injectCards(player.arrayCardsInHand)
-				showCardsOnField(player)
+    	showCardsOnField(player)
+        selectAttacker();
 
-				if (isOpponent) {
-					opponent.manaCharge = res.curMana;
-					opponent.manaLimit = res.totalMana;
-				}
-				opponent.heroName = res.opponent.hero.name;
+    	if (isOpponent) {
+            opponent.manaCharge = res.curMana;
+            opponent.manaLimit = res.totalMana;
+    	}
+    	opponent.heroName = res.opponent.hero.name;
         opponent.lifepoints = res.opponent.hero.lifePoints;
         opponent.amountShield = res.opponent.hero.armourPoints;
         opponent.arrayCardsInHand = res.opponent.cardsInHand.cards;
@@ -75,7 +75,9 @@ function update() {
         // opponent.weaponTurns = res.opponent.weapon;
         // opponent.heroWeapon = res.opponent.weapon;
 
-				showCardsOnField(opponent)
+    	showCardsOnField(opponent)
+        makeAttackable();
+
 
         manaCrystal(player);
         manaCrystal(opponent);
@@ -90,7 +92,6 @@ function update() {
             elements[i].addEventListener("mouseenter", cardOnmouseEnter);
             elements[i].addEventListener("mouseleave", cardOnmouseLeave);
         }
-
     })
 }
 

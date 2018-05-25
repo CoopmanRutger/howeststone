@@ -147,6 +147,8 @@ public abstract class Game {
 
         int damage;
 
+        System.out.println(playerCard + "\n" + opponentCard);
+
         if (playerCard != null && opponentCard != null && playerCard.getCanAttack()) {
             damage = playerCard.getAttack();
             opponentCard.takeDamage(damage);

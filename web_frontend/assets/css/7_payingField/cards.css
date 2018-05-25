@@ -29,13 +29,17 @@
 
 /* cards on the playing field */
 
+.selectedToAttack{
+    box-shadow: 0 0  20px red;
+}
+
 .selectedForAttack{
-    background-color: red;
+    box-shadow: 0 0  20px blue;
 }
 
 /* TODO: betere class name fixen */
 
-.card {
+.card, .selectedToAttack, .selectedForAttack {
     background-position: -25px -22px;
     background-repeat: no-repeat;
     background-size: 177%;
@@ -46,7 +50,7 @@
     margin-bottom: 50px;
 }
 
-.card .cardName {
+.card .cardName, .selectedToAttack .cardName, .selectedForAttack .cardName {
     position: absolute;
     background-color: black;
     width: 70px;
@@ -57,16 +61,16 @@
     color: white;
 }
 
-.card .cardName h2 {
+.card .cardName h2 , .selectedToAttack .cardName h2, .selectedForAttack .cardName h2 {
     line-height: 11px;
     font-size: 0.8rem;
     text-align: center;
 }
 
-.card .cardAttack  {
+.card .cardAttack, .selectedToAttack .cardAttack, .selectedForAttack .cardAttack  {
     position: absolute;
-    background-color: green;
-    top: 58px;
+    background-color: red;
+    top: 55px;
     border-radius: 50%;
     width: 20px;
     line-height: 20px;
@@ -76,11 +80,11 @@
     font-size: 1rem;
 }
 
-.card .cardHealth {
+.card .cardHealth, .selectedToAttack .cardHealth, .selectedForAttack .cardHealth {
     position: relative;
-    background-color: red;
+    background-color: green;
     left: 48px;
-    top: 53px;
+    top: 55px;
     width: 20px;
     line-height: 20px;
     border-radius: 50%;

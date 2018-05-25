@@ -58,9 +58,8 @@ function manaCrystal(player) {
         let unchargeMana = player.manaLimit - variable;
         document.querySelector("#manaCrystalsNumber" + query).innerHTML = player.manaCharge;
             document.querySelector("#manaCrystalsLimits" + query).innerHTML = player.manaLimit;
-        if (query === "Player"){
+        if (query === "Player") {
             manaCrystalSymbols(player.manaCharge, unchargeMana);
-			console.log(player.manaCharge,unchargeMana );
         }
     }
 }

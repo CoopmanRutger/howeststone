@@ -31,7 +31,7 @@ class Routes extends GameState {
         server.get("/API/pickYourOpponent/getHeroName", this::getHeroNameFromOpponent);
 
         // TODO: 24/05/2018 make gameStartingHand
-        server.post("/API/gameStartingHand/remove", this::gameStartingHandRemove);
+//        server.post("/API/gameStartingHand/remove", this::gameStartingHandRemove);
 
         server.get("/API/gameStartingHand/initializingGame", this::initializingGame);
 

@@ -11,6 +11,7 @@ import io.javalin.Javalin;
 import playField.GameState;
 import playField.cardCollection.cards.Card;
 
+import java.io.IOException;
 import java.util.ArrayList;
 
 
@@ -31,7 +32,7 @@ class Routes extends GameState {
         server.get("/API/pickYourOpponent/getHeroName", this::getHeroNameFromOpponent);
 
         // TODO: 24/05/2018 make gameStartingHand
-//        server.post("/API/gameStartingHand/remove", this::gameStartingHandRemove);
+        server.post("/API/gameStartingHand/remove", this::gameStartingHandRemove);
 
         server.get("/API/gameStartingHand/initializingGame", this::initializingGame);
 
@@ -126,22 +127,22 @@ class Routes extends GameState {
 
         game = new GameAPI(playerDeck, opponentDeck);
 
-        System.out.println(game.pf);
-
         context.json(game);
     }
 
 
     // FIXING STARTING HAND
-    private void gameStartingHandRemove(Context context) {
-        String array = context.body();
+    private void gameStartingHandRemove(Context context) throws IOException {
+        String in = context.body();
+        System.out.println();
+        System.out.println();
+        System.out.println("de verwijderde kaarten:");
+        System.out.println(in);
+
+        ObjectMapper mapper = new ObjectMapper();
+        ArrayList<String> array = mapper.readValue(in, ArrayList.class);
+
         System.out.println(array);
-
-        String pickedCardAsJsonString = context.body();
-        System.out.println(pickedCardAsJsonString);
-
-//        ObjectMapper mapper = new ObjectMapper();
-//        Card actualCardObject = mapper.readValue(pickedCardAsJsonString, Card.class);
 //
 //        pickedCardId = actualCardObject.getId();
 //

@@ -40,7 +40,9 @@ class Routes extends GameState {
 
         // NOT CHRONOLOGICAL !!!!
 
-//        server.post("/API/deckbuildOrPlay/chooseYourHero/chooseDeckForHero/postHeroNamesOneByOne", this::getDeckForHeroSQL);
+        server.post("/API/deckbuildOrPlay/deckbuildLevelOne/postHero", this::postTempHero);
+        server.get("/API/deckbuildOrPlay/deckbuildLevelOne/getDeck", this::getDeck);
+
 
         server.post("/API/deckbuildOrPlay/deckbuildLevelOne", this::deckbuildLevelOne);
         server.get("/API/deckbuildOrPlay/deckbuildLevelOne/getHeroNames", this::getAllHeroNames);
@@ -67,8 +69,8 @@ class Routes extends GameState {
     }
 
 
-    // FILLING FIELDS
 
+    // FILLING FIELDS
     private void chooseYourHero(Context context) {
         String in = context.body().replace("\"", "");
         System.out.println("Chosen Hero: " + in);
@@ -78,13 +80,13 @@ class Routes extends GameState {
 
         context.result("chooseYourHero");
     }
+
     private void getHeroNameForDecks(Context context) {
         context.result(playerHero.getName());
     }
-
     private void getDeckForHeroSQL(Context context) {
         InitPlayableDeck initPlayableDeck = new InitPlayableDeck();
-        playableDeckSet = initPlayableDeck.GetPlayableDecksByHeroname(playerHero.getName());
+        playableDeckSet = initPlayableDeck.getPlayableDecksByHeroname(playerHero.getName());
         context.json(playableDeckSet);
     }
 
@@ -113,8 +115,8 @@ class Routes extends GameState {
     }
 
 
-    // INITIALIZE GAME
 
+    // INITIALIZE GAME
     private void initializingGame(Context context) {
         opponentDeck = new InitPlayableDeck().GetPlayableDeck("noob" + opponentHero.getName());
         System.out.println("Chosen Opponent Deck: noob" + opponentHero.getName());
@@ -126,17 +128,17 @@ class Routes extends GameState {
         context.json(game);
     }
 
-    // FIXING STARTING HAND
 
+    // FIXING STARTING HAND
     private void gameStartingHand(Context context) {
         context.result("gameStartingHand");
     }
 
     // THE GAME ITSELF
+
     private void getGameState(Context context) {
         context.json(game.pf);
     }
-
 
     private void postPlayedCard(Context context) {
         String in = context.body().replace("\"", "");
@@ -157,17 +159,25 @@ class Routes extends GameState {
         System.out.println("commited");
     }
 
-    //------------------------------//
-    //                              //
-    // NOT FOR CHRONOLOGICAL ORDERD //
-    //                              //
-    //------------------------------//
 
-    // MAKING DECK
+
+    //------------------------------//
+    //                              //
+
+    private void postTempHero(Context context) {
+        InitPlayableDeck init = new InitPlayableDeck();
+        context.json(init.getPlayableDecksByHeroname(context.body().replace("\"","")));
+    }
+
+    private void getDeck(Context context) {
+        InitPlayableDeck init = new InitPlayableDeck();
+        context.json(init.getPlayableDecksByHeroname(tempHero));
+    }
 
     private void deckbuildLevelOne(Context context) {
         context.result("deckbuildLevelOne");
     }
+    // MAKING DECK
 
     private void deckBuildLevel2(Context context) {
         InitDeckBuilderLvl2 db = new InitDeckBuilderLvl2();
@@ -182,11 +192,14 @@ class Routes extends GameState {
         context.result("deckBuildLevel2");
 
     }
+
+    //------------------------------//
+
+    //        context.json(tempplayableDeckSet);
+    //                              //
+    // NOT FOR CHRONOLOGICAL ORDERD //
     //        InitPlayableDeck initPlayableDeck = new InitPlayableDeck();
     //        Set<PlayableDeck> tempplayableDeckSet = initPlayableDeck.GetPlayableDecksByHeroname(context.body().replace("\"", ""));
-    //        context.json(tempplayableDeckSet);
-
-//    private void getDeckForHeroSQL(Context context) {
-
-//    }
+    //    }
+    //    private void getDeckForHeroSQL(Context context) {
 }

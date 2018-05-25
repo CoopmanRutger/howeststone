@@ -5,7 +5,7 @@ import playField.cardCollection.Cards;
 import java.util.Map;
 
 public class Heroes {
-    Map<Hero, Cards> cardChoices;
+    private Map<Hero, Cards> cardChoices;
 
     public Heroes(Map<Hero, Cards> cardChoices) {
         this.cardChoices = cardChoices;

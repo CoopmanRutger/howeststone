@@ -1,7 +1,5 @@
 "use strict";
 
-let heroesResult
-
 let heroesAndDecks = [
 //     {"name":"Mage",
 // "img":"blablabla",
@@ -22,11 +20,19 @@ document.addEventListener("DOMContentLoaded", init);
 
 function init() {
     console.log("blablabla");
-    getHeroNames().then(function () {
-        Promise.all(makeJson()).then(function(values) {
-          injectHeroDecks();
+
+    getHeroNames().then(makeJson).then(function (res) {
+        console.log(res);
+        Promise.all(res).then(function (res) {
+            console.log(res);
         });
     });
+
+    // getHeroNames().then(function () {
+    //     Promise.all(makeJson()).then(function(values) {
+    //       injectHeroDecks();
+    //     });
+    // });
 }
 
 function getHeroNames(){
@@ -34,30 +40,43 @@ function getHeroNames(){
     .then(function (response) {
         return response.json();
     }).then(function (res) {
-        heroesResult = res;
+        return res;
     })
 }
 
-function makeJson() {
+function makeJson(res) {
     let array = [];
-    for (let i = 0; i <heroesResult; i++){
+    for (let i = 0; i < res.length; i++){
         heroesAndDecks[i] = {
-            "name" : heroesResult[i].name,
-            "img" : "/web_frontend/assets/media/" + heroesResult[i].img + ".jpg",
+            "name" : res[i].name,
+            "img" : "/web_frontend/assets/media/" + res[i].img + ".jpg"
         };
-        array.push(makeDecks(heroesResult[i].name, i));
+        console.log(res[i].name);
+        array.push(postHero(res[i].name, i));
     }
     return array;
 }
 
-function makeDecks(heroname, i) {
-    return fetch("http://localhost:4242/API/deckbuildOrPlay/chooseYourHero/chooseDeckForHero/postHeroNamesOneByOne",{
+function postHero(heroname, i) {
+    return fetch("http://localhost:4242/API/deckbuildOrPlay/deckbuildLevelOne/postHero",{
         method: 'post',
         body: JSON.stringify(heroname)
-    }).then(function (response) {
-        return response.json();
+    }).then(function () {
+        // heroesAndDecks[i].deck = makeDeckList(res)
     }).then(function (res) {
-        heroesAndDecks[i].deck = makeDeckList(res)
+        return res;
+    })
+    // }).then(getDecksForHero)
+}
+
+function getDecksForHero() {
+    return fetch("http://localhost:4242/API/deckbuildOrPlay/deckbuildLevelOne/getDeck",{
+        method : 'get'
+    }).then(function (res) {
+        return res.json();
+    }).then(function (res) {
+        console.log(res);
+        return res;
     })
 }
 

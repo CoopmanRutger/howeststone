@@ -54,13 +54,13 @@ function manaCrystal(player) {
         query += "Player"
     }
     if (player.manaCharge <= 10 && player.manaLimit <= 10) {
-        let variable = 10; // TODO: tussen 0 en 10 + negatief
-        let amountLimits = 10;
-        let unchargeMana = amountLimits - variable;
+        let variable = player.manaCharge; // TODO: tussen 0 en 10 + negatief
+        let unchargeMana = player.manaLimit - variable;
         document.querySelector("#manaCrystalsNumber" + query).innerHTML = player.manaCharge;
             document.querySelector("#manaCrystalsLimits" + query).innerHTML = player.manaLimit;
         if (query === "Player"){
             manaCrystalSymbols(player.manaCharge, unchargeMana);
+			console.log(player.manaCharge,unchargeMana );
         }
     }
 }

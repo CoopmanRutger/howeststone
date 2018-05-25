@@ -97,4 +97,9 @@ public class Player {
     public void setWeapon(CardWeapon weapon) {
         this.weapon = weapon;
     }
+
+    public void moveBack(String id) {
+        Card card = cardsInHand.drawById(id);
+        deck.addCard(card);
+    }
 }

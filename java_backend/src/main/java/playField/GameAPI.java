@@ -49,7 +49,6 @@ public class GameAPI extends Game {
                     toRemove.add(card);
                 }
             }
-
             // PLAYING CARDS TO PLAY
 
             for (Card card : toRemove) playCard(card.getCardId());

@@ -8,7 +8,9 @@ import playField.api.intialize.InitDeckBuilderLvl2;
 import io.javalin.Context;
 import io.javalin.Javalin;
 import playField.GameState;
+import playField.cardCollection.cards.Card;
 
+import java.util.ArrayList;
 
 
 class Routes extends GameState {
@@ -28,7 +30,7 @@ class Routes extends GameState {
         server.get("/API/pickYourOpponent/getHeroName", this::getHeroNameFromOpponent);
 
         // TODO: 24/05/2018 make gameStartingHand
-        server.post("/API/gameStartingHand", this::gameStartingHand);
+        server.post("/API/gameStartingHand/remove", this::gameStartingHandRemove);
 
         server.get("/API/gameStartingHand/initializingGame", this::initializingGame);
 
@@ -56,6 +58,8 @@ class Routes extends GameState {
     }
 
 
+
+
     private void test(Context context) {
         System.out.println("test worked");
         context.result("test worked");
@@ -67,8 +71,8 @@ class Routes extends GameState {
     }
 
 
-    // FILLING FIELDS
 
+    // FILLING FIELDS
     private void chooseYourHero(Context context) {
         String in = context.body().replace("\"", "");
         System.out.println("Chosen Hero: " + in);
@@ -78,10 +82,10 @@ class Routes extends GameState {
 
         context.result("chooseYourHero");
     }
+
     private void getHeroNameForDecks(Context context) {
         context.result(playerHero.getName());
     }
-
     private void getDeckForHeroSQL(Context context) {
         InitPlayableDeck initPlayableDeck = new InitPlayableDeck();
         playableDeckSet = initPlayableDeck.GetPlayableDecksByHeroname(playerHero.getName());
@@ -113,8 +117,8 @@ class Routes extends GameState {
     }
 
 
-    // INITIALIZE GAME
 
+    // INITIALIZE GAME
     private void initializingGame(Context context) {
         opponentDeck = new InitPlayableDeck().GetPlayableDeck("noob" + opponentHero.getName());
         System.out.println("Chosen Opponent Deck: noob" + opponentHero.getName());
@@ -126,17 +130,22 @@ class Routes extends GameState {
         context.json(game);
     }
 
-    // FIXING STARTING HAND
 
-    private void gameStartingHand(Context context) {
-        context.result("gameStartingHand");
+    // FIXING STARTING HAND
+    private void gameStartingHandRemove(Context context) {
+        String array = context.body();
+
+//        ArrayList<String> array = context.body();
+        for (String id : array) {
+            game.pf.getCurrentPlayer().moveBack(id);
+        }
     }
 
     // THE GAME ITSELF
+
     private void getGameState(Context context) {
         context.json(game.pf);
     }
-
 
     private void postPlayedCard(Context context) {
         String in = context.body().replace("\"", "");
@@ -157,9 +166,9 @@ class Routes extends GameState {
         System.out.println("commited");
     }
 
-    //------------------------------//
     //                              //
     // NOT FOR CHRONOLOGICAL ORDERD //
+    //------------------------------//
     //                              //
     //------------------------------//
 

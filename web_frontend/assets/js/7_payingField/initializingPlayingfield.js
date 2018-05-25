@@ -1,6 +1,7 @@
 "use strict";
 
 function cardsInHandOpponent(array) {
+		document.querySelector("#cardsInHandOpponent").innerHTML = "";
     for (let i = 0; i < array.length; i++) {
         let element = document.createElement("div");
         element.style.backgroundImage = "url('images/redCard.png')";

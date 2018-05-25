@@ -33,6 +33,10 @@ class Routes extends GameState {
         server.get("/API/gameStartingHand/initializingGame", this::initializingGame);
 
         server.get("/API/playingField/getGameState", this::getGameState);
+        server.post("/API/playingField/playedCard", this::postPlayedCard);
+        server.get("/API/playingField/commit", this::commit);
+        server.get("/API/playingField/commitOpponent", this::commitOpponent);
+
 
         // NOT CHRONOLOGICAL !!!!
 
@@ -51,6 +55,7 @@ class Routes extends GameState {
         server.get("/API/test", this::test);
     }
 
+
     private void test(Context context) {
         System.out.println("test worked");
         context.result("test worked");
@@ -63,6 +68,7 @@ class Routes extends GameState {
 
 
     // FILLING FIELDS
+
     private void chooseYourHero(Context context) {
         String in = context.body().replace("\"", "");
         System.out.println("Chosen Hero: " + in);
@@ -72,7 +78,6 @@ class Routes extends GameState {
 
         context.result("chooseYourHero");
     }
-
     private void getHeroNameForDecks(Context context) {
         context.result(playerHero.getName());
     }
@@ -109,28 +114,53 @@ class Routes extends GameState {
 
 
     // INITIALIZE GAME
+
     private void initializingGame(Context context) {
         opponentDeck = new InitPlayableDeck().GetPlayableDeck("noob" + opponentHero.getName());
         System.out.println("Chosen Opponent Deck: noob" + opponentHero.getName());
 
         game = new GameAPI(playerDeck, opponentDeck);
+
+        System.out.println(game.pf);
+
         context.json(game);
     }
 
-
     // FIXING STARTING HAND
+
     private void gameStartingHand(Context context) {
         context.result("gameStartingHand");
     }
 
     // THE GAME ITSELF
-
     private void getGameState(Context context) {
         context.json(game.pf);
     }
 
-    // NOT FOR CHRONOLOGICAL ORDERD //
+
+    private void postPlayedCard(Context context) {
+        String in = context.body().replace("\"", "");
+        System.out.println("Card id is: " + in);
+        game.playCard(in);
+        System.out.println(game.pf.getPlayer().getCardsOnField());
+        context.result("you played card with id:" + in);
+    }
+
+    private void commit(Context context) {
+        game.pf.getPlayer().drawCard();
+        game.commit();
+        game.botMechanics();
+    }
+
+    private void commitOpponent(Context context){
+        game.commit();
+        System.out.println("commited");
+    }
+
     //------------------------------//
+    //                              //
+    // NOT FOR CHRONOLOGICAL ORDERD //
+    //                              //
     //------------------------------//
 
     // MAKING DECK

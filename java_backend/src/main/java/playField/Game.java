@@ -62,7 +62,7 @@ public abstract class Game {
         while (true) {
             updateCanAttack();
 
-            if (pf.isOpponent()) botMechanics();
+            if (pf.whosTurn()) botMechanics();
             else playerMechanics();
 
             if (!pf.getPlayer().isAlive() || !pf.getOpponent().isAlive()) break;
@@ -81,7 +81,7 @@ public abstract class Game {
 
     // POSSIBLE ACTIONS
 
-    protected void playCard(String pId) {
+    public void playCard(String pId) {
         Player curPlayer = pf.getCurrentPlayer();
 
         Card card = curPlayer.getCardsInHand().findById(pId);
@@ -89,6 +89,7 @@ public abstract class Game {
 
         if (card != null && mana <= pf.getCurMana()) {
             String type = card.identifier();
+            System.out.println("The type of the card with id " + card.getCardId() + " is " + type);
             switch (type) {
                 case "CardMinion":
                     curPlayer.playCard(pId);
@@ -102,9 +103,9 @@ public abstract class Game {
                 default:
                     System.out.println("someting wong");
             }
+            curPlayer.getCardsInHand().remove(card);
+            pf.decrMana(mana);
         }
-        curPlayer.getCardsInHand().remove(card);
-        pf.decrMana(mana);
     }
 
     public void spell(Set<CardAbility> abilities, CardSpell card) { // does spell-action
@@ -119,28 +120,28 @@ public abstract class Game {
 
     // ABSTRACT SPELS
 
-    protected void addArmour(int amount){
+    public void addArmour(int amount){
         pf.getCurrentPlayer().getHero().incrArmour(amount);
     }
 
-    protected void addHealthHero(int healAmount) {
+    public void addHealthHero(int healAmount) {
         pf.getCurrentPlayer().getHero().incrHealth(healAmount);
     }
 
-    protected void addHealthCard(int healAmount, String id) {
+    public void addHealthCard(int healAmount, String id) {
         Player curPlayer =  pf.getCurrentPlayer();
         CardMinion card = ((CardMinion) curPlayer.getCardsOnField().findById(id));
 
-        if (card != null) card.heal(healAmount);
+        if (card != null) card.incrHealth(healAmount);
     }
 
     // ABSTRACT SPELS
 
-    protected abstract void addAttack(int amount);
+    public abstract void addAttack(int amount);
 
 
     // BASIC METHOD'S
-    protected void attackCard(String pId, String oId) {
+    public void attackCard(String pId, String oId) {
         CardMinion playerCard = (CardMinion) pf.getCurrentPlayer().getCardsOnField().findById(pId);
         CardMinion opponentCard = (CardMinion) pf.getOppositePlayer().getCardsOnField().findById(oId);
 
@@ -160,7 +161,7 @@ public abstract class Game {
         }
     }
 
-    protected void attackHero(String pId) {
+    public void attackHero(String pId) {
         CardMinion playerCard = (CardMinion) pf.getCurrentPlayer().getCardsOnField().findById(pId);
         Hero hero = pf.getOppositePlayer().getHero();
 
@@ -175,7 +176,7 @@ public abstract class Game {
         }
     }
 
-    protected void playHeroPower() {
+    public void playHeroPower() {
         HeroPower heroPower = pf.getCurrentPlayer().getHero().getHeroPower();
 
         int mana = heroPower.getManaCost();
@@ -189,7 +190,7 @@ public abstract class Game {
         }
     }
 
-    protected void playWeaponOnCard(String oId, int damage) {
+    public void playWeaponOnCard(String oId, int damage) {
         CardMinion opponentCard = (CardMinion) pf.getOppositePlayer().getCardsOnField().findById(oId);
 
         if (opponentCard != null){
@@ -197,30 +198,30 @@ public abstract class Game {
         }
     }
 
-    protected void playWeaponOnHero(int damage) {
+    public void playWeaponOnHero(int damage) {
         Hero hero = pf.getOppositePlayer().getHero();
         hero.takeDamage(damage);
     }
     
     // TO IMPLEMENT:
 
-    protected abstract void addHealth(int healthToGive);
+    public abstract void addHealth(int healthToGive);
 
-    protected abstract void attackHeroPower(HeroPower playerHeroPower);
+    public abstract void attackHeroPower(HeroPower playerHeroPower);
 
-    protected abstract void healHeroPower(HeroPower playerHeroPower);
+    public abstract void healHeroPower(HeroPower playerHeroPower);
 
-    protected abstract void endGame();
+    public abstract void endGame();
 
-    protected abstract void botMechanics();
+    public abstract void botMechanics();
 
-    protected abstract void playerMechanics();
+    public abstract void playerMechanics();
 
-    protected abstract void commit();
+    public abstract void commit();
 
-    protected abstract void playWeapon(Card card);
+    public abstract void playWeapon(Card card);
 
-    protected abstract void attackWithWeapon();
+    public abstract void attackWithWeapon();
 
-    protected abstract void spellDamage(CardSpell card);
+    public abstract void spellDamage(CardSpell card);
 }

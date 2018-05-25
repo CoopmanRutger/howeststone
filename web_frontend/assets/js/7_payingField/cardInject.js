@@ -1,16 +1,13 @@
 "use strict";
 
 function injectCards(arrayOfCards) {
+		document.querySelector("#cardsInHandPlayer").innerHTML = "";
     for (let i = 0; i < arrayOfCards.length; i++) {
         showCardHand(arrayOfCards[i])
     }
 }
 
 function showCardField(card, side) {
-
-    if (side = "#cardsOnFieldPlayer") {
-
-    }
     //main card
     let startposition = 420;
     let spaceBetweenCards = 20;
@@ -56,7 +53,7 @@ function showCardField(card, side) {
 }
 
 function showCardHand(card) {
-	// console.log(card);
+		// console.log(card);
     let startposition = 420;
     let spaceBetweenCards = 20;
 

@@ -9,7 +9,7 @@ import playField.player.Player;
 import java.util.Set;
 
 public class GameState{
-    protected Game game;
+    protected Game game = new GameAPI();
 
     protected PlayableDeck playerDeck;
     protected PlayableDeck opponentDeck;

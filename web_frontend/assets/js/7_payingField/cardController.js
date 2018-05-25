@@ -9,30 +9,13 @@ function cardController(X,Y, element, original, origin) {
 
     let place = getPlace(X,Y);
 
-    console.log(place);
+    if (place === "#cardsOnFieldPlayer" && player.arrayCardsOnField.length < 7) {
+        sendPlayCard(player.arrayCardsInHand[index].cardId)
 
-    if (place==="#cardsOnFieldPlayer"&&player.arrayCardsOnField.length<7) {
-        console.log("cardsOnFieldPlayer");
         element.remove();
+				element = null;
         original.remove();
-
-        player.arrayCardsOnField.push(cardJson);
-        player.arrayCardsInHand.splice(player.arrayCardsInHand.indexOf(cardJson), 1);
-        if (cardJson.type==="Weapon") {
-            player.heroWeapon = true;
-            player.weaponAttack = cardJson.attack;
-            player.weaponTurns = cardJson.durability;
-            // player. = cardJson.img;
-            hero(player);
-        } else {
-            showCardField(cardJson,"#cardsOnFieldPlayer");
-        }
     } else {
-        console.log("cardsInHandPlayer");
-
-        original.style.position = "";
-        original.style.visibility = "visible";
-
         element.remove();
     }
 }
@@ -53,4 +36,13 @@ function getPlace(X, Y) {
    } else {
        return "#cardsInHandPlayer";
    }
+}
+
+function sendPlayCard(id) {
+	return fetch("http://localhost:4242/API/playingField/playedCard",{
+		method : "post",
+		body : JSON.stringify(id)
+	}).then(function (res) {
+		update();
+	});
 }

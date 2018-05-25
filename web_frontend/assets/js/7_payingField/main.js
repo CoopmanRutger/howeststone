@@ -4,18 +4,24 @@ document.addEventListener("DOMContentLoaded", init);
 
 function init(){
     update();
-    endTurn(true);
+		document.getElementById('endTurn').addEventListener("click", sendCommit)
+}
 
-
-    // makeMovable shit
-    document.addEventListener('mousemove', cardMousemove);
-    document.addEventListener("mouseup", cardMouseup);
-
-    fetch("http://localhost:4242/API/playingField/getGameState", {
-    }).then(function (res) {
-        return res.Json;
-    }).then(function (res) {
-        console.log("fetched gamestate");
-        console.log(res);
-    });
+function sendCommit(e) {
+	console.log("sending commit");
+	if (!isOpponent) { //moet true zijn alst je beurt is
+		fetch("http://localhost:4242/API/playingField/commit",{
+			method : "get",
+		}).then(function () {
+			console.log("Twas aan ons ma nu nie meer!");
+			update();
+		}).then(function () {
+			fetch("http://localhost:4242/API/playingField/commitOpponent",{
+				method : "get",
+			}).then(function () {
+				console.log("Twas aan undr ma nu nie meer!");
+				update();
+			})
+		})
+	}
 }

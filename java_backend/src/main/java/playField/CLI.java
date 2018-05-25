@@ -23,7 +23,7 @@ public class CLI extends GameCLI {
     }
 
     @Override
-    protected void attackHeroPower(HeroPower heroPower) {
+    public void attackHeroPower(HeroPower heroPower) {
         Hero oppponentHero = pf.getOppositePlayer().getHero();
 
         int damage = heroPower.getAbilityValue();
@@ -34,7 +34,7 @@ public class CLI extends GameCLI {
     }
 
     @Override
-    protected void healHeroPower(HeroPower heroPower){
+    public void healHeroPower(HeroPower heroPower){
         System.out.print("Give id of card to heal: ");
         String id = input.next();
 
@@ -55,12 +55,12 @@ public class CLI extends GameCLI {
     }
 
     @Override
-    protected void commit() {
+    public void commit() {
         committed = true;
     }
 
     @Override
-    protected void attackWithWeapon() {
+    public void attackWithWeapon() {
         System.out.println("Give id of card to heal or \"hero\" for healing hero");
         System.out.print("$ ");
 
@@ -73,7 +73,7 @@ public class CLI extends GameCLI {
     }
 
     @Override
-    protected void spellDamage(CardSpell card) {
+    public void spellDamage(CardSpell card) {
         int damage = card.getSpellDamage();
 
         System.out.print("Give ID of card to attack: ");
@@ -91,7 +91,7 @@ public class CLI extends GameCLI {
         }
     }
     @Override
-    protected void playWeapon(Card card) {
+    public void playWeapon(Card card) {
         pf.getCurrentPlayer().setWeapon((CardWeapon) card);
     }
 
@@ -139,7 +139,7 @@ public class CLI extends GameCLI {
     // IMPLEMENTING SPELL ACTIONS
 
     @Override
-    protected void addHealth(int healthToGive){
+    public void addHealth(int healthToGive){
         System.out.println("give id of card to heal or \"hero\" for healing hero");
         System.out.print("$ ");
         String id = input.next();
@@ -148,7 +148,7 @@ public class CLI extends GameCLI {
     }
 
     @Override
-    protected void addAttack(int amount){
+    public void addAttack(int amount){
         System.out.println("give ID of card to give extra attack");
         System.out.print("$ ");
         String id = input.next();

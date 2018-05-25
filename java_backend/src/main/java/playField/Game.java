@@ -118,9 +118,31 @@ public abstract class Game {
     }
 
 
+
+
     // ABSTRACT SPELS
 
-    public void addArmour(int amount){
+
+    protected void destroyCard (String pId, String oId){ // not finished; works only on condition
+        // (when minion is attack is five or less OR minion attack is three or less)
+        CardSpell playerCard = (CardSpell) pf.getCurrentPlayer().getCardsOnField().findById(pId);
+        CardMinion opponentCard = (CardMinion) pf.getOppositePlayer().getCardsOnField().findById(oId);
+
+
+        int destroyDmge;
+
+        if (playerCard != null && opponentCard != null && playerCard.isDestroy()){
+//            if (opponentCard.getAttack() <= 5) { NOT FINISHED
+
+                destroyDmge = opponentCard.getHealth();
+                opponentCard.takeDamage(destroyDmge);
+
+        }
+    }
+
+
+
+    protected void addArmour(int amount){
         pf.getCurrentPlayer().getHero().incrArmour(amount);
     }
 

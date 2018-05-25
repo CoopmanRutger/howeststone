@@ -67,6 +67,8 @@ public class InitDeckBuilderLvl2 extends Init {
                     if (windfury) bla.add(CardAbility.windFury);
                     if (charge) bla.add(CardAbility.charge);
                     if (charge) bla.add(CardAbility.divineShield);
+                    if (battleCry) bla.add(CardAbility.battlecry);
+
 
                 }
 
@@ -126,7 +128,12 @@ public class InitDeckBuilderLvl2 extends Init {
             stmt.setString(1, cardID);
             ResultSet spell = stmt.executeQuery();
 
+            HashSet<CardAbility> bla2;
+
             while(spell.next()) {
+
+                bla2 = new HashSet<>();
+
                 String cardId = spell.getString("cardId");
                 String name = spell.getString("name");
                 String type = spell.getString("type");
@@ -135,7 +142,21 @@ public class InitDeckBuilderLvl2 extends Init {
                 String mechanicsName = spell.getString("mechanicsName");
                 String info = spell.getString("description");
                 String img = spell.getString("img");
-                card = new CardSpell(cardId, name, type, mana, heroType, info, img, mechanicsName, new HashSet<CardAbility>(),0,0,1, 1, 1);
+                boolean destroy = spell.getBoolean("destroy");
+                int doesDamage = spell.getInt("doesDamage");
+                int doesHealth = spell.getInt("doesHealth");
+                String damageTarget = spell.getString("damageTarget");
+                String healthTarget = spell.getString("healthTarget");
+                boolean drawCard = spell.getBoolean("drawCard");
+                int amountOfDrawnCards = spell.getInt("amountOfDrawnCards");
+                boolean onCondition = spell.getBoolean("onCondition");
+                String conditionItSelf = spell.getString("conditionItSelf");
+
+
+
+
+                card = new CardSpell(cardId, name, type, mana, heroType, info, img, mechanicsName, destroy, doesDamage, doesHealth, damageTarget,
+                        healthTarget, drawCard, amountOfDrawnCards, onCondition, conditionItSelf,  bla2);
             }
         } catch (SQLException e) {
             e.printStackTrace();

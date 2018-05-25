@@ -45,7 +45,7 @@ function update() {
 				endTurn(!isOpponent);
 
 				if (!isOpponent) {
-					
+
 
 					player.manaCharge = res.curMana;
 					player.manaLimit = res.totalMana;

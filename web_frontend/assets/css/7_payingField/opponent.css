@@ -1,12 +1,24 @@
 /* OPPONENT */
 
 #opponent{
+     /* background-color: red; */
     width: 650px;
     height: 355px;
+    flex-direction: row;
+    flex-wrap: nowrap;
 }
 
 #cardsOnFieldOpponent {
+    position: absolute;
     top: 250px;
+    left: 10px;
+    height: 95px;
+    width: 640px;
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: center;
+    position: absolute;
+    /* background-color: blue; */
 }
 
 #cardsInHandOpponent {
@@ -99,6 +111,16 @@
 }
 
 #heroShieldOpponent {
+
+}
+
+#heroShieldNumberOpponent {
+    position: absolute;
+    left: 389px;
+    top: 183px;
+    color: white;
+    font-weight: bold;
+
 }
 
 #heroLifePointsOpponent {

@@ -140,15 +140,9 @@ class Routes extends GameState {
     // FIXING STARTING HAND
     private void gameStartingHandRemove(Context context) throws IOException {
         String in = context.body();
-        System.out.println();
-        System.out.println();
-        System.out.println("de verwijderde kaarten:");
-        System.out.println(in);
 
         ObjectMapper mapper = new ObjectMapper();
         ArrayList<String> array = mapper.readValue(in, ArrayList.class);
-
-        System.out.println(array);
 
         for (String id : array) {
             game.pf.getCurrentPlayer().moveBack(id);
@@ -157,15 +151,13 @@ class Routes extends GameState {
         for (int i = 0; i < array.size(); i++) {
             game.pf.getCurrentPlayer().drawCard();
 
-        }System.out.println(array.size());
+        }
     }
 
     private void sendAttack(Context context) throws IOException {
         String in = context.body();
         ObjectMapper mapper = new ObjectMapper();
         ArrayList<String> array = mapper.readValue(in, ArrayList.class);
-
-        System.out.println(array);
 
         if (array.get(1).equals("hero")) game.attackHero(array.get(0));
         else game.attackCard(array.get(0), array.get(1));
@@ -181,16 +173,18 @@ class Routes extends GameState {
 
     private void postPlayedCard(Context context) {
         String in = context.body().replace("\"", "");
-        System.out.println("Card id is: " + in);
+        System.out.println("Card id of played card is: " + in);
         game.playCard(in);
-        System.out.println(game.pf.getPlayer().getCardsOnField());
         context.result("you played card with id:" + in);
     }
 
     private void commitPlayer(Context context) {
         game.pf.getPlayer().drawCard();
-        if (!game.pf.getOppositePlayer().getHero().isAlive()) context.result("stop");
-        else context.result("");
+        if (!game.pf.getOppositePlayer().getHero().isAlive()) {
+            context.result("stop");
+        } else {
+            context.result("");
+        }
         game.commit();
     }
 
@@ -201,8 +195,11 @@ class Routes extends GameState {
 
 
     private void commitOpponent(Context context){
-        if (!game.pf.getOppositePlayer().getHero().isAlive()) context.result("stop");
-        else context.result("");
+        if (!game.pf.getOppositePlayer().getHero().isAlive()) {
+            context.result("stop");
+        } else {
+            context.result("");
+        }
         game.commit();
     }
 

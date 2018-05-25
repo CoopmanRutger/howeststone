@@ -305,7 +305,7 @@ public class InitDeckBuilderLvl2 extends Init {
                 int attack = weapon.getInt("attack");
                 int durability = weapon.getInt("durability");
 
-                System.out.printf(" cardID: %s, name: %s, mana: %d, attack: %d, durability: %d, heroType: %s description: %s \n", cardId,name , cost, attack, durability, playerClass, info);
+//                System.out.printf(" cardID: %s, name: %s, mana: %d, attack: %d, durability: %d, heroType: %s description: %s \n", cardId,name , cost, attack, durability, playerClass, info);
             }
         } catch (SQLException e) {
             e.printStackTrace();
@@ -326,7 +326,7 @@ public class InitDeckBuilderLvl2 extends Init {
                 String info = spell.getString("description");
                 String playerClass = spell.getString("heroType");
 
-                System.out.printf(" cardID: %s, name: %s, mana: %d, info: %s, heroType %s \n", cardId,name , cost, info, playerClass);
+//                System.out.printf(" cardID: %s, name: %s, mana: %d, info: %s, heroType %s \n", cardId,name , cost, info, playerClass);
             }
         } catch (SQLException e) {
             e.printStackTrace();

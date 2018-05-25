@@ -1,5 +1,6 @@
 package playField;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import playField.cardCollection.Cards;
 import playField.cardCollection.Deck;
 import playField.cardCollection.cards.Card;
@@ -68,7 +69,6 @@ public class GameAPI extends Game {
 
         for (Card card : toAttack.getCards()) {
             attackHero(card.getCardId());
-            System.out.println("bitch attack!");
         }
 
         // DRAWING NEW CARD

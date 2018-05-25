@@ -58,7 +58,6 @@ function deSelect () {
 
 function sendAttack() {
     let arr = [attacker,target]
-    console.log("array is", arr);
     fetch("http://localhost:4242/API/playingField/sendAttack", {
         method: "post",
         body: JSON.stringify(arr)

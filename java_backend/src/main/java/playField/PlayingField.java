@@ -99,6 +99,13 @@ public class PlayingField {
         curMana -= amount;
     }
 
+    @JsonProperty("end")
+    public boolean getEnd() {
+        return !player.getHero().isAlive() && !opponent.getHero().isAlive();
+    }
+
+
+
     // TO STRING
 
     @Override

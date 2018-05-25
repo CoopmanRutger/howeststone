@@ -38,8 +38,7 @@ function update() {
         }).then(function (res) {
         return res.json();
         }).then(function (res) {
-            // console.log(res);
-            // console.log(res.player.weapon);
+        console.log(res);
 
         isOpponent = res.isOpponent;
     	endTurn(!isOpponent);
@@ -85,6 +84,14 @@ function update() {
         cardsInHandOpponent(opponent.arrayCardsInHand);
         hero(opponent);
         hero(player);
+
+        if (res.end) {
+            if (res.player.alive) {
+                window.alert("You won!!")
+            } else {
+                window.alert("You lose!")
+            }
+        }
 
         let elements = document.querySelectorAll(".cardHand");
 

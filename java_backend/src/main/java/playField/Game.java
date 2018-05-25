@@ -60,7 +60,7 @@ public abstract class Game {
     }
 
     public void run() {
-        while (true) {
+        while (!pf.getEnd()) {
             updateCanAttack();
 
             if (pf.whosTurn()) botMechanics();
@@ -170,8 +170,6 @@ public abstract class Game {
 
         int damage;
 
-        System.out.println(playerCard + "\n" + opponentCard);
-
         if (playerCard != null && opponentCard != null && playerCard.getCanAttack()) {
             damage = playerCard.getAttack();
             opponentCard.takeDamage(damage);
@@ -190,19 +188,10 @@ public abstract class Game {
         CardMinion playerCard = (CardMinion) pf.getCurrentPlayer().getCardsOnField().findById(pId);
         Hero hero = pf.getOppositePlayer().getHero();
 
-        System.out.println(playerCard);
-        System.out.println(playerCard.getCanAttack());
-
         if (playerCard != null && playerCard.getCanAttack()) {
             int damage = playerCard.getAttack();
-
-            System.out.println(damage);
             hero.takeDamage(damage);
-            System.out.println(hero.getLifePoints());
-
             playerCard.incrCanAttack(false);
-
-            if (!hero.isAlive()) commit();
         }
     }
 

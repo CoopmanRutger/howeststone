@@ -1,5 +1,6 @@
 package playField.api;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
 import playField.GameAPI;
 import playField.api.intialize.InitPlayableDeck;
 import playField.cardCollection.Cards;
@@ -8,7 +9,10 @@ import playField.api.intialize.InitDeckBuilderLvl2;
 import io.javalin.Context;
 import io.javalin.Javalin;
 import playField.GameState;
+import playField.cardCollection.cards.Card;
 
+import java.io.IOException;
+import java.util.ArrayList;
 
 
 class Routes extends GameState {
@@ -28,7 +32,7 @@ class Routes extends GameState {
         server.get("/API/pickYourOpponent/getHeroName", this::getHeroNameFromOpponent);
 
         // TODO: 24/05/2018 make gameStartingHand
-        server.post("/API/gameStartingHand", this::gameStartingHand);
+        server.post("/API/gameStartingHand/remove", this::gameStartingHandRemove);
 
         server.get("/API/gameStartingHand/initializingGame", this::initializingGame);
 
@@ -56,6 +60,8 @@ class Routes extends GameState {
 
         server.get("/API/test", this::test);
     }
+
+
 
 
     private void test(Context context) {
@@ -123,15 +129,31 @@ class Routes extends GameState {
 
         game = new GameAPI(playerDeck, opponentDeck);
 
-        System.out.println(game.pf);
-
         context.json(game);
     }
 
 
     // FIXING STARTING HAND
-    private void gameStartingHand(Context context) {
-        context.result("gameStartingHand");
+    private void gameStartingHandRemove(Context context) throws IOException {
+        String in = context.body();
+        System.out.println();
+        System.out.println();
+        System.out.println("de verwijderde kaarten:");
+        System.out.println(in);
+
+        ObjectMapper mapper = new ObjectMapper();
+        ArrayList<String> array = mapper.readValue(in, ArrayList.class);
+
+        System.out.println(array);
+
+        for (String id : array) {
+            game.pf.getCurrentPlayer().moveBack(id);
+        }
+
+        for (int i = 0; i < array.size(); i++) {
+            game.pf.getCurrentPlayer().drawCard();
+
+        }System.out.println(array.size());
     }
 
     // THE GAME ITSELF
@@ -159,10 +181,11 @@ class Routes extends GameState {
         System.out.println("commited");
     }
 
-
-
+    //                              //
+    // NOT FOR CHRONOLOGICAL ORDERD //
     //------------------------------//
     //                              //
+    //------------------------------//
 
     private void postTempHero(Context context) {
         InitPlayableDeck init = new InitPlayableDeck();

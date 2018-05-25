@@ -40,7 +40,7 @@ public abstract class Game {
         for (int i = 0; i < 30; i++) {
             tempSet = new HashSet<>();
             tempSet.add(addHealth);
-            playerDeck.addCard(new CardSpell("ID" + i, "name" + i, "type", 1, "type", "heroType", "img","", tempSet,2, 1, 1,3,2));
+            playerDeck.addCard(new CardSpell("ID" + i, "name" + i, "type", 1,    "type", "heroType", "http://media.services.zam.com/v1/media/byName/hs/cards/enus/EX1_015.png","", tempSet,2, 1, 1,3,2));
 
             tempSet = new HashSet<>();
 //            tempSet.add(divineShield);

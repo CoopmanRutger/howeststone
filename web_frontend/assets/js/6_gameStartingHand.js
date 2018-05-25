@@ -16,9 +16,7 @@ function toRemoveCards(e) {
 
 function init() {
 
-    document.getElementById("confirm").addEventListener("click", function () {
-        window.location.href = "7_playingField.html";
-    });
+    document.getElementById("confirm").addEventListener("click", comfirm);
 
     for (let i = 0; i < divToGetPics.length; i++) {
         divToGetPics[i].addEventListener('click', toRemoveCards);
@@ -44,9 +42,10 @@ function comfirm(e) {
     let card;
     for (card of divToGetPics) {
         if (card.className === "chosen") {
-            cardsToStartingHand.id.push(card.id);
+            cardsToStartingHand.push(card.id);
         }
     }
+		sendStartingHand(cardsToStartingHand)
 }
 
 function sendStartingHand(cardsToStartingHand) {

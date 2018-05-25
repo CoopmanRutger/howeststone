@@ -8,6 +8,14 @@
 }
 
 #cardsOnFieldPlayer {
+    position: absolute;
+    left: 10px;
+    height: 95px;
+    width: 640px;
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: center;
+    /* background-color: yellow; */
 }
 
 #heroPlayer {
@@ -43,13 +51,16 @@
     height: 145px;
 }
 
-#heroShieldOpponent {
+#heroShieldPlayer {
+    position: absolute;
+    left: 381px;
+    top: 173px;
 }
 
 #heroShieldNumberPlayer {
     position: absolute;
     left: 388px;
-    top: 182px;
+    top: 180px;
     color: white;
     font-weight: bold;
 }

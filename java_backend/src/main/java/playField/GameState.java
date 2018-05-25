@@ -9,6 +9,8 @@ import playField.player.Player;
 import java.util.Set;
 
 public class GameState{
+    protected String tempHero; // voor deckbuilder lvl 1
+
     protected Game game = new GameAPI();
 
     protected PlayableDeck playerDeck;

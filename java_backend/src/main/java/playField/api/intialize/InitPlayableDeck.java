@@ -79,7 +79,7 @@ public class InitPlayableDeck extends Init {
     }
 
 
-    public Set<PlayableDeck> GetPlayableDecksByHeroname(String heroname){
+    public Set<PlayableDeck> getPlayableDecksByHeroname(String heroname){
         Set<PlayableDeck> playableDeckSet = new HashSet<>();
         PlayableDeck playableDeck = null;
         try (

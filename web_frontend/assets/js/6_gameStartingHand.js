@@ -53,7 +53,7 @@ function sendStartingHand(cardsToStartingHand) {
         method : "post",
         body : JSON.stringify(cardsToStartingHand)
     }).then(function () {
-        // window.location.href = "7_playingField.html";
+        window.location.href = "7_playingField.html";
     });
 }
 

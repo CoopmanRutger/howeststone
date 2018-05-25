@@ -1,5 +1,6 @@
 package playField.api;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
 import playField.GameAPI;
 import playField.api.intialize.InitPlayableDeck;
 import playField.cardCollection.Cards;
@@ -134,11 +135,22 @@ class Routes extends GameState {
     // FIXING STARTING HAND
     private void gameStartingHandRemove(Context context) {
         String array = context.body();
+        System.out.println(array);
+
+        String pickedCardAsJsonString = context.body();
+        System.out.println(pickedCardAsJsonString);
+
+        ObjectMapper mapper = new ObjectMapper();
+        Card actualCardObject = mapper.readValue(pickedCardAsJsonString, Card.class);
+
+        pickedCardId = actualCardObject.getId();
+
+        System.out.printf("Some picked %s as card\n", pickedCardId);
 
 //        ArrayList<String> array = context.body();
-        for (String id : array) {
-            game.pf.getCurrentPlayer().moveBack(id);
-        }
+//        for (String id : array) {
+//            game.pf.getCurrentPlayer().moveBack(id);
+//        }
     }
 
     // THE GAME ITSELF

@@ -39,7 +39,7 @@ public abstract class Game {
 
         for (int i = 0; i < 30; i++) {
             tempSet = new HashSet<>();
-            tempSet.add(spellDamage);
+            tempSet.add(addHealth);
             playerDeck.addCard(new CardSpell("ID" + i, "name" + i, "type", 1, "type", "heroType", "img","", tempSet,2, 1, 1,3,2));
 
             tempSet = new HashSet<>();

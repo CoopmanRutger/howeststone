@@ -72,7 +72,7 @@ public abstract class Game {
         endGame();
     }
 
-    private void updateCanAttack() { // zet de minions op "kan aanvallen"
+    protected void updateCanAttack() { // zet de minions op "kan aanvallen"
         List<Card> cards = pf.getCurrentPlayer().getCardsOnField().getCards();
         for (Card card : cards) {
             ((CardMinion) card).resetCanAttack(true);
@@ -165,10 +165,15 @@ public abstract class Game {
         CardMinion playerCard = (CardMinion) pf.getCurrentPlayer().getCardsOnField().findById(pId);
         Hero hero = pf.getOppositePlayer().getHero();
 
-        if (playerCard != null && hero != null && playerCard.getCanAttack()) {
+
+        System.out.println(playerCard.getCanAttack());
+
+        if (playerCard != null && playerCard.getCanAttack()) {
             int damage = playerCard.getAttack();
 
+            System.out.println(damage);
             hero.takeDamage(damage);
+            System.out.println(hero.getLifePoints());
 
             playerCard.incrCanAttack(false);
 

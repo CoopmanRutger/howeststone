@@ -41,10 +41,11 @@ public class GameAPI extends Game {
 
 
             // GETTING CARDS TO PLAY
-
+            int amountOfCards = pf.getOpponent().getCardsOnField().getAmount();
             toRemove = new ArrayList<>();
             for (Card card : playable.getCards()) {
-                if (card.getMana() <= pf.getCurMana()) {
+                if (card.getMana() <= pf.getCurMana() && amountOfCards < 7) {
+                    amountOfCards++;
                     played = true;
                     toRemove.add(card);
                 }
@@ -67,6 +68,7 @@ public class GameAPI extends Game {
 
         for (Card card : toAttack.getCards()) {
             attackHero(card.getCardId());
+            System.out.println("bitch attack!");
         }
 
         // DRAWING NEW CARD
@@ -82,6 +84,7 @@ public class GameAPI extends Game {
     @Override
     public void commit() {
         pf.increment();
+        updateCanAttack();
     }
 
     @Override

@@ -1,6 +1,7 @@
 package playField.api;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+import playField.Game;
 import playField.GameAPI;
 import playField.api.intialize.InitPlayableDeck;
 import playField.cardCollection.Cards;
@@ -178,7 +179,8 @@ class Routes extends GameState {
 
     private void commitOpponent(Context context){
         game.commit();
-        System.out.println("commited");
+
+        
     }
 
     //                              //

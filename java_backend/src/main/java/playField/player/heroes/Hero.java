@@ -13,7 +13,7 @@ public class Hero {
     @JsonProperty("heroPower")
     private HeroPower heroPower;
     @JsonProperty("lifePoints")
-    private int lifePoints = 30;
+    private int lifePoints = 31;
     @JsonProperty("armourPoints")
     private int armourPoints = 0;
     @JsonCreator

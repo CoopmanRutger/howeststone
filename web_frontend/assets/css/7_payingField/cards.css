@@ -29,6 +29,10 @@
 
 /* cards on the playing field */
 
+.selectedForAttack{
+    background-color: red;
+}
+
 /* TODO: betere class name fixen */
 
 .card {

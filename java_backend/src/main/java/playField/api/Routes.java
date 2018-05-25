@@ -173,14 +173,14 @@ class Routes extends GameState {
 
     private void commit(Context context) {
         game.pf.getPlayer().drawCard();
+        if (!game.pf.getOppositePlayer().getHero().isAlive()) context.result("stop");
         game.commit();
         game.botMechanics();
     }
 
     private void commitOpponent(Context context){
-        game.commit();
-
-        
+        if (!game.pf.getOppositePlayer().getHero().isAlive()) context.result("stop");
+        else game.commit();
     }
 
     //                              //

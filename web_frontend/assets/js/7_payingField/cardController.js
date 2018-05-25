@@ -10,7 +10,7 @@ function cardController(X,Y, element, original, origin) {
     let place = getPlace(X,Y);
 
     if (place === "#cardsOnFieldPlayer" && player.arrayCardsOnField.length < 7) {
-        sendPlayCard(player.arrayCardsInHand[index].cardId)
+        sendPlayCard(cardJson.cardId)
 
         element.remove();
 				element = null;

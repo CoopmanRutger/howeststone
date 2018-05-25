@@ -143,15 +143,15 @@ class Routes extends GameState {
         ArrayList<String> array = mapper.readValue(in, ArrayList.class);
 
         System.out.println(array);
-//
-//        pickedCardId = actualCardObject.getId();
-//
-//        System.out.printf("Some picked %s as card\n", pickedCardId);
 
-//        ArrayList<String> array = context.body();
-//        for (String id : array) {
-//            game.pf.getCurrentPlayer().moveBack(id);
-//        }
+        for (String id : array) {
+            game.pf.getCurrentPlayer().moveBack(id);
+        }
+
+        for (int i = 0; i < array.size(); i++) {
+            game.pf.getCurrentPlayer().drawCard();
+
+        }System.out.println(array.size());
     }
 
     // THE GAME ITSELF

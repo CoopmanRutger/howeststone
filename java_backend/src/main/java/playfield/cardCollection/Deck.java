@@ -37,20 +37,6 @@ public class Deck extends Cards {
         return getAmount() == maxCards;
     }
 
-    private boolean containsDouble(Card card) {
-        return amountOfCards(card) > 1;
-    }
-
-    private int amountOfCards(Card card) {
-        int amount = 0;
-        for (Card c : cards) {
-            if (c.equals(card)) {
-                amount++;
-            }
-        }
-        return amount;
-    }
-
     @Override
     public String toString() {
         return super.toString();

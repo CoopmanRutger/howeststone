@@ -49,6 +49,20 @@ public class Cards {
         return c;
     }
 
+    protected boolean containsDouble(Card card) {
+        return amountOfCards(card) > 1;
+    }
+
+    public int amountOfCards(Card card) {
+        int amount = 0;
+        for (Card c : cards) {
+            if (c.equals(card)) {
+                amount++;
+            }
+        }
+        return amount;
+    }
+
     private Random r = new Random();
     public Card drawRandom() {
         return cards.remove(r.nextInt(cards.size()));

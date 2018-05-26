@@ -88,13 +88,13 @@ public class Player {
 
     public void playCard(String id) { // PLAY'S A CARD FROM YOUR HAND TO "CARDSONFIELD" BASED ON ID
         Card card = cardsInHand.findById(id);
-        if (cardsInHand.containsDouble(card)) {
+        int amount = cardsInHand.amountOfCards(card);
+        for (Card card : cardsInHand.) {
 
-        } else {
-            cardsOnField.addCard(
-                    card
-            );
         }
+        cardsOnField.addCard(
+                card
+        );
     }
 
     // TOSTRING

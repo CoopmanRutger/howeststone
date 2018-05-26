@@ -4,6 +4,7 @@ document.addEventListener("DOMContentLoaded", init);
 
 let possibleTargets = document.getElementById("cardsOnFieldOpponent").children;
 let possibleAttackers = document.getElementById("cardsOnFieldPlayer").children;
+let possibleAbility = document.getElementById("cardsOnFieldPlayer").children;
 
 function init(){
 	update();

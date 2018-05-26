@@ -6,6 +6,7 @@ import playfield.player.Player;
 
 public class PlayingField {
 
+    private static final int MAX_MANA = 10;
     @JsonProperty("player")
     private Player player;
     @JsonProperty("opponent")
@@ -16,7 +17,6 @@ public class PlayingField {
     @JsonProperty("curMana")
     private int curMana;
     private boolean begins;
-    private static final int maxMana = 10;
 
     // CONSTRUCTOR
 
@@ -105,10 +105,10 @@ public class PlayingField {
     @JsonProperty("totalMana")
     public int calculateMana() {
         final int turn = getTurn();
-        if (turn < maxMana) {
+        if (turn < MAX_MANA) {
             return turn;
         } else {
-            return maxMana;
+            return MAX_MANA;
         }
     }
 

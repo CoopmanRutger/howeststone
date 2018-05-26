@@ -66,18 +66,10 @@ public abstract class GameCLI extends Conditions {
 
     public void playerMechanics() {
         committed = false;
-
-        printFullLine();
-        printHalfLine();
         System.out.println("#    Your turn!    #");
-        printHalfLine();
-        printFullLine();
-
         while (!committed) {
             System.out.print("$ ");
-
             final String command = input.next();
-
             switch (command) {
                 case "ac":
                 case "attackCard":

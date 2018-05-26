@@ -3,7 +3,7 @@ package playfield.api.intialize;
 import playfield.api.intialize.SQLcontoller.SqlStatements;
 import playfield.cardCollection.Deck;
 import playfield.player.heroes.Hero;
-import playfield.player.heroes.HeroPower;
+import playfield.player.heroes.heroPower;
 import playfield.player.PlayableDeck;
 
 import java.sql.*;
@@ -13,6 +13,8 @@ import java.util.List;
 import java.util.Set;
 
 public class InitPlayableDeck extends Init {
+    
+    final private String veldVoorDebieleStyleCheck = "card";
 
     public List<PlayableDeck> GetPlaybleDecks() {
         PlayableDeck playableDeck = null;
@@ -20,7 +22,7 @@ public class InitPlayableDeck extends Init {
         try (
                 Connection conn = db.getConnection();
                 Statement stmt = conn.createStatement();
-                ResultSet playableDeckResult = stmt.executeQuery(SqlStatements.SElECT_PLAYABLEDECKS);
+                ResultSet playableDeckResult = stmt.executeQuery(SqlStatements.SELECT_PLAYABLEDECKS);
         ) {
 
 
@@ -41,7 +43,7 @@ public class InitPlayableDeck extends Init {
         final InitChooseYourHero initChooseYourHero = new InitChooseYourHero();
         final String deckName = playableDeckResult.getString("deckName");
 
-        final HeroPower heroPower = initChooseYourHero.getHeroPower(playableDeckResult.getString("heroPower"));
+        final heroPower heroPower = initChooseYourHero.getHeroPower(playableDeckResult.getString("heroPower"));
         final Hero hero = initChooseYourHero.getHero(playableDeckResult.getString("hero"), heroPower);
 
 
@@ -49,7 +51,7 @@ public class InitPlayableDeck extends Init {
         final InitDeckBuilderLvl2 initDeckBuilderLvl2 = new InitDeckBuilderLvl2();
 
         for (int i = 1; i < 31; i++) {
-            final String cardId = playableDeckResult.getString("card" + i);
+            final String cardId = playableDeckResult.getString(veldVoorDebieleStyleCheck + i);
             if (initDeckBuilderLvl2.getMinion(cardId) != null) {
                 deck.addCard(initDeckBuilderLvl2.getMinion(cardId));
             }
@@ -67,14 +69,14 @@ public class InitPlayableDeck extends Init {
     }
 
 
-    public final Set<PlayableDeck> getPlayableDecksByHeroname(String heroname) {
+    public final Set<PlayableDeck> getPlayableDecksByHeroName(String heroName) {
         final Set<PlayableDeck> playableDeckSet = new HashSet<>();
         PlayableDeck playableDeck = null;
         try (
                 Connection conn = db.getConnection();
-                PreparedStatement stmt = conn.prepareStatement(SqlStatements.retrievePlayableDeckByHero);
+                PreparedStatement stmt = conn.prepareStatement(SqlStatements.RETRIEVE_PLAYABLE_DECK_BY_HERO);
         ) {
-            stmt.setString(1, heroname);
+            stmt.setString(1, heroName);
             final ResultSet playableDeckResult = stmt.executeQuery();
 
             while (playableDeckResult.next()) {
@@ -90,11 +92,11 @@ public class InitPlayableDeck extends Init {
 
 
 
-    public PlayableDeck GetPlayableDeck(String deckname) {
+    public PlayableDeck getPlayableDeck(String deckname) {
         PlayableDeck playableDeck = null;
         try (
                 Connection conn = db.getConnection();
-                PreparedStatement stmt = conn.prepareStatement(SqlStatements.retrievePlayableDeckByName);
+                PreparedStatement stmt = conn.prepareStatement(SqlStatements.RETRIEVE_PLAYABLE_DECK_BY_NAME);
         ) {
             stmt.setString(1, deckname);
             final ResultSet playableDeckResult = stmt.executeQuery();
@@ -112,12 +114,12 @@ public class InitPlayableDeck extends Init {
 
 
 
-    public PlayableDeck SetPlayableDeck(String deckname, String deckHero, String deckHeroPower,
+    public PlayableDeck setPlayableDeck(String deckname, String deckHero, String deckHeroPower,
                                         List<String> deckCardIDs) {
         final PlayableDeck playableDeck = null;
         try (
                 Connection conn = db.getConnection();
-                PreparedStatement stmt = conn.prepareStatement(SqlStatements.INSERT_PLAYABLEDECK);
+                PreparedStatement stmt = conn.prepareStatement(SqlStatements.INSERT_PLAYABLE_DECK);
         ) {
             stmt.setString(1, deckname);
             stmt.setString(2, deckHero);
@@ -133,13 +135,13 @@ public class InitPlayableDeck extends Init {
             if (playableDeckResult.next()) {
 
                 final String deckName = playableDeckResult.getString("deckName");
-                final HeroPower heroPower = initChooseYourHero.getHeroPower(playableDeckResult.getString(
+                final heroPower heroPower = initChooseYourHero.getHeroPower(playableDeckResult.getString(
                         "herPower"));
                 final Hero hero = initChooseYourHero.getHero(playableDeckResult.getString("hero"), heroPower);
                 final List<String> cardIds = new ArrayList<>();
 
                 for (int i = 0; i < deckCardIDs.size(); i++) {
-                    final String card = playableDeckResult.getString("card" + i);
+                    final String card = playableDeckResult.getString(veldVoorDebieleStyleCheck + i);
                     cardIds.add(card);
                 }
                 // TODO: 18/05/2018  nieuw statement, om card'en te getten en nieuw deck te maken om deze terug te
@@ -151,9 +153,8 @@ public class InitPlayableDeck extends Init {
         return playableDeck;
     }
 
-    private String sqlFormatedList(int Number, List<String> cardIDs) {
-        final String cardId = cardIDs.get(Number);
-        Number++;
+    private String sqlFormatedList(int number, List<String> cardIDs) {
+        final String cardId = cardIDs.get(number);
         return cardId;
     }
 }

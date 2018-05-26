@@ -13,7 +13,7 @@ public class InitDeckBuilderLvl2 extends Init {
         Card card = null;
         try (
                 Connection conn = db.getConnection();
-                PreparedStatement stmt = conn.prepareStatement(SqlStatements.retrieveMinionsById);
+                PreparedStatement stmt = conn.prepareStatement(SqlStatements.RETRIEVE_MINIONS_BY_ID);
         ) {
             stmt.setString(1, cardID);
             final ResultSet minion = stmt.executeQuery();
@@ -77,7 +77,7 @@ public class InitDeckBuilderLvl2 extends Init {
         Card card = null;
         try (
                 Connection conn = db.getConnection();
-                PreparedStatement stmt = conn.prepareStatement(SqlStatements.retrieveWeaponByID);
+                PreparedStatement stmt = conn.prepareStatement(SqlStatements.RETRIEVE_WEAPON_BY_ID);
         ) {
             stmt.setString(1, cardID);
             final ResultSet minion = stmt.executeQuery();
@@ -105,7 +105,7 @@ public class InitDeckBuilderLvl2 extends Init {
         Card card = null;
         try (
                 Connection conn = db.getConnection();
-                PreparedStatement stmt = conn.prepareStatement(SqlStatements.retrieveSpellByID);
+                PreparedStatement stmt = conn.prepareStatement(SqlStatements.RETRIEVE_SPELL_BY_ID);
 
         ) {
             stmt.setString(1, cardID);
@@ -149,7 +149,7 @@ public class InitDeckBuilderLvl2 extends Init {
         try (
                 Connection conn = db.getConnection();
                 Statement stmt = conn.createStatement();
-                ResultSet minion = stmt.executeQuery(SqlStatements.retrieveMinionsByHero)
+                ResultSet minion = stmt.executeQuery(SqlStatements.RETRIEVE_MINIONS_BY_HERO)
         ) {
             while (minion.next()) {
                 final String cardId = minion.getString("cardId");
@@ -191,7 +191,7 @@ public class InitDeckBuilderLvl2 extends Init {
         try (
                 Connection conn = db.getConnection();
                 Statement stmt = conn.createStatement();
-                ResultSet weapon = stmt.executeQuery(SqlStatements.SElECT_WEAPON)
+                ResultSet weapon = stmt.executeQuery(SqlStatements.SELECT_WEAPON)
         ) {
             System.out.println("\n\n\n WEAPONS \n");
 
@@ -213,7 +213,7 @@ public class InitDeckBuilderLvl2 extends Init {
         try (
                 Connection conn = db.getConnection();
                 Statement stmt = conn.createStatement();
-                ResultSet spell = stmt.executeQuery(SqlStatements.SElECT_SPELL)
+                ResultSet spell = stmt.executeQuery(SqlStatements.SELECT_SPELL)
         ) {
             System.out.println("\n\n\nSPELL\n");
             while (spell.next()) {

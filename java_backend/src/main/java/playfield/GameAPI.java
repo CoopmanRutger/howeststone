@@ -4,7 +4,7 @@ import playfield.cardCollection.Cards;
 import playfield.cardCollection.cards.Card;
 import playfield.cardCollection.cards.CardSpell;
 import playfield.player.PlayableDeck;
-import playfield.player.heroes.HeroPower;
+import playfield.player.heroes.heroPower;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -116,12 +116,12 @@ public class GameAPI extends Game {
     }
 
     @Override
-    public void attackHeroPower(HeroPower playerHeroPower) {
+    public void attackHeroPower(heroPower playerHeroPower) {
 
     }
 
     @Override
-    public void healHeroPower(HeroPower playerHeroPower) {
+    public void healHeroPower(heroPower playerHeroPower) {
 
     }
 }

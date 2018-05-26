@@ -50,7 +50,7 @@ class Routes extends GameState {
 
     private void getAllHeroNames(Context context) {
         final InitChooseYourHero initChooseYourHero = new InitChooseYourHero();
-        context.json(initChooseYourHero.GetPlaybleHeros());
+        context.json(initChooseYourHero.getPlaybleHeros());
     }
 
     // FILLING FIELDS
@@ -74,7 +74,7 @@ class Routes extends GameState {
 
     private void getDeckForHeroSQL(Context context) {
         final InitPlayableDeck initPlayableDeck = new InitPlayableDeck();
-        playableDeckSet = initPlayableDeck.getPlayableDecksByHeroname(playerHero.getName());
+        playableDeckSet = initPlayableDeck.getPlayableDecksByHeroName(playerHero.getName());
         context.json(playableDeckSet);
     }
 
@@ -84,7 +84,7 @@ class Routes extends GameState {
         final InitPlayableDeck initPlayableDeck = new InitPlayableDeck();
         System.out.println("Chosen Deck: " + name);
 
-        playerDeck = initPlayableDeck.GetPlayableDeck(name);
+        playerDeck = initPlayableDeck.getPlayableDeck(name);
     }
 
     private void pickYourOpponent(Context context) {
@@ -103,7 +103,7 @@ class Routes extends GameState {
     // INITIALIZE GAME
 
     private void initializingGame(Context context) {
-        opponentDeck = new InitPlayableDeck().GetPlayableDeck("noob" + opponentHero.getName());
+        opponentDeck = new InitPlayableDeck().getPlayableDeck("noob" + opponentHero.getName());
         System.out.println("Chosen Opponent Deck: noob" + opponentHero.getName());
 
         game = new GameAPI(playerDeck, opponentDeck);
@@ -180,12 +180,12 @@ class Routes extends GameState {
 
     private void postTempHero(Context context) {
         final InitPlayableDeck init = new InitPlayableDeck();
-        context.json(init.getPlayableDecksByHeroname(formatJson(context.body())));
+        context.json(init.getPlayableDecksByHeroName(formatJson(context.body())));
     }
 
     private void getDeck(Context context) {
         final InitPlayableDeck init = new InitPlayableDeck();
-        context.json(init.getPlayableDecksByHeroname(tempHero));
+        context.json(init.getPlayableDecksByHeroName(tempHero));
     }
 
     private void deckbuildLevelOne(Context context) {

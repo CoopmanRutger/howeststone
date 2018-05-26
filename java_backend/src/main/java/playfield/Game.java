@@ -10,13 +10,12 @@ import playfield.player.PlayableDeck;
 import playfield.player.Player;
 
 import playfield.player.heroes.Hero;
-import playfield.player.heroes.HeroPower;
+import playfield.player.heroes.heroPower;
 
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
-import static playfield.cardCollection.cards.CardAbility.*;
 import static playfield.cardCollection.cards.CardActions.*;
 import static playfield.player.heroes.AbilityType.*;
 
@@ -54,9 +53,9 @@ public abstract class Game {
                     (i + 1) / 5 + 1, "race", "mechanics", tempSet));
         }
 
-        final HeroPower playerHeroPower = new HeroPower("", 0, "", heal, 1,
+        final heroPower playerHeroPower = new heroPower("", 0, "", heal, 1,
                 1, "", true);
-        final HeroPower opponentHeroPower = new HeroPower("", 0, "", attack, 1,
+        final heroPower opponentHeroPower = new heroPower("", 0, "", attack, 1,
                 1, "", true);
         final Hero playerHero = new Hero("heroPlayer", "igm", playerHeroPower);
         final Hero opponentHero = new Hero("heroOpponent", "im", opponentHeroPower);
@@ -216,7 +215,7 @@ public abstract class Game {
     }
 
     public void playHeroPower() {
-        final HeroPower heroPower = pf.getCurrentPlayer().getHero().getHeroPower();
+        final heroPower heroPower = pf.getCurrentPlayer().getHero().getHeroPower();
 
         final int mana = heroPower.getManaCost();
 
@@ -248,9 +247,9 @@ public abstract class Game {
 
     public abstract void addHealth(int healthToGive);
 
-    public abstract void attackHeroPower(HeroPower playerHeroPower);
+    public abstract void attackHeroPower(heroPower playerHeroPower);
 
-    public abstract void healHeroPower(HeroPower playerHeroPower);
+    public abstract void healHeroPower(heroPower playerHeroPower);
 
     public abstract void endGame();
 

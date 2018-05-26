@@ -18,7 +18,7 @@ public class InitChooseYourHeroTest {
 
     @Test
     public void GetPlaybleHeros() {
-        List<Hero> blabla = initChooseYourHero.GetPlaybleHeros();
+        List<Hero> blabla = initChooseYourHero.getPlaybleHeros();
         System.out.println(blabla);
     }
 }

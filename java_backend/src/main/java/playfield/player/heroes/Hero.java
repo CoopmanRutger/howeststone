@@ -11,14 +11,14 @@ public class Hero {
     @JsonProperty("img")
     private String img;
     @JsonProperty("heroPower")
-    private HeroPower heroPower;
+    private playfield.player.heroes.heroPower heroPower;
     @JsonProperty("lifePoints")
     private int lifePoints = 30;
     @JsonProperty("armourPoints")
     private int armourPoints = 0;
     @JsonCreator
     public Hero(@JsonProperty("name") String name, @JsonProperty("img") String img,
-                @JsonProperty("heroPower") HeroPower heroPower) {
+                @JsonProperty("heroPower") playfield.player.heroes.heroPower heroPower) {
         this.name = name;
         this.img = img;
         this.heroPower = heroPower;
@@ -26,7 +26,8 @@ public class Hero {
 
     // DAMGE AND LIFE FUNCTIONS
 
-    public void takeDamage(int damageHit) {
+    public void takeDamage(int tempDamageHit) {
+        int damageHit = tempDamageHit;
         if (armourPoints <= 0) {
             lifePoints -= damageHit;
         } else if (armourPoints > damageHit) {
@@ -71,7 +72,7 @@ public class Hero {
         return img;
     }
 
-    public HeroPower getHeroPower() {
+    public playfield.player.heroes.heroPower getHeroPower() {
         return heroPower;
     }
 

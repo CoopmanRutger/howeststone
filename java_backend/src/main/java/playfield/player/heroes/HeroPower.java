@@ -5,7 +5,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 
 import java.util.Objects;
 
-public class HeroPower {
+public class heroPower {
 
     @JsonProperty("heroPowerName")
     private String heroPowerName;
@@ -33,7 +33,7 @@ public class HeroPower {
     private boolean heroPowerActive;
 
     @JsonCreator
-    public HeroPower(@JsonProperty("heroPowerName") String heroPowerName,
+    public heroPower(@JsonProperty("heroPowerName") String heroPowerName,
                      @JsonProperty("manaCost") int manaCost,
                      @JsonProperty("tags") String tags,
                      @JsonProperty("abilityType") AbilityType abilityType,
@@ -87,7 +87,7 @@ public class HeroPower {
         if (o == null || getClass() != o.getClass()) {
             return false;
         }
-        final HeroPower heroPower = (HeroPower) o;
+        final heroPower heroPower = (playfield.player.heroes.heroPower) o;
         return manaCost == heroPower.manaCost
                 && abilityValue == heroPower.abilityValue
                 && duration == heroPower.duration

@@ -8,7 +8,7 @@ import playfield.cardCollection.cards.CardMinion;
 import playfield.player.Player;
 import playfield.player.heroes.AbilityType;
 import playfield.player.heroes.Hero;
-import playfield.player.heroes.HeroPower;
+import playfield.player.heroes.heroPower;
 
 import java.util.HashSet;
 
@@ -18,7 +18,7 @@ public class PlayerTest {
 
     private Player player;
     private Deck deck;
-    private HeroPower heroPower;
+    private playfield.player.heroes.heroPower heroPower;
 
     @Before
     public void max30cards() {
@@ -41,7 +41,7 @@ public class PlayerTest {
             deck.addCard(card);
         }
 
-        final HeroPower heroPower = new HeroPower(
+        final playfield.player.heroes.heroPower heroPower = new heroPower(
                 "",
                 0,
                 "",

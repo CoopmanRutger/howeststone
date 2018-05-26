@@ -34,6 +34,16 @@ public class Cards {
         return Collections.unmodifiableList(cards);
     }
 
+    private ArrayList<Card> getCards(Card card) {
+        final ArrayList<Card> array = new ArrayList<>();
+        for (Card c : cards) {
+            if (c.equals(card)) {
+                array.add(c);
+            }
+        }
+        return array;
+    }
+
     public Card findById(String id) {
         for (Card c : cards) {
             if (c.getCardId().equals(id)) {
@@ -56,16 +66,6 @@ public class Cards {
 
     private int amountOfCards(Card card) {
         return getCards(card).size();
-    }
-
-    private ArrayList<Card> getCards(Card card) {
-        ArrayList<Card> array = new ArrayList<>();
-        for (Card c : cards) {
-            if (c.equals(card)) {
-                array.add(c);
-            }
-        }
-        return array;
     }
 
     private Random r = new Random();
@@ -114,7 +114,7 @@ public class Cards {
     }
 
     public Card getCanAttack(String id) {
-        Card card = findById(id);
+        final Card card = findById(id);
         if (card != null) {
             return getCanAttack(card);
         }

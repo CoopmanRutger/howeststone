@@ -85,9 +85,9 @@ public class Player {
         }
         return out;
     }
-
-    public void playCard(String id) { // PLAY'S A CARD FROM YOUR HAND TO "CARDSONFIELD" BASED ON ID
-        Card card = cardsInHand.findById(id);
+    // PLAY'S A CARD FROM YOUR HAND TO "CARDSONFIELD" BASED ON ID
+    public void playCard(String id) {
+        final Card card = cardsInHand.findById(id);
         cardsOnField.addCard(
                 card
         );

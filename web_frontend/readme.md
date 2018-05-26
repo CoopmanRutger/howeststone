@@ -14,7 +14,7 @@ __bold__<br>
 
 ##Groepsfoto en introductie teamleden van '*Finding Nemo*'
 
-! [Group pic](https://172.21.22.52/TI/Project-I/2018-Group-07/blob/backend/group07Pic.jpg)
+! [Group pic](../group07Pic.jpg)
 van links naar rechts
 
 **Bert Vervust**

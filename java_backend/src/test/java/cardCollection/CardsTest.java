@@ -32,9 +32,6 @@ public class CardsTest {
         card2 = new CardWeapon("ID", "0", "name", 0, "type", "heroType", "0", 0, 0);
         card3 = new CardSpell("ID", "0", "name", 0, "type", "heroType", "img", "taunt", cardAbilities, 2,2,"","",true, 2, true, "", false);
         cards = new Cards();
-        System.out.println(cards);
-
-
     }
 
     @Test
@@ -52,7 +49,7 @@ public class CardsTest {
     @Test
     public void adding1() {
 
-        List<Card> list = new ArrayList<>(30);
+        final List<Card> list = new ArrayList<>(30);
 
         list.add(card1);
         list.add(card2);

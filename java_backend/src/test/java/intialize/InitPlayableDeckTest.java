@@ -8,22 +8,17 @@ import static org.junit.Assert.*;
 
 public class InitPlayableDeckTest {
 
-    public InitPlayableDeck initPlayableDeck;
+    private InitPlayableDeck initPlayableDeck;
 
     @Before
     public void before() {
         initPlayableDeck = new InitPlayableDeck();
     }
 
-
-
     @Test
     public void getPlayableDecksByHeroname() {
-//        Set<PlayableDeck> blabla = initPlayableDeck.GetPlayableDecksByHeroname("Mage");
-//        System.out.println(blabla);
-        assertNotNull(new InitPlayableDeck().GetPlayableDeck("noob" + "Mage"));
-        assertNotNull(new InitPlayableDeck().GetPlayableDeck("noob" + "Priest"));
-        System.out.println(new InitPlayableDeck().GetPlayableDeck("noob" + "Mage"));
-        System.out.println(new InitPlayableDeck().GetPlayableDeck("noob" + "Priest"));
+        final String noob = "noob";
+        assertNotNull(initPlayableDeck.GetPlayableDeck(noob + "Mage"));
+        assertNotNull(initPlayableDeck.GetPlayableDeck(noob + "Priest"));
     }
 }

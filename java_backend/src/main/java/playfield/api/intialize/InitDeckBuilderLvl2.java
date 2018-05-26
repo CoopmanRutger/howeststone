@@ -9,7 +9,7 @@ import java.util.ArrayList;
 import java.util.HashSet;
 
 public class InitDeckBuilderLvl2 extends Init {
-    
+
     public Card getMinion(String cardID) {
         Card card = null;
         try (

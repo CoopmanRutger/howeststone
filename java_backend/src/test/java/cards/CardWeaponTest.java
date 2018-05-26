@@ -2,7 +2,7 @@ package cards;
 
 import org.junit.Before;
 import org.junit.Test;
-import playfield.cardCollection.cards.CardWeapon;
+import playField.cardCollection.cards.CardWeapon;
 
 import static org.junit.Assert.*;
 
@@ -24,7 +24,7 @@ public class CardWeaponTest {
     @Test
     public void blbala(){
         System.out.println(test.getClass());
-        assertEquals("class playfield.cardCollection.cards.CardWeapon",test.getClass().toString());
+        assertEquals("class playField.cardCollection.cards.CardWeapon",test.getClass().toString());
     }
 
 }

@@ -1,4 +1,4 @@
-//package cardCollection;
+package cardCollection;
 //
 //import playField.cardCollection.cards.CardMinion;
 //import playField.cardCollection.cards.CardSpell;

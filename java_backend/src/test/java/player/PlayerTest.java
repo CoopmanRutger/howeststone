@@ -1,6 +1,7 @@
 package player;
 
 import playField.cardCollection.Deck;
+import playField.cardCollection.cards.CardAbility;
 import playField.cardCollection.cards.CardMinion;
 import playField.player.heroes.AbilityType;
 import playField.player.heroes.Hero;
@@ -8,6 +9,8 @@ import playField.player.heroes.HeroPower;
 import org.junit.Before;
 import org.junit.Test;
 import playField.player.Player;
+
+import java.util.HashSet;
 
 import static org.junit.Assert.*;
 
@@ -22,21 +25,45 @@ public class PlayerTest {
         deck = new Deck();
 
         for (int i = 0; i < 30; i++) {
-//            deck.addCard(+new CardMinion("ID" + i, "0", "name", 0, "type", "heroType", "0", 0, 0, "black", "lol"));
+            final CardMinion card = new CardMinion(
+                    "ID" + 2 + i,
+                    "",
+                    "name",
+                    1,
+                    "",
+                    "heroType",
+                    "0", 3,
+                    0,
+                    "asian",
+                    "lol",
+                    new HashSet<CardAbility>()
+            );
+            deck.addCard(card);
         }
 
-        HeroPower heroPower = new HeroPower("",0, "", AbilityType.heal, 0,0,"",true);
-        Hero hero = new Hero("mage", "im", heroPower);
+        final HeroPower heroPower = new HeroPower(
+                "",
+                0,
+                "",
+                AbilityType.heal,
+                0,
+                0,
+                "",
+                true
+        );
+        final Hero hero = new Hero("", "img", heroPower);
 
         player = new Player(deck, hero);
     }
 
     @Test
     public void isCorrectHero() {
-        assertEquals("mage", player.getHero().getName());
+        assertEquals("", player.getHero().getName());
 
-        Hero hero1 = new Hero("rogue", "im", heroPower );
-        assertEquals("rogue", hero1.getName());
+        final String temp = "rogue";
+
+        final Hero hero1 = new Hero(temp, "im", heroPower);
+        assertEquals(temp, hero1.getName());
     }
 
     @Test
@@ -50,10 +77,10 @@ public class PlayerTest {
 
         assertEquals(10, player.getCardsInHand().getAmount());
 
-//        for (int i = 0; i < 3; i++) {
-//            player.playCard("ID" + i); werkt nie want we trekken random
-//        }
-//        assertEquals(7, player.getCardsInHand().getAmount());
+        for (int i = 0; i < 3; i++) {
+            player.playCard(player.getCardsInHand().getCards().get(0).getCardId());
+        }
+        assertEquals(7, player.getCardsInHand().getAmount());
     }
 
     @Test
@@ -63,30 +90,22 @@ public class PlayerTest {
         }
 
         assertEquals(27, player.getDeck().getAmount());
-        assertEquals(3,player.getCardsInHand().getAmount());
+        assertEquals(3, player.getCardsInHand().getAmount());
 
         for (int i = 0; i < 4; i++) {
             player.drawCard();
         }
 
         assertEquals(23, player.getDeck().getAmount());
-        assertEquals(7,player.getCardsInHand().getAmount());
+        assertEquals(7, player.getCardsInHand().getAmount());
     }
 
     @Test
-    public void playCard(){
+    public void playCard() {
         player.drawCard();
         player.drawCard();
         player.drawCard();
-
-        System.out.println("blabla");
-        System.out.println(player.getCardsInHand());
-        System.out.println(player.getCardsOnField());
 
         player.playCard(player.getCardsInHand().getCards().get(0).getCardId());
-
-        System.out.println("blabla");
-        System.out.println(player.getCardsInHand());
-        System.out.println(player.getCardsOnField());
     }
 }

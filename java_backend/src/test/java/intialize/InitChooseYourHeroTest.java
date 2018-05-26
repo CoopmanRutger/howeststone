@@ -13,20 +13,29 @@ import static org.junit.Assert.*;
 
 public class InitChooseYourHeroTest {
 
-    InitChooseYourHero db;
+    private InitChooseYourHero db;
     private HeroPower heroPower;
     private Hero hero;
 
     @Before
     public void before() {
         db = new InitChooseYourHero();
-        HeroPower heroPower = new HeroPower("",0, "", AbilityType.heal, 0,0,"",true);
-        hero = new Hero("Mage", null, heroPower);
+        final HeroPower heroPower = new HeroPower(
+                "",
+                0,
+                "",
+                AbilityType.heal,
+                0,
+                0,
+                "",
+                true
+        );
+        hero = new Hero("", null, heroPower);
     }
 
     @Test
     public void getHeroPowerTest() {
-        assertEquals(heroPower   , db.getHeroPower("Fireblast"));
+        assertEquals(heroPower, db.getHeroPower("Fireblast"));
     }
 
     @Test
@@ -35,8 +44,8 @@ public class InitChooseYourHeroTest {
     }
 
     @Test
-    public void GetPlaybleHeros() {
-        List<Hero> heroList = db.GetPlaybleHeros();
+    public void getPlaybleHeros() {
+        final List<Hero> heroList = db.GetPlaybleHeros();
         System.out.println(heroList);
     }
 }

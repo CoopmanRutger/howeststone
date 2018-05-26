@@ -22,18 +22,53 @@ public class CardsTest {
 
     @Before
     public void before() {
-        card1 = new CardMinion("ID", "0", "name", 0, "type", "heroType", "0", 0, 0, "black", "lol", new HashSet<CardAbility>());
-        card2 = new CardWeapon("ID", "0", "name", 0, "type", "heroType", "0", 0, 0);
-        card3 = new CardSpell("ID", "0", "name", 0, "type", "heroType", "img", "taunt", new HashSet<CardAbility>(), 0, 0,"","",true,1,true,"",true);
+        card1 = new CardMinion(
+                "",
+                "",
+                "",
+                0,
+                "",
+                "",
+                "",
+                0,
+                0,
+                "black",
+                "lol",
+                new HashSet<CardAbility>()
+        );
+        card2 = new CardWeapon(
+                "",
+                "",
+                "",
+                0,
+                "",
+                "",
+                "0",
+                0,
+                0
+        );
+        card3 = new CardSpell(
+                "",
+                "",
+                "",
+                0,
+                "",
+                "",
+                "",
+                "",
+                new HashSet<CardAbility>(),
+                0,
+                0,
+                "",
+                "",
+                true,
+                1,
+                true,
+                "",
+                true
+        );
         cards = new Cards();
     }
-
-//    public void addAllCards(Cards cards) {
-//        for (Card card : cards.getCards()) {
-//            this.addCard(card);
-//        }
-//    }
-//    cards.add(card1);
 
     public void addCard(Card card) {
 
@@ -56,7 +91,7 @@ public class CardsTest {
     @Test
     public void adding1() {
 
-        List<Card> list = new ArrayList<>(30);
+        final List<Card> list = new ArrayList<>(30);
 
         list.add(card1);
         list.add(card2);

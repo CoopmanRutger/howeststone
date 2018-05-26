@@ -14,25 +14,33 @@ import playField.player.heroes.HeroPower;
 import java.util.HashSet;
 
 import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertTrue;
 
 public class Playingfield {
 
-    public Player player;
-    public Player opponent;
-    public PlayingField testField;
+    private Player player;
+    private PlayingField testField;
 
     @Before
     public void hmm() {
-        Deck deck = new Deck();
-        for (int i = 0; i < 10; i++) {
-            deck.addCard(new CardMinion("ID" + i, "0", "name", 2, "mage", "heroType", "0", 2, 2, "black", "lol", new HashSet<CardAbility>()));
-            deck.addCard(new CardMinion("ID" + 1 + i, "0", "name", 1, "warrior", "heroType", "0", 1, 3, "white", "lol", new HashSet<CardAbility>()));
-            deck.addCard(new CardMinion("ID" + 2 + i, "0", "name", 1, "mage", "heroType", "0", 3, 0, "asian", "lol", new HashSet<CardAbility>()));
+        final Deck deck = new Deck();
+        for (int i = 0; i < 30; i++) {
+            deck.addCard(
+                    new CardMinion("ID" + 2 + i,
+                    "",
+                    "name",
+                    1,
+                    "",
+                    "heroType",
+                    "0", 3,
+                    0,
+                    "asian",
+                    "lol",
+                    new HashSet<CardAbility>()
+                    )
+            );
         }
 
-        HeroPower heroPower = new HeroPower("",
+        final HeroPower heroPower = new HeroPower("",
                 0,
                 "",
                 AbilityType.heal,
@@ -44,7 +52,7 @@ public class Playingfield {
         final Hero hero = new Hero("mage", "im", heroPower);
 
         player = new Player(deck, hero);
-        opponent = new Player(deck, hero);
+        final Player opponent = new Player(deck, hero);
 
         testField = new PlayingField(player, opponent);
         // TODO minion met 3 mana kan niet gespeeld worden als je maar 2 mana hebt.

@@ -4,6 +4,7 @@ import java.util.*;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import playfield.cardCollection.cards.Card;
+import playfield.cardCollection.cards.CardMinion;
 
 public class Cards {
     @JsonProperty("cards")
@@ -49,6 +50,24 @@ public class Cards {
         return c;
     }
 
+    protected boolean containsDouble(Card card) {
+        return amountOfCards(card) > 1;
+    }
+
+    private int amountOfCards(Card card) {
+        return getCards(card).size();
+    }
+
+    private ArrayList<Card> getCards(Card card) {
+        ArrayList<Card> array = new ArrayList<>();
+        for (Card c : cards) {
+            if (c.equals(card)) {
+                array.add(c);
+            }
+        }
+        return array;
+    }
+
     private Random r = new Random();
     public Card drawRandom() {
         return cards.remove(r.nextInt(cards.size()));
@@ -83,5 +102,22 @@ public class Cards {
         }
 
         return out.toString();
+    }
+
+    public Card getCanAttack(Card card) {
+        for (Card c : getCards(card)) {
+            if (((CardMinion) c).getCanAttack()) {
+                return c;
+            }
+        }
+        return null;
+    }
+
+    public Card getCanAttack(String id) {
+        Card card = findById(id);
+        if (card != null) {
+            return getCanAttack(card);
+        }
+        return null;
     }
 }

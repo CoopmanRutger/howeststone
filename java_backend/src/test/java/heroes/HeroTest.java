@@ -2,9 +2,9 @@ package heroes;
 
 import org.junit.Before;
 import org.junit.Test;
-import playField.player.heroes.AbilityType;
-import playField.player.heroes.Hero;
-import playField.player.heroes.HeroPower;
+import playfield.player.heroes.AbilityType;
+import playfield.player.heroes.Hero;
+import playfield.player.heroes.HeroPower;
 
 import static org.junit.Assert.*;
 

@@ -1,5 +1,6 @@
 package intialize;
 
+import playfield.player.heroes.AbilityType;
 import playfield.player.heroes.Hero;
 import playfield.player.heroes.HeroPower;
 import org.junit.Before;

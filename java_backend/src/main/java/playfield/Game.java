@@ -179,13 +179,14 @@ public abstract class Game {
 
 
     // BASIC METHOD'S
+
     public void attackCard(String pId, String oId) {
         final CardMinion playerCard = (CardMinion) pf.getCurrentPlayer().getCardsOnField().findById(pId);
         final CardMinion opponentCard = (CardMinion) pf.getOppositePlayer().getCardsOnField().findById(oId);
 
         int damage;
 
-        if (playerCard != null && opponentCard != null && playerCard.getCanAttack()) {
+        if (playerCard != null && opponentCard != null) {
             damage = playerCard.getAttack();
             opponentCard.takeDamage(damage);
 

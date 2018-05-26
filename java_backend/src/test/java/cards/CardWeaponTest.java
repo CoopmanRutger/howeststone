@@ -2,7 +2,7 @@ package cards;
 
 import org.junit.Before;
 import org.junit.Test;
-import playField.cardCollection.cards.CardWeapon;
+import playfield.cardCollection.cards.CardWeapon;
 
 import static org.junit.Assert.*;
 

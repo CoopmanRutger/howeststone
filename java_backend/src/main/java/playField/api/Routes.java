@@ -1,7 +1,6 @@
 package playField.api;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import playField.Game;
 import playField.GameAPI;
 import playField.api.intialize.InitPlayableDeck;
 import playField.cardCollection.Cards;
@@ -10,7 +9,6 @@ import playField.api.intialize.InitDeckBuilderLvl2;
 import io.javalin.Context;
 import io.javalin.Javalin;
 import playField.GameState;
-import playField.cardCollection.cards.Card;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -39,8 +37,11 @@ class Routes extends GameState {
 
         server.get("/API/playingField/getGameState", this::getGameState);
         server.post("/API/playingField/playedCard", this::postPlayedCard);
-        server.get("/API/playingField/commit", this::commit);
+        server.get("/API/playingField/commitPlayer", this::commitPlayer);
+        server.get("/API/playingField/bot", this::bot);
         server.get("/API/playingField/commitOpponent", this::commitOpponent);
+
+
 
 
         server.post("/API/playingField/sendAttack", this::sendAttack);
@@ -139,15 +140,9 @@ class Routes extends GameState {
     // FIXING STARTING HAND
     private void gameStartingHandRemove(Context context) throws IOException {
         String in = context.body();
-        System.out.println();
-        System.out.println();
-        System.out.println("de verwijderde kaarten:");
-        System.out.println(in);
 
         ObjectMapper mapper = new ObjectMapper();
         ArrayList<String> array = mapper.readValue(in, ArrayList.class);
-
-        System.out.println(array);
 
         for (String id : array) {
             game.pf.getCurrentPlayer().moveBack(id);
@@ -156,7 +151,7 @@ class Routes extends GameState {
         for (int i = 0; i < array.size(); i++) {
             game.pf.getCurrentPlayer().drawCard();
 
-        }System.out.println(array.size());
+        }
     }
 
     private void sendAttack(Context context) throws IOException {
@@ -164,9 +159,8 @@ class Routes extends GameState {
         ObjectMapper mapper = new ObjectMapper();
         ArrayList<String> array = mapper.readValue(in, ArrayList.class);
 
-        System.out.println(array);
-
-        game.attackCard(array.get(0), array.get(1));
+        if (array.get(1).equals("hero")) game.attackHero(array.get(0));
+        else game.attackCard(array.get(0), array.get(1));
     }
 
 
@@ -179,22 +173,34 @@ class Routes extends GameState {
 
     private void postPlayedCard(Context context) {
         String in = context.body().replace("\"", "");
-        System.out.println("Card id is: " + in);
+        System.out.println("Card id of played card is: " + in);
         game.playCard(in);
-        System.out.println(game.pf.getPlayer().getCardsOnField());
         context.result("you played card with id:" + in);
     }
 
-    private void commit(Context context) {
+    private void commitPlayer(Context context) {
         game.pf.getPlayer().drawCard();
-        if (!game.pf.getOppositePlayer().getHero().isAlive()) context.result("stop");
+        if (!game.pf.getOppositePlayer().getHero().isAlive()) {
+            context.result("stop");
+        } else {
+            context.result("");
+        }
         game.commit();
-        game.botMechanics();
     }
 
+    private void bot(Context context) {
+        game.botMechanics();
+
+    }
+
+
     private void commitOpponent(Context context){
-        if (!game.pf.getOppositePlayer().getHero().isAlive()) context.result("stop");
-        else game.commit();
+        if (!game.pf.getOppositePlayer().getHero().isAlive()) {
+            context.result("stop");
+        } else {
+            context.result("");
+        }
+        game.commit();
     }
 
     //                              //

@@ -12,11 +12,11 @@ public abstract class Conditions extends Game {
             case "playerChoice":
                 return playerChoice();
             case "allCharacters":
-                return allCharacters();
+//                return allCharacters();
             case "allCharactersFriendly":
-                return allCharactersFriendly();
+//                return allCharactersFriendly();
             case "allCharactersEnemy":
-                return allCharactersEnemy();
+//                return allCharactersEnemy();
             case "specificCharacterFriendly":
                 return specificCharacterFriendly();
             case "specificCharacterEnemy":

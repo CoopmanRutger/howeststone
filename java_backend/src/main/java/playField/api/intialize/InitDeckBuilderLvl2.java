@@ -128,11 +128,11 @@ public class InitDeckBuilderLvl2 extends Init {
             stmt.setString(1, cardID);
             ResultSet spell = stmt.executeQuery();
 
-            HashSet<CardAbility> bla2;
+            boolean bla2;
 
             while(spell.next()) {
 
-                bla2 = new HashSet<>();
+                bla2 = true;
 
                 String cardId = spell.getString("cardId");
                 String name = spell.getString("name");
@@ -153,9 +153,8 @@ public class InitDeckBuilderLvl2 extends Init {
                 String conditionItSelf = spell.getString("conditionItSelf");
 
 
-
-
-                card = new CardSpell(cardId, name, type, mana, heroType, info, img, mechanicsName, destroy, doesDamage, doesHealth, damageTarget,
+                HashSet<CardAbility> tempset = new HashSet<>();
+                card = new CardSpell(cardId, name, type, mana, heroType, info, img, mechanicsName, tempset, doesDamage, doesHealth, damageTarget,
                         healthTarget, drawCard, amountOfDrawnCards, onCondition, conditionItSelf,  bla2);
             }
         } catch (SQLException e) {
@@ -306,7 +305,7 @@ public class InitDeckBuilderLvl2 extends Init {
                 int attack = weapon.getInt("attack");
                 int durability = weapon.getInt("durability");
 
-                System.out.printf(" cardID: %s, name: %s, mana: %d, attack: %d, durability: %d, heroType: %s description: %s \n", cardId,name , cost, attack, durability, playerClass, info);
+//                System.out.printf(" cardID: %s, name: %s, mana: %d, attack: %d, durability: %d, heroType: %s description: %s \n", cardId,name , cost, attack, durability, playerClass, info);
             }
         } catch (SQLException e) {
             e.printStackTrace();
@@ -327,7 +326,7 @@ public class InitDeckBuilderLvl2 extends Init {
                 String info = spell.getString("description");
                 String playerClass = spell.getString("heroType");
 
-                System.out.printf(" cardID: %s, name: %s, mana: %d, info: %s, heroType %s \n", cardId,name , cost, info, playerClass);
+//                System.out.printf(" cardID: %s, name: %s, mana: %d, info: %s, heroType %s \n", cardId,name , cost, info, playerClass);
             }
         } catch (SQLException e) {
             e.printStackTrace();

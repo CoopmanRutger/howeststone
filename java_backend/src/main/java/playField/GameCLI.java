@@ -229,43 +229,45 @@ public abstract class GameCLI extends Conditions {
         return null;
         // if choice was not one of the above, could have implemented way to reiterate question, but then again, time issues
     }
-    @Override
-    public ArrayList<CardMinion> allMinionsFriendly(){
-        System.out.print("All friendly minions will be affected.");
-        ArrayList<CardMinion> cards = (ArrayList<CardMinion>) pf.getCurrentPlayer().getCardsOnField();
-        return cards;
-    }
-    @Override
-    public ArrayList<CardMinion> allMinionsEnemy(){
-        System.out.print("All enemy minions will be affected.");
-        ArrayList<CardMinion> cards = (ArrayList<CardMinion>) pf.getOppositePlayer().getCardsOnField();
-        return cards;
-    }
-    @Override
-    public ArrayList<CardMinion> allMinions(){
-        System.out.print("All minions will be affected");
-        ArrayList<CardMinion> cards1 = (ArrayList<CardMinion>) pf.getOppositePlayer().getCardsOnField();
-        ArrayList<CardMinion> cards2 = (ArrayList<CardMinion>) pf.getCurrentPlayer().getCardsOnField();
-        ArrayList<CardMinion> cards1AndCards2Combined = new ArrayList<>();
-        cards1AndCards2Combined.addAll(cards1);
-        cards1AndCards2Combined.addAll(cards2);
-        return cards1AndCards2Combined;
-    }
-    @Override
-    public ArrayList<CardMinion> specificMinion(){
-        System.out.print("give ID of minion to affect: ");
-        String id = input.next();
-        CardMinion possibleHit1 = (CardMinion) pf.getCurrentPlayer().getCardsOnField().findById(id);
-        CardMinion possibleHit2 = (CardMinion) pf.getOppositePlayer().getCardsOnField().findById(id);
-        CardMinion actualCard = null;
-        if (possibleHit1 != null) {
-            return possibleHit1;
-        }
-        else if (possibleHit2 != null){
-            return possibleHit2;
-        }
-        return null;
-     }
+//    @Override
+//    public ArrayList<CardMinion> allMinionsFriendly(){
+//        System.out.print("All friendly minions will be affected.");
+//        ArrayList<CardMinion> cards = (ArrayList<CardMinion>) pf.getCurrentPlayer().getCardsOnField();
+//        return cards;
+//    }
+//    @Override
+//    public ArrayList<CardMinion> allMinionsEnemy(){
+//        System.out.print("All enemy minions will be affected.");
+//        ArrayList<CardMinion> cards = (ArrayList<CardMinion>) pf.getOppositePlayer().getCardsOnField();
+//        return cards;
+//    }
+//    @Override
+//    public ArrayList<CardMinion> allMinions(){
+//        System.out.print("All minions will be affected");
+//        ArrayList<CardMinion> cards1 = (ArrayList<CardMinion>) pf.getOppositePlayer().getCardsOnField();
+//        ArrayList<CardMinion> cards2 = (ArrayList<CardMinion>) pf.getCurrentPlayer().getCardsOnField();
+//        ArrayList<CardMinion> cards1AndCards2Combined = new ArrayList<>();
+//        cards1AndCards2Combined.addAll(cards1);
+//        cards1AndCards2Combined.addAll(cards2);
+//        return cards1AndCards2Combined;
+//    }
+//    @Override
+//    public ArrayList<CardMinion> specificMinion(){
+//        System.out.print("give ID of minion to affect: ");
+//        String id = input.next();
+//        CardMinion possibleHit1 = (CardMinion) pf.getCurrentPlayer().getCardsOnField().findById(id);
+//        CardMinion possibleHit2 = (CardMinion) pf.getOppositePlayer().getCardsOnField().findById(id);
+//        CardMinion actualCard = null;
+//        if (possibleHit1 != null) {
+//            return possibleHit1;
+//        }
+//        else if (possibleHit2 != null){
+//            return possibleHit2;
+//        }
+//        return null;
+//     }
+//     @Override
+//    public
 
 
 

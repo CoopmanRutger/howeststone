@@ -7,6 +7,8 @@ import playField.cardCollection.cards.CardWeapon;
 import playField.player.heroes.Hero;
 import playField.player.heroes.HeroPower;
 
+import java.util.ArrayList;
+
 public class CLI extends GameCLI {
 
     public static void main(String[] args) {
@@ -153,5 +155,30 @@ public class CLI extends GameCLI {
         System.out.print("$ ");
         String id = input.next();
         ((CardMinion) pf.getCurrentPlayer().getCardsOnField().findById(id)).incrAttack(amount);
+    }
+
+    @Override
+    protected ArrayList<CardMinion> specificMinion() {
+        return null;
+    }
+
+    @Override
+    protected ArrayList<CardMinion> allMinions() {
+        return null;
+    }
+
+    @Override
+    protected ArrayList<CardMinion> allMinionsEnemy() {
+        return null;
+    }
+
+    @Override
+    protected ArrayList<CardMinion> allMinionsFriendly() {
+        return null;
+    }
+
+    @Override
+    protected boolean playerChoice() {
+        return false;
     }
 }

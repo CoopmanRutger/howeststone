@@ -17,6 +17,7 @@ import java.util.List;
 import java.util.Set;
 
 import static playField.cardCollection.cards.CardAbility.*;
+import static playField.cardCollection.cards.CardActions.*;
 import static playField.player.heroes.AbilityType.*;
 
 
@@ -32,7 +33,7 @@ public abstract class Game {
     }
 
     public Game(){
-        Set<CardAbility> tempSet;
+        HashSet<CardAbility> tempSet;
 
         Deck playerDeck = new Deck();
         Deck opponentDeck = new Deck();
@@ -59,7 +60,7 @@ public abstract class Game {
     }
 
     public void run() {
-        while (true) {
+        while (!pf.getEnd()) {
             updateCanAttack();
 
             if (pf.whosTurn()) botMechanics();
@@ -114,7 +115,7 @@ public abstract class Game {
         if (abilities.contains(addArmour)) addArmour(card.getArmourToGive());
         if (abilities.contains(addHealth)) addHealth(card.getHealthToGive());
         if (abilities.contains(addAttack)) addAttack(card.getAttackToGive());
-        if (abilities.contains(spellDamage)) spellDamage(card);
+//        if (abilities.contains(spellDamage)) spellDamage(card);
     }
 
 
@@ -169,8 +170,6 @@ public abstract class Game {
 
         int damage;
 
-        System.out.println(playerCard + "\n" + opponentCard);
-
         if (playerCard != null && opponentCard != null && playerCard.getCanAttack()) {
             damage = playerCard.getAttack();
             opponentCard.takeDamage(damage);
@@ -189,19 +188,10 @@ public abstract class Game {
         CardMinion playerCard = (CardMinion) pf.getCurrentPlayer().getCardsOnField().findById(pId);
         Hero hero = pf.getOppositePlayer().getHero();
 
-
-        System.out.println(playerCard.getCanAttack());
-
         if (playerCard != null && playerCard.getCanAttack()) {
             int damage = playerCard.getAttack();
-
-            System.out.println(damage);
             hero.takeDamage(damage);
-            System.out.println(hero.getLifePoints());
-
             playerCard.incrCanAttack(false);
-
-            if (!hero.isAlive()) commit();
         }
     }
 

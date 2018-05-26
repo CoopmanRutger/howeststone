@@ -58,9 +58,21 @@ function deSelect () {
 
 function sendAttack() {
     let arr = [attacker,target]
-    console.log("array is", arr);
     fetch("http://localhost:4242/API/playingField/sendAttack", {
         method: "post",
         body: JSON.stringify(arr)
-    }).then(update)
+    }).then(update).then(function () {
+        document.getElementById("heroPictureOpponent").className = "";
+    })
+}
+
+
+function selectHero(e) {
+    if (this.className === "selectedHeroToAttack"){
+        this.className = ""
+    } else if (!single()) {
+        this.className = "selectedHeroToAttack";
+        target = "hero";
+        sendAttack();
+    }
 }

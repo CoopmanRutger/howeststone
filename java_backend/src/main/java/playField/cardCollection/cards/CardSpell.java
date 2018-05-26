@@ -58,11 +58,7 @@ public class CardSpell extends Card {
                      @JsonProperty("onCondition") boolean onCondition,
                      @JsonProperty("conditionItSelf") String conditionItSelf,
                      @JsonProperty("destroy") boolean destroy
-//                     @JsonProperty("amountToAttack") int amountToAttack,
-//                     @JsonProperty("healthToGive") int healthToGive,
-//                     @JsonProperty("armourToGive") int armourToGive,
-//                     @JsonProperty("attackToGive") int attackToGive,
-//                     @JsonProperty("spellDamage") int spellDamage
+
     ) {
         super(cardId, name, type, mana, heroType, description, img);
         this.mechanicsName = mechanicsName;
@@ -76,9 +72,6 @@ public class CardSpell extends Card {
         this.onCondition = onCondition;
         this.conditionItSelf = conditionItSelf;
         this.destroy = destroy;
-        this.spellDamage=spellDamage;
-        this.armourToGive=armourToGive;
-        this.attackToGive=attackToGive;
     }
 
 

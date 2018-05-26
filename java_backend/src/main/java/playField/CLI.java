@@ -36,7 +36,7 @@ public class CLI extends GameCLI {
     }
 
     @Override
-    public void healHeroPower(HeroPower heroPower){
+    public void healHeroPower(HeroPower heroPower) {
         System.out.print("Give id of card to heal: ");
         String id = input.next();
 
@@ -64,14 +64,17 @@ public class CLI extends GameCLI {
     @Override
     public void attackWithWeapon() {
         System.out.println("Give id of card to heal or \"hero\" for healing hero");
-        System.out.print("$ ");
+        System.out.print("$");
 
         String id = input.next();
 
         int damage = pf.getCurrentPlayer().getHero().getHeroPower().getAbilityValue();
 
-        if (id.equals("hero")) playWeaponOnHero(damage);
-        else playWeaponOnCard(id, damage);
+        if (id.equals("hero")) {
+            playWeaponOnHero(damage);
+        }  else {
+            playWeaponOnCard(id, damage);
+        }
     }
 
     @Override
@@ -89,7 +92,9 @@ public class CLI extends GameCLI {
             opponentCard.takeDamage(damage);
             pf.decrMana(mana);
 
-            if (!opponentCard.isAlive()) pf.getOppositePlayer().getCardsOnField().remove(oId);
+            if (!opponentCard.isAlive()) {
+                pf.getOppositePlayer().getCardsOnField().remove(oId);
+            }
         }
     }
     @Override
@@ -135,18 +140,22 @@ public class CLI extends GameCLI {
         String pId = input.next();
         System.out.print("Give id of attacked card: ");
         String oId = input.next();
-        attackCard(pId,oId);
+        attackCard(pId, oId);
     }
 
     // IMPLEMENTING SPELL ACTIONS
 
     @Override
-    public void addHealth(int healthToGive){
+    public void addHealth(int healthToGive) {
         System.out.println("give id of card to heal or \"hero\" for healing hero");
         System.out.print("$ ");
         String id = input.next();
-        if (id.equals("hero")) addHealthHero(healthToGive);
-        else addHealthCard(healthToGive, id);
+        if (id.equals("hero")) {
+            addHealthHero(healthToGive);
+        }
+        else {
+            addHealthCard(healthToGive, id);
+        }
     }
 
     @Override

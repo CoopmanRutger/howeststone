@@ -1,8 +1,14 @@
 /* CSS for 8_deckbuildLevelOne */
 
+
 main{
 	background-image: url("../../images/crossPageBackground.png");
 	background-size: 1024px 768px;
+}
+
+.deckbuilderLvl1 h2 {
+	font-size: 2rem;
+	color: white;
 }
 
 .heroes {
@@ -17,7 +23,7 @@ main{
 	margin-right: auto;
 	padding: 25px;
     height: 230px;
-	
+
 }
 
 .hero{

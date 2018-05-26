@@ -20,7 +20,7 @@ function nextScreen3(e){
     window.location.href="2_chooseYourHero.html";
 }
 function loadButtons(){
-    document.querySelector('#deckBuild article').innerHTML += "<button id=\"deckbuildLevelOneButton\" type=\"button\">DeckBuilder</button>";
-    document.querySelector('#play article').innerHTML += "<button id=\"chooseHeroButton\" type=\"button\">Play</button>";
+    document.querySelector('#deckBuild div').innerHTML += "<button id=\"deckbuildLevelOneButton\" type=\"button\">DeckBuilder</button>";
+    document.querySelector('#play div').innerHTML += "<button id=\"chooseHeroButton\" type=\"button\">Play</button>";
     console.log("im in loadingbuttons");
 }

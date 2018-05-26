@@ -1,12 +1,11 @@
-package playField.player;
+package playfield.player;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
-import playField.cardCollection.Cards;
-import playField.cardCollection.Deck;
-import playField.cardCollection.cards.Card;
-import playField.cardCollection.cards.CardAbility;
-import playField.cardCollection.cards.CardWeapon;
-import playField.player.heroes.Hero;
+import playfield.cardCollection.Cards;
+import playfield.cardCollection.Deck;
+import playfield.cardCollection.cards.Card;
+import playfield.cardCollection.cards.CardWeapon;
+import playfield.player.heroes.Hero;
 
 public class Player {
     @JsonProperty("hero")
@@ -27,11 +26,18 @@ public class Player {
             this.deck = deck;
             cardsInHand = new Cards();
             cardsOnField = new Cards();
+        } else {
+            System.out.println("den deck was nie valid");
         }
     }
 
     public Player(PlayableDeck playableDeck) {
         this(playableDeck.getDeck(), playableDeck.getHero());
+        System.out.println("Playertjes maken me nen playable deck");
+        System.out.println("deck");
+        System.out.println(playableDeck.getDeck());
+        System.out.println("hero");
+        System.out.println(playableDeck.getHero());
     }
 
     // GETTERS AND SETTERS
@@ -59,22 +65,29 @@ public class Player {
     }
 
     public int getManaFromId(String id) {
-        Card card = cardsInHand.findById(id);
-        if (card != null) return cardsInHand.findById(id).getMana();
-        else return -1;
+        final Card card = cardsInHand.findById(id);
+        if (card != null) {
+            return cardsInHand.findById(id).getMana();
+        } else {
+            return -1;
+        }
     }
 
-    public Card drawCard() { // TAKES A RANDOM CARD FROM YOUR DECK AND PUT'S IT IN YOUR HAND
-        Card out;
+    // TAKES A RANDOM CARD FROM YOUR DECK AND PUT'S IT IN YOUR HAND
+    public Card drawCard() {
+        final Card out;
+        System.out.println("Is cardsInHands null? " + cardsInHand);
         if (cardsInHand.getAmount() < 10) {
             out = deck.drawRandom();
             cardsInHand.addCard(out);
-        } else out = null;
+        } else {
+            out = null;
+        }
         return out;
     }
-
-    public void playCard(String id) { // PLAY'S A CARD FROM YOUR HAND TO "CARDSONFIELD" BASED ON ID
-        Card card = cardsInHand.findById(id);
+    // PLAY'S A CARD FROM YOUR HAND TO "CARDSONFIELD" BASED ON ID
+    public void playCard(String id) {
+        final Card card = cardsInHand.findById(id);
         cardsOnField.addCard(
                 card
         );
@@ -84,10 +97,9 @@ public class Player {
 
     @Override
     public String toString() {
-        return "Player{" +
-                "hero=" + hero +
-                ", cardsInHand\n" + cardsInHand +
-                '}';
+        return "Player{"
+                + "hero=" + hero
+                + ", cardsInHand\n" + cardsInHand + '}';
     }
 
     public CardWeapon getWeapon() {
@@ -99,7 +111,7 @@ public class Player {
     }
 
     public void moveBack(String id) {
-        Card card = cardsInHand.drawById(id);
+        final Card card = cardsInHand.drawById(id);
         deck.addCard(card);
     }
 }

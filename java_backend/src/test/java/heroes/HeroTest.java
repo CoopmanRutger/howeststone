@@ -2,9 +2,9 @@ package heroes;
 
 import org.junit.Before;
 import org.junit.Test;
-import playField.player.heroes.AbilityType;
-import playField.player.heroes.Hero;
-import playField.player.heroes.HeroPower;
+import playfield.player.heroes.AbilityType;
+import playfield.player.heroes.Hero;
+import playfield.player.heroes.heroPower;
 
 import static org.junit.Assert.*;
 
@@ -14,7 +14,7 @@ public class HeroTest {
 
     @Before
     public void before() {
-        final HeroPower heroPower = new HeroPower("", 5, "yes", AbilityType.heal, 0, 0, "", true);
+        final heroPower heroPower = new heroPower("", 5, "yes", AbilityType.heal, 0, 0, "", true);
         hero = new Hero("Jaina", "muh img", heroPower);
     }
 

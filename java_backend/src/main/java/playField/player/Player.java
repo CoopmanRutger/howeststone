@@ -75,9 +75,13 @@ public class Player {
 
     public void playCard(String id) { // PLAY'S A CARD FROM YOUR HAND TO "CARDSONFIELD" BASED ON ID
         Card card = cardsInHand.findById(id);
-        cardsOnField.addCard(
-                card
-        );
+        if (cardsInHand.containsDouble(card)) {
+
+        } else {
+            cardsOnField.addCard(
+                    card
+            );
+        }
     }
 
     // TOSTRING

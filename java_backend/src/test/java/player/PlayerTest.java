@@ -2,6 +2,7 @@ package player;
 
 import playField.cardCollection.Deck;
 import playField.cardCollection.cards.CardMinion;
+import playField.player.heroes.AbilityType;
 import playField.player.heroes.Hero;
 import playField.player.heroes.HeroPower;
 import org.junit.Before;
@@ -24,7 +25,7 @@ public class PlayerTest {
 //            deck.addCard(+new CardMinion("ID" + i, "0", "name", 0, "type", "heroType", "0", 0, 0, "black", "lol"));
         }
 
-//        HeroPower heroPower = new HeroPower("", 0, "","",0,0,"",true);
+        HeroPower heroPower = new HeroPower("",0, "", AbilityType.heal, 0,0,"",true);
         Hero hero = new Hero("mage", "im", heroPower);
 
         player = new Player(deck, hero);

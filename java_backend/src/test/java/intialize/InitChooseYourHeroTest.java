@@ -1,5 +1,6 @@
 package intialize;
 
+import playField.player.heroes.AbilityType;
 import playField.player.heroes.Hero;
 import playField.player.heroes.HeroPower;
 import org.junit.Before;
@@ -19,7 +20,7 @@ public class InitChooseYourHeroTest {
     @Before
     public void before() {
         db = new InitChooseYourHero();
-//        heroPower = new HeroPower("Fireblast", 2, "Targeted", "damage", 2, 1, null, true);
+        HeroPower heroPower = new HeroPower("",0, "", AbilityType.heal, 0,0,"",true);
         hero = new Hero("Mage", null, heroPower);
     }
 

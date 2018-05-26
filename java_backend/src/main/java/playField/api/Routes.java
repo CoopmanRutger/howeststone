@@ -18,10 +18,6 @@ import java.util.ArrayList;
 class Routes extends GameState {
 
     Routes(final Javalin server) {
-//        server.get("/", this::handleRoot);
-//        server.get("/API/welcomeScreen", this::welcomScreen);
-//
-//        server.get("/API/deckbuildOrPlay", this::deckbuildOrPlay);
         server.post("/API/deckbuildOrPlay/chooseYourHero", this::chooseYourHero);
 
         server.get("/API/deckbuildOrPlay/chooseYourHero/chooseDeckForHero/getHeroName", this::getHeroNameForDecks);
@@ -158,7 +154,7 @@ class Routes extends GameState {
     private void sendAttack(Context context) throws IOException {
         String in = context.body();
         ObjectMapper mapper = new ObjectMapper();
-        ArrayList<String> array = mapper.readValue(in, ArrayList.class);
+        ArrayList<String> array = mapper.readValue(in, new TypeReference<ArrayList<String>>(){});
 
         if (array.get(1).equals("hero")) game.attackHero(array.get(0));
         else game.attackCard(array.get(0), array.get(1));

@@ -7,6 +7,9 @@ import org.junit.Before;
 import org.junit.Test;
 import playField.player.Player;
 import playField.PlayingField;
+import playField.player.heroes.AbilityType;
+import playField.player.heroes.Hero;
+import playField.player.heroes.HeroPower;
 
 import java.util.HashSet;
 
@@ -29,11 +32,19 @@ public class Playingfield {
             deck.addCard(new CardMinion("ID" + 2 + i, "0", "name", 1, "mage", "heroType", "0", 3, 0, "asian", "lol", new HashSet<CardAbility>()));
         }
 
-//        HeroPower heroPower = new HeroPower(0, 0, true);
-//        Hero hero = new Hero("mage", "im", heroPower);
+        HeroPower heroPower = new HeroPower("",
+                0,
+                "",
+                AbilityType.heal,
+                0,
+                0,
+                "",
+                true
+        );
+        final Hero hero = new Hero("mage", "im", heroPower);
 
-//        player = new Player(deck, hero);
-//        opponent = new Player(deck, hero);
+        player = new Player(deck, hero);
+        opponent = new Player(deck, hero);
 
         testField = new PlayingField(player, opponent);
         // TODO minion met 3 mana kan niet gespeeld worden als je maar 2 mana hebt.
@@ -45,33 +56,16 @@ public class Playingfield {
 
     }
 
-//    @Test
-//    public void name() {
-//
-//        System.out.println(testField.minionAttack(player.drawMinionCard()));
-//        System.out.println(testField);
-//
-//        testField.increment();
-//        testField.getCurMana();
-//    }
-
-//        System.out.println(testField.minionAttack(player.drawMinionCard()));
-//        System.out.println(testField);
-//
-//        testField.increment();
-//        testField.getMana();
-//    }
-
     @Test
     public void checkIfItsYourTurn() {
-        assertEquals(1,testField.getCurMana());
+        assertEquals(1, testField.getCurMana());
         for (int i = 0; i < 4; i++) {
             testField.increment();
             //opponent speelt
             testField.increment();
             //turn 2-5
         }
-        assertEquals(5,testField.getCurMana());
+        assertEquals(5, testField.getCurMana());
     }
 
     @Test
@@ -82,7 +76,7 @@ public class Playingfield {
 
     @Test
     public void heroGetsAmour() {
-//        player.getHero().setAmourPoints(5);
+        player.getHero();
         assertEquals(5, player.getHero().getAmourPoints());
     }
 

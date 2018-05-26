@@ -88,6 +88,17 @@ U zal merken dat de in commentaar gezette code nog heel wat fouten verscholen zi
 en veranderende prioriteiten konden we die niet meer oplossen.
 
 
+###addenda
+* De _ability_ methodes staan verspreid en hadden die graag overzichtelijker gemaakt
+* We hadden ook graag betere testen geschreven die ook de core functionaliteiten van het spel
+onder de loep nemen
+* Voor de kaarten opteerden we liever voor nettere en duidelijkere constructors dan de monsters die
+het nu geworden zijn
+* De hero klasse en alle kaarten als subklasse van de interface Attackable die dan een methode _takeDamage_ 
+zodat de switch met alle mogelijkheden geen objecten teruggeeft (lelijke code), maar _Attackables_ (overzichtelijkere code).
+
+
+
 
 
 

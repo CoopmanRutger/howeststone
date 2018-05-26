@@ -21,26 +21,19 @@ public class PlayingField {
     // CONSTRUCTOR
 
     public PlayingField(Player player, Player opponent) {
-        System.out.println("Arrived in constructor of PlayingField");
         //Random r = new Random();
         //begins = r.nextInt(2) == 0;
         begins = true;
         this.player = player;
         this.opponent = opponent;
 
-        System.out.println("initializeren van spelers lukt" + player);
-        System.out.println(opponent);
-
         for (int i = 0; i < 3; i++) {
             player.drawCard();
             opponent.drawCard();
         }
 
-        System.out.println("vullen van de 'cards in hands' lukt");
 
-        curMana = calculateMana();
-
-        System.out.println("berekenen van de mana blijkbaar ook");
+        curMana = calculateMana();;
     }
 
     // GETTERS

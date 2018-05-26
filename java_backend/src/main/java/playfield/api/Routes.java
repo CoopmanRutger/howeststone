@@ -107,7 +107,6 @@ class Routes extends GameState {
         System.out.println("Chosen Opponent Deck: noob" + opponentHero.getName());
 
         game = new GameAPI(playerDeck, opponentDeck);
-        System.out.println("Game initialized with players choices");
         context.json(game);
     }
 
@@ -134,7 +133,6 @@ class Routes extends GameState {
         final String in = context.body();
         final ObjectMapper mapper = new ObjectMapper();
         final ArrayList<String> array = mapper.readValue(in, new TypeReference<ArrayList<String>>() { });
-
         if (array.get(1).equals("hero")) {
             game.attackHero(array.get(0));
         } else {

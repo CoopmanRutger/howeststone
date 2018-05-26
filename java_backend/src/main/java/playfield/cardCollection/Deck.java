@@ -33,7 +33,6 @@ public class Deck extends Cards {
     }
 
     public boolean valid() {
-        System.out.println("amount of cards in checked deck is: " + getAmount());
         return getAmount() == maxCards;
     }
 

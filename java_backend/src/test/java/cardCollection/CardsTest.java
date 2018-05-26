@@ -1,9 +1,9 @@
 package cardCollection;
 
-import playField.cardCollection.cards.*;
+import playfield.cardCollection.cards.*;
 import org.junit.Before;
 import org.junit.Test;
-import playField.cardCollection.Cards;
+import playfield.cardCollection.Cards;
 
 import java.util.ArrayList;
 import java.util.HashSet;
@@ -17,64 +17,22 @@ public class CardsTest {
     private CardWeapon card2;
     private CardSpell card3;
     private Cards cards;
+    private HashSet<CardAbility> cardAbilities;
 
     // TODO als een minion <0 levens heeft dan wordt hij van spel verwijderd. (rekening houden met deathrattle)
 
     @Before
     public void before() {
-        card1 = new CardMinion(
-                "",
-                "",
-                "",
-                0,
-                "",
-                "",
-                "",
-                0,
-                0,
-                "black",
-                "lol",
-                new HashSet<CardAbility>()
-        );
-        card2 = new CardWeapon(
-                "",
-                "",
-                "",
-                0,
-                "",
-                "",
-                "0",
-                0,
-                0
-        );
-        card3 = new CardSpell(
-                "",
-                "",
-                "",
-                0,
-                "",
-                "",
-                "",
-                "",
-                new HashSet<CardAbility>(),
-                0,
-                0,
-                "",
-                "",
-                true,
-                1,
-                true,
-                "",
-                true
-        );
+
+        cardAbilities.add(CardAbility.charge);
+        cardAbilities.add(CardAbility.windFury);
+        cardAbilities.add(CardAbility.divineShield);
+
+        card1 = new CardMinion("ID", "0", "name", 0, "type", "heroType", "0", 0, 0, "black", "lol", cardAbilities );
+        card2 = new CardWeapon("ID", "0", "name", 0, "type", "heroType", "0", 0, 0);
+        card3 = new CardSpell("ID", "0", "name", 0, "type", "heroType", "img", "taunt", cardAbilities, 2,2,"","",true, 2, true, "", false);
         cards = new Cards();
     }
-
-    public void addCard(Card card) {
-
-        cards.addCard(card);
-    }
-
 
     @Test
     public void addAllCards() {

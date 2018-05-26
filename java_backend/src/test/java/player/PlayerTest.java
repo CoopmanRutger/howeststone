@@ -8,7 +8,7 @@ import playField.player.heroes.Hero;
 import playField.player.heroes.HeroPower;
 import org.junit.Before;
 import org.junit.Test;
-import playField.player.Player;
+import playfield.player.Player;
 
 import java.util.HashSet;
 

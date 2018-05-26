@@ -1,24 +1,24 @@
-package playField;
+package playfield;
 
-import playField.cardCollection.Deck;
+import playfield.cardCollection.Deck;
 
-import playField.cardCollection.cards.*;
+import playfield.cardCollection.cards.*;
 
-import playField.cardCollection.cards.Card;
-import playField.cardCollection.cards.CardMinion;
-import playField.player.PlayableDeck;
-import playField.player.Player;
+import playfield.cardCollection.cards.Card;
+import playfield.cardCollection.cards.CardMinion;
+import playfield.player.PlayableDeck;
+import playfield.player.Player;
 
-import playField.player.heroes.Hero;
-import playField.player.heroes.HeroPower;
+import playfield.player.heroes.Hero;
+import playfield.player.heroes.HeroPower;
 
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
-import static playField.cardCollection.cards.CardAbility.*;
-import static playField.cardCollection.cards.CardActions.*;
-import static playField.player.heroes.AbilityType.*;
+import static playfield.cardCollection.cards.CardAbility.*;
+import static playfield.cardCollection.cards.CardActions.*;
+import static playfield.player.heroes.AbilityType.*;
 
 
 public abstract class Game {
@@ -40,8 +40,11 @@ public abstract class Game {
 
         for (int i = 0; i < 30; i++) {
             tempSet = new HashSet<>();
-            tempSet.add(addHealth);
-            playerDeck.addCard(new CardSpell("ID" + i, "name" + i, "type", 1, "type", "heroType", "http://media.services.zam.com/v1/media/byName/hs/cards/enus/EX1_015.png","", tempSet,2, 1, 1,3,true, 1, true, "", true));
+//            tempSet.add(addHealth);
+            playerDeck.addCard(new CardSpell("ID" + i, "name" + i, "type", 1, "type",
+                    "heroType", "http://media.services.zam.com/v1/media/byName/hs/cards/enus/EX1_015.png",
+                    "", tempSet,2, 1, "1","3",true,
+                    1, true, "", true));
 
             tempSet = new HashSet<>();
 //            tempSet.add(divineShield);

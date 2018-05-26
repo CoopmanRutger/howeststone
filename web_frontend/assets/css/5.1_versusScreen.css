@@ -1,43 +1,41 @@
 /* CSS for 5.1_versusScreen */
+
 .bodyfield {
-    background-image: url("../../images/loginScreen_HDResolution.png");
-    padding-top: 1px;
-    background-repeat: no-repeat;
-    background-size: 1024px 768px;
-    width: 1024px;
-    height: 768px;
-    background-position: center;
-    justify-content: center;
-    margin: 0 auto 0 auto;
-    display: flex;
-    flex-direction: row;
+	background-image: url("../../images/loginScreen_HDResolution.png");
+	padding-top: 1px;
+	background-repeat: no-repeat;
+	background-size: 1024px 768px;
+	width: 1024px;
+	height: 768px;
+	background-position: center;
+	justify-content: center;
+	margin: 0 auto 0 auto;
+	display: flex;
+	flex-direction: row;
 }
 
 #versus {
-    background-image: url("../../images/vs.png");
-    background-repeat: no-repeat;
-    background-position: center;
-    width: 300px;
+	background-image: url("../../images/vs.png");
+	background-repeat: no-repeat;
+	background-position: center;
+	width: 300px;
 }
 
 .player {
-    height: 33%;
-    width: auto;
-    position: relative;
+	height: 33%;
+	width: auto;
+	position: relative;
 }
 
-
 #playerHeroPicture img, #opponentHeroPicture img {
-    padding-top: 150px;
-    height: 400px;
+	padding-top: 150px;
+	height: 400px;
 }
 
 #mage {
-
-    margin: 30px 30px;
+	margin: 30px 30px;
 }
 
 #priest {
-    margin: 435px auto auto 30px;
-
+	margin: 435px auto auto 30px;
 }

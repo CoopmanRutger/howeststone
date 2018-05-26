@@ -1,28 +1,31 @@
 /* CSS for 0_welcomeScreen */
 main {
-    position: relative;
+	position: relative;
 }
+
 main a {
-    background-image: url("../../images/continue.png");
-    background-size: 100%;
-    position: absolute;
-    left: 405px;
-    top: 300px;
-    display: inline-block;
-    width: 200px;
-    height: 200px;
+	background-image: url("../../images/continue.png");
+	background-size: 100%;
+	position: absolute;
+	left: 405px;
+	top: 300px;
+	display: inline-block;
+	width: 200px;
+	height: 200px;
 }
+
 main section {
-    background-image: url("../../images/transbox.png");
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: 350px;
-    padding: 20px 40px;
-    position: absolute;
-    left: 350px;
-    top: 650px;
+	background-image: url("../../images/transbox.png");
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: 350px;
+	padding: 20px 40px;
+	position: absolute;
+	left: 350px;
+	top: 650px;
 }
+
 main section h1 {
-    font-size: 20px;
-    font-weight: bold;
+	font-size: 20px;
+	font-weight: bold;
 }

@@ -1,87 +1,81 @@
 /* FIELD */
 
 .bodyfield {
-    height: 100vh;
-    width: 100vw;
-    background-color: black;
+	height: 100vh;
+	width: 100vw;
+	background-color: black;
 }
 
 #field {
-    position: relative;
-    background-repeat: no-repeat;
-    background-image: url("../../../images/fieldBackground.png");
-    background-size: 100% 100%;
-    width: 1024px;
-    height: 768px;
-    display: flex;
-    margin: auto;
+	position: relative;
+	background-repeat: no-repeat;
+	background-image: url("../../../images/fieldBackground.png");
+	background-size: 100% 100%;
+	width: 1024px;
+	height: 768px;
+	display: flex;
+	margin: auto;
 }
 
 /* MID */
 
 #mid {
-    position: absolute;
-    left:165px;
-    height: 768px;
-    width: 650px;
-    display: flex;
-    flex-direction: column;
-    /* background-color: hotpink; */
-
+	position: absolute;
+	left:165px;
+	height: 768px;
+	width: 650px;
+	display: flex;
+	flex-direction: column;
 }
 
 /* LEFT SIDE */
 
 #leftSide {
-    /*background-color: hotpink;*/
-    width: 160px;
-
+	width: 160px;
 }
 
 #logbook {
-    position: absolute ;
-    left: 116px;
-    top:250px;
-    /*background-color: black;*/
-    width: 33px;
-    height: 240px;
-    transform: rotate(1deg);
-
+	position: absolute ;
+	left: 116px;
+	top:250px;
+	width: 33px;
+	height: 240px;
+	transform: rotate(1deg);
 }
 
 #logbook h1 {
-    color: red;
-    font-size: 0.9rem;
-    text-align: center;
+	color: red;
+	font-size: 0.9rem;
+	text-align: center;
 }
 
 /* RIGHT SIDE */
 
 #rightSide {
-    position: absolute;
-    left: 815px;
-    height: 768px;
-    width: 215px;
+	position: absolute;
+	left: 815px;
+	height: 768px;
+	width: 215px;
 }
 
 #endTurn {
-    position: absolute;
-    left: 3px;
-    top: 333px;
+	position: absolute;
+	left: 3px;
+	top: 333px;
 }
 
 .concede {
-    position: absolute;
-    left: 130px;
-    top: 680px;
-    width: 70px;
-    height: 25px;
+	position: absolute;
+	left: 130px;
+	top: 680px;
+	width: 70px;
+	height: 25px;
 }
 
 .settings {
-    position: absolute;
-    left: 130px;
-    top: 710px;
-    width: 70px;
-    height: 25px;
+	position: absolute;
+	left: 130px;
+	top: 710px;
+	width: 70px;
+	height: 25px;
 }

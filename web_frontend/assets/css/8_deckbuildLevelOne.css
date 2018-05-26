@@ -1,7 +1,6 @@
 /* CSS for 8_deckbuildLevelOne */
 
-
-main{
+main {
 	background-image: url("../../images/crossPageBackground.png");
 	background-size: 1024px 768px;
 }
@@ -22,11 +21,10 @@ main{
 	margin-left: auto;
 	margin-right: auto;
 	padding: 25px;
-    height: 230px;
-
+	height: 230px;
 }
 
-.hero{
+.hero {
 	display: flex;
 	margin: auto;
 	width: 860px;

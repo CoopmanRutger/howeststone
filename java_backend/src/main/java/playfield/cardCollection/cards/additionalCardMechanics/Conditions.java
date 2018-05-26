@@ -69,24 +69,4 @@ public abstract class Conditions extends Game {
     protected abstract CardMinion specificMinionEnemy();
 
     protected abstract boolean playerChoice();
-
-
-    //public boolean getCondition(String cond, Card card, int amount) {
-        //switch (cond) {
-            //case "fiveOrLessAttack":
-                //return fiveOrLessAttack(amount, card);
-            //default:
-                //return true;
-        //}
-    //}
-
-    //private boolean fiveOrLessAttack(int attackAmountOfTarget, Card card){
-        //CardMinion newCard = ((CardMinion) card);
-        //if( newCard.getAttack() <= 5) {
-            //return
-        //}
-    //}
-
-
-
 }

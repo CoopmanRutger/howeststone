@@ -68,11 +68,11 @@ public class InitPlayableDeck extends Init {
 
 
     public final Set<PlayableDeck> getPlayableDecksByHeroname(String heroname) {
-        Set<PlayableDeck> playableDeckSet = new HashSet<>();
+        final Set<PlayableDeck> playableDeckSet = new HashSet<>();
         PlayableDeck playableDeck = null;
         try (
                 Connection conn = db.getConnection();
-                PreparedStatement stmt = conn.prepareStatement(SqlStatements.SElECT_PLAYABLEDECK_BYHERONAME);
+                PreparedStatement stmt = conn.prepareStatement(SqlStatements.retrievePlayableDeckByHero);
         ) {
             stmt.setString(1, heroname);
             final ResultSet playableDeckResult = stmt.executeQuery();
@@ -94,7 +94,7 @@ public class InitPlayableDeck extends Init {
         PlayableDeck playableDeck = null;
         try (
                 Connection conn = db.getConnection();
-                PreparedStatement stmt = conn.prepareStatement(SqlStatements.SElECT_PLAYABLEDECK);
+                PreparedStatement stmt = conn.prepareStatement(SqlStatements.retrievePlayableDeckByName);
         ) {
             stmt.setString(1, deckname);
             final ResultSet playableDeckResult = stmt.executeQuery();
@@ -151,9 +151,9 @@ public class InitPlayableDeck extends Init {
         return playableDeck;
     }
 
-    private String sqlFormatedList(int getal, List<String> cardIDs) {
-        final String cardId = cardIDs.get(getal);
-      getal++;
-      return cardId;
+    private String sqlFormatedList(int Number, List<String> cardIDs) {
+        final String cardId = cardIDs.get(Number);
+        Number++;
+        return cardId;
     }
 }

@@ -42,7 +42,7 @@ public class InitChooseYourHero extends Init {
         Hero hero = null;
         try (
                 Connection conn = db.getConnection();
-                PreparedStatement stmt = conn.prepareStatement(SqlStatements.SElECT_HERO_HERONAME);
+                PreparedStatement stmt = conn.prepareStatement(SqlStatements.retrieveHeroByName);
         ) {
             stmt.setString(1, HeroName);
             final ResultSet heroResult = stmt.executeQuery();
@@ -68,7 +68,7 @@ public class InitChooseYourHero extends Init {
         HeroPower heroPower = null;
         try (
                 Connection conn = db.getConnection();
-                PreparedStatement stmt = conn.prepareStatement(SqlStatements.SElECT_HEROPOWER);
+                PreparedStatement stmt = conn.prepareStatement(SqlStatements.getHeroPowerByName);
 
         ) {
             stmt.setString(1, playerHeroPowerName);

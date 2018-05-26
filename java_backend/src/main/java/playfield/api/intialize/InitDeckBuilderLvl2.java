@@ -5,7 +5,6 @@ import playfield.cardCollection.Cards;
 import playfield.cardCollection.cards.*;
 
 import java.sql.*;
-import java.util.ArrayList;
 import java.util.HashSet;
 
 public class InitDeckBuilderLvl2 extends Init {
@@ -14,15 +13,13 @@ public class InitDeckBuilderLvl2 extends Init {
         Card card = null;
         try (
                 Connection conn = db.getConnection();
-                PreparedStatement stmt = conn.prepareStatement(SqlStatements.SELECT_MINIONID);
+                PreparedStatement stmt = conn.prepareStatement(SqlStatements.retrieveMinionsById);
         ) {
             stmt.setString(1, cardID);
-            ResultSet minion = stmt.executeQuery();
+            final ResultSet minion = stmt.executeQuery();
             HashSet<CardAbility> bla;
-
             while (minion.next()) {
                 bla = new HashSet<>();
-
                 final int mana = minion.getInt("mana");
                 final int attack = minion.getInt("attack");
                 final int health = minion.getInt("health");
@@ -80,7 +77,7 @@ public class InitDeckBuilderLvl2 extends Init {
         Card card = null;
         try (
                 Connection conn = db.getConnection();
-                PreparedStatement stmt = conn.prepareStatement(SqlStatements.SElECT_WEAPONID);
+                PreparedStatement stmt = conn.prepareStatement(SqlStatements.retrieveWeaponByID);
         ) {
             stmt.setString(1, cardID);
             final ResultSet minion = stmt.executeQuery();
@@ -108,11 +105,11 @@ public class InitDeckBuilderLvl2 extends Init {
         Card card = null;
         try (
                 Connection conn = db.getConnection();
-                PreparedStatement stmt = conn.prepareStatement(SqlStatements.SElECT_SPELLSID);
+                PreparedStatement stmt = conn.prepareStatement(SqlStatements.retrieveSpellByID);
 
         ) {
             stmt.setString(1, cardID);
-            ResultSet spell = stmt.executeQuery();
+            final ResultSet spell = stmt.executeQuery();
             boolean bla2;
 
             while (spell.next()) {
@@ -136,7 +133,7 @@ public class InitDeckBuilderLvl2 extends Init {
                 final boolean onCondition = spell.getBoolean("onCondition");
                 final String conditionItSelf = spell.getString("conditionItSelf");
 
-                HashSet<CardAbility> tempset = new HashSet<>();
+                final HashSet<CardAbility> tempset = new HashSet<>();
                 card = new CardSpell(cardId, name, type, mana, heroType, info, img, mechanicsName,
                         tempset, doesDamage, doesHealth, damageTarget, healthTarget, drawCard,
                         amountOfDrawnCards, onCondition, conditionItSelf, bla2);
@@ -152,7 +149,7 @@ public class InitDeckBuilderLvl2 extends Init {
         try (
                 Connection conn = db.getConnection();
                 Statement stmt = conn.createStatement();
-                ResultSet minion = stmt.executeQuery(SqlStatements.SELECT_HEROTYPE_MINIONS)
+                ResultSet minion = stmt.executeQuery(SqlStatements.retrieveMinionsByHero)
         ) {
             while (minion.next()) {
                 final String cardId = minion.getString("cardId");
@@ -183,9 +180,6 @@ public class InitDeckBuilderLvl2 extends Init {
                 final String battleCryEffectAbilityTarget = minion.getString("battleCryEffectAbilityTarget");
                 final int battleCryEffectBoostAttackOfTarget = minion.getInt("battleCryEffectBoostAttackOfTarget");
                 final int battleCryEffectBoostHealthOfTarget = minion.getInt("battleCryEffectBoostHealthOfTarget");
-
-                final HashSet<CardAbility> bla = new HashSet<>();
-                //card = new CardMinion(cardId, name,..
             }
         } catch (SQLException e) {
             e.printStackTrace();

@@ -48,8 +48,8 @@ import java.util.Scanner;
 //public ArrayList<CardMinion> allMinionsFriendly(){
 
 public abstract class GameCLI extends Conditions {
-    Scanner input;
-    public boolean committed;
+    protected Scanner input;
+    protected boolean committed;
 
     GameCLI() {
         super();

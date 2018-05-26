@@ -22,7 +22,7 @@ class Routes extends GameState {
 
         server.get("/API/deckbuildOrPlay/chooseYourHero/chooseDeckForHero/getHeroName", this::getHeroNameForDecks);
         server.get("/API/deckbuildOrPlay/chooseYourHero/chooseDeckForHero/getChooseDeckSQL", this::getDeckForHeroSQL);
-        server.post("/API/deckbuildOrPlay/chooseYourHero/chooseDeckForHero/postChooseDeck", this::ChooseDeckForHero);
+        server.post("/API/deckbuildOrPlay/chooseYourHero/chooseDeckForHero/postChooseDeck", this::choosedeckforhero);
 
         server.post("/API/pickYourOpponent", this::pickYourOpponent);
         server.get("/API/pickYourOpponent/getHeroName", this::getHeroNameFromOpponent);
@@ -78,7 +78,7 @@ class Routes extends GameState {
         context.json(playableDeckSet);
     }
 
-    private void ChooseDeckForHero(Context context) {
+    private void choosedeckforhero(Context context) {
         final String name = formatJson(context.body()) + playerHero.getName();
 
         final InitPlayableDeck initPlayableDeck = new InitPlayableDeck();
@@ -180,7 +180,7 @@ class Routes extends GameState {
 
     private void postTempHero(Context context) {
         final InitPlayableDeck init = new InitPlayableDeck();
-        context.json(init.getPlayableDecksByHeroname(context.body().replace("\"", "")));
+        context.json(init.getPlayableDecksByHeroname(formatJson(context.body())));
     }
 
     private void getDeck(Context context) {

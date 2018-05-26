@@ -1,65 +1,56 @@
 /* CSS for 2_chooseYourHero */
 
 main {
-    display: flex;
-    flex-direction: column;
-    position: relative;
+	display: flex;
+	flex-direction: column;
+	position: relative;
 }
 
 main > div:nth-child(2) {
-    display: flex;
-    justify-content: center;
+	display: flex;
+	justify-content: center;
 }
 
 main > div > div {
-    flex-direction: column;
-    width: 400px;
-    height: 500px;
-    background-image: url('../media/kaderUpgradeChooseYrHero.png');
-    background-size: 400px;
-    background-repeat: no-repeat;
+	flex-direction: column;
+	width: 400px;
+	height: 500px;
+	background-image: url('../media/kaderUpgradeChooseYrHero.png');
+	background-size: 400px;
+	background-repeat: no-repeat;
 }
 
-
-main > div  div button {
-    position: absolute;
-    top: 200px;
-    margin-left: 160px;
-    font-size: 1.5rem;
-    text-align: center;
+main > div div button {
+	position: absolute;
+	top: 200px;
+	margin-left: 160px;
+	font-size: 1.5rem;
+	text-align: center;
 }
 
 main > div > div:first-child {
-    margin-right: 100px;
+	margin-right: 100px;
 }
 
-main > div > div > div  {
-    margin-left: 70px;
-    margin-top: 90px;
-    background-repeat: no-repeat;
-    background-size: 275px;
-    background-position: 0px;
-    height: 250px;
-    width: 250px;
-    border-radius: 5px;
+main > div > div > div {
+	margin-left: 70px;
+	margin-top: 90px;
+	background-repeat: no-repeat;
+	background-size: 275px;
+	background-position: 0px;
+	height: 250px;
+	width: 250px;
+	border-radius: 5px;
 }
 
 main > div > div:first-child > div {
-    background-image: url('../media/hero_mage.jpg');
-
+	background-image: url('../media/hero_mage.jpg');
 }
 
 main > div > div:nth-child(2) > div {
-    background-image: url('../media/hero_priest.jpg');
+	background-image: url('../media/hero_priest.jpg');
 }
-
 
 main > div div p {
-    margin: 5px 80px 0 70px;
-}
-
-
-.button {
-
-
+	margin: 5px 80px 0 70px;
 }

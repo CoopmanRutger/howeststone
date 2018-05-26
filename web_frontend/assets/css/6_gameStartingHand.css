@@ -1,57 +1,55 @@
 /* CSS for 6_gameStartingHand */
+
 main {
-    padding-top: 1px;
-    background-repeat: no-repeat;
-    background-image: url("../../images/FieldBackground4.jpg");
-    background-size: 1024px 768px;
-    width: 1024px;
-    height: 768px;
-    background-position: center;
-    justify-content: center;
-    margin: 0 auto 0 auto;
+	padding-top: 1px;
+	background-repeat: no-repeat;
+	background-image: url("../../images/FieldBackground4.jpg");
+	background-size: 1024px 768px;
+	width: 1024px;
+	height: 768px;
+	background-position: center;
+	justify-content: center;
+	margin: 0 auto 0 auto;
 }
 
 img {
-    margin: 30px auto 0 auto;
+	margin: 30px auto 0 auto;
 }
 
 body > main {
-    display: flex;
-    flex-direction: column;
+	display: flex;
+	flex-direction: column;
 }
 
 main > div {
-    display: flex;
-    flex-direction: row;
-    margin: auto;
+	display: flex;
+	flex-direction: row;
+	margin: auto;
 }
 
 .yourStartingHand {
-
-    margin: 30px;
-    background-image: url("../../images/blueCard.png");
-    background-repeat: no-repeat;
-    background-size: 100%;
-    width: 200px;
-    height: 330px;
+	margin: 30px;
+	background-image: url("../../images/blueCard.png");
+	background-repeat: no-repeat;
+	background-size: 100%;
+	width: 200px;
+	height: 330px;
 }
 
 .chosen {
-
-    margin: 30px;
-    background-image: url("../../images/blueCard.png");
-    background-repeat: no-repeat;
-    background-size: 100%;
-    width: 250px;
-    height: 400px;
+	margin: 30px;
+	background-image: url("../../images/blueCard.png");
+	background-repeat: no-repeat;
+	background-size: 100%;
+	width: 250px;
+	height: 400px;
 }
 
 p {
-    visibility: hidden;
+	visibility: hidden;
 }
 
 button {
-    width: 150px;
-    margin: 0 auto 200px auto;
-
+	width: 150px;
+	margin: 0 auto 200px auto;
 }

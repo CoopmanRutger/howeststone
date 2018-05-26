@@ -1,10 +1,9 @@
-/* TODO: Style */
 .return:hover {
-    border: 2px;
-    border-style: solid;
-    border-color: chartreuse;
+	border: 2px;
+	border-style: solid;
+	border-color: chartreuse;
 }
 
 .return {
-    color: crimson;
+	color: crimson;
 }

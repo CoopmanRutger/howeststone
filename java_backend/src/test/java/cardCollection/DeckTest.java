@@ -1,10 +1,10 @@
 //package cardCollection;
 //
-//import playField.cardCollection.cards.CardMinion;
-//import playField.cardCollection.cards.CardSpell;
-//import playField.cardCollection.cards.CardWeapon;
+//import playfield.cardCollection.cards.CardMinion;
+//import playfield.cardCollection.cards.CardSpell;
+//import playfield.cardCollection.cards.CardWeapon;
 //import org.junit.Test;
-//import playField.cardCollection.Deck;
+//import playfield.cardCollection.Deck;
 //
 //import static org.junit.Assert.*;
 //

@@ -2,10 +2,7 @@ package intialize;
 
 import org.junit.Before;
 import org.junit.Test;
-import playField.api.intialize.InitPlayableDeck;
-import playField.player.PlayableDeck;
-
-import java.util.Set;
+import playfield.api.intialize.InitPlayableDeck;
 
 import static org.junit.Assert.*;
 

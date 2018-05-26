@@ -1,14 +1,12 @@
 package cardCollection;
 
-import playField.cardCollection.cards.Card;
-import playField.cardCollection.cards.CardMinion;
-import playField.cardCollection.cards.CardSpell;
-import playField.cardCollection.cards.CardWeapon;
+import playfield.cardCollection.cards.*;
 import org.junit.Before;
 import org.junit.Test;
-import playField.cardCollection.Cards;
+import playfield.cardCollection.Cards;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
 
 import static org.junit.Assert.*;
@@ -19,33 +17,25 @@ public class CardsTest {
     private CardWeapon card2;
     private CardSpell card3;
     private Cards cards;
+    private HashSet<CardAbility> cardAbilities;
 
     // TODO als een minion <0 levens heeft dan wordt hij van spel verwijderd. (rekening houden met deathrattle)
 
     @Before
     public void before() {
 
-//        card1 = new CardMinion("ID", "0", "name", 0, "type", "heroType", "0", 0, 0, "black", "lol");
-//        card2 = new CardWeapon("ID", "0", "name", 0, "type", "heroType", "0", 0, 0);
-//        card3 = new CardSpell("ID", "0", "name", 0, "type", "heroType", "img", "taunt");
+        cardAbilities.add(CardAbility.charge);
+        cardAbilities.add(CardAbility.windFury);
+        cardAbilities.add(CardAbility.divineShield);
+
+        card1 = new CardMinion("ID", "0", "name", 0, "type", "heroType", "0", 0, 0, "black", "lol", cardAbilities );
+        card2 = new CardWeapon("ID", "0", "name", 0, "type", "heroType", "0", 0, 0);
+        card3 = new CardSpell("ID", "0", "name", 0, "type", "heroType", "img", "taunt", cardAbilities, 2,2,"","",true, 2, true, "", false);
         cards = new Cards();
         System.out.println(cards);
 
 
     }
-
-//    public void addAllCards(Cards cards) {
-//        for (Card card : cards.getCards()) {
-//            this.addCard(card);
-//        }
-//    }
-//    cards.add(card1);
-
-    public void addCard(Card card) {
-
-        cards.addCard(card);
-    }
-
 
     @Test
     public void addAllCards() {

@@ -1,10 +1,10 @@
 package intialize;
 
-import playField.player.heroes.Hero;
-import playField.player.heroes.HeroPower;
+import playfield.player.heroes.Hero;
+import playfield.player.heroes.HeroPower;
 import org.junit.Before;
 import org.junit.Test;
-import playField.api.intialize.InitChooseYourHero;
+import playfield.api.intialize.InitChooseYourHero;
 
 import static org.junit.Assert.*;
 

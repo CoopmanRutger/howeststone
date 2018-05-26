@@ -1,11 +1,11 @@
 //package playingfield;
 //
-//import playField.cardCollection.Deck;
-//import playField.cardCollection.cards.CardMinion;
+//import playfield.cardCollection.Deck;
+//import playfield.cardCollection.cards.CardMinion;
 //import org.junit.Before;
 //import org.junit.Test;
-//import playField.player.Player;
-//import playField.PlayingField;
+//import playfield.player.Player;
+//import playfield.PlayingField;
 //
 //import static org.junit.Assert.assertEquals;
 //import static org.junit.Assert.assertFalse;

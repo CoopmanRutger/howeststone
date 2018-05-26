@@ -1,12 +1,11 @@
 package player;
 
-import playField.cardCollection.Deck;
-import playField.cardCollection.cards.CardMinion;
-import playField.player.heroes.Hero;
-import playField.player.heroes.HeroPower;
+import playfield.cardCollection.Deck;
+import playfield.player.heroes.Hero;
+import playfield.player.heroes.HeroPower;
 import org.junit.Before;
 import org.junit.Test;
-import playField.player.Player;
+import playfield.player.Player;
 
 import static org.junit.Assert.*;
 

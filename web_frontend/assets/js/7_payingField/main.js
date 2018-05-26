@@ -7,7 +7,18 @@ let possibleAttackers = document.getElementById("cardsOnFieldPlayer").children;
 let possibleAbility = document.getElementById("cardsOnFieldPlayer").children;
 
 function init(){
-	update();
+	fetch("http://localhost:4242/API/playingField/getGameState", {
+		}).then(function (res) {
+		return res.json();
+		}).then(function (res) {
+		console.log(res);
+
+		if (res.isOpponent) {
+			sendBot();
+		} else {
+			update();
+		}
+	})
 	document.getElementById('endTurn').addEventListener("click", sendPlayerCommit)
 }
 

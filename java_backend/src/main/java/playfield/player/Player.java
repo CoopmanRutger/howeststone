@@ -1,11 +1,11 @@
-package field.player;
+package playfield.player;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
-import field.cardCollection.Cards;
-import field.cardCollection.Deck;
-import field.cardCollection.cards.Card;
-import field.cardCollection.cards.CardWeapon;
-import field.player.heroes.Hero;
+import playfield.cardCollection.Cards;
+import playfield.cardCollection.Deck;
+import playfield.cardCollection.cards.Card;
+import playfield.cardCollection.cards.CardWeapon;
+import playfield.player.heroes.Hero;
 
 public class Player {
     @JsonProperty("hero")
@@ -26,11 +26,18 @@ public class Player {
             this.deck = deck;
             cardsInHand = new Cards();
             cardsOnField = new Cards();
+        } else {
+            System.out.println("den deck was nie valid");
         }
     }
 
     public Player(PlayableDeck playableDeck) {
         this(playableDeck.getDeck(), playableDeck.getHero());
+        System.out.println("Playertjes maken me nen playable deck");
+        System.out.println("deck");
+        System.out.println(playableDeck.getDeck());
+        System.out.println("hero");
+        System.out.println(playableDeck.getHero());
     }
 
     // GETTERS AND SETTERS
@@ -58,7 +65,7 @@ public class Player {
     }
 
     public int getManaFromId(String id) {
-        Card card = cardsInHand.findById(id);
+        final Card card = cardsInHand.findById(id);
         if (card != null) {
             return cardsInHand.findById(id).getMana();
         } else {
@@ -68,7 +75,8 @@ public class Player {
 
     // TAKES A RANDOM CARD FROM YOUR DECK AND PUT'S IT IN YOUR HAND
     public Card drawCard() {
-        Card out;
+        final Card out;
+        System.out.println("Is cardsInHands null? " + cardsInHand);
         if (cardsInHand.getAmount() < 10) {
             out = deck.drawRandom();
             cardsInHand.addCard(out);
@@ -80,7 +88,7 @@ public class Player {
 
     // PLAY'S A CARD FROM YOUR HAND TO "CARDSONFIELD" BASED ON ID
     public void playCard(String id) {
-        Card card = cardsInHand.findById(id);
+        final Card card = cardsInHand.findById(id);
         cardsOnField.addCard(
                 card
         );
@@ -104,7 +112,7 @@ public class Player {
     }
 
     public void moveBack(String id) {
-        Card card = cardsInHand.drawById(id);
+        final Card card = cardsInHand.drawById(id);
         deck.addCard(card);
     }
 }

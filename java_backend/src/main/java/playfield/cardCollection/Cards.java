@@ -1,9 +1,9 @@
-package field.cardCollection;
+package playfield.cardCollection;
 
 import java.util.*;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
-import field.cardCollection.cards.Card;
+import playfield.cardCollection.cards.Card;
 
 public class Cards {
     @JsonProperty("cards")
@@ -44,7 +44,7 @@ public class Cards {
 
     //zoekt kaart op id en verwijderd ze
     public Card drawById(String id) {
-        Card c = findById(id);
+        final Card c = findById(id);
         remove(c);
         return c;
     }
@@ -76,7 +76,7 @@ public class Cards {
 
     @Override
     public String toString() {
-        StringBuilder out = new StringBuilder();
+        final StringBuilder out = new StringBuilder();
 
         for (Card c: cards) {
             out.append(c.toString());

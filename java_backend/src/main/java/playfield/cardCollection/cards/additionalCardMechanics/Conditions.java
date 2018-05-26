@@ -1,8 +1,8 @@
-package field.cardCollection.cards.additionalCardMechanics;
+package playfield.cardCollection.cards.additionalCardMechanics;
 
-import field.Game;
-import field.cardCollection.cards.CardMinion;
-import field.player.heroes.Hero;
+import playfield.Game;
+import playfield.cardCollection.cards.CardMinion;
+import playfield.player.heroes.Hero;
 
 import java.util.ArrayList;
 
@@ -13,11 +13,11 @@ public abstract class Conditions extends Game {
             case "playerChoice":
                 out = playerChoice();
             case "allCharacters":
-//                out = allCharacters();
+                //out = allCharacters();
             case "allCharactersFriendly":
-//                out = allCharactersFriendly();
+                //out = allCharactersFriendly();
             case "allCharactersEnemy":
-//                out = allCharactersEnemy();
+                //out = allCharactersEnemy();
             case "specificCharacterFriendly":
                 out = specificCharacterFriendly();
             case "specificCharacterEnemy":
@@ -71,23 +71,22 @@ public abstract class Conditions extends Game {
     protected abstract boolean playerChoice();
 
 
-//    public boolean getCondition(String cond, Card card, int amount) {
-//        switch (cond) {
-//            case "fiveOrLessAttack":
-//                return fiveOrLessAttack(amount, card);
-//            default:
-//                return true;
-//        }
-//    }
-//
-//    private boolean fiveOrLessAttack(int attackAmountOfTarget, Card card){
-//        CardMinion newCard = ((CardMinion) card);
-//        if( newCard.getAttack() <= 5) {
-            //return
-//        }
-//    }
+    //public boolean getCondition(String cond, Card card, int amount) {
+        //switch (cond) {
+            //case "fiveOrLessAttack":
+                //return fiveOrLessAttack(amount, card);
+            //default:
+                //return true;
+        //}
+    //}
 
-//    private boolean cond2(){return true;}
+    //private boolean fiveOrLessAttack(int attackAmountOfTarget, Card card){
+        //CardMinion newCard = ((CardMinion) card);
+        //if( newCard.getAttack() <= 5) {
+            //return
+        //}
+    //}
+
 
 
 }

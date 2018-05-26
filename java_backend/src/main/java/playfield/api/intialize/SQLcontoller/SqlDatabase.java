@@ -1,12 +1,12 @@
-package field.api.intialize.SQLcontoller;
+package playfield.api.intialize.SQLcontoller;
 
 import java.sql.*;
 
 public class SqlDatabase {
 
-    private final String url;
-    private final String user;
-    private final String password;
+    private String url;
+    private String user;
+    private String password;
 
     public SqlDatabase(String url, String user, String password) {
         this.url = url;

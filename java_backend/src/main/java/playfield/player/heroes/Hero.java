@@ -1,4 +1,4 @@
-package field.player.heroes;
+package playfield.player.heroes;
 
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -28,11 +28,10 @@ public class Hero {
 
     public void takeDamage(int damage) {
         if (armourPoints <= 0) {
-             lifePoints -= damage;
-        } else if (armourPoints > damage)
-          {
+            lifePoints -= damage;
+        } else if (armourPoints > damage) {
             armourPoints -= damage;
-        } else if (armourPoints < damage){
+        } else if (armourPoints < damage) {
             damage -= armourPoints;
             armourPoints = 0;
             lifePoints -= damage;
@@ -91,7 +90,7 @@ public class Hero {
         if (o == null || getClass() != o.getClass()) {
             return false;
         }
-        Hero hero = (Hero) o;
+        final Hero hero = (Hero) o;
         return lifePoints == hero.lifePoints
                 && armourPoints == hero.armourPoints
                 && Objects.equals(name, hero.name)

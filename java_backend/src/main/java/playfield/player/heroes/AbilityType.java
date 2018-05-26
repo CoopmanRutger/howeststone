@@ -1,4 +1,4 @@
-package field.player.heroes;
+package playfield.player.heroes;
 
 public enum AbilityType {
     heal, attack;

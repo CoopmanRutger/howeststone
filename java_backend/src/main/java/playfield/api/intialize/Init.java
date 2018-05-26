@@ -1,10 +1,9 @@
-package field.api.intialize;
+package playfield.api.intialize;
 
-import field.api.intialize.SQLcontoller.SqlDatabase;
+import playfield.api.intialize.SQLcontoller.SqlDatabase;
 
 class Init {
-
-    static SqlDatabase db = new SqlDatabase(
+    protected static SqlDatabase db = new SqlDatabase(
             "jdbc:mysql://localhost:3306/howest_stone",
             "root",
             "");

@@ -1,4 +1,4 @@
-package field.cardCollection.cards;
+package playfield.cardCollection.cards;
 
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -47,7 +47,7 @@ public class CardWeapon extends Card {
     public void setAttack(int attack) {
         if (durability > 0) {
           this.attack = attack;
-        } else if(durability == 0 ) {
+        } else if (durability == 0) {
             setAttack(0);
         }
     }

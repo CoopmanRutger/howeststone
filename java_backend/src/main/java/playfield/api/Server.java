@@ -1,4 +1,4 @@
-package field.api;
+package playfield.api;
 
 import io.javalin.Javalin;
 import org.slf4j.Logger;
@@ -16,11 +16,11 @@ public class Server {
         LOGGER.debug("server started");
     }
 
-    public Server(final int port) {
+    private Server(final int port) {
         this.port = port;
     }
 
-    public void start() {
+    private void start() {
         final Javalin server = Javalin.create()
                 .port(port)
                 .enableCorsForAllOrigins()

@@ -1,15 +1,15 @@
-package field.api;
+package playfield.api;
 
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import field.GameAPI;
-import field.api.intialize.InitPlayableDeck;
-import field.cardCollection.Cards;
-import field.api.intialize.InitChooseYourHero;
-import field.api.intialize.InitDeckBuilderLvl2;
+import playfield.GameAPI;
+import playfield.api.intialize.InitPlayableDeck;
+import playfield.cardCollection.Cards;
+import playfield.api.intialize.InitChooseYourHero;
+import playfield.api.intialize.InitDeckBuilderLvl2;
 import io.javalin.Context;
 import io.javalin.Javalin;
-import field.GameState;
+import playfield.GameState;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -49,18 +49,21 @@ class Routes extends GameState {
     }
 
     private void getAllHeroNames(Context context) {
-        InitChooseYourHero initChooseYourHero = new InitChooseYourHero();
+        final InitChooseYourHero initChooseYourHero = new InitChooseYourHero();
         context.json(initChooseYourHero.GetPlaybleHeros());
     }
 
     // FILLING FIELDS
 
-    private void chooseYourHero(Context context) {
-        String in = context.body().replace("\"", "");
-        System.out.println("Chosen Hero: " + in);
+    private String formatJson(String word) {
+        return word.replace("\"", "");
+    }
 
-        InitChooseYourHero init = new InitChooseYourHero();
-        playerHero = init.getHero(in, null);
+    private void chooseYourHero(Context context) {
+        System.out.println("Chosen Hero: " + formatJson(context.body()));
+
+        final InitChooseYourHero init = new InitChooseYourHero();
+        playerHero = init.getHero(formatJson(context.body()), null);
 
         context.result("chooseYourHero");
     }
@@ -70,27 +73,25 @@ class Routes extends GameState {
     }
 
     private void getDeckForHeroSQL(Context context) {
-        InitPlayableDeck initPlayableDeck = new InitPlayableDeck();
+        final InitPlayableDeck initPlayableDeck = new InitPlayableDeck();
         playableDeckSet = initPlayableDeck.getPlayableDecksByHeroname(playerHero.getName());
         context.json(playableDeckSet);
     }
 
     private void ChooseDeckForHero(Context context) {
-        String in = context.body().replace("\"", "");
-        String name = in + playerHero.getName();
+        final String name = formatJson(context.body()) + playerHero.getName();
 
-        InitPlayableDeck initPlayableDeck = new InitPlayableDeck();
+        final InitPlayableDeck initPlayableDeck = new InitPlayableDeck();
         System.out.println("Chosen Deck: " + name);
 
         playerDeck = initPlayableDeck.GetPlayableDeck(name);
     }
 
     private void pickYourOpponent(Context context) {
-        String in = context.body().replace("\"", "");
-        System.out.println("Chosen Opponent: " + in);
+        System.out.println("Chosen Opponent: " + formatJson(context.body()));
 
-        InitChooseYourHero init = new InitChooseYourHero();
-        opponentHero = init.getHero(in, null);
+        final InitChooseYourHero init = new InitChooseYourHero();
+        opponentHero = init.getHero(formatJson(context.body()), null);
 
         context.result("pickYourOpponent");
     }
@@ -106,17 +107,17 @@ class Routes extends GameState {
         System.out.println("Chosen Opponent Deck: noob" + opponentHero.getName());
 
         game = new GameAPI(playerDeck, opponentDeck);
-
+        System.out.println("Game initialized with players choices");
         context.json(game);
     }
 
     // FIXING STARTING HAND
 
     private void gameStartingHandRemove(Context context) throws IOException {
-        String in = context.body();
+        final String in = context.body();
 
-        ObjectMapper mapper = new ObjectMapper();
-        ArrayList<String> array = mapper.readValue(in, new TypeReference<ArrayList<String>>(){});
+        final ObjectMapper mapper = new ObjectMapper();
+        final ArrayList<String> array = mapper.readValue(in, new TypeReference<ArrayList<String>>() { });
 
 
         for (String id : array) {
@@ -130,9 +131,9 @@ class Routes extends GameState {
     }
 
     private void sendAttack(Context context) throws IOException {
-        String in = context.body();
-        ObjectMapper mapper = new ObjectMapper();
-        ArrayList<String> array = mapper.readValue(in, new TypeReference<ArrayList<String>>(){});
+        final String in = context.body();
+        final ObjectMapper mapper = new ObjectMapper();
+        final ArrayList<String> array = mapper.readValue(in, new TypeReference<ArrayList<String>>() { });
 
         if (array.get(1).equals("hero")) {
             game.attackHero(array.get(0));
@@ -148,10 +149,9 @@ class Routes extends GameState {
     }
 
     private void postPlayedCard(Context context) {
-        String in = context.body().replace("\"", "");
-        System.out.println("Card id of played card is: " + in);
-        game.playCard(in);
-        context.result("you played card with id:" + in);
+        System.out.println("Card id of played card is: " + formatJson(context.body()));
+        game.playCard(formatJson(context.body()));
+        context.result("you played card with id:" + formatJson(context.body()));
     }
 
     private void commitPlayer(Context context) {
@@ -179,12 +179,12 @@ class Routes extends GameState {
     }
 
     private void postTempHero(Context context) {
-        InitPlayableDeck init = new InitPlayableDeck();
+        final InitPlayableDeck init = new InitPlayableDeck();
         context.json(init.getPlayableDecksByHeroname(context.body().replace("\"", "")));
     }
 
     private void getDeck(Context context) {
-        InitPlayableDeck init = new InitPlayableDeck();
+        final InitPlayableDeck init = new InitPlayableDeck();
         context.json(init.getPlayableDecksByHeroname(tempHero));
     }
 
@@ -193,16 +193,15 @@ class Routes extends GameState {
     }
 
     private void deckBuildLevel2(Context context) {
-        InitDeckBuilderLvl2 db = new InitDeckBuilderLvl2();
+        final InitDeckBuilderLvl2 db = new InitDeckBuilderLvl2();
 
-        String heroType = "";
+        final String heroType = "";
 
-        Cards cards = new Cards();
+        final Cards cards = new Cards();
 
         cards.addAllCards(db.getMinions("Neutral"));
         cards.addAllCards(db.getMinions(heroType));
 
         context.result("deckBuildLevel2");
-
     }
 }

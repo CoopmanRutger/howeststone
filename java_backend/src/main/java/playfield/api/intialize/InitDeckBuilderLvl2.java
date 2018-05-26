@@ -1,15 +1,15 @@
-package field.api.intialize;
+package playfield.api.intialize;
 
-import field.api.intialize.SQLcontoller.SqlStatements;
-import field.cardCollection.Cards;
-import field.cardCollection.cards.*;
+import playfield.api.intialize.SQLcontoller.SqlStatements;
+import playfield.cardCollection.Cards;
+import playfield.cardCollection.cards.*;
 
 import java.sql.*;
+import java.util.ArrayList;
 import java.util.HashSet;
 
 public class InitDeckBuilderLvl2 extends Init {
-
-
+    
     public Card getMinion(String cardID) {
         Card card = null;
         try (
@@ -23,34 +23,35 @@ public class InitDeckBuilderLvl2 extends Init {
             while (minion.next()) {
                 bla = new HashSet<>();
 
-                String cardId = minion.getString("cardId");
-                String name = minion.getString("name");
-                int mana = minion.getInt("mana");
-                int attack = minion.getInt("attack");
-                int health = minion.getInt("health");
-                String info = minion.getString("description");
-                String type = minion.getString("type");
-                String heroType = minion.getString("heroType");
-                String img = minion.getString("img");
-                String race = minion.getString("race");
-                String mechanicsName = minion.getString("mechanicsName");
-                boolean extraAbility = minion.getBoolean("extraAbility");
-                boolean windfury = minion.getBoolean("windfury");
-                boolean charge = minion.getBoolean("charge");
-                boolean battleCry = minion.getBoolean("battleCry");
-                boolean divineShield = minion.getBoolean("divineShield");
-//                boolean spellDamage = minion.getBoolean("spellDamage");
-//                int doesDamage = minion.getInt("doesDamage");
-//                int doesHealth = minion.getInt("doesHealth");
-//                String effectTarget = minion.getString("effectTarget");
-//                String onCondition = minion.getString("onCondition");
-//                String conditionItSelf = minion.getString("conditionItSelf");
-//                String conditionClarification = minion.getString("conditionClarification");
-//                String drawCard = minion.getString("drawCard");
-//                int amountOfDrawnCards = minion.getInt("amountOfDrawnCards");
-//                String battleCryEffectAbilityTarget = minion.getString("battleCryEffectAbilityTarget");
-//                int battleCryEffectBoostAttackOfTarget = minion.getInt("battleCryEffectBoostAttackOfTarget");
-//                int battleCryEffectBoostHealthOfTarget = minion.getInt("battleCryEffectBoostHealthOfTarget");
+                final int mana = minion.getInt("mana");
+                final int attack = minion.getInt("attack");
+                final int health = minion.getInt("health");
+                //final int doesDamage = minion.getInt("doesDamage");
+                //final int doesHealth = minion.getInt("doesHealth");
+                //final int amountOfDrawnCards = minion.getInt("amountOfDrawnCards");
+                //final int battleCryEffectBoostAttackOfTarget = minion.getInt("battleCryEffectBoostAttackOfTarget");
+                //final int battleCryEffectBoostHealthOfTarget = minion.getInt("battleCryEffectBoostHealthOfTarget");
+                final boolean extraAbility = minion.getBoolean("extraAbility");
+                final boolean windfury = minion.getBoolean("windfury");
+                final boolean charge = minion.getBoolean("charge");
+                final boolean battleCry = minion.getBoolean("battleCry");
+                final boolean divineShield = minion.getBoolean("divineShield");
+                //boolean spellDamage = minion.getBoolean("spellDamage");
+                final String cardId = minion.getString("cardId");
+                final String name = minion.getString("name");
+                final String info = minion.getString("description");
+                final String type = minion.getString("type");
+                final String heroType = minion.getString("heroType");
+                final String img = minion.getString("img");
+                final String race = minion.getString("race");
+                final String mechanicsName = minion.getString("mechanicsName");
+                //final String effectTarget = wichOne.getString("effectTarget");
+                //final String onCondition = wichOne.getString("onCondition");
+                //final String conditionItSelf = wichOne.getString("conditionItSelf");
+                //final String conditionClarification = wichOne.getString("conditionClarification");
+                //final String drawCard = wichOne.getString("drawCard");
+                //final String battleCryEffectAbilityTarget = wichOne.getString("battleCryEffectAbilityTarget");
+
 
                 if (extraAbility) {
                     if (windfury) {
@@ -82,18 +83,18 @@ public class InitDeckBuilderLvl2 extends Init {
                 PreparedStatement stmt = conn.prepareStatement(SqlStatements.SElECT_WEAPONID);
         ) {
             stmt.setString(1, cardID);
-            ResultSet minion = stmt.executeQuery();
+            final ResultSet minion = stmt.executeQuery();
 
             while (minion.next()) {
-                String cardId = minion.getString("cardId");
-                String name = minion.getString("name");
-                int mana = minion.getInt("mana");
-                int attack = minion.getInt("attack");
-                int durability = minion.getInt("durability");
-                String info = minion.getString("description");
-                String type = minion.getString("type");
-                String heroType = minion.getString("heroType");
-                String img = minion.getString("img");
+                final String cardId = minion.getString("cardId");
+                final String name = minion.getString("name");
+                final int mana = minion.getInt("mana");
+                final int attack = minion.getInt("attack");
+                final int durability = minion.getInt("durability");
+                final String info = minion.getString("description");
+                final String type = minion.getString("type");
+                final String heroType = minion.getString("heroType");
+                final String img = minion.getString("img");
 
                 card = new CardWeapon(cardId, name, type, mana, heroType, info, img, attack, durability);
             }
@@ -117,23 +118,23 @@ public class InitDeckBuilderLvl2 extends Init {
             while (spell.next()) {
 
                 bla2 = true;
-                String cardId = spell.getString("cardId");
-                String name = spell.getString("name");
-                String type = spell.getString("type");
-                int mana = spell.getInt("mana");
-                String heroType = spell.getString("heroType");
-                String mechanicsName = spell.getString("mechanicsName");
-                String info = spell.getString("description");
-                String img = spell.getString("img");
-                boolean destroy = spell.getBoolean("destroy");
-                int doesDamage = spell.getInt("doesDamage");
-                int doesHealth = spell.getInt("doesHealth");
-                String damageTarget = spell.getString("damageTarget");
-                String healthTarget = spell.getString("healthTarget");
-                boolean drawCard = spell.getBoolean("drawCard");
-                int amountOfDrawnCards = spell.getInt("amountOfDrawnCards");
-                boolean onCondition = spell.getBoolean("onCondition");
-                String conditionItSelf = spell.getString("conditionItSelf");
+                final String cardId = spell.getString("cardId");
+                final String name = spell.getString("name");
+                final String type = spell.getString("type");
+                final int mana = spell.getInt("mana");
+                final String heroType = spell.getString("heroType");
+                final String mechanicsName = spell.getString("mechanicsName");
+                final String info = spell.getString("description");
+                final String img = spell.getString("img");
+                final boolean destroy = spell.getBoolean("destroy");
+                final int doesDamage = spell.getInt("doesDamage");
+                final int doesHealth = spell.getInt("doesHealth");
+                final String damageTarget = spell.getString("damageTarget");
+                final String healthTarget = spell.getString("healthTarget");
+                final boolean drawCard = spell.getBoolean("drawCard");
+                final int amountOfDrawnCards = spell.getInt("amountOfDrawnCards");
+                final boolean onCondition = spell.getBoolean("onCondition");
+                final String conditionItSelf = spell.getString("conditionItSelf");
 
                 HashSet<CardAbility> tempset = new HashSet<>();
                 card = new CardSpell(cardId, name, type, mana, heroType, info, img, mechanicsName,
@@ -147,43 +148,43 @@ public class InitDeckBuilderLvl2 extends Init {
     }
 
     public Cards getMinions(String playerHeroType) {
-        Cards cards = new Cards();
+        final Cards cards = new Cards();
         try (
                 Connection conn = db.getConnection();
                 Statement stmt = conn.createStatement();
                 ResultSet minion = stmt.executeQuery(SqlStatements.SELECT_HEROTYPE_MINIONS)
         ) {
             while (minion.next()) {
-                String cardId = minion.getString("cardId");
-                String name = minion.getString("name");
-                int mana = minion.getInt("mana");
-                int attack = minion.getInt("attack");
-                int health = minion.getInt("health");
-                String info = minion.getString("description");
-                String type = minion.getString("type");
-                String heroType = minion.getString("heroType");
-                String img = minion.getString("img");
-                String race = minion.getString("race");
-                String mechanicsName = minion.getString("mechanicsName");
-                int extraAbility = minion.getInt("extraAbility");
-                boolean windfury = minion.getBoolean("windfury");
-                boolean charge = minion.getBoolean("charge");
-                boolean battleCry = minion.getBoolean("battleCry");
-                boolean divineShield = minion.getBoolean("divineShield");
-                boolean spellDamage = minion.getBoolean("spellDamage");
-                int doesDamage = minion.getInt("doesDamage");
-                int doesHealth = minion.getInt("doesHealth");
-                String effectTarget = minion.getString("effectTarget");
-                String onCondition = minion.getString("onCondition");
-                String conditionItSelf = minion.getString("conditionItSelf");
-                String conditionClarification = minion.getString("conditionClarification");
-                String drawCard = minion.getString("drawCard");
-                int amountOfDrawnCards = minion.getInt("amountOfDrawnCards");
-                String battleCryEffectAbilityTarget = minion.getString("battleCryEffectAbilityTarget");
-                int battleCryEffectBoostAttackOfTarget = minion.getInt("battleCryEffectBoostAttackOfTarget");
-                int battleCryEffectBoostHealthOfTarget = minion.getInt("battleCryEffectBoostHealthOfTarget");
+                final String cardId = minion.getString("cardId");
+                final String name = minion.getString("name");
+                final int mana = minion.getInt("mana");
+                final int attack = minion.getInt("attack");
+                final int health = minion.getInt("health");
+                final String info = minion.getString("description");
+                final String type = minion.getString("type");
+                final String heroType = minion.getString("heroType");
+                final String img = minion.getString("img");
+                final String race = minion.getString("race");
+                final String mechanicsName = minion.getString("mechanicsName");
+                final int extraAbility = minion.getInt("extraAbility");
+                final boolean windfury = minion.getBoolean("windfury");
+                final boolean charge = minion.getBoolean("charge");
+                final boolean battleCry = minion.getBoolean("battleCry");
+                final boolean divineShield = minion.getBoolean("divineShield");
+                final boolean spellDamage = minion.getBoolean("spellDamage");
+                final int doesDamage = minion.getInt("doesDamage");
+                final int doesHealth = minion.getInt("doesHealth");
+                final String effectTarget = minion.getString("effectTarget");
+                final String onCondition = minion.getString("onCondition");
+                final String conditionItSelf = minion.getString("conditionItSelf");
+                final String conditionClarification = minion.getString("conditionClarification");
+                final String drawCard = minion.getString("drawCard");
+                final int amountOfDrawnCards = minion.getInt("amountOfDrawnCards");
+                final String battleCryEffectAbilityTarget = minion.getString("battleCryEffectAbilityTarget");
+                final int battleCryEffectBoostAttackOfTarget = minion.getInt("battleCryEffectBoostAttackOfTarget");
+                final int battleCryEffectBoostHealthOfTarget = minion.getInt("battleCryEffectBoostHealthOfTarget");
 
-                HashSet<CardAbility> bla = new HashSet<>();
+                final HashSet<CardAbility> bla = new HashSet<>();
                 //card = new CardMinion(cardId, name,..
             }
         } catch (SQLException e) {
@@ -201,13 +202,13 @@ public class InitDeckBuilderLvl2 extends Init {
             System.out.println("\n\n\n WEAPONS \n");
 
             while (weapon.next()) {
-                String cardId = weapon.getString("cardId");
-                String name = weapon.getString("name");
-                int cost = weapon.getInt("mana");
-                String info = weapon.getString("description");
-                String playerClass = weapon.getString("heroType");
-                int attack = weapon.getInt("attack");
-                int durability = weapon.getInt("durability");
+                final String cardId = weapon.getString("cardId");
+                final String name = weapon.getString("name");
+                final int cost = weapon.getInt("mana");
+                final String info = weapon.getString("description");
+                final String playerClass = weapon.getString("heroType");
+                final int attack = weapon.getInt("attack");
+                final int durability = weapon.getInt("durability");
             }
         } catch (SQLException e) {
             e.printStackTrace();
@@ -222,11 +223,11 @@ public class InitDeckBuilderLvl2 extends Init {
         ) {
             System.out.println("\n\n\nSPELL\n");
             while (spell.next()) {
-                String cardId = spell.getString("cardId");
-                String name = spell.getString("name");
-                int cost = spell.getInt("mana");
-                String info = spell.getString("description");
-                String playerClass = spell.getString("heroType");
+                final String cardId = spell.getString("cardId");
+                final String name = spell.getString("name");
+                final int cost = spell.getInt("mana");
+                final String info = spell.getString("description");
+                final String playerClass = spell.getString("heroType");
             }
         } catch (SQLException e) {
             e.printStackTrace();

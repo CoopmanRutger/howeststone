@@ -1,8 +1,8 @@
-package field.api.intialize;
+package playfield.api.intialize;
 
 import org.junit.Before;
 import org.junit.Test;
-import field.player.heroes.Hero;
+import playfield.player.heroes.Hero;
 
 import java.util.List;
 

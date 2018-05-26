@@ -1,10 +1,10 @@
-package field.cardCollection.cards;
+package playfield.cardCollection.cards;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 import java.util.Set;
 
-import static field.cardCollection.cards.CardAbility.*;
+import static playfield.cardCollection.cards.CardAbility.*;
 
 
 

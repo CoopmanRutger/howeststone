@@ -1,4 +1,4 @@
-package field.player.heroes;
+package playfield.player.heroes;
 
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -87,7 +87,7 @@ public class HeroPower {
         if (o == null || getClass() != o.getClass()) {
             return false;
         }
-        HeroPower heroPower = (HeroPower) o;
+        final HeroPower heroPower = (HeroPower) o;
         return manaCost == heroPower.manaCost
                 && abilityValue == heroPower.abilityValue
                 && duration == heroPower.duration

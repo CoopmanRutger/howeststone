@@ -1,4 +1,4 @@
-package field.cardCollection.cards;
+package playfield.cardCollection.cards;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
@@ -19,7 +19,6 @@ public class CardSpell extends Card {
     private int attackToGive;
     @JsonProperty("spellDamage")
     private int spellDamage;
-
     @JsonProperty("doesDamage")
     private int doesDamage;
     @JsonProperty("doesHealth")

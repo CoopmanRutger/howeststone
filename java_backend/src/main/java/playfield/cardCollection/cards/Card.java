@@ -1,4 +1,4 @@
-package field.cardCollection.cards;
+package playfield.cardCollection.cards;
 
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -109,7 +109,7 @@ public abstract class Card {
         if (o == null || getClass() != o.getClass()) {
             return false;
         }
-        Card card = (Card) o;
+        final Card card = (Card) o;
         return Objects.equals(cardId, card.cardId);
     }
 

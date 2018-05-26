@@ -1,31 +1,31 @@
-package field.api.intialize;
+package playfield.api.intialize;
 
-import field.api.intialize.SQLcontoller.SqlStatements;
-import field.player.heroes.Hero;
-import field.player.heroes.HeroPower;
+import playfield.api.intialize.SQLcontoller.SqlStatements;
+import playfield.player.heroes.Hero;
+import playfield.player.heroes.HeroPower;
 
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
-import static field.player.heroes.AbilityType.heal;
+import static playfield.player.heroes.AbilityType.heal;
 
 public class InitChooseYourHero extends Init {
 
 
 
     public List<Hero> GetPlaybleHeros() {
-        List<Hero> heroes = new ArrayList<>();
+        final List<Hero> heroes = new ArrayList<>();
         try (
                 Connection conn = db.getConnection();
                 Statement stmt = conn.createStatement();
                 ResultSet heroResult = stmt.executeQuery(SqlStatements.SElECT_HEROS);
         ) {
             while (heroResult.next()) {
-                String heroName = heroResult.getString("heroName");
-                String img = heroResult.getString("img");
+                final String heroName = heroResult.getString("heroName");
+                final String img = heroResult.getString("img");
 
-                Hero hero = new Hero(heroName, img, getHeroPower(heroResult.getString("heroPower")));
+                final Hero hero = new Hero(heroName, img, getHeroPower(heroResult.getString("heroPower")));
                 heroes.add(hero);
             }
         } catch (SQLException e) {
@@ -45,12 +45,12 @@ public class InitChooseYourHero extends Init {
                 PreparedStatement stmt = conn.prepareStatement(SqlStatements.SElECT_HERO_HERONAME);
         ) {
             stmt.setString(1, HeroName);
-            ResultSet heroResult = stmt.executeQuery();
+            final ResultSet heroResult = stmt.executeQuery();
 
             if (heroResult.next()) {
-                String heroName = heroResult.getString("heroName");
+                final String heroName = heroResult.getString("heroName");
 
-                String img = heroResult.getString("img");
+                final String img = heroResult.getString("img");
 
                 if (heroPower != null) {
                     hero = new Hero(heroName, img, heroPower);
@@ -72,15 +72,15 @@ public class InitChooseYourHero extends Init {
 
         ) {
             stmt.setString(1, playerHeroPowerName);
-            ResultSet heroPowerResult = stmt.executeQuery();
+            final ResultSet heroPowerResult = stmt.executeQuery();
 
             if (heroPowerResult.next()) {
-                String heroPowerName = heroPowerResult.getString("powerName");
-                int mana = heroPowerResult.getInt("mana");
-                String tags = heroPowerResult.getString("tags");
-                int abilityValue = heroPowerResult.getInt("abilityValue");
-                int duration = heroPowerResult.getInt("duration");
-                String img = heroPowerResult.getString("img");
+                final String heroPowerName = heroPowerResult.getString("powerName");
+                final int mana = heroPowerResult.getInt("mana");
+                final String tags = heroPowerResult.getString("tags");
+                final int abilityValue = heroPowerResult.getInt("abilityValue");
+                final int duration = heroPowerResult.getInt("duration");
+                final String img = heroPowerResult.getString("img");
 
                 // TODO: 22/05/2018
 

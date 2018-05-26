@@ -1,9 +1,9 @@
-package field.player;
+package playfield.player;
 
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import field.cardCollection.Deck;
-import field.player.heroes.Hero;
+import playfield.cardCollection.Deck;
+import playfield.player.heroes.Hero;
 
 public class PlayableDeck {
     @JsonProperty("deckName")

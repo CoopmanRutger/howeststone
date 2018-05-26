@@ -1,9 +1,11 @@
-package field.cardCollection;
+package playfield.cardCollection;
 
-import field.cardCollection.cards.Card;
+import playfield.cardCollection.cards.Card;
 import java.util.List;
 
 public class Deck extends Cards {
+
+    private final int maxCards = 30;
 
     public Deck(List<Card> cards) {
         super(cards);
@@ -19,7 +21,7 @@ public class Deck extends Cards {
             // sets bevatten geen dubbele waardes!
             if (containsDouble(card)) {
                 throw new Exception("There already are two of the same cards!");
-            } else if(getAmount() < 30) {
+            } else if (getAmount() < maxCards) {
                 cards.add(card);
             } else {
                 throw new Exception("More than 30 cards!");
@@ -31,19 +33,22 @@ public class Deck extends Cards {
     }
 
     public boolean valid() {
-        return getAmount() == 30;
+        System.out.println("amount of cards in checked deck is: " + getAmount());
+        return getAmount() == maxCards;
     }
-    // TODO: 18/05/2018 make a constant
 
     private boolean containsDouble(Card card) {
+        return amountOfCards(card) > 1;
+    }
+
+    private int amountOfCards(Card card) {
         int amount = 0;
-        // TODO: 18/05/2018 aparte methode maken cardCount
         for (Card c : cards) {
             if (c.equals(card)) {
                 amount++;
             }
         }
-        return amount > 1;
+        return amount;
     }
 
     @Override

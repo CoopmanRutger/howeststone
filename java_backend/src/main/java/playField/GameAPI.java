@@ -1,12 +1,9 @@
 package playField;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
 import playField.cardCollection.Cards;
-import playField.cardCollection.Deck;
 import playField.cardCollection.cards.Card;
 import playField.cardCollection.cards.CardSpell;
 import playField.player.PlayableDeck;
-import playField.player.heroes.Hero;
 import playField.player.heroes.HeroPower;
 
 import java.util.ArrayList;
@@ -53,9 +50,13 @@ public class GameAPI extends Game {
             }
             // PLAYING CARDS TO PLAY
 
-            for (Card card : toRemove) playCard(card.getCardId());
-//            for (Card card : toRemove) playCard(card.getCardId());
-            if (!played) running = false;
+            for (Card card : toRemove) {
+                playCard(card.getCardId());
+            }
+            //for (Card card : toRemove) playCard(card.getCardId());
+            if (!played) {
+                running = false;
+            }
         }
 
         // ATTACKING IF POSSIBLE

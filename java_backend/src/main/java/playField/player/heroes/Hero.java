@@ -13,11 +13,12 @@ public class Hero {
     @JsonProperty("heroPower")
     private HeroPower heroPower;
     @JsonProperty("lifePoints")
-    private int lifePoints = 31;
+    private int lifePoints = 30;
     @JsonProperty("armourPoints")
     private int armourPoints = 0;
     @JsonCreator
-    public Hero(@JsonProperty("name") String name, @JsonProperty("img") String img, @JsonProperty("heroPower") HeroPower heroPower) {
+    public Hero(@JsonProperty("name") String name, @JsonProperty("img") String img,
+                @JsonProperty("heroPower") HeroPower heroPower) {
         this.name = name;
         this.img = img;
         this.heroPower = heroPower;
@@ -25,21 +26,17 @@ public class Hero {
 
     // DAMGE AND LIFE FUNCTIONS
 
-    public void takeDamage(int damage)
-    {
-        if (armourPoints <= 0)
-        {
+    public void takeDamage(int damage) {
+        if (armourPoints <= 0) {
              lifePoints -= damage;
-        }
-//
-          else if (armourPoints > damage)
+        } else if (armourPoints > damage)
           {
             armourPoints -= damage;
         } else if (armourPoints < damage){
             damage -= armourPoints;
             armourPoints = 0;
             lifePoints -= damage;
-         }
+        }
     }
 
 
@@ -88,14 +85,18 @@ public class Hero {
 
     @Override
     public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
         Hero hero = (Hero) o;
-        return lifePoints == hero.lifePoints &&
-                armourPoints == hero.armourPoints &&
-                Objects.equals(name, hero.name) &&
-                Objects.equals(img, hero.img) &&
-                Objects.equals(heroPower, hero.heroPower);
+        return lifePoints == hero.lifePoints
+                && armourPoints == hero.armourPoints
+                && Objects.equals(name, hero.name)
+                && Objects.equals(img, hero.img)
+                && Objects.equals(heroPower, hero.heroPower);
     }
 
     @Override

@@ -4,12 +4,11 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 public class CardWeapon extends Card {
-
-		@JsonProperty("attack")
-		private int attack;
-		@JsonProperty("durability")
-		private int durability;
-//    private boolean heroWeaponActive;
+    @JsonProperty("attack")
+    private int attack;
+    @JsonProperty("durability")
+    private int durability;
+    //private boolean heroWeaponActive;
 
 
     @JsonCreator
@@ -28,11 +27,11 @@ public class CardWeapon extends Card {
     }
 
     @Override
-    public String identifier(){
+    public String identifier() {
         return "CardWeapon";
     }
 
-    public int defaultAttack(){
+    public int defaultAttack() {
         attack = 15;
         return attack;
     }
@@ -46,9 +45,9 @@ public class CardWeapon extends Card {
     }
 
     public void setAttack(int attack) {
-        if(durability>0){
-          this.attack=attack;
-        }else if(durability == 0 ){
+        if (durability > 0) {
+          this.attack = attack;
+        } else if(durability == 0 ) {
             setAttack(0);
         }
     }
@@ -59,9 +58,9 @@ public class CardWeapon extends Card {
 
     @Override
     public String toString() {
-        return "CardWeapon " +
-                super.toString() +
-                "attack: " + attack +
-                ", durability: " + durability + "\n";
+        return "CardWeapon "
+                + super.toString()
+                + "attack: " + attack
+                + ", durability: " + durability + "\n";
     }
 }

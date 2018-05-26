@@ -11,7 +11,7 @@ public abstract class Card {
     @JsonProperty("name")
     private String name;
     @JsonProperty("type")
-    private String type; // minion - spell - weapon
+    private String type;
     @JsonProperty("mana")
     private int mana;
     @JsonProperty("heroType")
@@ -103,8 +103,12 @@ public abstract class Card {
 
     @Override
     public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
         Card card = (Card) o;
         return Objects.equals(cardId, card.cardId);
     }
@@ -112,12 +116,11 @@ public abstract class Card {
     @Override
     public int hashCode() {
         return Objects.hash(cardId);
-
     }
 
     @Override
     public String toString() {
-        return name + "\tcardId: " + cardId +
-                "\tmana: " + mana + "\t";
+        return name + "\tcardId: " + cardId
+                + "\tmana: " + mana + "\t";
     }
 }

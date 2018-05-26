@@ -10,6 +10,42 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
+//return null;
+//@Override
+//}
+//return possibleHit2;
+//else if (possibleHit2 != null){
+//}
+//return possibleHit1;
+//if (possibleHit1 != null) {
+//CardMinion actualCard = null;
+//CardMinion possibleHit2 = (CardMinion) pf.getOppositePlayer().getCardsOnField().findById(id);
+//CardMinion possibleHit1 = (CardMinion) pf.getCurrentPlayer().getCardsOnField().findById(id);
+//String id = input.next();
+//System.out.print("give ID of minion to affect: ");
+//public ArrayList<CardMinion> specificMinion(){
+//@Override
+//}
+//return cards1AndCards2Combined;
+//cards1AndCards2Combined.addAll(cards2);
+//cards1AndCards2Combined.addAll(cards1);
+//ArrayList<CardMinion> cards1AndCards2Combined = new ArrayList<>();
+//ArrayList<CardMinion> cards2 = (ArrayList<CardMinion>) pf.getCurrentPlayer().getCardsOnField();
+//ArrayList<CardMinion> cards1 = (ArrayList<CardMinion>) pf.getOppositePlayer().getCardsOnField();
+//System.out.print("All minions will be affected");
+//public ArrayList<CardMinion> allMinions(){
+//@Override
+//}
+//return cards;
+//ArrayList<CardMinion> cards = (ArrayList<CardMinion>) pf.getOppositePlayer().getCardsOnField();
+//System.out.print("All enemy minions will be affected.");
+//public ArrayList<CardMinion> allMinionsEnemy(){
+//@Override
+//}
+//return cards;
+//ArrayList<CardMinion> cards = (ArrayList<CardMinion>) pf.getCurrentPlayer().getCardsOnField();
+//System.out.print("All friendly minions will be affected.");
+//public ArrayList<CardMinion> allMinionsFriendly(){
 public abstract class GameCLI extends Conditions {
     protected Scanner input;
 
@@ -29,7 +65,7 @@ public abstract class GameCLI extends Conditions {
         System.out.println("#                  #");
         System.out.println("####################");
 
-        while (!committed){
+        while (!committed) {
             System.out.print("$ ");
 
             String command = input.next();
@@ -122,9 +158,13 @@ public abstract class GameCLI extends Conditions {
 
             // PLAYING CARDS TO PLAY
 
-            for (Card card : toRemove) playCard(card.getCardId());
-//            for (Card card : toRemove) playCard(card.getCardId());
-            if (!played) running = false;
+            for (Card card : toRemove) {
+                playCard(card.getCardId());
+            }
+            //for (Card card : toRemove) playCard(card.getCardId());
+            if (!played) {
+                running = false;
+            }
         }
 
         // ATTACKING IF POSSIBLE
@@ -145,15 +185,19 @@ public abstract class GameCLI extends Conditions {
         pf.getOpponent().drawCard();
     }
 
-    public void endGame(){
+    public void endGame() {
         String out = "\n";
 
-        if (pf.getPlayer().isAlive()) out = "you won";
-        else if (pf.getOpponent().isAlive()) out = "you lost";
-        else out = "somting wong";
+        if (pf.getPlayer().isAlive()) {
+            out = "you won";
+        } else if (pf.getOpponent().isAlive()) {
+            out = "you lost";
+        } else {
+            out = "somting wong";
+        }
+    }
 
-        System.out.println(out);
-    };
+    ;
 
     protected abstract void showCardsOnFieldCLI();
 
@@ -179,96 +223,64 @@ public abstract class GameCLI extends Conditions {
         CardMinion card = (CardMinion) pf.getOppositePlayer().getCardsOnField().findById(id);
         return card;
     }
+
     @Override
-    public CardMinion specificMinionFriendly(){
+    public CardMinion specificMinionFriendly() {
         System.out.print("Give id of card to affect: ");
         String id = input.next();
         CardMinion card = (CardMinion) pf.getCurrentPlayer().getCardsOnField().findById(id);
         return card;
     }
+
     @Override
-    public Hero playerHero(){
+    public Hero playerHero() {
         System.out.println("Your own hero will be affected.");
         Hero ownhero = (Hero) pf.getCurrentPlayer().getHero();
         return ownhero;
     }
+
     @Override
-    public Hero enemyHero(){
+    public Hero enemyHero() {
         System.out.print("The enemy hero will be affected.");
         Hero opphero = (Hero) pf.getOppositePlayer().getHero();
         return opphero;
     }
+
     @Override
-    public Object specificCharacterFriendly(){
+    public Object specificCharacterFriendly() {
         System.out.print("Do you want to target your Hero or one of your minions (1 for hero, 2 for minion): ");
         int choice = input.nextInt();
+        Object out = null;
 //        Hero ownhero = (Hero) pf.getCurrentPlayer().getHero();
-        if (choice == 1){
-            return playerHero();
+        if (choice == 1) {
+            out = playerHero();
         } else if (choice == 2) {
             String id = input.next();
             CardMinion card = (CardMinion) pf.getCurrentPlayer().getCardsOnField().findById(id);
-            return card;
+            out = card;
         }
-        return null;
-        // if choice was not one of the above, could have implemented way to reiterate question, but then again, time issues
+        return out;
+        // if choice was not one of the above, could have implemented way to reiterate question,
+        // but then again, time issues
     }
+
     @Override
-    public Object specificCharacterEnemy(){
+    public Object specificCharacterEnemy() {
         System.out.print("Do you want to target their Hero or one of their minions (1 for hero, 2 for minion): ");
         int choice = input.nextInt();
+        Object out = null;
 //        Hero ownhero = (Hero) pf.getCurrentPlayer().getHero();
-        if (choice == 1){
-            return enemyHero();
+        if (choice == 1) {
+            out = enemyHero();
         } else if (choice == 2) {
             System.out.print("give id of card to affect: ");
             String id = input.next();
             CardMinion card = (CardMinion) pf.getOppositePlayer().getCardsOnField().findById(id);
-            return card;
+            out = card;
         }
-        return null;
-        // if choice was not one of the above, could have implemented way to reiterate question, but then again, time issues
+        return out;
+        // if choice was not one of the above, could have implemented way to reiterate question,
+        // but then again, time issues
     }
-//    @Override
-//    public ArrayList<CardMinion> allMinionsFriendly(){
-//        System.out.print("All friendly minions will be affected.");
-//        ArrayList<CardMinion> cards = (ArrayList<CardMinion>) pf.getCurrentPlayer().getCardsOnField();
-//        return cards;
-//    }
-//    @Override
-//    public ArrayList<CardMinion> allMinionsEnemy(){
-//        System.out.print("All enemy minions will be affected.");
-//        ArrayList<CardMinion> cards = (ArrayList<CardMinion>) pf.getOppositePlayer().getCardsOnField();
-//        return cards;
-//    }
-//    @Override
-//    public ArrayList<CardMinion> allMinions(){
-//        System.out.print("All minions will be affected");
-//        ArrayList<CardMinion> cards1 = (ArrayList<CardMinion>) pf.getOppositePlayer().getCardsOnField();
-//        ArrayList<CardMinion> cards2 = (ArrayList<CardMinion>) pf.getCurrentPlayer().getCardsOnField();
-//        ArrayList<CardMinion> cards1AndCards2Combined = new ArrayList<>();
-//        cards1AndCards2Combined.addAll(cards1);
-//        cards1AndCards2Combined.addAll(cards2);
-//        return cards1AndCards2Combined;
-//    }
-//    @Override
-//    public ArrayList<CardMinion> specificMinion(){
-//        System.out.print("give ID of minion to affect: ");
-//        String id = input.next();
-//        CardMinion possibleHit1 = (CardMinion) pf.getCurrentPlayer().getCardsOnField().findById(id);
-//        CardMinion possibleHit2 = (CardMinion) pf.getOppositePlayer().getCardsOnField().findById(id);
-//        CardMinion actualCard = null;
-//        if (possibleHit1 != null) {
-//            return possibleHit1;
-//        }
-//        else if (possibleHit2 != null){
-//            return possibleHit2;
-//        }
-//        return null;
-//     }
-//     @Override
-//    public
-
-
-
+//}
 }

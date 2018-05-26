@@ -3,7 +3,7 @@ package playField.cardCollection;
 import playField.cardCollection.cards.Card;
 import java.util.List;
 
-public class Deck extends Cards{
+public class Deck extends Cards {
 
     public Deck(List<Card> cards) {
         super(cards);
@@ -14,11 +14,12 @@ public class Deck extends Cards{
     }
 
 
-    public void addCard(Card card){
-        try{
-            if (containsDouble(card)){  // sets bevatten geen dubbele waardes!
+    public void addCard(Card card) {
+        try {
+            // sets bevatten geen dubbele waardes!
+            if (containsDouble(card)) {
                 throw new Exception("There already are two of the same cards!");
-            } else if(getAmount()<30) {
+            } else if(getAmount() < 30) {
                 cards.add(card);
             } else {
                 throw new Exception("More than 30 cards!");
@@ -29,14 +30,16 @@ public class Deck extends Cards{
 
     }
 
-    public boolean valid(){
-        return getAmount()==30;
-    } // TODO: 18/05/2018 make a constant
+    public boolean valid() {
+        return getAmount() == 30;
+    }
+    // TODO: 18/05/2018 make a constant
 
     private boolean containsDouble(Card card) {
         int amount = 0;
-        for (Card c : cards) { // TODO: 18/05/2018 aparte methode maken cardCount
-            if (c.equals(card)){
+        // TODO: 18/05/2018 aparte methode maken cardCount
+        for (Card c : cards) {
+            if (c.equals(card)) {
                 amount++;
             }
         }

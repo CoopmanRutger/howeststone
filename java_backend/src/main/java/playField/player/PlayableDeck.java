@@ -7,7 +7,7 @@ import playField.player.heroes.Hero;
 
 public class PlayableDeck {
     @JsonProperty("deckName")
-    private  String deckName;
+    private String deckName;
     @JsonProperty("hero")
     private Hero hero;
     @JsonProperty("deck")
@@ -48,10 +48,10 @@ public class PlayableDeck {
 
     @Override
     public String toString() {
-        return "PlayableDeck{" +
-                "deckName='" + deckName + '\'' +
-                ", hero=" + hero +
-                ", deck=" + deck +
-                '}';
+        return "PlayableDeck{"
+                + "deckName='" + deckName + '\''
+                + ", hero=" + hero
+                + ", deck=" + deck
+                + '}';
     }
 }

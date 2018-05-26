@@ -28,7 +28,8 @@ public class HeroPower {
     @JsonProperty("img")
     private String img;
 
-    @JsonProperty("heroPowerActive") // TODO: 21/05/2018 ???
+    @JsonProperty("heroPowerActive")
+    // TODO: 21/05/2018 ???
     private boolean heroPowerActive;
 
     @JsonCreator
@@ -51,11 +52,8 @@ public class HeroPower {
         this.heroPowerActive = heroPowerActive;
     }
 
-
-    public void jusheroPower(){
-
+    public void jusheroPower() {
         // TODO : wat gebeurt er als je op heropower klikt
-
         setHeroPowerActive(false);
     }
 
@@ -83,17 +81,21 @@ public class HeroPower {
 
     @Override
     public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
         HeroPower heroPower = (HeroPower) o;
-        return manaCost == heroPower.manaCost &&
-                abilityValue == heroPower.abilityValue &&
-                duration == heroPower.duration &&
-                heroPowerActive == heroPower.heroPowerActive &&
-                Objects.equals(heroPowerName, heroPower.heroPowerName) &&
-                Objects.equals(tags, heroPower.tags) &&
-                Objects.equals(abilityType, heroPower.abilityType) &&
-                Objects.equals(img, heroPower.img);
+        return manaCost == heroPower.manaCost
+                && abilityValue == heroPower.abilityValue
+                && duration == heroPower.duration
+                && heroPowerActive == heroPower.heroPowerActive
+                && Objects.equals(heroPowerName, heroPower.heroPowerName)
+                && Objects.equals(tags, heroPower.tags)
+                && Objects.equals(abilityType, heroPower.abilityType)
+                && Objects.equals(img, heroPower.img);
     }
 
     @Override
@@ -103,12 +105,12 @@ public class HeroPower {
 
     @Override
     public String toString() {
-        return heroPowerName +
-                ",\tcost: " + manaCost +
-                ",\tAbilityType: " + abilityType +
-                ",\tabilityValue: " + abilityValue +
-                ",\ttags: " + tags +
-                ",\tduration: " + duration +
-                ",\tactive: " + heroPowerActive;
+        return heroPowerName
+                + ",\tcost: " + manaCost
+                + ",\tAbilityType: " + abilityType
+                + ",\tabilityValue: " + abilityValue
+                + ",\ttags: " + tags
+                + ",\tduration: " + duration
+                + ",\tactive: " + heroPowerActive;
     }
 }

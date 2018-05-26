@@ -1,6 +1,5 @@
 package playField;
 
-import com.fasterxml.jackson.annotation.JacksonAnnotation;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import playField.player.Player;
@@ -14,7 +13,8 @@ public class PlayingField {
     @JsonProperty("opponent")
     private Player opponent;
 
-    private int index = 2; // for your turn (you are for example 1, adversary = 0)
+    // for your turn (you are for example 1, adversary = 0)
+    private int index = 2;
     @JsonProperty("curMana")
     private int curMana;
     private boolean begins;
@@ -38,7 +38,6 @@ public class PlayingField {
     }
 
     // GETTERS
-
     public Player getPlayer() {
         return player;
     }
@@ -50,25 +49,39 @@ public class PlayingField {
     // GETTING THE RIGHT PLAYER
 
     private int getPlayerIndex() {
-        if (begins) return 0;
-        else return 1;
+
+        if (begins) {
+            return 0;
+        } else {
+            return 1;
+        }
     }
 
     @JsonIgnore
     public Player getCurrentPlayer() {
-        if (index % 2 == getPlayerIndex()) return player;
-        else return opponent;
+        if (index % 2 == getPlayerIndex()) {
+            return player;
+        } else {
+            return opponent;
+        }
     }
 
     @JsonIgnore
     public Player getOppositePlayer() {
-        if (index % 2 != getPlayerIndex()) return player;
-        else return opponent;
+        if (index % 2 != getPlayerIndex()) {
+            return player;
+        } else {
+            return opponent;
+        }
     }
 
     @JsonProperty("isOpponent")
     public boolean whosTurn() {
-        return getPlayerIndex() != (index % 2);
+        if (getPlayerIndex() != (index % 2)) {
+            return true;
+        }
+        return false;
+
     }
 
     // TURN AND INCREMENT
@@ -87,8 +100,11 @@ public class PlayingField {
     @JsonProperty("totalMana")
     public int calculateMana() {
         int turn = getTurn();
-        if (turn < maxMana) return turn;
-        else return maxMana;
+        if (turn < maxMana) {
+            return turn;
+        } else {
+            return maxMana;
+        }
     }
 
     public int getCurMana() {
@@ -110,11 +126,8 @@ public class PlayingField {
 
     @Override
     public String toString() {
-        return "Tegenspeler:\n" +
-                getOppositePlayer().getCardsOnField().toString() +
-                "Jezelf:\n" +
-                getCurrentPlayer().getCardsOnField().toString() +
-                "Je kaarten:\n" +
-                getCurrentPlayer().getCardsInHand().toString();
+        return "Tegenspeler:\n" + getOppositePlayer().getCardsOnField().toString()
+                + "Jezelf:\n" + getCurrentPlayer().getCardsOnField().toString()
+                + "Je kaarten:\n" + getCurrentPlayer().getCardsInHand().toString();
     }
 }

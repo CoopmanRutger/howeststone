@@ -90,9 +90,9 @@ public class CardSpell extends Card {
 
     @Override
     public String toString() {
-        return "CardSpell " +
-                super.toString() +
-                "mechanicsName: " + mechanicsName + "\n";
+        return "CardSpell "
+                + super.toString()
+                + "mechanicsName: " + mechanicsName + "\n";
     }
 
     public Set<CardAbility> getAbilities() {
@@ -119,9 +119,11 @@ public class CardSpell extends Card {
         return doesHealth;
     }
 
-    public String  getDamageTarget() { return damageTarget; }
+    public String getDamageTarget() {
+        return damageTarget;
+    }
 
-    public String  getHealthTarget() {
+    public String getHealthTarget() {
         return healthTarget;
     }
 
@@ -145,5 +147,7 @@ public class CardSpell extends Card {
         return destroy;
     }
 
-    public int getSpellDamage() { return spellDamage; }
+    public int getSpellDamage() {
+        return spellDamage;
+    }
 }

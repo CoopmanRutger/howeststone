@@ -8,7 +8,7 @@ import static playField.cardCollection.cards.CardAbility.*;
 
 
 
-public class CardMinion extends Card{
+public class CardMinion extends Card {
     @JsonProperty("attack")
     private int attack;
     @JsonProperty("health")
@@ -26,7 +26,7 @@ public class CardMinion extends Card{
     @JsonProperty("amountAttack")
     private int amountAttack = 1;
     @JsonProperty("devineShield")
-    private boolean devineShield = false;
+    private boolean devineShield;
 
 
     public CardMinion(@JsonProperty("cardId") String cardId,
@@ -48,35 +48,45 @@ public class CardMinion extends Card{
         this.maxHealth = health;
         this.race = race;
         this.mechanicsName = mechanicsName;
-        if (abilities.contains(charge)) amountAttack = 0;
-        if (abilities.contains(windFury)) maxAmountAttack = 2;
-        if (abilities.contains(divineShield)) devineShield = true;
+        if (abilities.contains(charge)) {
+            amountAttack = 0;
+        }
+        if (abilities.contains(windFury)) {
+            maxAmountAttack = 2;
+        }
+        devineShield = false;
+        if (abilities.contains(divineShield)) {
+            devineShield = true;
+        }
     }
 
     @Override
-    public String identifier(){
+    public String identifier() {
         return "CardMinion";
     }
 
     // TAKE DAMAGE FUNCTION
 
-    public void takeDamage(int damage){
-        if (devineShield) devineShield = false;
-        else health -= damage;
+    public void takeDamage(int damage) {
+        if (devineShield) {
+            devineShield = false;
+        } else {
+            health -= damage;
+        }
     }
 
     // HEAL MOTHAFUCKAAA
 
-    public void heal(int amount){
+    public void heal(int amount) {
         health += amount;
-        if (maxHealth < health) health = maxHealth;
+        if (maxHealth < health) {
+            health = maxHealth;
+        }
     }
 
     // UTIL
-
-    public boolean isAlive(){
+    public boolean isAlive() {
         return health > 0;
-
     }
 
     public int getAttack() {
@@ -111,18 +121,18 @@ public class CardMinion extends Card{
         this.mechanicsName = mechanicsName;
     }
 
-    public void incrAttack(int amount){
+    public void incrAttack(int amount) {
         amountAttack += amount;
-        maxAmountAttack  += amount;
+        maxAmountAttack += amount;
     }
 
     @Override
     public String toString() {
-        return super.toString() +
-                "\tattack: " + attack +
-                "\thealth: " + health +
-                "\tcanPlay:" + getCanAttack() +
-                "\tmechanicsName:" + mechanicsName + "\n";
+        return super.toString()
+                + "\tattack: " + attack
+                + "\thealth: " + health
+                + "\tcanPlay:" + getCanAttack()
+                + "\tmechanicsName:" + mechanicsName + "\n";
     }
 
     public boolean getCanAttack() {

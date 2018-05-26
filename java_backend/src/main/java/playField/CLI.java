@@ -72,7 +72,7 @@ public class CLI extends GameCLI {
 
         if (id.equals("hero")) {
             playWeaponOnHero(damage);
-        }  else {
+        } else {
             playWeaponOnCard(id, damage);
         }
     }
@@ -152,14 +152,13 @@ public class CLI extends GameCLI {
         String id = input.next();
         if (id.equals("hero")) {
             addHealthHero(healthToGive);
-        }
-        else {
+        } else {
             addHealthCard(healthToGive, id);
         }
     }
 
     @Override
-    public void addAttack(int amount){
+    public void addAttack(int amount) {
         System.out.println("give ID of card to give extra attack");
         System.out.print("$ ");
         String id = input.next();

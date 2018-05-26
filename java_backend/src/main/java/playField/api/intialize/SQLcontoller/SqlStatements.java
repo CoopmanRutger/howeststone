@@ -29,7 +29,6 @@ public class SqlStatements {
     public static final String SELECT_MINIONID =
             "SELECT * FROM minions WHERE cardId = ?;";
 
-
     public static final String SELECT_HEROTYPE_MINIONS =
             "SELECT * FROM minions WHERE heroType = ?;";
 
@@ -57,22 +56,8 @@ public class SqlStatements {
     public static final String SElECT_PLAYABLEDECK_BYHERONAME =
             "SELECT * FROM playabledeck WHERE hero = ?";
 
-
-
-
     public static final String INSERT_PLAYABLEDECK =
-            "INSERT INTO `playabledeck`(*) " +
-                    "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ? ,?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ? ,?, ?, ?, ?, ?, ?);";
-
-
-
-
-//            "SELECT world.city.Name  FROM world.country INNER JOIN world.city ON world.country.Capital=world.city.ID " +
-//                    "WHERE world.country.Name = ?;";
-
-//
-//    public static final String INSERT_CITY =
-//            "INSERT INTO `world`.`city` (`Name`, `CountryCode`, `District`) " +
-//                    "VALUES (?, 'BEL', ?);";
-
+            "INSERT INTO `playabledeck`(*) "
+                    + "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ? ,?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ? ,?, ?,"
+                    + " ?, ?, ?, ?);";
 }

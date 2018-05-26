@@ -27,12 +27,12 @@ public abstract class Game {
 
     // CONTRUCTOR
 
-    Game(PlayableDeck playerDeck, PlayableDeck opponentDeck){
+    Game(PlayableDeck playerDeck, PlayableDeck opponentDeck) {
 
         pf = new PlayingField(new Player(playerDeck), new Player(opponentDeck));
     }
 
-    public Game(){
+    public Game() {
         HashSet<CardAbility> tempSet;
 
         Deck playerDeck = new Deck();
@@ -40,16 +40,22 @@ public abstract class Game {
 
         for (int i = 0; i < 30; i++) {
             tempSet = new HashSet<>();
-//            tempSet.add(addHealth);
-            playerDeck.addCard(new CardSpell("ID" + i, "name" + i, "type", 1, "type", "heroType", "http://media.services.zam.com/v1/media/byName/hs/cards/enus/EX1_015.png","", tempSet,2, 1, "","",true, 1,true ,"" ,true ));
+            playerDeck.addCard(new CardSpell("ID" + i, "name" + i, "type", 1, "type",
+                    "heroType", "http://media.services.zam.com/v1/media/byName/hs/cards/enus/EX1_015.png",
+                    "", tempSet, 2, 1, "", "", true,
+                    1, true, "", true));
 
             tempSet = new HashSet<>();
-//            tempSet.add(divineShield);
-            opponentDeck.addCard(new CardMinion("ID" + i, "name" + i, "type", i / 6 + 1, "type", "heroType", "img", i/5 + 1, (i+1)/5 + 1, "race", "mechanics", tempSet));
+            opponentDeck.addCard(new CardMinion("ID" + i, "name" + i, "type", i / 6 + 1,
+                    "type", "heroType", "img", i / 5 + 1, (i + 1) / 5 + 1,
+                    "race", "mechanics", tempSet));
         }
 
-        HeroPower playerHeroPower = new HeroPower("", 0, "", heal, 1, 1, "", true);
-        HeroPower opponentHeroPower = new HeroPower("", 0, "", attack, 1, 1, "", true);
+        HeroPower playerHeroPower = new HeroPower("", 0, "", heal, 1, 1,
+                "", true);
+        HeroPower opponentHeroPower = new HeroPower("", 0, "", attack, 1,
+                1, "", true);
+
         Hero playerHero = new Hero("heroPlayer", "im", playerHeroPower);
         Hero opponentHero = new Hero("heroOpponent", "im", opponentHeroPower);
 
@@ -59,21 +65,26 @@ public abstract class Game {
         pf = new PlayingField(new Player(playerDeck, playerHero), new Player(opponentDeck, opponentHero));
     }
 
-    void run() {
+    protected void run() {
         while (!pf.getEnd()) {
             updateCanAttack();
 
-            if (pf.whosTurn()) botMechanics();
-            else playerMechanics();
+            if (pf.whosTurn()) {
+                botMechanics();
+            } else {
+                playerMechanics();
+            }
 
-            if (!pf.getPlayer().isAlive() || !pf.getOpponent().isAlive()) break;
-
+            if (!pf.getPlayer().isAlive() || !pf.getOpponent().isAlive()) {
+                break;
+            }
             pf.increment();
         }
         endGame();
     }
 
-    void updateCanAttack() { // zet de minions op "kan aanvallen"
+    // zet de minions op "kan aanvallen"
+    void updateCanAttack() {
         List<Card> cards = pf.getCurrentPlayer().getCardsOnField().getCards();
         for (Card card : cards) {
             ((CardMinion) card).resetCanAttack(true);
@@ -108,23 +119,28 @@ public abstract class Game {
             pf.decrMana(mana);
         }
     }
-
-    private void spell(Set<CardAbility> abilities, CardSpell card) { // does spell-action
-        if (abilities.contains(drawCard)) pf.getCurrentPlayer().drawCard();
-        if (abilities.contains(directAttack)) attackWithWeapon();
-        if (abilities.contains(addArmour)) addArmour(card.getArmourToGive());
-        if (abilities.contains(addHealth)) addHealth(card.getHealthToGive());
-        if (abilities.contains(addAttack)) addAttack(card.getAttackToGive());
-//        if (abilities.contains(spellDamage)) spellDamage(card);
+    // does spell-action
+    private void spell(Set<CardAbility> abilities, CardSpell card) {
+        if (abilities.contains(drawCard)) {
+            pf.getCurrentPlayer().drawCard();
+        }
+        if (abilities.contains(directAttack)) {
+            attackWithWeapon();
+        }
+        if (abilities.contains(addArmour)) {
+            addArmour(card.getArmourToGive());
+        }
+        if (abilities.contains(addHealth)) {
+            addHealth(card.getHealthToGive());
+        }
+        if (abilities.contains(addAttack)) {
+            addAttack(card.getAttackToGive());
+        }
     }
 
-
-
-
     // ABSTRACT SPELS
-
-
-    protected void destroyCard (String pId, String oId){ // not finished; works only on condition
+    // not finished; works only on condition
+    protected void destroyCard(String pId, String oId) {
         // (when minion is attack is five or less OR minion attack is three or less)
         CardSpell playerCard = (CardSpell) pf.getCurrentPlayer().getCardsOnField().findById(pId);
         CardMinion opponentCard = (CardMinion) pf.getOppositePlayer().getCardsOnField().findById(oId);
@@ -132,30 +148,31 @@ public abstract class Game {
 
         int destroyDmge;
 
-        if (playerCard != null && opponentCard != null && playerCard.isDestroy()){
-//            if (opponentCard.getAttack() <= 5) { NOT FINISHED
+        if (playerCard != null && opponentCard != null && playerCard.isDestroy()) {
+            //if (opponentCard.getAttack() <= 5) { NOT FINISHED
 
-                destroyDmge = opponentCard.getHealth();
-                opponentCard.takeDamage(destroyDmge);
-
+            destroyDmge = opponentCard.getHealth();
+            opponentCard.takeDamage(destroyDmge);
         }
     }
 
 
 
-    protected void addArmour(int amount){
+    protected void addArmour(int amount) {
         pf.getCurrentPlayer().getHero().incrArmour(amount);
     }
 
-    void addHealthHero(int healAmount) {
+    protected void addHealthHero(int healAmount) {
         pf.getCurrentPlayer().getHero().incrHealth(healAmount);
     }
 
-    void addHealthCard(int healAmount, String id) {
-        Player curPlayer =  pf.getCurrentPlayer();
-        CardMinion card = ((CardMinion) curPlayer.getCardsOnField().findById(id));
+    protected void addHealthCard(int healAmount, String id) {
+        Player curPlayer = pf.getCurrentPlayer();
+        CardMinion card = (CardMinion) curPlayer.getCardsOnField().findById(id);
 
-        if (card != null) card.incrHealth(healAmount);
+        if (card != null) {
+            card.incrHealth(healAmount);
+        }
     }
 
     // ABSTRACT SPELS
@@ -179,8 +196,12 @@ public abstract class Game {
 
             playerCard.incrCanAttack(false);
 
-            if (!playerCard.isAlive()) pf.getCurrentPlayer().getCardsOnField().remove(pId);
-            if (!opponentCard.isAlive()) pf.getOppositePlayer().getCardsOnField().remove(oId);
+            if (!playerCard.isAlive()) {
+                pf.getCurrentPlayer().getCardsOnField().remove(pId);
+            }
+            if (!opponentCard.isAlive()) {
+                pf.getOppositePlayer().getCardsOnField().remove(oId);
+            }
         }
     }
 
@@ -201,9 +222,11 @@ public abstract class Game {
         int mana = heroPower.getManaCost();
 
         if (mana <= pf.getCurMana()) {
-            if (heroPower.getAbilityType() == attack)
+            if (heroPower.getAbilityType() == attack) {
                 attackHeroPower(heroPower);
-            else healHeroPower(heroPower);
+            } else {
+                healHeroPower(heroPower);
+            }
 
             pf.decrMana(mana);
         }
@@ -212,7 +235,7 @@ public abstract class Game {
     public void playWeaponOnCard(String oId, int damage) {
         CardMinion opponentCard = (CardMinion) pf.getOppositePlayer().getCardsOnField().findById(oId);
 
-        if (opponentCard != null){
+        if (opponentCard != null) {
             opponentCard.takeDamage(damage);
         }
     }

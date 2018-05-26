@@ -8,38 +8,40 @@ import java.util.ArrayList;
 
 public abstract class Conditions extends Game {
     public Object getCondition(String cond) {
+        Object out = null;
         switch (cond) {
             case "playerChoice":
-                return playerChoice();
+                out = playerChoice();
             case "allCharacters":
-//                return allCharacters();
+//                out = allCharacters();
             case "allCharactersFriendly":
-//                return allCharactersFriendly();
+//                out = allCharactersFriendly();
             case "allCharactersEnemy":
-//                return allCharactersEnemy();
+//                out = allCharactersEnemy();
             case "specificCharacterFriendly":
-                return specificCharacterFriendly();
+                out = specificCharacterFriendly();
             case "specificCharacterEnemy":
-                return specificCharacterEnemy();
+                out = specificCharacterEnemy();
             case "allMinions":
-                return allMinions();
+                out = allMinions();
             case "allMinionsFriendly":
-                return allMinionsFriendly();
+                out = allMinionsFriendly();
             case "allMinionsEnemy":
-                return allMinionsEnemy();
+                out = allMinionsEnemy();
             case "specificMinion":
-                return specificMinion();
+                out = specificMinion();
             case "specificMinionFriendly":
-                return specificMinionFriendly();
+                out = specificMinionFriendly();
             case "specificMinionEnemy":
-                return specificMinionEnemy();
+                out = specificMinionEnemy();
             case "playerHero":
-                return playerHero();
+                out = playerHero();
             case "enemyHero":
-                return enemyHero();
+                out = enemyHero();
             default:
-                return true;
+                out = true;
         }
+        return out;
     }
 
     // TODO allCharacters and variants
@@ -51,10 +53,12 @@ public abstract class Conditions extends Game {
     protected abstract ArrayList<CardMinion> allMinionsFriendly();
 
     protected abstract Object specificCharacterEnemy();
-    // using Object type because it's the superclass of all other types (only time sensitive way to combine Hero & minion)
+    // using Object type because it's the superclass of all other types (only time sensitive way to combine Hero
+    // & minion)
 
     protected abstract Object specificCharacterFriendly();
-    // using Object type because it's the superclass of all other types (only time sensitive way to combine Hero & minion)
+    // using Object type because it's the superclass of all other types (only time sensitive way to combine Hero
+    // & minion)
 
     protected abstract Hero enemyHero();
 
@@ -79,7 +83,7 @@ public abstract class Conditions extends Game {
 //    private boolean fiveOrLessAttack(int attackAmountOfTarget, Card card){
 //        CardMinion newCard = ((CardMinion) card);
 //        if( newCard.getAttack() <= 5) {
-//            return
+            //return
 //        }
 //    }
 

@@ -4,7 +4,9 @@ import java.sql.*;
 
 public class SqlDatabase {
 
-    private final String url, user, password;
+    private final String url;
+    private final String user;
+    private final String password;
 
     public SqlDatabase(String url, String user, String password) {
         this.url = url;

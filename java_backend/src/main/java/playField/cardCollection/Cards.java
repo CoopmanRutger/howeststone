@@ -7,9 +7,9 @@ import playField.cardCollection.cards.Card;
 
 public class Cards {
     @JsonProperty("cards")
-    public List<Card> cards;
+    protected List<Card> cards;
 
-    protected Cards(List<Card> cards) {
+    Cards(List<Card> cards) {
 
         this.cards = cards;
     }
@@ -34,38 +34,43 @@ public class Cards {
     }
 
     public Card findById(String id) {
-        for(Card c : cards) if (c.getCardId().equals(id)) return c;
+        for (Card c : cards) {
+            if (c.getCardId().equals(id)) {
+                return c;
+            }
+        }
         return null;
     }
 
-    public Card drawById(String id){ //zoekt kaart op id en verwijderd ze
+    //zoekt kaart op id en verwijderd ze
+    public Card drawById(String id) {
         Card c = findById(id);
         remove(c);
         return c;
     }
 
     private Random r = new Random();
-    public Card drawRandom(){
-        return cards.remove( r.nextInt(cards.size()) );
+    public Card drawRandom() {
+        return cards.remove(r.nextInt(cards.size()));
     }
 
-    public void remove(Card card){
+    public void remove(Card card) {
         cards.remove(card);
     }
 
-    public void remove(String id){
+    public void remove(String id) {
         cards.remove(findById(id));
     }
 
-    public boolean contains(Card card){
+    public boolean contains(Card card) {
         return cards.contains(card);
     }
 
-    public boolean contains(String id){
+    public boolean contains(String id) {
         return cards.contains(findById(id));
     }
 
-    public int getAmount(){
+    public int getAmount() {
         return cards.size();
     }
 

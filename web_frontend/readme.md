@@ -1,50 +1,35 @@
-#title
-##title
-###title
-######title
-
-normal text<br>
-_italic_
-*italic*<br>
-**bold**
-__bold__<br>
-**big bold text**
-***big bold and italic***
-****big****
 
 ##Groepsfoto en introductie teamleden van '*Finding Nemo*'
 
 ![Group pic](../group07Pic.jpg)
-van links naar rechts
+_van links naar rechts_<br>
+**Bert Vervust**, **Louis Boucquet**, **Rutger Coopman**, **Nino Florizoone**
 
-**Bert Vervust**
-
-**Louis Boucquet**
-
-**Rutger Coopman**
-
-**Nino Florizoone**
+###Bert
 
 Bert is een gedreven werker; hij heeft vaak zin om van allerlei features te implementeren, maar heeft soms de technische bagage niet om de voor zichzelf opgelegde taken te voltooien. 
 Met wat bijsturing echter, behlpt hij zich wel op weg. Zijn organisatorische drive zorgde ervoor dat heel wat features niet over het hoofd werden gezien.
 QUOTE:
 
-# Rutger
+
+###Louis
+
+Louis heeft waarschijnlijk de meeste technische bagage en probeerde daarmee de anderen zoveel mogelijk te helpen. Hij lette er ook op dat de algemene lijn goed zat, 
+het grotere plaatje als het ware. Hij zou best wel wat meer commentaar bij zijn code schrijven en algemeen nettere code schrijven.
+
+###Rutger
 
 Rutger is technisch wat sterker dan Bert en schrijft daardoor vlotter code die ook een stuk kwaliteitsvoller is.
 Rutger heeft ook hier en daar een duwtje in de rug nodig om de juiste richting te vinden in de samenhang van de code om een goed resultaat te komen.
 
 
-# Nino
+###Nino
 
 Nino heeft praktisch geen technische bagage, wat ons ook opviel. In de eerste sprint focuste hij zich uitsluitend op _photoshop_, wat toen ook wel nodig was.
 Hoewel we hem aanspoorden af te wisselen in zijn werklast, JS probeerden bij te leren, leek het weinig uit te maken.
 En wanneer hij zich probeerde te focussen op de HTML en CSS (JS was te moeilijk), deed hij goedwerkende functionaliteiten in het honderd lopen.
 
-# Louis
 
-Louis heeft waarschijnlijk de meeste technische bagage en probeerde daarmee de anderen zoveel mogelijk te helpen. Hij lette er ook op dat de algemene lijn goed zat, 
-het grotere plaatje als het ware. Hij zou best wel wat meer commentaar bij zijn code schrijven en algemeen nettere code schrijven.
 
 
 ##Klassendiagram
@@ -56,8 +41,20 @@ cfr. class_diagram_howestStone.pdf
 cfr SQLDatabaseScheme.htm
 
 ##Starten van het spel
+
 ###Frontend
-In u geliefde editor start u het HTML bestand '0_welcomeScreen.html'
+In u geliefde editor start u het HTML bestand '0_welcomeScreen.html'. Als we ons werk goed gedaan hebben, 
+dient de GUI intuitief genoeg te zijn om vanaf hier al geen verdereinstructies te voorzien voor het start van het spel ;).
+
+###Backend
+Voor de backend te laten werken dient u simpelweg de mooie JAVALIN server op te starten. Zorg er dus voor dat u de klasse Server
+(in de _package_ **initialize**, onder API; waarbij API onder playfield terug te vinden is) start: de JAVALIN server zal nu actief worden!
+Het belangrijk in het achterhoofd te houden dat deze stap eerst moet genomen worden voor u het frontendbestand aanspreekt.
+
+###JAVA CLI
+Voor de CLI dient u de klasse CLI in de package playfield op te starten: hierna krijgt u het bericht dat het u beurt is om een bepaalde zet te doen.
+Wanneer u niet weet hoe u een beurt moet spelen, en dus bijgevolg een fout commando intypt, zal de CLI bericht geven van alle mogelijke commando's. 
+Hierbij hebben we gelet op de naamgeving zodat de naam op zich boekdelen spreekt over de functionaliteit van het commando. 
 
 ##noten en addenda
 
@@ -95,15 +92,9 @@ en veranderende prioriteiten konden we die niet meer oplossen.
 
 
 
-// frontend refreshen per actie ~ know its not efficient; Min. viable product
- (scrum filosofie) 
- bv lijst met veel koart’n, ix veranderen ~ hele lijst trg drstrn
-wat we zouden implementeren if enough time => alle features dubbel implementeren 
-(client side minder belasten ~ easy to work, immediate feedback) x COMM server-client 
-zorgen dat er zo weinig mogelijk info wordt doorgegeven (enkel verandering door geven
- bv lijst met veel koartn’, ix veranderen ~ enkel specifiek de verandering drstrn 
-(zorgen da bij verandering van 1 kaart enkel 1 kaart wordt veranderd ipv 
- ~ enkel verandering doorsturen (om zo weinig mogelijk NETWERK te gebruiken)
+
+
+
 
 
 

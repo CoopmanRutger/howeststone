@@ -6,6 +6,8 @@ import org.junit.Before;
 import org.junit.Test;
 import playField.api.intialize.InitChooseYourHero;
 
+import java.util.List;
+
 import static org.junit.Assert.*;
 
 public class InitChooseYourHeroTest {
@@ -29,5 +31,11 @@ public class InitChooseYourHeroTest {
     @Test
     public void getHeroTest() {
         assertEquals(hero, db.getHero("Mage", null));
+    }
+
+    @Test
+    public void GetPlaybleHeros() {
+        List<Hero> heroList = db.GetPlaybleHeros();
+        System.out.println(heroList);
     }
 }

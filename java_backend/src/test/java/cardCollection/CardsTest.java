@@ -1,14 +1,12 @@
 package cardCollection;
 
-import playField.cardCollection.cards.Card;
-import playField.cardCollection.cards.CardMinion;
-import playField.cardCollection.cards.CardSpell;
-import playField.cardCollection.cards.CardWeapon;
+import playField.cardCollection.cards.*;
 import org.junit.Before;
 import org.junit.Test;
 import playField.cardCollection.Cards;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
 
 import static org.junit.Assert.*;
@@ -24,14 +22,10 @@ public class CardsTest {
 
     @Before
     public void before() {
-
-//        card1 = new CardMinion("ID", "0", "name", 0, "type", "heroType", "0", 0, 0, "black", "lol");
-//        card2 = new CardWeapon("ID", "0", "name", 0, "type", "heroType", "0", 0, 0);
-//        card3 = new CardSpell("ID", "0", "name", 0, "type", "heroType", "img", "taunt");
+        card1 = new CardMinion("ID", "0", "name", 0, "type", "heroType", "0", 0, 0, "black", "lol", new HashSet<CardAbility>());
+        card2 = new CardWeapon("ID", "0", "name", 0, "type", "heroType", "0", 0, 0);
+        card3 = new CardSpell("ID", "0", "name", 0, "type", "heroType", "img", "taunt", new HashSet<CardAbility>(), 0, 0,"","",true,1,true,"",true);
         cards = new Cards();
-        System.out.println(cards);
-
-
     }
 
 //    public void addAllCards(Cards cards) {

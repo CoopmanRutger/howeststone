@@ -1,5 +1,6 @@
 package playField.api;
 
+import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import playField.GameAPI;
 import playField.api.intialize.InitPlayableDeck;
@@ -142,7 +143,7 @@ class Routes extends GameState {
         String in = context.body();
 
         ObjectMapper mapper = new ObjectMapper();
-        ArrayList<String> array = mapper.readValue(in, ArrayList.class);
+        ArrayList<String> array = mapper.readValue(in, new TypeReference<ArrayList<String>>(){});
 
         for (String id : array) {
             game.pf.getCurrentPlayer().moveBack(id);
@@ -190,9 +191,7 @@ class Routes extends GameState {
 
     private void bot(Context context) {
         game.botMechanics();
-
     }
-
 
     private void commitOpponent(Context context){
         if (!game.pf.getOppositePlayer().getHero().isAlive()) {

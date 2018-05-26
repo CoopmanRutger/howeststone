@@ -1,14 +1,14 @@
 package player;
 
-import playField.cardCollection.Deck;
-import playField.cardCollection.cards.CardAbility;
-import playField.cardCollection.cards.CardMinion;
-import playField.player.heroes.AbilityType;
-import playField.player.heroes.Hero;
-import playField.player.heroes.HeroPower;
 import org.junit.Before;
 import org.junit.Test;
+import playfield.cardCollection.Deck;
+import playfield.cardCollection.cards.CardAbility;
+import playfield.cardCollection.cards.CardMinion;
 import playfield.player.Player;
+import playfield.player.heroes.AbilityType;
+import playfield.player.heroes.Hero;
+import playfield.player.heroes.HeroPower;
 
 import java.util.HashSet;
 

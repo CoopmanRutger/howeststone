@@ -88,10 +88,6 @@ public class Player {
 
     public void playCard(String id) { // PLAY'S A CARD FROM YOUR HAND TO "CARDSONFIELD" BASED ON ID
         Card card = cardsInHand.findById(id);
-        int amount = cardsInHand.amountOfCards(card);
-        for (Card card : cardsInHand.) {
-
-        }
         cardsOnField.addCard(
                 card
         );

@@ -10,7 +10,7 @@ import playfield.player.PlayableDeck;
 import playfield.player.Player;
 
 import playfield.player.heroes.Hero;
-import playfield.player.heroes.heroPower;
+import playfield.player.heroes.HeroPower;
 
 import java.util.HashSet;
 import java.util.List;
@@ -53,9 +53,9 @@ public abstract class Game {
                     (i + 1) / 5 + 1, "race", "mechanics", tempSet));
         }
 
-        final heroPower playerHeroPower = new heroPower("", 0, "", heal, 1,
+        final HeroPower playerHeroPower = new HeroPower("", 0, "", heal, 1,
                 1, "", true);
-        final heroPower opponentHeroPower = new heroPower("", 0, "", attack, 1,
+        final HeroPower opponentHeroPower = new HeroPower("", 0, "", attack, 1,
                 1, "", true);
         final Hero playerHero = new Hero("heroPlayer", "igm", playerHeroPower);
         final Hero opponentHero = new Hero("heroOpponent", "im", opponentHeroPower);
@@ -215,7 +215,7 @@ public abstract class Game {
     }
 
     public void playHeroPower() {
-        final heroPower heroPower = pf.getCurrentPlayer().getHero().getHeroPower();
+        final HeroPower heroPower = pf.getCurrentPlayer().getHero().getHeroPower();
 
         final int mana = heroPower.getManaCost();
 
@@ -247,9 +247,9 @@ public abstract class Game {
 
     public abstract void addHealth(int healthToGive);
 
-    public abstract void attackHeroPower(heroPower playerHeroPower);
+    public abstract void attackHeroPower(HeroPower playerHeroPower);
 
-    public abstract void healHeroPower(heroPower playerHeroPower);
+    public abstract void healHeroPower(HeroPower playerHeroPower);
 
     public abstract void endGame();
 

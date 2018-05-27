@@ -2,7 +2,7 @@ package intialize;
 
 import playfield.player.heroes.AbilityType;
 import playfield.player.heroes.Hero;
-import playfield.player.heroes.heroPower;
+import playfield.player.heroes.HeroPower;
 import org.junit.Before;
 import org.junit.Test;
 import playfield.api.intialize.InitChooseYourHero;
@@ -14,13 +14,13 @@ import static org.junit.Assert.*;
 public class InitChooseYourHeroTest {
 
     private InitChooseYourHero db;
-    private playfield.player.heroes.heroPower heroPower;
+    private HeroPower heroPower;
     private Hero hero;
 
     @Before
     public void before() {
         db = new InitChooseYourHero();
-        final playfield.player.heroes.heroPower heroPower = new heroPower(
+        final HeroPower heroPower = new HeroPower(
                 "",
                 0,
                 "",

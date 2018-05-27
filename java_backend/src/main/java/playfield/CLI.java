@@ -5,7 +5,7 @@ import playfield.cardCollection.cards.CardMinion;
 import playfield.cardCollection.cards.CardSpell;
 import playfield.cardCollection.cards.CardWeapon;
 import playfield.player.heroes.Hero;
-import playfield.player.heroes.heroPower;
+import playfield.player.heroes.HeroPower;
 
 import java.util.ArrayList;
 
@@ -33,7 +33,7 @@ public class CLI extends GameCLI {
     }
 
     @Override
-    public void attackHeroPower(heroPower heroPower) {
+    public void attackHeroPower(HeroPower heroPower) {
         final Hero oppponentHero = pf.getOppositePlayer().getHero();
 
         final int damage = heroPower.getAbilityValue();
@@ -44,7 +44,7 @@ public class CLI extends GameCLI {
     }
 
     @Override
-    public void healHeroPower(heroPower heroPower) {
+    public void healHeroPower(HeroPower heroPower) {
         System.out.print("Give id of card to heal: ");
         final String id = input.next();
 

@@ -1,6 +1,6 @@
 /*
 SQLyog Community v12.4.3 (64 bit)
-MySQL - 5.7.19 : Database - howest_stone
+MySQL - 5.7.19 : Database - group7
 *********************************************************************
 */
 
@@ -12,9 +12,10 @@ MySQL - 5.7.19 : Database - howest_stone
 /*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
 /*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
-CREATE DATABASE /*!32312 IF NOT EXISTS*/`howest_stone` /*!40100 DEFAULT CHARACTER SET latin1 */;
 
-USE `howest_stone`;
+CREATE DATABASE /*!32312 IF NOT EXISTS*/`group7` /*!40100 DEFAULT CHARACTER SET latin1 */;
+
+USE `group7`;
 
 /*Table structure for table `hero` */
 

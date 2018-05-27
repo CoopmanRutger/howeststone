@@ -4,7 +4,7 @@ import org.junit.Before;
 import org.junit.Test;
 import playfield.player.heroes.AbilityType;
 import playfield.player.heroes.Hero;
-import playfield.player.heroes.heroPower;
+import playfield.player.heroes.HeroPower;
 
 import static org.junit.Assert.*;
 
@@ -14,7 +14,7 @@ public class HeroTest {
 
     @Before
     public void before() {
-        final heroPower heroPower = new heroPower("", 5, "yes", AbilityType.heal, 0, 0, "", true);
+        final HeroPower heroPower = new HeroPower("", 5, "yes", AbilityType.heal, 0, 0, "", true);
         hero = new Hero("Jaina", "muh img", heroPower);
     }
 

@@ -3,7 +3,7 @@ package playfield.api.intialize;
 import playfield.api.intialize.SQLcontoller.SqlStatements;
 import playfield.cardCollection.Deck;
 import playfield.player.heroes.Hero;
-import playfield.player.heroes.heroPower;
+import playfield.player.heroes.HeroPower;
 import playfield.player.PlayableDeck;
 
 import java.sql.*;
@@ -43,7 +43,7 @@ public class InitPlayableDeck extends Init {
         final InitChooseYourHero initChooseYourHero = new InitChooseYourHero();
         final String deckName = playableDeckResult.getString("deckName");
 
-        final heroPower heroPower = initChooseYourHero.getHeroPower(playableDeckResult.getString("heroPower"));
+        final HeroPower heroPower = initChooseYourHero.getHeroPower(playableDeckResult.getString("heroPower"));
         final Hero hero = initChooseYourHero.getHero(playableDeckResult.getString("hero"), heroPower);
 
 
@@ -135,7 +135,7 @@ public class InitPlayableDeck extends Init {
             if (playableDeckResult.next()) {
 
                 final String deckName = playableDeckResult.getString("deckName");
-                final heroPower heroPower = initChooseYourHero.getHeroPower(playableDeckResult.getString(
+                final HeroPower heroPower = initChooseYourHero.getHeroPower(playableDeckResult.getString(
                         "herPower"));
                 final Hero hero = initChooseYourHero.getHero(playableDeckResult.getString("hero"), heroPower);
                 final List<String> cardIds = new ArrayList<>();

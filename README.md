@@ -12,7 +12,7 @@ __bold__<br>
 ***big bold and italic***
 ****big****
 
-##Groepsfoto en introductie teamleden van '*Finding Nemo*'
+## Groepsfoto en introductie teamleden van '*Finding Nemo*'
 
 ![Group pic](../group07Pic.jpg)
 van links naar rechts
@@ -24,6 +24,8 @@ van links naar rechts
 **Rutger Coopman**
 
 **Nino Florizoone**
+
+# Bert
 
 Bert is een gedreven werker; hij heeft vaak zin om van allerlei features te implementeren, maar heeft soms de technische bagage niet om de voor zichzelf opgelegde taken te voltooien. 
 Met wat bijsturing echter, behlpt hij zich wel op weg. Zijn organisatorische drive zorgde ervoor dat heel wat features niet over het hoofd werden gezien.
@@ -47,21 +49,21 @@ Louis heeft waarschijnlijk de meeste technische bagage en probeerde daarmee de a
 het grotere plaatje als het ware. Hij zou best wel wat meer commentaar bij zijn code schrijven en algemeen nettere code schrijven.
 
 
-##Klassendiagram
+## Klassendiagram
 
 cfr. class_diagram_howestStone.pdf
 
-##SQL Database-schema
+## SQL Database-schema
 
 cfr SQLDatabaseScheme.htm
 
-##Starten van het spel
-###Frontend
+## Starten van het spel
+### Frontend
 In u geliefde editor start u het HTML bestand '0_welcomeScreen.html'
 
-##noten en addenda
+## noten en addenda
 
-###acties spelbord
+### acties spelbord
 
 Per actie die uitgevoerd wordt op het spelbord aan de frontend zijde sturen de hele
 game state door naar de backend. Wanneer bevoorbeeld aan de minions wat veranderd wordt,
@@ -73,7 +75,7 @@ zou de communicatie tussen cliënt en server beter verlopen omdat dan enkel hetg
 nodig is wordt doorgestuurd. Zo wordt de gebruikte bandbreedte voor die communicatie beperkt.
 
 
-###CLI en spelbord frontend
+### CLI en spelbord frontend
 
 De CLI kan veel meer dan de werking van de applicatie via user input aan de frontend.
 We kwamen niet tot de implementatie voor het opslaan van het spel aan de frontendzijde,
@@ -81,7 +83,7 @@ hoewel we van mening zijn dat mits enige moeite het opgeslagen spel kan worden v
 aan de JAVA CLI applicatie.
 
 
-###werking magische kaarten
+### werking magische kaarten
 
 De klasse Conditions en onderdaan in de GameCLI (en de benodigde _fields_ in de klasse CardSpell) 
 staan methodes geschreven die een begin vormen van de implementatie van de magische kaarten. 
@@ -93,7 +95,7 @@ en veranderende prioriteiten konden we die niet meer oplossen.
 
 
 
-
+#### klad
 
 // frontend refreshen per actie ~ know its not efficient; Min. viable product
  (scrum filosofie) 

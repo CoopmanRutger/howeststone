@@ -32,11 +32,13 @@ function sendPlayerCommit(e) {
 			return result.text();
 		}).then(function (result) {
 			if (result === "stop") {
-				if (player.lifepoints <= 0) {
-					window.alert("You lose!")
+				update();
+				if (opponent.lifepoints <= 0) {
+					window.alert("You won!");
 				} else {
-					window.alert("You won!!")
+					window.alert("You lose!");
 				}
+				window.location.href = "1_deckbuildOrPlay.html";
 			}
 		}).then(sendBot)
 	}
@@ -57,11 +59,13 @@ function sendOpponentCommit() {
 		return result.text();
 	}).then(function (result) {
 		if (result === "stop") {
+			update();
 			if (player.lifepoints <= 0) {
-				window.alert("You lose!")
+				window.alert("You won!");
 			} else {
-				window.alert("You won!!")
+				window.alert("You lose!!");
 			}
+			window.location.href = "1_deckbuildOrPlay.html";
 		}
 	})
 }

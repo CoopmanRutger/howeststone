@@ -118,7 +118,7 @@ public abstract class GameCLI extends Conditions {
                 default:
                     System.out.println("Invalid command!");
                     System.out.println("Valid commands are:");
-                    System.out.println("playCard, showCardsInHand, showCardsOnField, getCurMana, commit");
+                    System.out.println("attackCard, attackHero, showWeapon, playWeapon, playCard, showCardsInHand, showCardsOnField, showHeroes, getCurMana, playHeroPower, commit");
                     break;
             }
         }

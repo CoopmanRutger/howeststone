@@ -3,20 +3,31 @@
 <head>
     <meta charset="UTF-8">
     <title>Pick a worthy opponent, Fool!</title>
-    <meta name="author" content="Bert Vervust">
     <link rel="stylesheet" href="assets/css/reset.css">
     <link rel="stylesheet" href="assets/css/screen.css">
-
+    <link rel="stylesheet" href="assets/css/4_defaultPickYourOpponent.css">
 </head>
 <body>
-<header>
-    <h1>Pick your opponent</h1>
-</header>
-<main id="fourDefaultPickOpponent">
-    <div>Hero 1</div>
-    <div>Hero 2</div>
+<main>
+    <header>
+        <h1>Pick your opponent</h1>
+    </header>
+    <div>
+        <div>
+            <button class="choose" value="Mage">Mage</button>
+            <div></div>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean euismod bibendum laoreet. Proin gravid dolor i, sed rhoncus pronin sapien nunc accuan eget.</p>
+        </div>
+        <div>
+            <button class="choose" value="Priest">Priest</button>
+            <div></div>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean euismod bibendum laoreet. Proin ravida dolor honcus pronin sapien nunc accuan eget.</p>
+        </div>
+        <!-- there can be heroes added here in a later stage -->
+    </div>
+    <div id="chooseDeckForHero">
+    </div>
 </main>
-<button onclick="window.location.href='3_chooseDeckForHero.html'" class="return" type="button">Back</button>
-<button class="play" type="button">Play</button>
+<script src="assets/js/4_defaultPickYourOpponent.js"></script>
 </body>
 </html>

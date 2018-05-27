@@ -3,42 +3,60 @@
 <head>
     <meta charset="UTF-8">
     <title>Make a new deck, Fool!</title>
-    <meta name="author" content="Bert Vervust">
     <link rel="stylesheet" href="assets/css/reset.css">
     <link rel="stylesheet" href="assets/css/screen.css">
-
+    <link rel="stylesheet" href="assets/css/5_makeANewDeck=9deckBuildLevel2.css">
 </head>
 <body>
-<header>
-    <h1><!-- afhankelijk vd gekozen hero --> John Doe</h1>
-    <p>hero description hero description hero description</p>
-</header>
-<main>
-    <article class="addScrollbarHere">
-        <section id="cardsForDeck">
-            <h2>Cards in deck</h2>
-            <div class="cards"></div>
-        </section>
-    </article>
-
-    <article class="addScrollbarHere">
-        <h2>Hero specific cards</h2>
-            <section id="specificCards">
-                <h3>Specific cards</h3>
-                <div class="cards">
+    <main>
+        <header>
+            <h1>Deckbuilder</h1>
+            <div id="deckPic"><span>pic for deck: pick your deckpic!</span></div>
+            <div>
+                <div>
+                    <h2>Hero name</h2>
+                    <input  class="inputTitle" type="text" value="Deck title"/>
                 </div>
-            </section>
-
-            <section id="generalCards">
-                <h3>General cards</h3>
-                <div class="cards">
+                <div>
+                    <textarea name="Text1" class="inputDescription"></textarea>
                 </div>
-            </section>
-    </article>
-</main>
-<button onclick="window.location.href='8_deckbuildLevelOne.html'" class="return" type="button">Back</button>
-<button id="cancelBuilding" type="button">Cancel</button>
-<button id="saveDeck" type="button">Save deck</button>
-<button id="saveAndPlayThisDeck" type="button">Save & Play deck</button>
+            </div>
+        </header>
+        <div>
+            <article class="addScrollbarHere">
+							<h3>Cards in deck</h3>
+                <section id="cardsForDeck">
+									<h3>Drag your cards here</h3>
+                    <div class="cards">
+                    </div>
+                </section>
+            </article>
+            <article class="addScrollbarHere" id="choosableCards">
+                <h3>Cards your hero can choose</h3>
+                <div>
+                    <section id="specificCards">
+                        <h4>Specific cards</h4>
+                        <div class="cards">
+                        </div>
+                    </section>
+                </div>
+                <div>
+                    <section id="generalCards">
+                        <h4>General cards</h4>
+                        <div class="cards">
+                        </div>
+                    </section>
+                </div>
+            </article>
+        </div>
+        <footer>
+        </footer>
+    </main>
+    <script src="assets/js/5_makeANewDeck=9deckBuildLevel2/deckBuildLevelTwoButtons.js"></script>
+    <script src="assets/js/5_makeANewDeck=9deckBuildLevel2/CardController.js"></script>
+    <script src="assets/js/5_makeANewDeck=9deckBuildLevel2/cardInject.js"></script>
+    <script src="assets/js/5_makeANewDeck=9deckBuildLevel2/fetchCards.js"></script>
+    <script src="assets/js/5_makeANewDeck=9deckBuildLevel2/makeCardsMovable.js"></script>
+    <script src="assets/js/5_makeANewDeck=9deckBuildLevel2/main.js"></script>
 </body>
 </html>

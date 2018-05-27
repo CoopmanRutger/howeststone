@@ -1,0 +1,295 @@
+<Project>
+  <Name>HowestStone</Name>
+  <ProjectItem type="NClass.DiagramEditor.ClassDiagram.Diagram" assembly="NClass.DiagramEditor, Version=2.4.1823.0, Culture=neutral, PublicKeyToken=null">
+    <Name>muhHowestStone</Name>
+    <Language>CSharp</Language>
+    <Entities>
+      <Entity type="Class">
+        <Name>Card</Name>
+        <Access>Public</Access>
+        <Location left="975" top="2135" />
+        <Size width="162" height="289" />
+        <Collapsed>False</Collapsed>
+        <Member type="Field">static String cardId</Member>
+        <Member type="Field">String name</Member>
+        <Member type="Field">String type</Member>
+        <Member type="Field">int mana</Member>
+        <Member type="Field">String heroType</Member>
+        <Member type="Field">String img</Member>
+        <Member type="Field">String ImgBack</Member>
+        <Member type="Field">string description</Member>
+        <Member type="Constructor">public Card()</Member>
+        <Member type="Method">public boolean equals()</Member>
+        <Member type="Method">public int hashCode()</Member>
+        <Modifier>None</Modifier>
+      </Entity>
+      <Entity type="Class">
+        <Name>Minion</Name>
+        <Access>Public</Access>
+        <Location left="719" top="2547" />
+        <Size width="162" height="216" />
+        <Collapsed>False</Collapsed>
+        <Member type="Field">int health</Member>
+        <Member type="Field">int attack</Member>
+        <Member type="Field">string race</Member>
+        <Modifier>None</Modifier>
+      </Entity>
+      <Entity type="Class">
+        <Name>Spell</Name>
+        <Access>Public</Access>
+        <Location left="962" top="2547" />
+        <Size width="162" height="216" />
+        <Collapsed>False</Collapsed>
+        <Member type="Field">String mechanicsName</Member>
+        <Modifier>None</Modifier>
+      </Entity>
+      <Entity type="Class">
+        <Name>WeaponCard</Name>
+        <Access>Public</Access>
+        <Location left="1221" top="2547" />
+        <Size width="162" height="216" />
+        <Collapsed>False</Collapsed>
+        <Member type="Field">int durability</Member>
+        <Member type="Field">int attack</Member>
+        <Modifier>None</Modifier>
+      </Entity>
+      <Entity type="Class">
+        <Name>Cards</Name>
+        <Access>Public</Access>
+        <Location left="975" top="1770" />
+        <Size width="162" height="216" />
+        <Collapsed>False</Collapsed>
+        <Member type="Field">Set&lt;String&gt; cards</Member>
+        <Modifier>None</Modifier>
+      </Entity>
+      <Entity type="Class">
+        <Name>Deck</Name>
+        <Access>Public</Access>
+        <Location left="975" top="1420" />
+        <Size width="162" height="216" />
+        <Collapsed>False</Collapsed>
+        <Member type="Field">Cards cards1</Member>
+        <Member type="Field">Cards cards2</Member>
+        <Modifier>None</Modifier>
+      </Entity>
+      <Entity type="Class">
+        <Name>Hero</Name>
+        <Access>Public</Access>
+        <Location left="548" top="1182" />
+        <Size width="193" height="216" />
+        <Collapsed>False</Collapsed>
+        <Member type="Field">HeroPower heroPower</Member>
+        <Member type="Field">String img</Member>
+        <Modifier>None</Modifier>
+      </Entity>
+      <Entity type="Class">
+        <Name>Player</Name>
+        <Access>Public</Access>
+        <Location left="924" top="749" />
+        <Size width="308" height="226" />
+        <Collapsed>False</Collapsed>
+        <Modifier>None</Modifier>
+      </Entity>
+      <Entity type="Class">
+        <Name>PlayableDeck</Name>
+        <Access>Public</Access>
+        <Location left="975" top="1121" />
+        <Size width="162" height="216" />
+        <Collapsed>False</Collapsed>
+        <Member type="Field">deck Deck</Member>
+        <Member type="Field">hero Hero</Member>
+        <Modifier>None</Modifier>
+      </Entity>
+      <Entity type="Class">
+        <Name>Templates</Name>
+        <Access>Public</Access>
+        <Location left="1379" top="900" />
+        <Size width="162" height="216" />
+        <Collapsed>False</Collapsed>
+        <Modifier>None</Modifier>
+      </Entity>
+      <Entity type="Class">
+        <Name>PlayingField</Name>
+        <Access>Public</Access>
+        <Location left="912" top="376" />
+        <Size width="286" height="257" />
+        <Collapsed>False</Collapsed>
+        <Member type="Field">Info info</Member>
+        <Member type="Field">Player player</Member>
+        <Member type="Field">Player bot</Member>
+        <Modifier>None</Modifier>
+      </Entity>
+      <Entity type="Class">
+        <Name>HeroPower</Name>
+        <Access>Public</Access>
+        <Location left="548" top="1539" />
+        <Size width="162" height="216" />
+        <Collapsed>False</Collapsed>
+        <Member type="Field">String name</Member>
+        <Member type="Field">int mana</Member>
+        <Member type="Field">String heroType</Member>
+        <Member type="Field">String tags</Member>
+        <Member type="Field">String AbilitiType</Member>
+        <Member type="Field">int abilityValue</Member>
+        <Member type="Field">int Duration</Member>
+        <Member type="Field">String img</Member>
+        <Modifier>None</Modifier>
+      </Entity>
+      <Entity type="Comment">
+        <Text>TESTED!!</Text>
+        <Location left="1122" top="1876" />
+        <Size width="100" height="50" />
+      </Entity>
+      <Entity type="Comment">
+        <Text>TESTED!!</Text>
+        <Location left="1102" top="1459" />
+        <Size width="91" height="50" />
+      </Entity>
+    </Entities>
+    <Relationships>
+      <Relationship type="Association" first="0" second="1">
+        <Label>
+        </Label>
+        <StartOrientation>Horizontal</StartOrientation>
+        <EndOrientation>Vertical</EndOrientation>
+        <BendPoint relativeToStartShape="True">
+          <X>950</X>
+          <Y>2372</Y>
+        </BendPoint>
+        <BendPoint relativeToStartShape="False">
+          <X>802</X>
+          <Y>2522</Y>
+        </BendPoint>
+        <Direction>Unidirectional</Direction>
+        <AssociationType>Association</AssociationType>
+      </Relationship>
+      <Relationship type="Association" first="0" second="2">
+        <Label>
+        </Label>
+        <StartOrientation>Vertical</StartOrientation>
+        <EndOrientation>Vertical</EndOrientation>
+        <BendPoint relativeToStartShape="True">
+          <X>1043</X>
+          <Y>2449</Y>
+        </BendPoint>
+        <Direction>Unidirectional</Direction>
+        <AssociationType>Association</AssociationType>
+      </Relationship>
+      <Relationship type="Association" first="0" second="3">
+        <Label>
+        </Label>
+        <StartOrientation>Horizontal</StartOrientation>
+        <EndOrientation>Vertical</EndOrientation>
+        <BendPoint relativeToStartShape="True">
+          <X>1178</X>
+          <Y>2375</Y>
+        </BendPoint>
+        <BendPoint relativeToStartShape="False">
+          <X>1296</X>
+          <Y>2522</Y>
+        </BendPoint>
+        <Direction>Unidirectional</Direction>
+        <AssociationType>Association</AssociationType>
+      </Relationship>
+      <Relationship type="Association" first="8" second="9">
+        <StartOrientation>Horizontal</StartOrientation>
+        <EndOrientation>Vertical</EndOrientation>
+        <BendPoint relativeToStartShape="True">
+          <X>1172</X>
+          <Y>1194</Y>
+        </BendPoint>
+        <Direction>Unidirectional</Direction>
+        <AssociationType>Association</AssociationType>
+      </Relationship>
+      <Relationship type="Association" first="0" second="4">
+        <Label>has 0-N</Label>
+        <StartOrientation>Vertical</StartOrientation>
+        <EndOrientation>Vertical</EndOrientation>
+        <BendPoint relativeToStartShape="False">
+          <X>1053</X>
+          <Y>2011</Y>
+        </BendPoint>
+        <Direction>Unidirectional</Direction>
+        <AssociationType>Composition</AssociationType>
+      </Relationship>
+      <Relationship type="Association" first="4" second="5">
+        <Label>has 2</Label>
+        <StartOrientation>Vertical</StartOrientation>
+        <EndOrientation>Vertical</EndOrientation>
+        <BendPoint relativeToStartShape="True">
+          <X>1055</X>
+          <Y>1742</Y>
+        </BendPoint>
+        <BendPoint relativeToStartShape="False">
+          <X>1055</X>
+          <Y>1661</Y>
+        </BendPoint>
+        <Direction>Unidirectional</Direction>
+        <AssociationType>Composition</AssociationType>
+      </Relationship>
+      <Relationship type="Association" first="5" second="8">
+        <Label>has 1</Label>
+        <StartOrientation>Vertical</StartOrientation>
+        <EndOrientation>Vertical</EndOrientation>
+        <Direction>Unidirectional</Direction>
+        <AssociationType>Composition</AssociationType>
+      </Relationship>
+      <Relationship type="Association" first="6" second="8">
+        <Label>has 1</Label>
+        <StartOrientation>Horizontal</StartOrientation>
+        <EndOrientation>Horizontal</EndOrientation>
+        <BendPoint relativeToStartShape="True">
+          <X>766</X>
+          <Y>1265</Y>
+        </BendPoint>
+        <BendPoint relativeToStartShape="False">
+          <X>950</X>
+          <Y>1266</Y>
+        </BendPoint>
+        <Direction>Unidirectional</Direction>
+        <AssociationType>Composition</AssociationType>
+      </Relationship>
+      <Relationship type="Association" first="11" second="6">
+        <Label>has 1</Label>
+        <StartOrientation>Vertical</StartOrientation>
+        <EndOrientation>Vertical</EndOrientation>
+        <BendPoint relativeToStartShape="True">
+          <X>625</X>
+          <Y>1514</Y>
+        </BendPoint>
+        <BendPoint relativeToStartShape="False">
+          <X>625</X>
+          <Y>1423</Y>
+        </BendPoint>
+        <Direction>Unidirectional</Direction>
+        <AssociationType>Composition</AssociationType>
+      </Relationship>
+      <Relationship type="Association" first="8" second="7">
+        <Label>has 1</Label>
+        <StartOrientation>Vertical</StartOrientation>
+        <EndOrientation>Vertical</EndOrientation>
+        <BendPoint relativeToStartShape="True">
+          <X>1045</X>
+          <Y>1096</Y>
+        </BendPoint>
+        <BendPoint relativeToStartShape="False">
+          <X>1045</X>
+          <Y>1000</Y>
+        </BendPoint>
+        <Direction>Unidirectional</Direction>
+        <AssociationType>Composition</AssociationType>
+      </Relationship>
+      <Relationship type="Association" first="7" second="10">
+        <Label>has 2</Label>
+        <StartOrientation>Vertical</StartOrientation>
+        <EndOrientation>Vertical</EndOrientation>
+        <BendPoint relativeToStartShape="False">
+          <X>1053</X>
+          <Y>658</Y>
+        </BendPoint>
+        <Direction>Unidirectional</Direction>
+        <AssociationType>Composition</AssociationType>
+      </Relationship>
+    </Relationships>
+  </ProjectItem>
+</Project>

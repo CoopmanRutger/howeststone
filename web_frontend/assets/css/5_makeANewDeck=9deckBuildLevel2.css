@@ -1,0 +1,113 @@
+main {
+	display: flex;
+	flex-direction: column;
+	position: relative;
+}
+
+main header {
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+}
+
+main header h1 {
+	width: 100%;
+	padding: 0 650px 0 0;
+	margin: 20px 0 0 0;
+}
+
+main header #deckPic {
+	width: 200px;
+	height: 200px;
+}
+
+main header > div:nth-child(2) {
+	display: flex;
+	flex-direction: row;
+	margin-left: auto;
+	margin-right: 50px;
+}
+
+h2 {
+	display: inline-block;
+	color: #ffb600;
+	text-shadow: 2px 2px 5px #ffb600;
+}
+
+.inputTitle {
+	color: #ffb600;
+	text-shadow: 2px 2px 5px #ffb600;
+	outline: none;
+	background: none;
+	border-radius: 10px;
+	border: 2px solid black;
+}
+.inputDescription {
+	color: black;
+	font-size: 1rem;
+	width: 700px;
+	height: 150px;
+	opacity: 0.6;
+}
+
+h2:first-child {
+	width: 200px;
+}
+
+h2:nth-child(2) {
+	width: 200px;
+}
+
+h3 {
+	color: green;
+	font-weight: bold;
+}
+
+main > div {
+	display: flex;
+	flex-direction: row;
+}
+
+main > div > article:first-child {
+	background-image: url('../media/papyrusForDeckbuilder.png');
+	background-repeat: no-repeat;
+	background-size: 92% 120%;
+}
+
+main > div > article:nth-child(2) {
+	display: flex;
+	flex-direction: column;
+}
+
+#choosableCards {
+	background-color: rgba(255, 219, 111, 0.37);
+}
+
+footer {
+	display: flex;
+	flex-direction: row;
+}
+
+.addScrollbarHere {
+	flex: 1;
+	overflow: auto;
+	height: 400px;
+}
+
+.cards {
+	display: flex;
+	flex-wrap: wrap;
+	align-content: flex-start;
+}
+
+.card {
+	width: 140px;
+	height: 205px;
+	background-size: 100% 100%;
+}
+
+.cardHand {
+	width: 95px;
+	height: 150px;
+	background-size: 100% 100%;
+}

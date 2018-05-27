@@ -28,7 +28,7 @@ van links naar rechts
 # Bert
 
 Bert is een gedreven werker; hij heeft vaak zin om van allerlei features te implementeren, maar heeft soms de technische bagage niet om de voor zichzelf opgelegde taken te voltooien. 
-Met wat bijsturing echter, behlpt hij zich wel op weg. Zijn organisatorische drive zorgde ervoor dat heel wat features niet over het hoofd werden gezien.
+Met wat bijsturing echter, behelpt hij zich wel op weg. Zijn organisatorische drive zorgde ervoor dat heel wat features niet over het hoofd werden gezien.
 QUOTE:
 
 # Rutger
@@ -40,8 +40,8 @@ Rutger heeft ook hier en daar een duwtje in de rug nodig om de juiste richting t
 # Nino
 
 Nino heeft praktisch geen technische bagage, wat ons ook opviel. In de eerste sprint focuste hij zich uitsluitend op _photoshop_, wat toen ook wel nodig was.
-Hoewel we hem aanspoorden af te wisselen in zijn werklast, JS probeerden bij te leren, leek het weinig uit te maken.
-En wanneer hij zich probeerde te focussen op de HTML en CSS (JS was te moeilijk), deed hij goedwerkende functionaliteiten in het honderd lopen.
+Hoewel we hem aanspoorden om af te wisselen in zijn werklast, JS probeerden bij te leren, leek het weinig uit te maken.
+Wanneer hij zich probeerde te focussen op de HTML en CSS (JS was te moeilijk), deed hij goedwerkende functionaliteiten in het honderd lopen.
 
 # Louis
 
@@ -59,8 +59,8 @@ cfr SQLDatabaseScheme.htm
 
 ## Starten van het spel
 ### Frontend
-In u geliefde editor start u het HTML bestand '0_welcomeScreen.html'.
-U dient ok de bijhorende server op te starten, dit doet u door de class *Server.java* te runnen.
+In uw geliefde editor start u het HTML bestand '0_welcomeScreen.html'.
+U dient ook de bijhorende server op te starten, dit kan door de class *Server.java* te starten.
 
 ## noten en addenda
 

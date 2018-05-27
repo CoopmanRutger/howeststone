@@ -59,7 +59,8 @@ cfr SQLDatabaseScheme.htm
 
 ## Starten van het spel
 ### Frontend
-In u geliefde editor start u het HTML bestand '0_welcomeScreen.html'
+In u geliefde editor start u het HTML bestand '0_welcomeScreen.html'.
+U dient ok de bijhorende server op te starten, dit doet u door de class *Server.java* te runnen.
 
 ## noten en addenda
 

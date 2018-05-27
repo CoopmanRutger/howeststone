@@ -65,3 +65,26 @@ function sendOpponentCommit() {
 		}
 	})
 }
+
+
+function endTurnClickable(e) {
+    endTurn(false);
+}
+
+
+
+
+function concede(e) {
+e.preventDefault();
+window.location.href = "10_concede.html"
+
+return false; ;
+}
+
+
+function settings(e) {
+e.preventDefault();
+window.location.href = "11_settingsPlayField.html"
+
+return false; ;
+}

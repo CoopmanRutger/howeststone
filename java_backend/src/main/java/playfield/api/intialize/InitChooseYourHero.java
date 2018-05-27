@@ -2,7 +2,7 @@ package playfield.api.intialize;
 
 import playfield.api.intialize.SQLcontoller.SqlStatements;
 import playfield.player.heroes.Hero;
-import playfield.player.heroes.heroPower;
+import playfield.player.heroes.HeroPower;
 
 import java.sql.*;
 import java.util.ArrayList;
@@ -38,7 +38,7 @@ public class InitChooseYourHero extends Init {
 
 
 
-    public Hero getHero(String heroName, heroPower heroPower) {
+    public Hero getHero(String heroName, HeroPower heroPower) {
         Hero hero = null;
         try (
                 Connection conn = db.getConnection();
@@ -64,8 +64,8 @@ public class InitChooseYourHero extends Init {
         return hero;
     }
 
-    public heroPower getHeroPower(String playerHeroPowerName) {
-        heroPower heroPower = null;
+    public HeroPower getHeroPower(String playerHeroPowerName) {
+        HeroPower heroPower = null;
         try (
                 Connection conn = db.getConnection();
                 PreparedStatement stmt = conn.prepareStatement(SqlStatements.GET_HERO_POWER_BY_NAME);
@@ -84,7 +84,7 @@ public class InitChooseYourHero extends Init {
 
                 // TODO: 22/05/2018
 
-                heroPower = new heroPower(heroPowerName, mana, tags, heal, abilityValue, duration, img, true);
+                heroPower = new HeroPower(heroPowerName, mana, tags, heal, abilityValue, duration, img, true);
             }
 
         } catch (SQLException e) {

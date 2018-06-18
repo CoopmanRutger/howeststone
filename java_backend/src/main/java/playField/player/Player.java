@@ -33,11 +33,6 @@ public class Player {
 
     public Player(PlayableDeck playableDeck) {
         this(playableDeck.getDeck(), playableDeck.getHero());
-        System.out.println("Playertjes maken me nen playable deck");
-        System.out.println("deck");
-        System.out.println(playableDeck.getDeck());
-        System.out.println("hero");
-        System.out.println(playableDeck.getHero());
     }
 
     // GETTERS AND SETTERS
@@ -85,6 +80,7 @@ public class Player {
         }
         return out;
     }
+
     // PLAY'S A CARD FROM YOUR HAND TO "CARDSONFIELD" BASED ON ID
     public void playCard(String id) {
         final Card card = cardsInHand.findById(id);

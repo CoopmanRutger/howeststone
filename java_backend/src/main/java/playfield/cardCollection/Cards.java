@@ -25,16 +25,16 @@ public class Cards {
     }
 
     public void addAllCards(Cards cards) {
-        for (Card card : cards.getCards()) {
+        for (Card card : cards.getSpecificCards()) {
             this.addCard(card);
         }
     }
 
-    public List<Card> getCards() {
+    public List<Card> getSpecificCards() {
         return Collections.unmodifiableList(cards);
     }
 
-    private ArrayList<Card> getCards(Card card) {
+    private ArrayList<Card> getSpecificCards(Card card) {
         final ArrayList<Card> array = new ArrayList<>();
         for (Card c : cards) {
             if (c.equals(card)) {
@@ -65,7 +65,7 @@ public class Cards {
     }
 
     private int amountOfCards(Card card) {
-        return getCards(card).size();
+        return getSpecificCards(card).size();
     }
 
     private Random r = new Random();
@@ -104,20 +104,22 @@ public class Cards {
         return out.toString();
     }
 
-    public Card getCanAttack(Card card) {
-        for (Card c : getCards(card)) {
-            if (((CardMinion) c).getCanAttack()) {
-                return c;
-            }
-        }
-        return null;
-    }
+    // hoort hier niet (oop) -> Card
 
-    public Card getCanAttack(String id) {
-        final Card card = findById(id);
-        if (card != null) {
-            return getCanAttack(card);
-        }
-        return null;
-    }
+//    public Card getCanAttack(Card card) {
+//        for (Card c : getSpecificCards(card)) {
+//            if (((CardMinion) c).getCanAttack()) {
+//                return c;
+//            }
+//        }
+//        return null;
+//    }
+//
+//    public Card getCanAttack(String id) {
+//        final Card card = findById(id);
+//        if (card != null) {
+//            return getCanAttack(card);
+//        }
+//        return null;
+//    }
 }

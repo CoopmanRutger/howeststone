@@ -52,13 +52,6 @@ public class HeroPower {
         this.heroPowerActive = heroPowerActive;
     }
 
-    public void jusheroPower() {
-        // TODO : wat gebeurt er als je op heropower klikt
-        setHeroPowerActive(false);
-    }
-
-
-
     public int getAbilityValue() {
         return abilityValue;
     }

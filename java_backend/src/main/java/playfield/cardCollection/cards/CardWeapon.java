@@ -31,11 +31,6 @@ public class CardWeapon extends Card {
         return "CardWeapon";
     }
 
-    public int defaultAttack() {
-        attack = 15;
-        return attack;
-    }
-
     public int getAttack() {
         return attack;
     }
@@ -48,7 +43,9 @@ public class CardWeapon extends Card {
         if (durability > 0) {
             this.attack = attack;
         } else if (durability == 0) {
-            setAttack(0);
+            // // gevaarlijk
+            // setAttack(0);
+            this.attack = 0;
         }
     }
 

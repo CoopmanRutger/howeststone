@@ -4,6 +4,8 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import playfield.player.Player;
 
+import java.util.Random;
+
 public class PlayingField {
 
     private static final int MAX_MANA = 10;
@@ -21,8 +23,8 @@ public class PlayingField {
     // CONSTRUCTOR
 
     public PlayingField(Player player, Player opponent) {
-        //Random r = new Random();
-        //begins = r.nextInt(2) == 0;
+//        Random r = new Random();
+//        begins = r.nextInt(2) == 0;
         begins = true;
         this.player = player;
         this.opponent = opponent;
@@ -31,8 +33,6 @@ public class PlayingField {
             player.drawCard();
             opponent.drawCard();
         }
-
-
         curMana = calculateMana();;
     }
 
@@ -111,11 +111,6 @@ public class PlayingField {
 
     public void decrMana(int amount) {
         curMana -= amount;
-    }
-
-    @JsonProperty("end")
-    public boolean getEnd() {
-        return !player.getHero().isAlive() && !opponent.getHero().isAlive();
     }
 
 

@@ -37,7 +37,7 @@ public class GameAPI extends Game {
             // GETTING CARDS TO PLAY
             int amountOfCards = pf.getOpponent().getCardsOnField().getAmount();
             toRemove = new ArrayList<>();
-            for (Card card : playable.getCards()) {
+            for (Card card : playable.getSpecificCards()) {
                 if (card.getMana() <= pf.getCurMana() && amountOfCards < 7) {
                     amountOfCards++;
                     played = true;
@@ -64,7 +64,7 @@ public class GameAPI extends Game {
 
         // ATTACKING
 
-        for (Card card : toAttack.getCards()) {
+        for (Card card : toAttack.getSpecificCards()) {
             attackHero(card.getCardId());
         }
 

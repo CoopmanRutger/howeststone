@@ -59,7 +59,7 @@ public class CardsTest {
         cards.addCard(card2);
         cards.addCard(card3);
 
-        assertEquals(list, cards.getCards());
+        assertEquals(list, cards.getSpecificCards());
     }
 
     @Test

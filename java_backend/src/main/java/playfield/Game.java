@@ -67,7 +67,7 @@ public abstract class Game {
     }
 
     public void run() {
-        while (!pf.getEnd()) {
+        while (true) {
             updateCanAttack();
 
             if (pf.whosTurn()) {
@@ -87,9 +87,9 @@ public abstract class Game {
 
     // zet de minions op "kan aanvallen"
     protected void updateCanAttack() {
-        final List<Card> cards = pf.getCurrentPlayer().getCardsOnField().getCards();
+        final List<Card> cards = pf.getCurrentPlayer().getCardsOnField().getSpecificCards();
         for (Card card : cards) {
-            ((CardMinion) card).resetCanAttack(true);
+            ((CardMinion) card).resetCanAttack();
         }
     }
 
@@ -192,7 +192,7 @@ public abstract class Game {
             damage = opponentCard.getAttack();
             playerCard.takeDamage(damage);
 
-            playerCard.incrCanAttack(false);
+            playerCard.incrCanAttack();
 
             if (!playerCard.isAlive()) {
                 pf.getCurrentPlayer().getCardsOnField().remove(pId);
@@ -210,7 +210,7 @@ public abstract class Game {
         if (playerCard != null && playerCard.getCanAttack()) {
             final int damage = playerCard.getAttack();
             hero.takeDamage(damage);
-            playerCard.incrCanAttack(false);
+            playerCard.incrCanAttack();
         }
     }
 

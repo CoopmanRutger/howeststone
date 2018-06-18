@@ -149,7 +149,7 @@ public abstract class GameCLI extends Conditions {
             // GETTING CARDS TO PLAY
 
             toRemove = new ArrayList<>();
-            for (Card card : playable.getCards()) {
+            for (Card card : playable.getSpecificCards()) {
                 if (card.getMana() <= pf.getCurMana()) {
                     played = true;
                     toRemove.add(card);
@@ -176,7 +176,7 @@ public abstract class GameCLI extends Conditions {
 
         // ATTACKING
 
-        for (Card card : toAttack.getCards()) {
+        for (Card card : toAttack.getSpecificCards()) {
             attackHero(card.getCardId());
         }
 

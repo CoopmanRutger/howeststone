@@ -78,7 +78,7 @@ public class PlayerTest {
         assertEquals(10, player.getCardsInHand().getAmount());
 
         for (int i = 0; i < 3; i++) {
-            player.playCard(player.getCardsInHand().getCards().get(0).getCardId());
+            player.playCard(player.getCardsInHand().getSpecificCards().get(0).getCardId());
         }
         assertEquals(7, player.getCardsInHand().getAmount());
     }
@@ -106,6 +106,6 @@ public class PlayerTest {
         player.drawCard();
         player.drawCard();
 
-        player.playCard(player.getCardsInHand().getCards().get(0).getCardId());
+        player.playCard(player.getCardsInHand().getSpecificCards().get(0).getCardId());
     }
 }

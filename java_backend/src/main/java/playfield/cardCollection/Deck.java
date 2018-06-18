@@ -33,6 +33,7 @@ public class Deck extends Cards {
     }
 
     public boolean valid() {
+        // we checken niet of er mmeer dan 2 dezelfde in zitten want dit in niet mogelijk zie addCard()
         return getAmount() == maxCards;
     }
 

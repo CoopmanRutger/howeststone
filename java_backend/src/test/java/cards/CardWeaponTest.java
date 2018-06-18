@@ -17,11 +17,6 @@ public class CardWeaponTest {
     }
 
     @Test
-    public void defaultAttack(){
-        assertEquals(15, test.defaultAttack());
-    }
-
-    @Test
     public void blbala(){
         System.out.println(test.getClass());
         assertEquals("class playField.cardCollection.cards.CardWeapon",test.getClass().toString());

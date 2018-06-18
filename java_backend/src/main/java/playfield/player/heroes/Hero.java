@@ -16,6 +16,7 @@ public class Hero {
     private int lifePoints = 30;
     @JsonProperty("armourPoints")
     private int armourPoints = 0;
+
     @JsonCreator
     public Hero(@JsonProperty("name") String name, @JsonProperty("img") String img,
                 @JsonProperty("heroPower") HeroPower heroPower) {

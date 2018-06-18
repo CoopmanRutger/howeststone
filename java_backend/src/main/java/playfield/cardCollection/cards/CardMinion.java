@@ -23,8 +23,8 @@ public class CardMinion extends Card {
     private Set<CardAbility> abilities;
     @JsonProperty("maxAmountAttack")
     private int maxAmountAttack = 1;
-    @JsonProperty("amountAttack")
-    private int amountAttack = 1;
+    @JsonProperty("amountAttacked")
+    private int amountAttacked = 1;
     @JsonProperty("devineShield")
     private boolean devineShield;
 
@@ -49,7 +49,7 @@ public class CardMinion extends Card {
         this.race = race;
         this.mechanicsName = mechanicsName;
         if (abilities.contains(charge)) {
-            amountAttack = 0;
+            amountAttacked = 0;
         }
         if (abilities.contains(windFury)) {
             maxAmountAttack = 2;
@@ -96,34 +96,50 @@ public class CardMinion extends Card {
     public int getHealth() {
         return health;
     }
-
-    public String getRace() {
-        return race;
-    }
-
-    public String getMechanicsName() {
-        return mechanicsName;
-    }
-
-    public void setAttack(int attack) {
-        this.attack = attack;
-    }
-
-    public void setHealth(int health) {
-        this.health = health;
-    }
-
-    public void setRace(String race) {
-        this.race = race;
-    }
-
-    public void setMechanicsName(String mechanicsName) {
-        this.mechanicsName = mechanicsName;
-    }
+//
+//    public String getRace() {
+//        return race;
+//    }
+//
+//    public String getMechanicsName() {
+//        return mechanicsName;
+//    }
+//
+//    public void setAttack(int attack) {
+//        this.attack = attack;
+//    }
+//
+//    public void setHealth(int health) {
+//        this.health = health;
+//    }
+//
+//    public void setRace(String race) {
+//        this.race = race;
+//    }
+//
+//    public void setMechanicsName(String mechanicsName) {
+//        this.mechanicsName = mechanicsName;
+//    }
 
     public void incrAttack(int amount) {
-        amountAttack += amount;
+        amountAttacked += amount;
         maxAmountAttack += amount;
+    }
+
+    public boolean getCanAttack() {
+        return amountAttacked < maxAmountAttack;
+    }
+
+    public void incrCanAttack() {
+        amountAttacked++;
+    }
+
+    public void resetCanAttack() {
+        amountAttacked = 0;
+    }
+
+    public void incrHealth(int healAmount) {
+        maxHealth += healAmount;
     }
 
     @Override
@@ -133,21 +149,5 @@ public class CardMinion extends Card {
                 + "\thealth: " + health
                 + "\tcanPlay:" + getCanAttack()
                 + "\tmechanicsName:" + mechanicsName + "\n";
-    }
-
-    public boolean getCanAttack() {
-        return amountAttack < maxAmountAttack;
-    }
-
-    public void incrCanAttack(boolean canAttack) {
-        amountAttack++;
-    }
-
-    public void resetCanAttack(boolean canAttack) {
-        amountAttack = 0;
-    }
-
-    public void incrHealth(int healAmount) {
-        maxHealth += healAmount;
     }
 }

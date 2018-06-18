@@ -12,7 +12,7 @@ public class CardSpell extends Card {
     @JsonProperty("armourToGive")
     private int armourToGive;
     @JsonProperty("abilities")
-    private Set<CardAbility> abilities;
+    private Set<CardActions> abilities;
     @JsonProperty("healthToGive")
     private int healthToGive;
     @JsonProperty("attackToGive")
@@ -47,7 +47,7 @@ public class CardSpell extends Card {
                      @JsonProperty("description") String description,
                      @JsonProperty("img") String img,
                      @JsonProperty("mechanicsName") String mechanicsName,
-                     @JsonProperty("abilities") HashSet<CardAbility> abilities,
+                     @JsonProperty("abilities") HashSet<CardActions> abilities,
                      @JsonProperty("doesDamage") int doesDamage,
                      @JsonProperty("doesHealth") int doesHealth,
                      @JsonProperty("damageTarget") String damageTarget,
@@ -94,7 +94,7 @@ public class CardSpell extends Card {
                 + "mechanicsName: " + mechanicsName + "\n";
     }
 
-    public Set<CardAbility> getAbilities() {
+    public Set<CardActions> getAbilities() {
         return abilities;
     }
 

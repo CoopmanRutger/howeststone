@@ -32,7 +32,8 @@ public abstract class Game {
     }
 
     public Game() {
-        HashSet<CardAbility> tempSet;
+        HashSet<CardActions> tempSet;
+        HashSet<CardAbility> tempSet2;
 
         final Deck playerDeck = new Deck();
         final Deck opponentDeck = new Deck();
@@ -45,12 +46,12 @@ public abstract class Game {
                     "", tempSet, 2, 1, "1", "3", true,
                      1, true, "", true));
 
-            tempSet = new HashSet<>();
+            tempSet2 = new HashSet<>();
             //tempSet.add(divineShield);
             opponentDeck.addCard(new CardMinion("ID" + i, "name" + i, "type", i / 6 + 1,
                     "herotype", "info",
                     "http://media.services.zam.com/v1/media/byName/hs/cards/enus/EX1_001", i / 5 + 1,
-                    (i + 1) / 5 + 1, "race", "mechanics", tempSet));
+                    (i + 1) / 5 + 1, "race", "mechanics", tempSet2));
         }
 
         final HeroPower playerHeroPower = new HeroPower("", 0, "", heal, 1,
@@ -121,7 +122,7 @@ public abstract class Game {
         }
     }
     // does spell-action
-    public void spell(Set<CardAbility> abilities, CardSpell card) {
+    public void spell(Set<CardActions> abilities, CardSpell card) {
         if (abilities.contains(drawCard)) {
             pf.getCurrentPlayer().drawCard();
         }
